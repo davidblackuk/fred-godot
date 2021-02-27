@@ -33,25 +33,35 @@ tile_data = PoolIntArray( 0, 8, 0, 31, 9, 0, 65536, 8, 0, 65567, 9, 0, 131072, 8
 [node name="Ladder" parent="Ladders" instance=ExtResource( 4 )]
 position = Vector2( 144, 528 )
 ladder_type = 1
+ladder_tint = Color( 0, 0, 1, 1 )
 
 [node name="Ladder2" parent="Ladders" instance=ExtResource( 4 )]
 position = Vector2( 144, 496 )
+ladder_tint = Color( 0, 0, 1, 1 )
 
 [node name="Ladder3" parent="Ladders" instance=ExtResource( 4 )]
 position = Vector2( 144, 464 )
+ladder_tint = Color( 0, 0, 1, 1 )
 
 [node name="Ladder4" parent="Ladders" instance=ExtResource( 4 )]
 position = Vector2( 144, 432 )
+ladder_tint = Color( 0, 0, 1, 1 )
 
 [node name="Ladder5" parent="Ladders" instance=ExtResource( 4 )]
 position = Vector2( 144, 400 )
 ladder_type = 2
+ladder_tint = Color( 0, 0, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 53, 512 )
-[connection signal="on_ladder_available" from="Ladders/Ladder" to="Player" method="_on_ladder_available"]
-[connection signal="on_ladder_available" from="Ladders/Ladder2" to="Player" method="_on_ladder_available"]
-[connection signal="on_ladder_available" from="Ladders/Ladder3" to="Player" method="_on_ladder_available"]
-[connection signal="on_ladder_available" from="Ladders/Ladder4" to="Player" method="_on_ladder_available"]
-[connection signal="on_ladder_available" from="Ladders/Ladder5" to="Player" method="_on_ladder_available"]
+[connection signal="on_ladder_enter" from="Ladders/Ladder" to="Player" method="_on_ladder_enter"]
+[connection signal="on_ladder_exit" from="Ladders/Ladder" to="Player" method="_on_ladder_exit"]
+[connection signal="on_ladder_enter" from="Ladders/Ladder2" to="Player" method="_on_ladder_enter"]
+[connection signal="on_ladder_exit" from="Ladders/Ladder2" to="Player" method="_on_ladder_exit"]
+[connection signal="on_ladder_enter" from="Ladders/Ladder3" to="Player" method="_on_ladder_enter"]
+[connection signal="on_ladder_exit" from="Ladders/Ladder3" to="Player" method="_on_ladder_exit"]
+[connection signal="on_ladder_enter" from="Ladders/Ladder4" to="Player" method="_on_ladder_enter"]
+[connection signal="on_ladder_exit" from="Ladders/Ladder4" to="Player" method="_on_ladder_exit"]
+[connection signal="on_ladder_enter" from="Ladders/Ladder5" to="Player" method="_on_ladder_enter"]
+[connection signal="on_ladder_exit" from="Ladders/Ladder5" to="Player" method="_on_ladder_exit"]
 [connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]

@@ -8,6 +8,8 @@ const GRAVITY = 10
 var motion = Vector2()
 var is_jumping = false
 
+var active_ladders = []
+
 signal level_complete()
 
 
@@ -43,10 +45,15 @@ func process_input():
 	if Input.is_action_just_pressed("ui_home"):
 		emit_signal("level_complete")
 
+func is_on_ladder():
+	return not active_ladders.empty()
 
+func _on_ladder_enter(ladder_node):
+	active_ladders.append(ladder_node.name)
+	print("Ladders (on enter): " + str(active_ladders))
 
-func _on_ladder_available(ladder_node):
-	print("Ladder: " + ladder_node.name)
-
+func _on_ladder_exit(ladder_node):
+	active_ladders.erase(ladder_node.name)
+	print("Ladders (on exit): " + str(active_ladders))
 
 

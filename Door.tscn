@@ -57,6 +57,7 @@ script = ExtResource( 3 )
 collision_layer = 4
 
 [node name="Roller" type="Sprite" parent="Area2D"]
+light_mask = -2147483647
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1

@@ -19,3 +19,11 @@ func _on_Player_level_complete():
 	animator.play("Roller")
 	yield(animator, "animation_finished")
 	get_node("StaticBody2D").set_collision_mask_bit(0, false)
+
+
+func _on_ladder_enter(ladder_node):
+	pass # Replace with function body.
+
+
+func _on_ladder_exit(ladder_node):
+	pass # Replace with function body.

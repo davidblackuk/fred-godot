@@ -42,3 +42,11 @@ func process_input():
 
 	if Input.is_action_just_pressed("ui_home"):
 		emit_signal("level_complete")
+
+
+
+func _on_ladder_available(ladder_node):
+	print("Ladder: " + ladder_node.name)
+
+
+

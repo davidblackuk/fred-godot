@@ -1,14 +1,18 @@
 extends KinematicBody2D
 
+enum State { WALK, JUMP, CLIMB}
+
 const PLATFORM_COLLISION_BIT = 1
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
+const CLIMB_VELOCITY = 150
 const GRAVITY = 10
 
 var motion = Vector2()
-var is_jumping = false
+var current_state = State.WALK
 
 var active_ladders = []
+
 
 signal level_complete()
 
@@ -21,15 +25,37 @@ func _physics_process(delta):
 
 func process_input():
 	motion.y += GRAVITY
-	
+		
+	if (current_state == State.WALK):
+		walking()
+	elif (current_state == State.JUMP):
+		jumping()		
+	elif (current_state == State.CLIMB):
+		climbing()		
+
+	if Input.is_action_just_pressed("ui_home"):
+		emit_signal("level_complete")
+
+#
+# Fred is walking handle left right, idle or transition to jump / climb
+#
+func walking():
 	var animation_player = get_node("AnimationPlayer")
 	var sprite = get_node("Sprite")
 	
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_up") and is_on_ladder():
+		motion.y = -CLIMB_VELOCITY 
+		current_state = State.CLIMB
+	elif Input.is_action_pressed("ui_down") and is_on_ladder():
+		motion.y = CLIMB_VELOCITY 
+		current_state = State.CLIMB
+	elif Input.is_action_just_pressed("ui_jump") and is_on_floor():
+		motion.y = -JUMP_VELOCITY
+		current_state = State.JUMP
+	elif Input.is_action_pressed("ui_left"):
 		motion.x = -HORIZONTAL_VELOCITY
 		animation_player.play("Walk")
 		sprite.set_flip_h(true)
-
 	elif Input.is_action_pressed("ui_right"):
 		animation_player.play("Walk")
 		sprite.set_flip_h(false)		
@@ -37,23 +63,43 @@ func process_input():
 	else:
 		motion.x = 0
 		get_node("AnimationPlayer").play("Idle")
-		
-	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
-		motion.y = -JUMP_VELOCITY
-		is_jumping = true
 
-	if Input.is_action_just_pressed("ui_home"):
-		emit_signal("level_complete")
+#
+# Jump state is maintained until we land, when we land we test for death!
+#
+func jumping():
+	if is_on_floor():
+		current_state = State.WALK
+		
+func climbing():
+	var animation_player = get_node("AnimationPlayer")
+	var sprite = get_node("Sprite")
+	
+	#motion.x = 0
+	
+	if Input.is_action_pressed("ui_up") and is_on_ladder():
+		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
+		motion.x = deltaX*10
+		motion.y = -CLIMB_VELOCITY
+		animation_player.play("Climb")
+	elif Input.is_action_pressed("ui_down") and is_on_ladder():
+		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
+		motion.x = deltaX*10
+		motion.y = CLIMB_VELOCITY
+		animation_player.play("Climb")
+	else:
+		current_state = State.WALK
+		animation_player.play("Walk")		
 
 func is_on_ladder():
 	return not active_ladders.empty()
 
-func _on_ladder_enter(ladder_node):
-	active_ladders.append(ladder_node.name)
-	print("Ladders (on enter): " + str(active_ladders))
 
-func _on_ladder_exit(ladder_node):
-	active_ladders.erase(ladder_node.name)
-	print("Ladders (on exit): " + str(active_ladders))
+func _ladder_status_changed(ladder_node, is_entry):
+	if is_entry:
+		active_ladders.append(ladder_node)
+	else:
+		active_ladders.erase(ladder_node)	
+
 
 

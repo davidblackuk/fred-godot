@@ -7,14 +7,16 @@
 
 [node name="Level 1" type="Node2D"]
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 53, 512 )
+
 [node name="Platforms" type="TileMap" parent="."]
-position = Vector2( 0, -1 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 3, 0, 196626, 3, 0, 196627, 3, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458772, 2, 0, 458773, 2, 0, 458774, 2, 0, 458775, 2, 0, 458776, 2, 0, 786454, 6, 0, 786455, 6, 0, 786456, 6, 0, 786457, 6, 0, 786458, 6, 0, 786459, 6, 0, 786460, 6, 0, 786461, 6, 0, 786462, 6, 0, 851981, 4, 0, 851982, 4, 0, 851983, 4, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0 )
+tile_data = PoolIntArray( 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196626, 3, 0, 196627, 3, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327709, 0, 0, 327710, 0, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458772, 2, 0, 458773, 2, 0, 458774, 2, 0, 458775, 2, 0, 458776, 2, 0, 589837, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 786454, 6, 0, 786455, 6, 0, 786456, 6, 0, 786457, 6, 0, 786458, 6, 0, 786459, 6, 0, 786460, 6, 0, 786461, 6, 0, 786462, 6, 0, 851981, 4, 0, 851982, 4, 0, 851983, 4, 0, 917509, 5, 0, 917510, 5, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1005, 465 )
@@ -30,38 +32,131 @@ tile_data = PoolIntArray( 0, 8, 0, 31, 9, 0, 65536, 8, 0, 65567, 9, 0, 131072, 8
 
 [node name="Ladders" type="Node2D" parent="."]
 
-[node name="Ladder" parent="Ladders" instance=ExtResource( 4 )]
+[node name="Ladder left" type="Node2D" parent="Ladders"]
+
+[node name="Ladder" parent="Ladders/Ladder left" instance=ExtResource( 4 )]
 position = Vector2( 144, 528 )
 ladder_type = 1
-ladder_tint = Color( 0, 0, 1, 1 )
 
-[node name="Ladder2" parent="Ladders" instance=ExtResource( 4 )]
+[node name="Ladder2" parent="Ladders/Ladder left" instance=ExtResource( 4 )]
 position = Vector2( 144, 496 )
-ladder_tint = Color( 0, 0, 1, 1 )
 
-[node name="Ladder3" parent="Ladders" instance=ExtResource( 4 )]
+[node name="Ladder3" parent="Ladders/Ladder left" instance=ExtResource( 4 )]
 position = Vector2( 144, 464 )
-ladder_tint = Color( 0, 0, 1, 1 )
 
-[node name="Ladder4" parent="Ladders" instance=ExtResource( 4 )]
+[node name="Ladder4" parent="Ladders/Ladder left" instance=ExtResource( 4 )]
 position = Vector2( 144, 432 )
-ladder_tint = Color( 0, 0, 1, 1 )
 
-[node name="Ladder5" parent="Ladders" instance=ExtResource( 4 )]
+[node name="Ladder5" parent="Ladders/Ladder left" instance=ExtResource( 4 )]
 position = Vector2( 144, 400 )
 ladder_type = 2
-ladder_tint = Color( 0, 0, 1, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 53, 512 )
-[connection signal="on_ladder_enter" from="Ladders/Ladder" to="Player" method="_on_ladder_enter"]
-[connection signal="on_ladder_exit" from="Ladders/Ladder" to="Player" method="_on_ladder_exit"]
-[connection signal="on_ladder_enter" from="Ladders/Ladder2" to="Player" method="_on_ladder_enter"]
-[connection signal="on_ladder_exit" from="Ladders/Ladder2" to="Player" method="_on_ladder_exit"]
-[connection signal="on_ladder_enter" from="Ladders/Ladder3" to="Player" method="_on_ladder_enter"]
-[connection signal="on_ladder_exit" from="Ladders/Ladder3" to="Player" method="_on_ladder_exit"]
-[connection signal="on_ladder_enter" from="Ladders/Ladder4" to="Player" method="_on_ladder_enter"]
-[connection signal="on_ladder_exit" from="Ladders/Ladder4" to="Player" method="_on_ladder_exit"]
-[connection signal="on_ladder_enter" from="Ladders/Ladder5" to="Player" method="_on_ladder_enter"]
-[connection signal="on_ladder_exit" from="Ladders/Ladder5" to="Player" method="_on_ladder_exit"]
+[node name="Ladder mid 1" type="Node2D" parent="Ladders"]
+
+[node name="Ladder6" parent="Ladders/Ladder mid 1" instance=ExtResource( 4 )]
+position = Vector2( 464, 400 )
+ladder_type = 1
+
+[node name="Ladder7" parent="Ladders/Ladder mid 1" instance=ExtResource( 4 )]
+position = Vector2( 464, 368 )
+
+[node name="Ladder8" parent="Ladders/Ladder mid 1" instance=ExtResource( 4 )]
+position = Vector2( 464, 336 )
+
+[node name="Ladder9" parent="Ladders/Ladder mid 1" instance=ExtResource( 4 )]
+position = Vector2( 464, 304 )
+
+[node name="Ladder10" parent="Ladders/Ladder mid 1" instance=ExtResource( 4 )]
+position = Vector2( 464, 272 )
+
+[node name="Ladder11" parent="Ladders/Ladder mid 1" instance=ExtResource( 4 )]
+position = Vector2( 464, 240 )
+ladder_type = 2
+
+[node name="Ladder mid 2" type="Node2D" parent="Ladders"]
+
+[node name="Ladder12" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 272 )
+ladder_type = 1
+
+[node name="Ladder13" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 240 )
+
+[node name="Ladder14" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 208 )
+
+[node name="Ladder15" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 176 )
+
+[node name="Ladder16" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 144 )
+
+[node name="Ladder17" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 112 )
+
+[node name="Ladder18" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 80 )
+
+[node name="Ladder19" parent="Ladders/Ladder mid 2" instance=ExtResource( 4 )]
+position = Vector2( 560, 48 )
+ladder_type = 2
+
+[node name="Ladder right" type="Node2D" parent="Ladders"]
+
+[node name="Ladder20" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 368 )
+ladder_type = 1
+
+[node name="Ladder21" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 336 )
+
+[node name="Ladder22" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 304 )
+
+[node name="Ladder23" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 272 )
+
+[node name="Ladder24" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 240 )
+
+[node name="Ladder25" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 208 )
+
+[node name="Ladder26" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 176 )
+
+[node name="Ladder27" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 144 )
+
+[node name="Ladder28" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
+position = Vector2( 912, 112 )
+ladder_type = 2
 [connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder2" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder3" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder4" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder5" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 1/Ladder6" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 1/Ladder7" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 1/Ladder8" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 1/Ladder9" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 1/Ladder10" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 1/Ladder11" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder12" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder13" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder14" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder15" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder16" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder17" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder18" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder mid 2/Ladder19" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder20" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder21" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder22" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder23" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder24" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder25" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder26" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder27" to="Player" method="_ladder_status_changed"]
+[connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder28" to="Player" method="_ladder_status_changed"]

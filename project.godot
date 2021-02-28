@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Son of Fred"
 run/main_scene="res://Level 1.tscn"
+boot_splash/image="res://images/splash.png"
 config/icon="res://icon.png"
 
 [input]
@@ -35,5 +36,6 @@ ui_jump={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

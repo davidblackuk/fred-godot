@@ -1,10 +1,7 @@
 tool
 extends Node2D
 
-signal on_ladder_enter(ladder_node)
-signal on_ladder_exit(ladder_node)
-
-
+signal ladder_status_changed(ladder_node, is_entry)
 
 export(int, "MIDDLE", "BOTTOM", "TOP") var ladder_type = 0 setget set_ladder_type, get_ladder_type
 
@@ -13,11 +10,11 @@ export(Color, RGB) var ladder_tint = Color.white setget set_ladder_tint, get_lad
 
 func _on_Collider_body_entered(body):
 	if body.name == "Player":
-		emit_signal("on_ladder_enter", self)
+		emit_signal("ladder_status_changed", self, true)
 
 func _on_Collider_body_exited(body):
 	if body.name == "Player":
-		emit_signal("on_ladder_exit", self)
+		emit_signal("ladder_status_changed", self, false)
 
 
 func get_ladder_type():
@@ -26,12 +23,8 @@ func get_ladder_type():
 func set_ladder_type(value):
 	get_node("Sprite").frame = value
 	
-
 func get_ladder_tint():
 	return get_node("Sprite").modulate
-	
+
 func set_ladder_tint(value):
 	get_node("Sprite").modulate = value
-	
-
-

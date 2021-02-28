@@ -1,14 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/enemies/Bulb.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/enemies/BulbPath2D.gd" type="Script" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 248, 184, 0, 0, 0, 0, 319.119, 184.018, 0, 0, 0, 0, 384, 184, 0, 0, 0, 0, 336, 184, 0, 0, 0, 0, 248, 184 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 264, 0 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 216, -16, 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 192, -16, 0, 0, 0, 0, 216, -16 )
+}
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Path2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var follower = get_node(\"./PathFollow2D\")
+	follower.set_offset(follower.get_offset() + 100 * delta)
+"
 
 [node name="Level 1" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 53, 512 )
 
 [node name="Platforms" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -131,7 +160,62 @@ position = Vector2( 912, 144 )
 [node name="Ladder28" parent="Ladders/Ladder right" instance=ExtResource( 4 )]
 position = Vector2( 912, 112 )
 ladder_type = 2
-[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Green Path" type="Path2D" parent="Enemies"]
+position = Vector2( 0, 8 )
+curve = SubResource( 1 )
+script = ExtResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Green Path"]
+position = Vector2( 248, 184 )
+rotate = false
+
+[node name="Bulb" parent="Enemies/Green Path/PathFollow2D" instance=ExtResource( 5 )]
+enemy_tint = Color( 0, 1, 0, 1 )
+
+[node name="Yellow Path" type="Path2D" parent="Enemies"]
+position = Vector2( 400, 8 )
+curve = SubResource( 1 )
+script = ExtResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Yellow Path"]
+position = Vector2( 248, 184 )
+rotate = false
+
+[node name="Bulb" parent="Enemies/Yellow Path/PathFollow2D" instance=ExtResource( 5 )]
+enemy_tint = Color( 1, 1, 0, 1 )
+
+[node name="Cyan Path" type="Path2D" parent="Enemies"]
+position = Vector2( 704, 352 )
+curve = SubResource( 2 )
+script = ExtResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Cyan Path"]
+position = Vector2( 87.2094, 0 )
+offset = 136.74
+rotate = false
+
+[node name="Bulb" parent="Enemies/Cyan Path/PathFollow2D" instance=ExtResource( 5 )]
+enemy_tint = Color( 0, 1, 1, 1 )
+
+[node name="White Path" type="Path2D" parent="Enemies"]
+position = Vector2( 152, 432 )
+curve = SubResource( 3 )
+script = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path"]
+position = Vector2( 112, -16 )
+offset = 162.02
+rotate = false
+
+[node name="Bulb" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 5 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 53, 512 )
+
+[node name="Palette" type="Node2D" parent="."]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder3" to="Player" method="_ladder_status_changed"]
@@ -160,3 +244,4 @@ ladder_type = 2
 [connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder26" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder27" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder right/Ladder28" to="Player" method="_ladder_status_changed"]
+[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]

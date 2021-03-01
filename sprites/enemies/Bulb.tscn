@@ -39,4 +39,5 @@ position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+autoplay = "run"
 anims/run = SubResource( 2 )

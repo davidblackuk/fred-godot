@@ -50,6 +50,7 @@ tile_data = PoolIntArray( 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1005, 465 )
 next_level = "res://Level 2.tscn"
+door_tint = Color( 0, 0, 1, 1 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -193,7 +194,7 @@ curve = SubResource( 2 )
 script = ExtResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Cyan Path"]
-position = Vector2( 87.2094, 0 )
+position = Vector2( 127.224, 0 )
 offset = 136.74
 rotate = false
 
@@ -206,7 +207,7 @@ curve = SubResource( 3 )
 script = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path"]
-position = Vector2( 112, -16 )
+position = Vector2( 53.9206, -16 )
 offset = 162.02
 rotate = false
 

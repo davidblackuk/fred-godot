@@ -19,7 +19,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 216, -16, 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 192, -16, 0, 0, 0, 0, 216, -16 )
+"points": PoolVector2Array( 0, 0, 0, 0, 216, -16, 0, 0, 0, 0, 28, -15, 0, 0, 0, 0, 192, -16, 0, 0, 0, 0, 216, -16 )
 }
 
 [sub_resource type="GDScript" id=4]
@@ -195,8 +195,8 @@ curve = SubResource( 2 )
 script = ExtResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Cyan Path"]
-position = Vector2( 127.224, 0 )
-offset = 136.74
+position = Vector2( 141.847, 0 )
+offset = 122.114
 rotate = false
 
 [node name="Bulb" parent="Enemies/Cyan Path/PathFollow2D" instance=ExtResource( 5 )]
@@ -209,8 +209,8 @@ curve = SubResource( 3 )
 script = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path"]
-position = Vector2( 53.9206, -16 )
-offset = 162.02
+position = Vector2( 32.67, -15.0244 )
+offset = 182.674
 rotate = false
 
 [node name="Bulb" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 5 )]

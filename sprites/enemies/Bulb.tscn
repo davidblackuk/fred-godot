@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 23.0
-height = 26.0
+height = 14.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "run"

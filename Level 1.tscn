@@ -5,7 +5,7 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/enemies/Bulb.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/enemies/BulbPath2D.gd" type="Script" id=6]
+[ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -195,7 +195,7 @@ curve = SubResource( 2 )
 script = ExtResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Cyan Path"]
-position = Vector2( 141.847, 0 )
+position = Vector2( 141.846, 0 )
 offset = 122.114
 rotate = false
 
@@ -209,7 +209,7 @@ curve = SubResource( 3 )
 script = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path"]
-position = Vector2( 32.67, -15.0244 )
+position = Vector2( 32.6694, -15.0244 )
 offset = 182.674
 rotate = false
 

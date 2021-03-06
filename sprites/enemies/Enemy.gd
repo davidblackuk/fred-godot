@@ -1,6 +1,8 @@
 tool
 extends Node2D
 
+signal fred_is_dead()
+
 export(float) var speed setget set_speed, get_speed
 
 export(Color, RGB) var enemy_tint = Color.white setget set_enemy_tint, get_enemy_tint
@@ -26,4 +28,4 @@ func set_speed(value):
 
 func _on_StaticBody2D_body_entered(body):
 	if body.name == "Player":
-		print("Dead")
+		emit_signal("fred_is_dead")

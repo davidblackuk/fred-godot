@@ -105,5 +105,5 @@ func _ladder_status_changed(ladder_node, is_entry):
 	else:
 		active_ladders.erase(ladder_node)	
 
-
-
+func _fred_is_dead():
+	print("Bury me in a foreign field")

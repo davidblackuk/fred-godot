@@ -7,9 +7,6 @@
 
 [node name="Level 1" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 48, 512 )
-
 [node name="Platforms" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
@@ -163,7 +160,9 @@ position = Vector2( 688, 80 )
 [node name="Ladder22" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
-[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 512 )
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder3" to="Player" method="_ladder_status_changed"]
@@ -200,3 +199,4 @@ ladder_type = 2
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder20" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder21" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder22" to="Player" method="_ladder_status_changed"]
+[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]

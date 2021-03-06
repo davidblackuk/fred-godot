@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-enum State { WALK, JUMP, CLIMB}
+enum State { WALK, JUMP, CLIMB, DYING, DEAD}
 
 const PLATFORM_COLLISION_BIT = 1
 const HORIZONTAL_VELOCITY = 150
@@ -25,12 +25,13 @@ func _physics_process(delta):
 
 func process_input():
 	motion.y += GRAVITY
-		
-	if (current_state == State.WALK):
+	if current_state == State.DYING:
+		dying()
+	elif current_state == State.WALK:
 		walking()
-	elif (current_state == State.JUMP):
+	elif current_state == State.JUMP:
 		jumping()		
-	elif (current_state == State.CLIMB):
+	elif current_state == State.CLIMB:
 		climbing()		
 
 	if Input.is_action_just_pressed("ui_home"):
@@ -95,6 +96,16 @@ func climbing():
 		# motion.y is zero at this point
 		animation_player.stop(false)
 
+func dying(): 
+	if is_on_floor():
+		motion.x = 0
+		motion.y = 0
+		var animator = get_node("AnimationPlayer")
+		animator.play("Death")
+		yield(animator, "animation_finished")
+		get_tree().reload_current_scene()
+
+
 func is_on_ladder():
 	return not active_ladders.empty()
 
@@ -106,4 +117,4 @@ func _ladder_status_changed(ladder_node, is_entry):
 		active_ladders.erase(ladder_node)	
 
 func _fred_is_dead():
-	print("Bury me in a foreign field")
+	current_state = State.DYING

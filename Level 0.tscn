@@ -39,9 +39,6 @@ func _process(delta):
 
 [node name="Level 0" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 53, 512 )
-
 [node name="Platforms" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
@@ -219,8 +216,10 @@ rotate = false
 [node name="Bulb" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 3 )]
 speed = 2.0
 
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 53, 512 )
+
 [node name="Palette" type="Node2D" parent="."]
-[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder3" to="Player" method="_ladder_status_changed"]
@@ -253,3 +252,4 @@ speed = 2.0
 [connection signal="fred_is_dead" from="Enemies/Yellow Path/PathFollow2D/Bulb" to="Player" method="_fred_is_dead"]
 [connection signal="fred_is_dead" from="Enemies/Cyan Path/PathFollow2D/Bulb" to="Player" method="_fred_is_dead"]
 [connection signal="fred_is_dead" from="Enemies/White Path/PathFollow2D/Bulb" to="Player" method="_fred_is_dead"]
+[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]

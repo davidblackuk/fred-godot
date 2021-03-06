@@ -74,8 +74,8 @@ func jumping():
 func climbing():
 	var animation_player = get_node("AnimationPlayer")
 	var sprite = get_node("Sprite")
-	
-	#motion.x = 0
+	motion.x = 0
+	motion.y = 0
 	
 	if Input.is_action_pressed("ui_up") and is_on_ladder():
 		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
@@ -87,9 +87,13 @@ func climbing():
 		motion.x = deltaX*10
 		motion.y = CLIMB_VELOCITY
 		animation_player.play("Climb")
-	else:
+	elif is_on_floor() or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 		current_state = State.WALK
 		animation_player.play("Walk")		
+	elif is_on_ladder():
+		# give ability to pause on the ladder
+		# motion.y is zero at this point
+		animation_player.stop(false)
 
 func is_on_ladder():
 	return not active_ladders.empty()

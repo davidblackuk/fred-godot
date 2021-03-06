@@ -22,3 +22,8 @@ func set_speed(value):
 	var node = get_node("StaticBody2D/AnimationPlayer")
 	if node:
 		node.playback_speed = value
+
+
+func _on_StaticBody2D_body_entered(body):
+	if body.name == "Player":
+		print("Dead")

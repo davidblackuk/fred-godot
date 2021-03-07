@@ -1,16 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://images/enemies/bulb.png" type="Texture" id=1]
-[ext_resource path="res://sprites/enemies/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://images/victims/twoup.png" type="Texture" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 23.0
-height = 14.0
+radius = 18.0
+height = 38.0
 
 [sub_resource type="Animation" id=2]
-resource_name = "run"
-length = 2.0
+resource_name = "Attract"
 loop = true
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -18,17 +17,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 1 ]
+"values": [ 0, 1, 2, 3 ]
 }
 
-[node name="Bulb" type="Node2D"]
-script = ExtResource( 2 )
-speed = 1.0
+[node name="Victim" type="StaticBody2D"]
 
-[node name="Node2D" type="Area2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Node2D"]
 scale = Vector2( 2, 2 )
@@ -36,10 +33,9 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
-autoplay = "run"
-anims/run = SubResource( 2 )
-[connection signal="body_entered" from="Node2D" to="." method="_on_StaticBody2D_body_entered"]
+autoplay = "Attract"
+anims/Attract = SubResource( 2 )

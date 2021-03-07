@@ -24,12 +24,14 @@ Should we move this into a project board on Git hub?
   + ~~Fred can exit / fall off ladders by walking~~
   + ~~We want to be able to tint ladders~~
 + Fred death
-  + Enemy collisions
+  + ~~Enemy collisions~~
   + Falling too far
   + Behaviour
     + restart level?
     +   All victims reset?
     + reset Fred
+    + ~~Death animation~~
+    + Fade out scene?
 + Rescue victims
     + Should We use the same mechanic as the original game and make fred visit the ambulance on each rescue?
         + Or victims animate out
@@ -52,3 +54,6 @@ Should we move this into a project board on Git hub?
   + Camera move on level entry
   + How to handle fred position in multilevel
     + do we restart the entire thing? (Eek for jet set style)
++ persist progress
++ have a menu screen
+

@@ -21,6 +21,10 @@ boot_splash/image="res://images/splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=768
+
 [input]
 
 ui_jump={

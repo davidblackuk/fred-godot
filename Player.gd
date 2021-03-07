@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-enum State { WALK, JUMP, CLIMB}
+enum State { WALK, JUMP, CLIMB, DYING, DEAD}
 
 const PLATFORM_COLLISION_BIT = 1
 const HORIZONTAL_VELOCITY = 150
@@ -25,12 +25,13 @@ func _physics_process(delta):
 
 func process_input():
 	motion.y += GRAVITY
-		
-	if (current_state == State.WALK):
+	if current_state == State.DYING:
+		dying()
+	elif current_state == State.WALK:
 		walking()
-	elif (current_state == State.JUMP):
+	elif current_state == State.JUMP:
 		jumping()		
-	elif (current_state == State.CLIMB):
+	elif current_state == State.CLIMB:
 		climbing()		
 
 	if Input.is_action_just_pressed("ui_home"):
@@ -74,8 +75,8 @@ func jumping():
 func climbing():
 	var animation_player = get_node("AnimationPlayer")
 	var sprite = get_node("Sprite")
-	
-	#motion.x = 0
+	motion.x = 0
+	motion.y = 0
 	
 	if Input.is_action_pressed("ui_up") and is_on_ladder():
 		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
@@ -87,9 +88,23 @@ func climbing():
 		motion.x = deltaX*10
 		motion.y = CLIMB_VELOCITY
 		animation_player.play("Climb")
-	else:
+	elif is_on_floor() or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 		current_state = State.WALK
 		animation_player.play("Walk")		
+	elif is_on_ladder():
+		# give ability to pause on the ladder
+		# motion.y is zero at this point
+		animation_player.stop(false)
+
+func dying(): 
+	if is_on_floor():
+		motion.x = 0
+		motion.y = 0
+		var animator = get_node("AnimationPlayer")
+		animator.play("Death")
+		yield(animator, "animation_finished")
+		get_tree().reload_current_scene()
+
 
 func is_on_ladder():
 	return not active_ladders.empty()
@@ -101,5 +116,5 @@ func _ladder_status_changed(ladder_node, is_entry):
 	else:
 		active_ladders.erase(ladder_node)	
 
-
-
+func _fred_is_dead():
+	current_state = State.DYING

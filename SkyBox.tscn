@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="SkyBox" type="ColorRect"]
+margin_right = 1032.0
+margin_bottom = 776.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

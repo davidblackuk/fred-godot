@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SkyBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Palette.tscn" type="PackedScene" id=6]
 
 [node name="Level 1" type="Node2D"]
+
+[node name="SkyBox" parent="." instance=ExtResource( 5 )]
+color = Color( 0, 0, 0.843137, 1 )
 
 [node name="Platforms" type="TileMap" parent="."]
 position = Vector2( 0, 192 )
@@ -166,6 +171,9 @@ ladder_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 704 )
+
+[node name="Palette" parent="." instance=ExtResource( 6 )]
+position = Vector2( 72, 840 )
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder3" to="Player" method="_ladder_status_changed"]

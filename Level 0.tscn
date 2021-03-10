@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=1]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tiles.tres" type="TileSet" id=6]
 [ext_resource path="res://sprites/victims/victim.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SkyBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Palette.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -39,6 +41,9 @@ func _process(delta):
 "
 
 [node name="Level 0" type="Node2D"]
+
+[node name="SkyBox" parent="." instance=ExtResource( 8 )]
+color = Color( 0.00392157, 0.0627451, 0.0666667, 1 )
 
 [node name="Platforms" type="TileMap" parent="."]
 position = Vector2( 0, 192 )
@@ -226,8 +231,6 @@ speed = 2.0
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 48, 704 )
 
-[node name="Palette" type="Node2D" parent="."]
-
 [node name="Victims" type="Node2D" parent="."]
 
 [node name="Victim" parent="Victims" instance=ExtResource( 7 )]
@@ -241,6 +244,9 @@ position = Vector2( 856, 320 )
 
 [node name="Victim4" parent="Victims" instance=ExtResource( 7 )]
 position = Vector2( 728, 544 )
+
+[node name="Palette" parent="." instance=ExtResource( 9 )]
+position = Vector2( 72, 832 )
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder3" to="Player" method="_ladder_status_changed"]

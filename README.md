@@ -25,6 +25,7 @@ Should we move this into a project board on Git hub?
   + ~~We want to be able to tint ladders~~
 + Fred death
   + ~~Enemy collisions~~
+  + One shot or health bar?
   + Falling too far
   + Behaviour
     + restart level?
@@ -45,6 +46,8 @@ Should we move this into a project board on Git hub?
 + Crumbling platforms
 + Slopes (with jump through?)
 + Ropes
++ Sky box!
++ Palette
 + ~~Mask fred~~
 + ~~Door tint~~
 + Export to HTML and host on overtaken by events

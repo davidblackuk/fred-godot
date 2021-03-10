@@ -192,10 +192,12 @@ position = Vector2( 240, 184 )
 rotate = false
 
 [node name="Bulb" parent="Enemies/Yellow Path/PathFollow2D" instance=ExtResource( 3 )]
+speed = 1.5
 enemy_tint = Color( 1, 1, 0, 1 )
 
 [node name="Cyan Path" type="Path2D" parent="Enemies"]
-position = Vector2( 704, 352 )
+position = Vector2( 746.581, 352 )
+scale = Vector2( 0.83871, 1 )
 curve = SubResource( 2 )
 script = ExtResource( 1 )
 
@@ -205,6 +207,7 @@ offset = 122.114
 rotate = false
 
 [node name="Bulb" parent="Enemies/Cyan Path/PathFollow2D" instance=ExtResource( 3 )]
+speed = 0.75
 enemy_tint = Color( 0, 1, 1, 1 )
 
 [node name="White Path" type="Path2D" parent="Enemies"]
@@ -218,14 +221,26 @@ offset = 182.674
 rotate = false
 
 [node name="Bulb" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 3 )]
+speed = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 48, 704 )
 
 [node name="Palette" type="Node2D" parent="."]
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 7 )]
-position = Vector2( 161, 318 )
+[node name="Victims" type="Node2D" parent="."]
+
+[node name="Victim" parent="Victims" instance=ExtResource( 7 )]
+position = Vector2( 472, 256 )
+
+[node name="Victim2" parent="Victims" instance=ExtResource( 7 )]
+position = Vector2( 112, 320 )
+
+[node name="Victim3" parent="Victims" instance=ExtResource( 7 )]
+position = Vector2( 856, 320 )
+
+[node name="Victim4" parent="Victims" instance=ExtResource( 7 )]
+position = Vector2( 728, 544 )
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder3" to="Player" method="_ladder_status_changed"]

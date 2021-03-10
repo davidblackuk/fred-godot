@@ -17,7 +17,7 @@ var active_ladders = []
 signal level_complete()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	process_input()
 				

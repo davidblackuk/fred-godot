@@ -28,18 +28,18 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 speed = 1.0
 
-[node name="Node2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Node2D"]
+[node name="Sprite" type="Sprite" parent="Area2D"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
 autoplay = "run"
 anims/run = SubResource( 2 )
-[connection signal="body_entered" from="Node2D" to="." method="_on_StaticBody2D_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_StaticBody2D_body_entered"]

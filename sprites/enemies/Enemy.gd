@@ -9,20 +9,20 @@ export(Color, RGB) var enemy_tint = Color.white setget set_enemy_tint, get_enemy
 
 	
 func get_enemy_tint():
-	return get_node("Node2D/Sprite").modulate
+	return get_node("Area2D/Sprite").modulate
 
 func set_enemy_tint(value):
-	get_node("Node2D/Sprite").modulate = value
+	get_node("Area2D/Sprite").modulate = value
 
 func get_speed():
-	var node = get_node("Node2D/AnimationPlayer")
-	if node:
+	if has_node("Area2D/AnimationPlayer"):
+		var node = get_node("Area2D/AnimationPlayer")
 		return node.playback_speed
 	return 1
 	
 func set_speed(value):
-	var node = get_node("Node2D/AnimationPlayer")
-	if node:
+	if has_node("Area2D/AnimationPlayer"):
+		var node = get_node("Area2D/AnimationPlayer")
 		node.playback_speed = value
 
 

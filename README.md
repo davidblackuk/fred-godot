@@ -23,6 +23,7 @@ Should we move this into a project board on Git hub?
   + ~~Fred can pause on climbing ladders~~
   + ~~Fred can exit / fall off ladders by walking~~
   + ~~We want to be able to tint ladders~~
+  + fall over ladder latches to it (musnt stop getting off!)
 + Fred death
   + ~~Enemy collisions~~
   + One shot or health bar?
@@ -46,10 +47,6 @@ Should we move this into a project board on Git hub?
 + Crumbling platforms
 + Slopes (with jump through?)
 + Ropes
-+ Sky box!
-+ Palette
-+ ~~Mask fred~~
-+ ~~Door tint~~
 + Export to HTML and host on overtaken by events
 + Improve graphics as levels go on 
   + ie spectrum -> cpc -> amiga pallette
@@ -59,4 +56,8 @@ Should we move this into a project board on Git hub?
     + do we restart the entire thing? (Eek for jet set style)
 + persist progress
 + have a menu screen
++ ~~Sky box!~~
++ ~~Palette~~
++ ~~Mask fred~~
++ ~~Door tint~~
 

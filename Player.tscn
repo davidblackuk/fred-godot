@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Death"
 length = 1.25
 step = 0.2
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 15, 16 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 4, 5 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 step = 0.2
@@ -85,13 +85,13 @@ position = Vector2( 0.0610943, 0.197758 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 17
-frame = 10
+frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Climb = SubResource( 2 )
-anims/Death = SubResource( 5 )
-anims/Idle = SubResource( 3 )
-anims/Walk = SubResource( 4 )
+anims/Death = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Walk = SubResource( 5 )

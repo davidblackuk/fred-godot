@@ -28,7 +28,6 @@ func get_door_tint():
 	return get_node("Area2D/Roller").modulate
 
 func set_door_tint(value):
-	print(value)
 	get_node("Area2D/Roller").modulate = value
 	get_node("Area2D/Door Top").modulate = value
 	get_node("Area2D/Door Bottom").modulate = value

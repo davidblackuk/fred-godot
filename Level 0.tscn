@@ -185,7 +185,7 @@ offset = 171.456
 rotate = false
 
 [node name="Bulb" parent="Enemies/Green Path/PathFollow2D" instance=ExtResource( 3 )]
-enemy_tint = Color( 0, 1, 0, 1 )
+sprite_tint = Color( 0, 1, 0, 1 )
 
 [node name="Yellow Path" type="Path2D" parent="Enemies"]
 position = Vector2( 404, 7 )
@@ -197,8 +197,8 @@ position = Vector2( 240, 184 )
 rotate = false
 
 [node name="Bulb" parent="Enemies/Yellow Path/PathFollow2D" instance=ExtResource( 3 )]
-speed = 1.5
-enemy_tint = Color( 1, 1, 0, 1 )
+animation_speed = 1.5
+sprite_tint = Color( 1, 1, 0, 1 )
 
 [node name="Cyan Path" type="Path2D" parent="Enemies"]
 position = Vector2( 746.581, 352 )
@@ -212,8 +212,8 @@ offset = 122.114
 rotate = false
 
 [node name="Bulb" parent="Enemies/Cyan Path/PathFollow2D" instance=ExtResource( 3 )]
-speed = 0.75
-enemy_tint = Color( 0, 1, 1, 1 )
+animation_speed = 0.75
+sprite_tint = Color( 0, 1, 1, 1 )
 
 [node name="White Path" type="Path2D" parent="Enemies"]
 position = Vector2( 152, 432 )
@@ -226,7 +226,7 @@ offset = 182.674
 rotate = false
 
 [node name="Bulb" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 3 )]
-speed = 2.0
+animation_speed = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 48, 704 )

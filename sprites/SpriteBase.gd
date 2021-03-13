@@ -7,10 +7,15 @@ export(Color, RGB) var sprite_tint = Color.white setget set_sprite_tint, get_spr
 
 	
 func get_sprite_tint():
-	return get_node("Area2D/Sprite").modulate
+	var node = get_node("Area2D/Sprite");
+	if node:
+		return node.modulate
+	return Color.white
 
 func set_sprite_tint(value):
-	get_node("Area2D/Sprite").modulate = value
+	var node = get_node("Area2D/Sprite");
+	if node:
+		node.modulate = value
 
 func get_animation_speed():
 	var node = get_node("Area2D/AnimationPlayer")

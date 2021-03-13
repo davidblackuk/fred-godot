@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://images/enemies/bulb.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enemies/Enemy.gd" type="Script" id=2]
@@ -8,7 +8,7 @@ radius = 23.0
 height = 14.0
 
 [sub_resource type="Animation" id=2]
-resource_name = "run"
+resource_name = "Bulb"
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -24,7 +24,24 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1 ]
 }
 
-[node name="Bulb" type="Node2D"]
+[sub_resource type="Animation" id=3]
+resource_name = "Spider"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[node name="Enemy" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -32,13 +49,15 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="Area2D"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
-hframes = 4
+hframes = 8
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-autoplay = "run"
-anims/run = SubResource( 2 )
+autoplay = "Bulb"
+anims/Bulb = SubResource( 2 )
+anims/Spider = SubResource( 3 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_StaticBody2D_body_entered"]

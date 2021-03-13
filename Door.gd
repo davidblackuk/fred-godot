@@ -17,7 +17,7 @@ func _on_Area2D_body_entered(body):
 # collision that prevents pred from entering and hitting the Area2d
 # that initiates the level change
 #
-func _on_Player_level_complete():
+func _level_complete():
 	var animator = get_node("Area2D/AnimationPlayer")
 	animator.play("Roller")
 	yield(animator, "animation_finished")

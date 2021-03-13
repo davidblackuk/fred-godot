@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://SkyBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Palette.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/LevelBase.gd" type="Script" id=7]
 
 [node name="Level 1" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="SkyBox" parent="." instance=ExtResource( 5 )]
 color = Color( 0, 0, 0.843137, 1 )
@@ -23,7 +25,7 @@ tile_data = PoolIntArray( 196627, 15, 0, 196628, 15, 0, 196630, 15, 0, 196631, 1
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
-next_level = "res://Level 0.tscn"
+next_level = "res://Levels/Level 000.tscn"
 door_tint = Color( 0.752941, 0, 0, 1 )
 
 [node name="Walls" type="TileMap" parent="."]
@@ -210,4 +212,3 @@ position = Vector2( 72, 840 )
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder20" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder21" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder22" to="Player" method="_ladder_status_changed"]
-[connection signal="level_complete" from="Player" to="Door" method="_on_Player_level_complete"]

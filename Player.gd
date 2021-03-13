@@ -13,10 +13,6 @@ var current_state = State.WALK
 
 var active_ladders = []
 
-
-signal level_complete()
-
-
 func _physics_process(_delta):
 
 	process_input()
@@ -33,9 +29,6 @@ func process_input():
 		jumping()		
 	elif current_state == State.CLIMB:
 		climbing()		
-
-	if Input.is_action_just_pressed("ui_home"):
-		emit_signal("level_complete")
 
 #
 # Fred is walking handle left right, idle or transition to jump / climb
@@ -98,6 +91,7 @@ func climbing():
 
 func dying(): 
 	if is_on_floor():
+		current_state = State.DEAD
 		motion.x = 0
 		motion.y = 0
 		var animator = get_node("AnimationPlayer")

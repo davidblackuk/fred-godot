@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=1]
 [ext_resource path="res://sprites/victims/victim.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tiles.tres" type="TileSet" id=9]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=10]
+[ext_resource path="res://Palette.gd" type="Script" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -214,7 +215,6 @@ offset = 122.114
 rotate = false
 
 [node name="Bulb" parent="Enemies/Cyan Path/PathFollow2D" instance=ExtResource( 8 )]
-animation_speed = 0.75
 sprite_tint = Color( 0, 1, 1, 1 )
 
 [node name="White Path" type="Path2D" parent="Enemies"]
@@ -230,6 +230,9 @@ rotate = false
 [node name="Bulb" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 8 )]
 animation_speed = 2.0
 
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 48, 704 )
+
 [node name="Victims" type="Node2D" parent="."]
 
 [node name="Victim" parent="Victims" instance=ExtResource( 2 )]
@@ -244,11 +247,9 @@ position = Vector2( 856, 320 )
 [node name="Victim4" parent="Victims" instance=ExtResource( 2 )]
 position = Vector2( 728, 544 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 48, 704 )
-
 [node name="Palette" parent="." instance=ExtResource( 5 )]
 position = Vector2( 72, 832 )
+script = ExtResource( 11 )
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder left/Ladder2" to="Player" method="_ladder_status_changed"]

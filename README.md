@@ -41,6 +41,9 @@ Should we move this into a project board on Git hub?
     + Monitor count of victim rescues
         + Increment score (Are we even going to show it unless there are other things to get points from)
     + Open the door and send off the ambulance on level complete
+    + Fade out victim on rescue
+    + play sound on rescue
+    + particle effect on rescue
 + Conveyers
 + Sliding platforns
 + Lifts
@@ -60,4 +63,15 @@ Should we move this into a project board on Git hub?
 + ~~Palette~~
 + ~~Mask fred~~
 + ~~Door tint~~
+
+
+
+
+
+
+
+# new level cheat sheet
+make sure level uses LevelBase.gd as it's scripts 
+
+
 

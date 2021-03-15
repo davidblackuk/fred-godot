@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 enum State { WALK, JUMP, CLIMB, DYING, DEAD}
 
+signal update_hud()
+
+
 const PLATFORM_COLLISION_BIT = 1
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
@@ -111,6 +114,10 @@ func _ladder_status_changed(ladder_node, is_entry):
 		active_ladders.erase(ladder_node)	
 
 func _fred_is_dead():
-	current_state = State.DYING
-	get_node("Sprite").modulate = Color.pink
-	GameState.life_lost()
+	if current_state != State.DYING && current_state != State.DEAD:
+		# otherwise multiple collisions give multiple deaths
+		current_state = State.DYING
+		get_node("Sprite").modulate = Color.pink
+		GameState.life_lost()
+		emit_signal("update_hud")
+

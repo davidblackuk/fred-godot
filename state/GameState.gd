@@ -1,5 +1,7 @@
 extends Node
 
+
+
 var score  setget set_score, get_score
 var deaths setget set_deaths, get_deaths
 
@@ -24,5 +26,4 @@ func set_deaths(value):
 
 func life_lost():
 	_deaths += 1
-	print("Life lost, total deaths:", _deaths)
 

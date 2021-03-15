@@ -13,10 +13,10 @@ func _on_Area2D_body_entered(body):
 		var sprite = get_node("Area2D/Sprite") 
 		var animation_player = get_node("Area2D/AnimationPlayer")
 		var audio_player = get_node("Area2D/AudioStreamPlayer")
+		GameState.add_score(points_scored)
 		emit_signal("victim_rescued")
 		animation_player.play("Rescued")
 		audio_player.play()
 		state = VictimState.RESCUED
 		yield(animation_player, "animation_finished")	
-		GameState.add_score(points_scored)
 		queue_free()

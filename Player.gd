@@ -112,3 +112,5 @@ func _ladder_status_changed(ladder_node, is_entry):
 
 func _fred_is_dead():
 	current_state = State.DYING
+	get_node("Sprite").modulate = Color.pink
+	GameState.life_lost()

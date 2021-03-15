@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=1]
 [ext_resource path="res://sprites/victims/victim.tscn" type="PackedScene" id=2]
-[ext_resource path="res://SkyBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/game/SkyBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Palette.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=6]
@@ -11,6 +11,7 @@
 [ext_resource path="res://tiles.tres" type="TileSet" id=9]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=10]
 [ext_resource path="res://Palette.gd" type="Script" id=11]
+[ext_resource path="res://controls/game/ScoreHud.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -48,6 +49,8 @@ script = ExtResource( 10 )
 [node name="SkyBox" parent="." instance=ExtResource( 3 )]
 color = Color( 0.00392157, 0.0627451, 0.0666667, 1 )
 
+[node name="ScoreHud" parent="." instance=ExtResource( 12 )]
+
 [node name="Platforms" type="TileMap" parent="."]
 position = Vector2( 0, 192 )
 tile_set = ExtResource( 9 )
@@ -69,7 +72,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 4
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -262144, 8, 0, -262113, 9, 0, -196608, 8, 0, -196577, 9, 0, -131072, 8, 0, -131041, 9, 0, -65536, 8, 0, -65505, 9, 0, 0, 8, 0, 31, 9, 0, 65536, 8, 0, 65567, 9, 0, 131072, 8, 0, 131103, 9, 0, 196608, 8, 0, 196639, 9, 0, 262144, 8, 0, 262175, 9, 0, 327680, 8, 0, 327711, 9, 0, 393216, 8, 0, 393247, 9, 0, 458752, 8, 0, 458783, 9, 0, 524288, 8, 0, 524319, 9, 0, 589824, 8, 0, 589855, 9, 0, 655360, 8, 0, 655391, 9, 0, 720896, 8, 0, 720927, 9, 0, 786432, 8, 0, 786463, 9, 0, 851968, 8, 0, 851999, 9, 0, 917504, 8, 0, 983040, 8, 0, 1048576, 8, 0, 1114112, 11, 0, 1114113, 7, 0, 1114114, 7, 0, 1114115, 7, 0, 1114116, 7, 0, 1114117, 7, 0, 1114118, 7, 0, 1114119, 7, 0, 1114120, 7, 0, 1114121, 7, 0, 1114122, 7, 0, 1114123, 7, 0, 1114124, 7, 0, 1114125, 7, 0, 1114126, 7, 0, 1114127, 7, 0, 1114128, 7, 0, 1114129, 7, 0, 1114130, 7, 0, 1114131, 7, 0, 1114132, 7, 0, 1114133, 7, 0, 1114134, 7, 0, 1114135, 7, 0, 1114136, 7, 0, 1114137, 7, 0, 1114138, 7, 0, 1114139, 7, 0, 1114140, 7, 0, 1114141, 7, 0, 1114142, 7, 0, 1114143, 7, 0 )
+tile_data = PoolIntArray( -393216, 8, 0, -393185, 9, 0, -327680, 8, 0, -327649, 9, 0, -262144, 8, 0, -262113, 9, 0, -196608, 8, 0, -196577, 9, 0, -131072, 8, 0, -131041, 9, 0, -65536, 8, 0, -65505, 9, 0, 0, 8, 0, 31, 9, 0, 65536, 8, 0, 65567, 9, 0, 131072, 8, 0, 131103, 9, 0, 196608, 8, 0, 196639, 9, 0, 262144, 8, 0, 262175, 9, 0, 327680, 8, 0, 327711, 9, 0, 393216, 8, 0, 393247, 9, 0, 458752, 8, 0, 458783, 9, 0, 524288, 8, 0, 524319, 9, 0, 589824, 8, 0, 589855, 9, 0, 655360, 8, 0, 655391, 9, 0, 720896, 8, 0, 720927, 9, 0, 786432, 8, 0, 786463, 9, 0, 851968, 8, 0, 851999, 9, 0, 917504, 8, 0, 983040, 8, 0, 1048576, 8, 0, 1114112, 11, 0, 1114113, 7, 0, 1114114, 7, 0, 1114115, 7, 0, 1114116, 7, 0, 1114117, 7, 0, 1114118, 7, 0, 1114119, 7, 0, 1114120, 7, 0, 1114121, 7, 0, 1114122, 7, 0, 1114123, 7, 0, 1114124, 7, 0, 1114125, 7, 0, 1114126, 7, 0, 1114127, 7, 0, 1114128, 7, 0, 1114129, 7, 0, 1114130, 7, 0, 1114131, 7, 0, 1114132, 7, 0, 1114133, 7, 0, 1114134, 7, 0, 1114135, 7, 0, 1114136, 7, 0, 1114137, 7, 0, 1114138, 7, 0, 1114139, 7, 0, 1114140, 7, 0, 1114141, 7, 0, 1114142, 7, 0, 1114143, 7, 0 )
 
 [node name="Ladders" type="Node2D" parent="."]
 position = Vector2( 0, 192 )

@@ -5,6 +5,8 @@ signal victim_rescued()
 enum VictimState { WAITING, RESCUED }
 
 var state = VictimState.WAITING
+const points_scored = 120
+
 
 func _on_Area2D_body_entered(body):
 	if state == VictimState.WAITING && body.name  == "Player":
@@ -16,4 +18,5 @@ func _on_Area2D_body_entered(body):
 		audio_player.play()
 		state = VictimState.RESCUED
 		yield(animation_player, "animation_finished")	
+		GameState.add_score(points_scored)
 		queue_free()

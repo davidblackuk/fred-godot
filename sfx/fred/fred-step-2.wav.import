@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fred-step-2.wav-9aa7d01fae40330792665433aacfa260.sample"
+
+[deps]
+
+source_file="res://sfx/fred/fred-step-2.wav"
+dest_files=[ "res://.import/fred-step-2.wav-9aa7d01fae40330792665433aacfa260.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

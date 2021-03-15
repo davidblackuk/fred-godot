@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/ArcadeClassicHud.tres" type="DynamicFont" id=1]
+[ext_resource path="res://controls/game/ScoreHud.gd" type="Script" id=2]
+
+[node name="ScoreHud" type="Node2D"]
+position = Vector2( 16, 8 )
+script = ExtResource( 2 )
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="ScoreText" type="Label" parent="Score"]
+margin_left = 40.0
+margin_right = 176.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "SCORE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreValue" type="Label" parent="Score"]
+margin_left = 184.0
+margin_right = 320.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "00000"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Deaths" type="Node2D" parent="."]
+position = Vector2( 688, 0 )
+
+[node name="DeathText" type="Label" parent="Deaths"]
+margin_left = 40.0
+margin_right = 176.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "Lives"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathValue" type="Label" parent="Deaths"]
+margin_left = 184.0
+margin_right = 320.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "000"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

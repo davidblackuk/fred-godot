@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fred-jump-top.wav-45dd7f15b8f53aca6626e50f90e95101.sample"
+
+[deps]
+
+source_file="res://sfx/fred/fred-jump-top.wav"
+dest_files=[ "res://.import/fred-jump-top.wav-45dd7f15b8f53aca6626e50f90e95101.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

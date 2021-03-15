@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ambulance-nee-naw.wav-db87a2c22ee99a697768126bfde73454.sample"
+
+[deps]
+
+source_file="res://sfx/general/ambulance-nee-naw.wav"
+dest_files=[ "res://.import/ambulance-nee-naw.wav-db87a2c22ee99a697768126bfde73454.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

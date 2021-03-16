@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
@@ -7,15 +7,16 @@
 [ext_resource path="res://controls/game/SkyBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Palette.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=7]
-
-
-
+[ext_resource path="res://sprites/victims/victim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://controls/game/ScoreHud.tscn" type="PackedScene" id=9]
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="SkyBox" parent="." instance=ExtResource( 5 )]
 color = Color( 0, 0, 0.843137, 1 )
+
+[node name="ScoreHud" parent="." instance=ExtResource( 9 )]
 
 [node name="Platforms" type="TileMap" parent="."]
 position = Vector2( 0, 192 )
@@ -24,7 +25,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 196627, 15, 0, 196628, 15, 0, 196630, 15, 0, 196631, 15, 0, 196632, 15, 0, 196633, 15, 0, 196634, 15, 0, 196636, 15, 0, 196637, 15, 0, 262145, 17, 0, 262146, 17, 0, 262148, 17, 0, 262149, 17, 0, 262150, 17, 0, 262151, 17, 0, 262152, 17, 0, 262153, 17, 0, 524292, 15, 0, 524293, 15, 0, 524294, 15, 0, 524295, 15, 0, 524296, 15, 0, 524297, 15, 0, 524298, 15, 0, 524299, 15, 0, 524300, 15, 0, 524307, 16, 0, 524308, 16, 0, 524309, 16, 0, 524310, 16, 0, 524311, 16, 0, 524312, 16, 0, 524313, 16, 0, 524314, 16, 0, 524315, 16, 0, 524316, 16, 0, 524317, 16, 0, 851969, 14, 0, 851970, 14, 0, 851972, 14, 0, 851973, 14, 0, 851974, 14, 0, 851975, 14, 0, 851976, 14, 0, 851977, 14, 0, 851978, 14, 0, 851979, 14, 0, 851980, 14, 0, 851981, 14, 0, 851982, 14, 0, 851983, 14, 0, 851984, 14, 0, 851985, 14, 0, 851986, 14, 0, 851987, 14, 0, 851988, 14, 0, 851989, 14, 0, 851990, 14, 0, 851991, 14, 0, 851992, 14, 0, 851993, 14, 0, 851994, 14, 0, 851995, 14, 0, 851996, 14, 0, 851997, 14, 0, 851998, 14, 0 )
+tile_data = PoolIntArray( 196627, 15, 0, 196628, 15, 0, 196630, 15, 0, 196631, 15, 0, 196632, 15, 0, 196633, 15, 0, 196634, 15, 0, 196636, 15, 0, 196637, 15, 0, 262145, 17, 0, 262146, 17, 0, 262148, 17, 0, 262149, 17, 0, 262150, 17, 0, 262151, 17, 0, 262152, 17, 0, 262153, 17, 0, 524292, 15, 0, 524293, 15, 0, 524294, 15, 0, 524295, 15, 0, 524296, 15, 0, 524297, 15, 0, 524298, 15, 0, 524299, 15, 0, 524300, 15, 0, 524307, 16, 0, 524308, 16, 0, 524309, 16, 0, 524310, 16, 0, 524311, 16, 0, 524313, 16, 0, 524314, 16, 0, 524315, 16, 0, 524316, 16, 0, 524317, 16, 0, 851969, 14, 0, 851970, 14, 0, 851972, 14, 0, 851973, 14, 0, 851974, 14, 0, 851975, 14, 0, 851976, 14, 0, 851977, 14, 0, 851978, 14, 0, 851979, 14, 0, 851980, 14, 0, 851981, 14, 0, 851982, 14, 0, 851983, 14, 0, 851984, 14, 0, 851985, 14, 0, 851986, 14, 0, 851987, 14, 0, 851988, 14, 0, 851989, 14, 0, 851990, 14, 0, 851991, 14, 0, 851992, 14, 0, 851993, 14, 0, 851994, 14, 0, 851995, 14, 0, 851996, 14, 0, 851997, 14, 0, 851998, 14, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
@@ -37,7 +38,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 4
 format = 1
-tile_data = PoolIntArray( 0, 13, 0, 31, 13, 0, 65536, 13, 0, 65567, 13, 0, 131072, 13, 0, 131103, 13, 0, 196608, 13, 0, 196639, 13, 0, 262144, 13, 0, 262175, 13, 0, 327680, 13, 0, 327711, 13, 0, 393216, 13, 0, 393247, 13, 0, 458752, 13, 0, 458783, 13, 0, 524288, 13, 0, 524319, 13, 0, 589824, 13, 0, 589855, 13, 0, 655360, 13, 0, 655391, 13, 0, 720896, 13, 0, 720927, 13, 0, 786432, 13, 0, 786463, 13, 0, 851968, 13, 0, 851999, 13, 0, 917504, 13, 0, 983040, 13, 0, 1048576, 13, 0, 1114112, 13, 0, 1114113, 13, 0, 1114114, 13, 0, 1114115, 13, 0, 1114116, 13, 0, 1114117, 13, 0, 1114118, 13, 0, 1114119, 13, 0, 1114120, 13, 0, 1114121, 13, 0, 1114122, 13, 0, 1114123, 13, 0, 1114124, 13, 0, 1114125, 13, 0, 1114126, 13, 0, 1114127, 13, 0, 1114128, 13, 0, 1114129, 13, 0, 1114130, 13, 0, 1114131, 13, 0, 1114132, 13, 0, 1114133, 13, 0, 1114134, 13, 0, 1114135, 13, 0, 1114136, 13, 0, 1114137, 13, 0, 1114138, 13, 0, 1114139, 13, 0, 1114140, 13, 0, 1114141, 13, 0, 1114142, 13, 0, 1114143, 13, 0 )
+tile_data = PoolIntArray( -393216, 13, 0, -393185, 13, 0, -327680, 13, 0, -327649, 13, 0, -262144, 13, 0, -262113, 13, 0, -196608, 13, 0, -196577, 13, 0, -131072, 13, 0, -131041, 13, 0, -65536, 13, 0, -65505, 13, 0, 0, 13, 0, 31, 13, 0, 65536, 13, 0, 65567, 13, 0, 131072, 13, 0, 131103, 13, 0, 196608, 13, 0, 196639, 13, 0, 262144, 13, 0, 262175, 13, 0, 327680, 13, 0, 327711, 13, 0, 393216, 13, 0, 393247, 13, 0, 458752, 13, 0, 458783, 13, 0, 524288, 13, 0, 524319, 13, 0, 589824, 13, 0, 589855, 13, 0, 655360, 13, 0, 655391, 13, 0, 720896, 13, 0, 720927, 13, 0, 786432, 13, 0, 786463, 13, 0, 851968, 13, 0, 851999, 13, 0, 917504, 13, 0, 983040, 13, 0, 1048576, 13, 0, 1114112, 13, 0, 1114113, 13, 0, 1114114, 13, 0, 1114115, 13, 0, 1114116, 13, 0, 1114117, 13, 0, 1114118, 13, 0, 1114119, 13, 0, 1114120, 13, 0, 1114121, 13, 0, 1114122, 13, 0, 1114123, 13, 0, 1114124, 13, 0, 1114125, 13, 0, 1114126, 13, 0, 1114127, 13, 0, 1114128, 13, 0, 1114129, 13, 0, 1114130, 13, 0, 1114131, 13, 0, 1114132, 13, 0, 1114133, 13, 0, 1114134, 13, 0, 1114135, 13, 0, 1114136, 13, 0, 1114137, 13, 0, 1114138, 13, 0, 1114139, 13, 0, 1114140, 13, 0, 1114141, 13, 0, 1114142, 13, 0, 1114143, 13, 0 )
 
 [node name="Ladders" type="Node2D" parent="."]
 position = Vector2( 0, 192 )
@@ -177,8 +178,14 @@ ladder_type = 2
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 704 )
 
+[node name="Victims" type="Node2D" parent="."]
+
+[node name="Victim" parent="Victims" instance=ExtResource( 8 )]
+position = Vector2( 392, 416 )
+
 [node name="Palette" parent="." instance=ExtResource( 6 )]
 position = Vector2( 72, 840 )
+[connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder3" to="Player" method="_ladder_status_changed"]
@@ -215,3 +222,4 @@ position = Vector2( 72, 840 )
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder20" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder21" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder22" to="Player" method="_ladder_status_changed"]
+[connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]

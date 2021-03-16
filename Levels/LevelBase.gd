@@ -17,7 +17,9 @@ func count_victims():
 	
 
 
-func _on_Victim_rescued():
+func _on_victim_rescued():
 	rescued_victims = rescued_victims + 1
 	if rescued_victims == total_victims:
 		emit_signal("level_complete")
+
+

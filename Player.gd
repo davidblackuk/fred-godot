@@ -100,6 +100,7 @@ func dying():
 		var animator = get_node("AnimationPlayer")
 		animator.play("Death")
 		yield(animator, "animation_finished")
+		# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 
 

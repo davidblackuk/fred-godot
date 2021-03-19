@@ -1,10 +1,15 @@
+
 extends Node2D
 
-onready var deathsLabel =  get_node("Deaths/DeathValue")
-onready var scoreLabel =  get_node("Score/ScoreValue")
+export(String) var level_name = "??"
+
+onready var deaths_label =  get_node("Deaths/DeathValue")
+onready var score_label =  get_node("Score/ScoreValue")
+onready var level_name_label =  get_node("LevelName")
 
 # we sweep up to this
 var on_screen_score = 0
+
 
 # how long since we last incremented the score
 var total_delta_since_last_update = 0
@@ -19,6 +24,7 @@ const score_update_step = 10
 func _ready():
 	# on level load, initialse the current score to the game score
 	on_screen_score = GameState.score
+	level_name_label.text = level_name
 	update()
 	
 # update the score on screen incrementing it until we reach the current game score
@@ -38,8 +44,9 @@ func update():
 	
 
 func display_score():	
-	scoreLabel.text = "%05d" % on_screen_score
+	score_label.text = "%05d" % on_screen_score
 	
 func display_deaths():
-	deathsLabel.text = "%03d" % GameState.deaths
+	deaths_label.text = "%03d" % GameState.deaths
 	
+

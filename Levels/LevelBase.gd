@@ -13,7 +13,6 @@ func count_victims():
 	var allVictims = get_node_or_null("Victims")
 	if allVictims:
 		total_victims = allVictims.get_child_count()
-	print("Number of victims found: ", total_victims, name)
 	
 
 
@@ -23,3 +22,5 @@ func _on_victim_rescued():
 		emit_signal("level_complete")
 
 
+
+var level_names = ["","",""]

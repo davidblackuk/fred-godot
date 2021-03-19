@@ -10,7 +10,6 @@ const points_scored = 120
 
 func _on_Area2D_body_entered(body):
 	if state == VictimState.WAITING && body.name  == "Player":
-		var sprite = get_node("Area2D/Sprite") 
 		var animation_player = get_node("Area2D/AnimationPlayer")
 		var audio_player = get_node("Area2D/AudioStreamPlayer")
 		GameState.add_score(points_scored)

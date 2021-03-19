@@ -10,6 +10,7 @@ export(Color, RGB) var door_tint = Color.white setget set_door_tint, get_door_ti
 #
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene(next_level) # Replace with function body.
 
 #

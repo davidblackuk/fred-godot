@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://images/fred/fred.png" type="Texture" id=2]
 [ext_resource path="res://sfx/fred/fred-step-1.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/fred/fred-step-2.wav" type="AudioStream" id=4]
 [ext_resource path="res://sfx/fred/fred-dead.wav" type="AudioStream" id=5]
+[ext_resource path="res://StateMachine.gd" type="Script" id=6]
+[ext_resource path="res://controls/game/FsmState.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 32 )
@@ -123,17 +125,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = -22.5211
-margin_top = -51.0268
-margin_right = 17.4789
-margin_bottom = -37.0268
-text = "walk"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0610943, 0.197758 )
 scale = Vector2( 2, 2 )
@@ -152,3 +143,9 @@ anims/Walk = SubResource( 5 )
 [node name="Step1AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -30.45
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="FsmState" parent="." instance=ExtResource( 7 )]
+position = Vector2( -0.157494, -47.2471 )

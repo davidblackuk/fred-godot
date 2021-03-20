@@ -16,14 +16,15 @@ var current_state = State.WALK
 
 var active_ladders = []
 
-func _physics_process(_delta):
 
-	process_input()
-				
+	
+func process_movement(delta):
 	motion = move_and_slide(motion, Vector2.UP)
-
-func process_input():
+	
+func process_gravity():
 	motion.y += GRAVITY
+		
+func process_input(delta):
 	if current_state == State.DYING:
 		dying()
 	elif current_state == State.WALK:

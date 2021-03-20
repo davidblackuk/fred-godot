@@ -1,7 +1,7 @@
 extends "res://common/StateMachine.gd"
 
-const STATE_WAITING = "WAITING"
-const STATE_RESCUED = "RESCUED"
+const STATE_WAITING = "waiting"
+const STATE_RESCUED = "rescued"
 
 
 func _ready():

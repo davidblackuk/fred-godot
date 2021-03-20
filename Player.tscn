@@ -123,6 +123,17 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Label" type="Label" parent="."]
+margin_left = -22.5211
+margin_top = -51.0268
+margin_right = 17.4789
+margin_bottom = -37.0268
+text = "walk"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0610943, 0.197758 )
 scale = Vector2( 2, 2 )

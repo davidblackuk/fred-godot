@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://images/victims/twoup.png" type="Texture" id=1]
 [ext_resource path="res://sprites/victims/victim.gd" type="Script" id=2]
 [ext_resource path="res://sfx/victims/victim_rescue_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://sprites/victims/VictimStateMachine.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 18.0
@@ -62,4 +63,7 @@ anims/Rescued = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
 stream = ExtResource( 3 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

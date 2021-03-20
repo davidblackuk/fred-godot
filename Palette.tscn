@@ -1,0 +1,191 @@
+[gd_scene format=2]
+
+[node name="Palette" type="Node2D"]
+position = Vector2( 64, 8 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -64.0
+margin_top = -8.0
+margin_right = 384.0
+margin_bottom = 96.0
+color = Color( 0.0745098, 0.0313726, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 48.0
+margin_right = 88.0
+margin_bottom = 40.0
+color = Color( 0.0470588, 0.0470588, 0.447059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 96.0
+margin_right = 136.0
+margin_bottom = 40.0
+color = Color( 0.447059, 0.0470588, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+margin_left = 144.0
+margin_right = 184.0
+margin_bottom = 40.0
+color = Color( 0.447059, 0.0470588, 0.447059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+margin_left = 192.0
+margin_right = 232.0
+margin_bottom = 40.0
+color = Color( 0.0470588, 0.447059, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+margin_left = 240.0
+margin_right = 280.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 20, 24 )
+color = Color( 0.0470588, 0.498039, 0.498039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect7" type="ColorRect" parent="."]
+margin_left = 288.0
+margin_right = 328.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 20, 24 )
+color = Color( 0.447059, 0.447059, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect8" type="ColorRect" parent="."]
+margin_left = 336.0
+margin_right = 376.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 20, 24 )
+color = Color( 0.447059, 0.447059, 0.447059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect9" type="ColorRect" parent="."]
+margin_top = 48.0
+margin_right = 40.0
+margin_bottom = 88.0
+color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect10" type="ColorRect" parent="."]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 88.0
+margin_bottom = 88.0
+color = Color( 0, 0, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect11" type="ColorRect" parent="."]
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 136.0
+margin_bottom = 88.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect12" type="ColorRect" parent="."]
+margin_left = 144.0
+margin_top = 48.0
+margin_right = 184.0
+margin_bottom = 88.0
+color = Color( 1, 0, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect13" type="ColorRect" parent="."]
+margin_left = 192.0
+margin_top = 48.0
+margin_right = 232.0
+margin_bottom = 88.0
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect14" type="ColorRect" parent="."]
+margin_left = 240.0
+margin_top = 48.0
+margin_right = 280.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 20, 24 )
+color = Color( 0, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect15" type="ColorRect" parent="."]
+margin_left = 288.0
+margin_top = 48.0
+margin_right = 328.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 20, 24 )
+color = Color( 1, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect16" type="ColorRect" parent="."]
+margin_left = 336.0
+margin_top = 48.0
+margin_right = 376.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 20, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -56.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = 32.0
+text = "Dark"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = -56.0
+margin_top = 56.0
+margin_right = -8.0
+margin_bottom = 72.0
+text = "Light"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

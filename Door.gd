@@ -10,6 +10,7 @@ export(Color, RGB) var door_tint = Color.white setget set_door_tint, get_door_ti
 #
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene(next_level) # Replace with function body.
 
 #
@@ -17,7 +18,7 @@ func _on_Area2D_body_entered(body):
 # collision that prevents pred from entering and hitting the Area2d
 # that initiates the level change
 #
-func _on_Player_level_complete():
+func _level_complete():
 	var animator = get_node("Area2D/AnimationPlayer")
 	animator.play("Roller")
 	yield(animator, "animation_finished")
@@ -28,7 +29,6 @@ func get_door_tint():
 	return get_node("Area2D/Roller").modulate
 
 func set_door_tint(value):
-	print(value)
 	get_node("Area2D/Roller").modulate = value
 	get_node("Area2D/Door Top").modulate = value
 	get_node("Area2D/Door Bottom").modulate = value

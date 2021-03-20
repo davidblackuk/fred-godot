@@ -11,20 +11,34 @@ The game counts the number of lives lost, not those left. The carry over from th
 Icon sizing and platfoms are faithful to the original pallettes and devices but i do allow myself a one pizel black mask for sprites. Also no attribute clashes
 
 
+Release 2:
+  + Score in hud animates up to new value
+  + Added second level (which will become level 1)
 
 
+Release 1:
+  + Basic game in place
+  + Platforms
+  + ladders
+  + enemies
+  + victims
+  + simple sound
+  + game mechanics
+    + score in hud (non animated)
+    + Death with animation and color change
+    + level complete opens door to next room
 
 # TODO
 
 Should we move this into a project board on Git hub?
 
 + Change game resolution to match charactor width height of spectrum? (currently the hight is too short)
-+ ~~Ladders~~
-  + ~~Fred can pause on climbing ladders~~
-  + ~~Fred can exit / fall off ladders by walking~~
-  + ~~We want to be able to tint ladders~~
++ Ladders
+  + fall over ladder latches to it (musnt stop getting off!)
+
 + Fred death
   + ~~Enemy collisions~~
+  + One shot or health bar?
   + Falling too far
   + Behaviour
     + restart level?
@@ -32,6 +46,10 @@ Should we move this into a project board on Git hub?
     + reset Fred
     + ~~Death animation~~
     + Fade out scene?
+
++ collectable coins / tools
+    + less points than a victim
+    
 + Rescue victims
     + Should We use the same mechanic as the original game and make fred visit the ambulance on each rescue?
         + Or victims animate out
@@ -39,15 +57,16 @@ Should we move this into a project board on Git hub?
     + Monitor count of victim rescues
         + Increment score (Are we even going to show it unless there are other things to get points from)
     + Open the door and send off the ambulance on level complete
+    + Fade out victim on rescue
+    + play sound on rescue
+    + particle effect on rescue
 + Conveyers
-+ Sliding platforns
++ Sliding platforns 
 + Lifts
 + Crumbling platforms
 + Slopes (with jump through?)
 + Ropes
-+ ~~Mask fred~~
-+ ~~Door tint~~
-+ Export to HTML and host on overtaken by events
+
 + Improve graphics as levels go on 
   + ie spectrum -> cpc -> amiga pallette
 + Multi page levels
@@ -56,4 +75,36 @@ Should we move this into a project board on Git hub?
     + do we restart the entire thing? (Eek for jet set style)
 + persist progress
 + have a menu screen
+
+
+
+
+# done
+
++ Fred death
+  + ~~Enemy collisions~~
+  + Behaviour
+  + ~~Death animation~~
+
++ ~~Ladders~~
+  + ~~Fred can pause on climbing ladders~~
+  + ~~Fred can exit / fall off ladders by walking~~
+  + ~~We want to be able to tint ladders~~
+
+
++ ~~Sky box!~~
++ ~~Palette~~
++ ~~Mask fred~~
++ ~~Door tint~~
++ ~~Export to HTML and host on overtaken by events~~
+
+
+
+
+
+
+# new level cheat sheet
+make sure level uses LevelBase.gd as it's scripts 
+
+
 

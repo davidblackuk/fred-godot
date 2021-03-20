@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 enum State { WALK, JUMP, CLIMB, DYING, DEAD}
 
+signal update_hud()
+
+
 const PLATFORM_COLLISION_BIT = 1
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
@@ -13,11 +16,7 @@ var current_state = State.WALK
 
 var active_ladders = []
 
-
-signal level_complete()
-
-
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	process_input()
 				
@@ -33,9 +32,6 @@ func process_input():
 		jumping()		
 	elif current_state == State.CLIMB:
 		climbing()		
-
-	if Input.is_action_just_pressed("ui_home"):
-		emit_signal("level_complete")
 
 #
 # Fred is walking handle left right, idle or transition to jump / climb
@@ -98,11 +94,13 @@ func climbing():
 
 func dying(): 
 	if is_on_floor():
+		current_state = State.DEAD
 		motion.x = 0
 		motion.y = 0
 		var animator = get_node("AnimationPlayer")
 		animator.play("Death")
 		yield(animator, "animation_finished")
+		# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 
 
@@ -117,4 +115,10 @@ func _ladder_status_changed(ladder_node, is_entry):
 		active_ladders.erase(ladder_node)	
 
 func _fred_is_dead():
-	current_state = State.DYING
+	if current_state != State.DYING && current_state != State.DEAD:
+		# otherwise multiple collisions give multiple deaths
+		current_state = State.DYING
+		get_node("Sprite").modulate = Color.pink
+		GameState.life_lost()
+		emit_signal("update_hud")
+

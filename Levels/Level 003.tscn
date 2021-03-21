@@ -116,6 +116,7 @@ position = Vector2( 112, 400 )
 
 [node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
+ladder_type = 2
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
@@ -172,7 +173,7 @@ position = Vector2( 688, 48 )
 ladder_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 698.96 )
+position = Vector2( 110.501, 699.896 )
 
 [node name="Victims" type="Node2D" parent="."]
 

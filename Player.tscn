@@ -5,7 +5,7 @@
 [ext_resource path="res://sfx/fred/fred-step-1.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/fred/fred-step-2.wav" type="AudioStream" id=4]
 [ext_resource path="res://sfx/fred/fred-dead.wav" type="AudioStream" id=5]
-[ext_resource path="res://StateMachine.gd" type="Script" id=6]
+[ext_resource path="res://PlayerStateMachine.gd" type="Script" id=6]
 [ext_resource path="res://controls/game/FsmState.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -130,6 +130,7 @@ position = Vector2( 0.0610943, 0.197758 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 17
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

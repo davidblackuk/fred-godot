@@ -95,6 +95,7 @@ func _enter_state(new_state, old_state):
 	print(old_state, " -> ", new_state)
 	match state:
 		STATE_DEAD:
+			GameState.life_lost()
 			parent.die()
 		STATE_FALLING:
 			if old_state == STATE_WALKING:

@@ -31,6 +31,7 @@ func process_movement(delta):
 func process_gravity():
 	motion.y += GRAVITY
 	
+	
 # is fred over a ladder
 func is_on_ladder():
 	return not active_ladders.empty()
@@ -86,12 +87,10 @@ func climb():
 
 func jump():
 	jump_height = (jump_start_y - global_position.y)
-	print("jump: ", jump_height, " WP:", global_position.y)
 
 func fall():
 	# when y is below start Y, cancel motion.x
 	jump_height = (jump_start_y - global_position.y)
-	print("fall: ", jump_height, " WP:", global_position.y)
 	if jump_height < -82:
 		motion.x = 0
 

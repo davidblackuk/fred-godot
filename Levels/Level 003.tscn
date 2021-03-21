@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
@@ -52,22 +52,13 @@ func set_door_tint(value):
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 608, 0, 0, 0, 0, 168, 288 )
+"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 167.265, 613.688, 0, 0, 0, 0, 168, 288 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 168, 608, 0, 0, 0, 0, 168, 408, 0, 0, 0, 0, 168, 288 )
+"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 167.246, 614.21, 0, 0, 0, 0, 168, 408, 0, 0, 0, 0, 168, 288 )
 }
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends Path2D
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var follower = get_node(\"./PathFollow2D\")
-	follower.set_offset(follower.get_offset() + 100 * delta)
-"
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 7 )
@@ -191,17 +182,18 @@ position = Vector2( 72.009, 811.995 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Enemies"]
-position = Vector2( 168, 96 )
+position = Vector2( 168, 90 )
 curve = SubResource( 2 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
+velocity = 1.5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D"]
-position = Vector2( 168, 368.408 )
+position = Vector2( 167.639, 448.154 )
 rotation = -7.79733e-06
-offset = 80.42
+offset = 160.006
 rotate = false
 
 [node name="Enemy" parent="Enemies/Path2D/PathFollow2D" instance=ExtResource( 10 )]
@@ -210,15 +202,16 @@ sprite_tint = Color( 0.0705882, 0.854902, 0.0705882, 1 )
 [node name="Path2D2" type="Path2D" parent="Enemies"]
 position = Vector2( 330, 90 )
 curve = SubResource( 3 )
-script = SubResource( 4 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
+velocity = 1.5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2"]
-position = Vector2( 168, 422.215 )
+position = Vector2( 167.895, 450.528 )
 rotation = -7.79733e-06
-offset = 505.786
+offset = 162.539
 rotate = false
 
 [node name="Enemy" parent="Enemies/Path2D2/PathFollow2D" instance=ExtResource( 10 )]
@@ -231,31 +224,31 @@ sprite_tint = Color( 1, 1, 0, 1 )
 position = Vector2( 258.361, 621.847 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform" index="0"]
-position = Vector2( -0.861237, -154.824 )
+position = Vector2( -1.50662, -84.1991 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform/Path2D" index="0"]
-position = Vector2( -0.861231, -154.824 )
-offset = 423.117
+position = Vector2( -1.50661, -84.1991 )
+offset = 117.533
 
 [node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource( 15 )]
 position = Vector2( 416, 624 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform2" index="0"]
-position = Vector2( -1.67645, -60.6617 )
+position = Vector2( -1.42072, -84.3085 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform2/Path2D" index="0"]
-position = Vector2( -1.67645, -60.6617 )
-offset = 141.039
+position = Vector2( -1.42071, -84.3084 )
+offset = 352.598
 
 [node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource( 15 )]
 position = Vector2( 576, 624 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform3" index="0"]
-position = Vector2( -1.97992, -13.8243 )
+position = Vector2( -1.50659, -84.1991 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform3/Path2D" index="0"]
-position = Vector2( -1.97994, -13.8244 )
-offset = 282.078
+position = Vector2( -1.50661, -84.1991 )
+offset = 117.533
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]

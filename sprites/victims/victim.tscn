@@ -4,7 +4,8 @@
 [ext_resource path="res://sprites/victims/victim.gd" type="Script" id=2]
 [ext_resource path="res://sfx/victims/victim_rescue_1.wav" type="AudioStream" id=3]
 [ext_resource path="res://sprites/victims/VictimStateMachine.gd" type="Script" id=4]
-[ext_resource path="res://controls/game/FsmState.tscn" type="PackedScene" id=5]
+[ext_resource path="res://controls/game/StateMachineHud.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 18.0

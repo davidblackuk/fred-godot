@@ -44,6 +44,8 @@ func _get_transition(delta):
 			if parent.is_on_floor():
 				return STATE_DEAD
 		STATE_WALKING:
+			if parent.has_enemy_hit:
+				return STATE_DYING
 			if parent.motion.y > 0:
 				return STATE_FALLING
 			elif Input.is_action_pressed("ui_up") && parent.is_on_ladder():
@@ -55,6 +57,8 @@ func _get_transition(delta):
 			elif !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
 				return STATE_IDLE
 		STATE_IDLE:
+			if parent.has_enemy_hit:
+				return STATE_DYING
 			if Input.is_action_pressed("ui_up") && parent.is_on_ladder():
 				return STATE_CLIMBING
 			elif Input.is_action_pressed("ui_down") && parent.is_on_ladder() :
@@ -64,13 +68,22 @@ func _get_transition(delta):
 			elif Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right"):
 				return STATE_WALKING
 		STATE_JUMPING:
+			if parent.has_enemy_hit:
+				return STATE_DYING
 			if parent.motion.y > 0:
 				return STATE_FALLING
 		STATE_FALLING:
+			if parent.has_enemy_hit:
+				return STATE_DYING
 			if parent.is_on_floor():
-				return STATE_IDLE
+				if parent.has_fallen_to_death():
+					return STATE_DYING
+				else:
+					return STATE_IDLE
 			
 		STATE_CLIMBING:
+			if parent.has_enemy_hit:
+				return STATE_DYING
 			if  Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 				return STATE_WALKING
 				
@@ -81,7 +94,14 @@ func _get_transition(delta):
 func _enter_state(new_state, old_state):
 	print(old_state, " -> ", new_state)
 	match state:
+		STATE_DEAD:
+			parent.die()
+		STATE_FALLING:
+			if old_state == STATE_WALKING:
+				parent.motion.x = 0
+			parent.jump_start_y = parent.global_position.y
 		STATE_JUMPING:
+			parent.jump_start_y = parent.global_position.y
 			parent.motion.y = -parent.JUMP_VELOCITY
 		STATE_IDLE:
 			parent.motion.x = 0

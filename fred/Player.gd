@@ -27,7 +27,14 @@ func process_movement(delta):
 	
 func process_gravity():
 	motion.y += GRAVITY
+
+func arrest_all_motion():
+	motion.x = 0
+	motion.y = 0
 	
+func set_motion(x, y):
+	motion.x = x
+	motion.y = y
 	
 # is fred over a ladder
 func is_on_ladder():
@@ -49,33 +56,21 @@ func has_fallen_to_death():
 	return jump_height < FALL_HEIGHT_FOR_DEATH
 
 func die():
-	motion.x = 0
-	motion.y = 0
+	arrest_all_motion()
 	animation_player.play("Death")
 	yield(animation_player, "animation_finished")
 	# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
-func walk():	
-	if Input.is_action_pressed("ui_left"):
-		motion.x = -HORIZONTAL_VELOCITY
-		sprite.set_flip_h(true)
-	elif Input.is_action_pressed("ui_right"):
-		sprite.set_flip_h(false)		
-		motion.x = HORIZONTAL_VELOCITY
-
 func climb():
-	motion.x = 0
-	motion.y = 0	
+	arrest_all_motion()
 	if Input.is_action_pressed("ui_up") and is_on_ladder():
 		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
-		motion.x = deltaX*10
-		motion.y = -CLIMB_VELOCITY
+		set_motion(deltaX*10, -CLIMB_VELOCITY)
 		animation_player.play()
 	elif Input.is_action_pressed("ui_down") and is_on_ladder():
 		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
-		motion.x = deltaX*10
-		motion.y = CLIMB_VELOCITY
+		set_motion(deltaX*10, CLIMB_VELOCITY)
 		animation_player.play()
 	else:
 		animation_player.stop(false)

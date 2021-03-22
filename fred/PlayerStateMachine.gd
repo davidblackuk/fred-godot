@@ -1,4 +1,6 @@
-extends "res://state-machine/StateMachine.gd"
+extends "res://state-machine/StateMachineWithPDA.gd"
+
+class_name Player
 
 const STATE_WALKING = "walking"
 const STATE_JUMPING = "jumping"
@@ -8,111 +10,21 @@ const STATE_DYING = "dying"
 const STATE_DEAD = "dead"
 const STATE_IDLE = "idle"
 
-
+onready var _climbing_state_script = get_node("../States/Climbing")
+onready var _dead_state_script = get_node("../States/Dead")
+onready var _dying_state_script = get_node("../States/Dying")
+onready var _falling_state_script = get_node("../States/Falling")
+onready var _idle_state_script = get_node("../States/Idle")
+onready var _jumping_state_script = get_node("../States/Jumping")
+onready var _walking_state_script = get_node("../States/Walking")
 
 func _ready():
-	add_state(STATE_WALKING)
-	add_state(STATE_JUMPING)
-	add_state(STATE_FALLING)
-	add_state(STATE_CLIMBING)
-	add_state(STATE_DYING)
-	add_state(STATE_DEAD)
-	add_state(STATE_IDLE)
-	call_deferred("set_state", STATE_WALKING)
+	add_state(STATE_WALKING, _walking_state_script)
+	add_state(STATE_JUMPING, _jumping_state_script)
+	add_state(STATE_FALLING, _falling_state_script)
+	add_state(STATE_CLIMBING, _climbing_state_script)
+	add_state(STATE_DYING, _dying_state_script)
+	add_state(STATE_DEAD, _dead_state_script)
+	add_state(STATE_IDLE, _idle_state_script)
+	call_deferred("_set_state", STATE_IDLE)
 
-func _state_logic(delta):
-	parent.process_gravity()
-
-	match state:
-		STATE_WALKING:
-			parent.walk()
-		STATE_CLIMBING:
-			parent.climb()
-		STATE_JUMPING:
-			parent.jump();
-		STATE_FALLING:
-			parent.fall();
-			
-		
-	parent.process_movement(delta)
-
-
-
-func _get_transition(delta):
-	match state:
-		STATE_DYING:
-			if parent.is_on_floor():
-				return STATE_DEAD
-		STATE_WALKING:
-			if parent.has_enemy_hit:
-				return STATE_DYING
-			if parent.motion.y > 0:
-				return STATE_FALLING
-			elif Input.is_action_pressed("ui_up") && parent.is_on_ladder():
-				return STATE_CLIMBING
-			elif Input.is_action_pressed("ui_down") && parent.is_on_ladder() && !parent.is_on_floor():
-				return STATE_CLIMBING
-			elif Input.is_action_just_pressed("ui_jump") && parent.is_on_floor():
-				return STATE_JUMPING
-			elif !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
-				return STATE_IDLE
-		STATE_IDLE:
-			if parent.has_enemy_hit:
-				return STATE_DYING
-			if Input.is_action_pressed("ui_up") && parent.is_on_ladder():
-				return STATE_CLIMBING
-			elif Input.is_action_pressed("ui_down") && parent.is_on_ladder() :
-				return STATE_CLIMBING
-			elif Input.is_action_just_pressed("ui_jump") && parent.is_on_floor():
-				return STATE_JUMPING
-			elif Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right"):
-				return STATE_WALKING
-		STATE_JUMPING:
-			if parent.has_enemy_hit:
-				return STATE_DYING
-			if parent.motion.y > 0:
-				return STATE_FALLING
-		STATE_FALLING:
-			if parent.has_enemy_hit:
-				return STATE_DYING
-			if parent.is_on_floor():
-				if parent.has_fallen_to_death():
-					return STATE_DYING
-				else:
-					return STATE_IDLE
-			
-		STATE_CLIMBING:
-			if parent.has_enemy_hit:
-				return STATE_DYING
-			if  Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
-				return STATE_WALKING
-				
-	# handles state dead which is never transitioned out of. Death is a one way street
-	return null
-
-	
-func _enter_state(new_state, old_state):
-	print(old_state, " -> ", new_state)
-	match state:
-		STATE_DEAD:
-			GameState.life_lost()
-			parent.die()
-		STATE_FALLING:
-			if old_state == STATE_WALKING:
-				parent.motion.x = 0
-			parent.jump_start_y = parent.global_position.y
-		STATE_JUMPING:
-			parent.jump_start_y = parent.global_position.y
-			parent.motion.y = -parent.JUMP_VELOCITY
-		STATE_IDLE:
-			parent.motion.x = 0
-			parent.animation_player.play("Idle")
-		STATE_WALKING:
-			parent.animation_player.play("Walk")
-		STATE_CLIMBING:
-			parent.animation_player.play("Climb")
-
-		
-	
-func _exit_state(old_state, new_state):
-	pass

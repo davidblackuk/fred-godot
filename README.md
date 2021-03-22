@@ -35,9 +35,10 @@ Should we move this into a project board on Git hub?
 + Change game resolution to match charactor width height of spectrum? (currently the hight is too short)
 + Ladders
   + fall over ladder latches to it (musnt stop getting off!)
-
++ Convert enemies to AnimatedSprite?
 + Fred death
   + ~~Enemy collisions~~
+  + Deadly spikes!
   + One shot or health bar?
   + Falling too far
   + Behaviour

@@ -1,4 +1,4 @@
-extends "res://common/StateMachine.gd"
+extends "res://state-machine/StateMachine.gd"
 
 const STATE_WAITING = "waiting"
 const STATE_RESCUED = "rescued"

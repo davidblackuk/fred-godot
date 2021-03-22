@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 signal update_hud()
 
-
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
 const CLIMB_VELOCITY = 150
@@ -13,9 +12,7 @@ onready var animation_player = get_node("AnimationPlayer")
 onready var sprite = get_node("Sprite")
 
 var motion = Vector2()
-
 var active_ladders = []
-
 var has_enemy_hit = false
 
 # follows the current jump height, negative on the way up, positive on falling after reaching 
@@ -66,8 +63,6 @@ func walk():
 	elif Input.is_action_pressed("ui_right"):
 		sprite.set_flip_h(false)		
 		motion.x = HORIZONTAL_VELOCITY
-	
-		
 
 func climb():
 	motion.x = 0

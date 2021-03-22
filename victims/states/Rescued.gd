@@ -1,16 +1,17 @@
-extends Node
+extends "res://state-machine/StateMachineState.gd"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func get_transition(delta, entity):
+	# No need to handle RESCUED as the transition to it, is a terminal transition
+	return null
 
+func state_logic(delta, parent):
+	pass
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func enter_state(new_state, old_state, parent):
+	GameState.add_score(parent.POINTS_SCORED)
+	parent.broadcast_rescued()
+	parent.animate_and_dequeue()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func exit_state(old_state, new_state, parent):
+	pass

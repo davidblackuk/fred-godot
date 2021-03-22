@@ -23,11 +23,23 @@ _global_script_classes=[ {
 "class": "StateMachineState",
 "language": "GDScript",
 "path": "res://state-machine/StateMachineState.gd"
+}, {
+"base": "Node",
+"class": "StateMachineWithPDA",
+"language": "GDScript",
+"path": "res://state-machine/StateMachineWithPDA.gd"
+}, {
+"base": "Node",
+"class": "VictimStateMachine",
+"language": "GDScript",
+"path": "res://victims/VictimStateMachine.gd"
 } ]
 _global_script_class_icons={
 "Palette": "",
 "StateMachine": "",
-"StateMachineState": ""
+"StateMachineState": "",
+"StateMachineWithPDA": "",
+"VictimStateMachine": ""
 }
 
 [application]

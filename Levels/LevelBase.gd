@@ -20,4 +20,4 @@ func _on_victim_rescued():
 	if rescued_victims == total_victims:
 		emit_signal("level_complete")
 
-var level_names = ["","",""]
+

@@ -1,32 +1,17 @@
-extends "res://state-machine/StateMachine.gd"
+extends "res://state-machine/StateMachineWithPDA.gd"
+
+class_name VictimStateMachine
 
 const STATE_WAITING = "waiting"
 const STATE_RESCUED = "rescued"
 
+onready var script_waiting = get_node("../States/Waiting")
+onready var script_rescued = get_node("../States/Rescued")
 
 func _ready():
-	add_state(STATE_WAITING)
-	add_state(STATE_RESCUED)
-	call_deferred("set_state", STATE_WAITING)
-
-func _state_logic(delta):
-	pass
+	add_state(STATE_WAITING, script_waiting)
+	add_state(STATE_RESCUED, script_rescued)
+	call_deferred("_set_state", STATE_WAITING)
 
 
-func _get_transition(delta):
-	match state:
-		STATE_WAITING:
-			if parent.is_rescued():
-				return STATE_RESCUED
-	# No need to handle RESCUED as the transition to it is a terminal transition
-	return null
 
-	
-func _enter_state(new_state, old_state):
-	match new_state:
-		STATE_RESCUED:
-			parent.show_rescued()
-
-	
-func _exit_state(old_state, new_state):
-	pass

@@ -2,7 +2,8 @@
 
 [ext_resource path="res://images/door_cog.png" type="Texture" id=1]
 [ext_resource path="res://images/door_side.png" type="Texture" id=2]
-[ext_resource path="res://Door.gd" type="Script" id=3]
+[ext_resource path="res://controls/doors/Door.gd" type="Script" id=3]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Roller"

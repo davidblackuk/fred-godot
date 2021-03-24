@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white-slider.png-91a43539998c0b98f0d46e696f282357.stex"
+path="res://.import/coin.png-422fb12edf9e1957188503a31618d8cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/white-slider.png"
-dest_files=[ "res://.import/white-slider.png-91a43539998c0b98f0d46e696f282357.stex" ]
+source_file="res://images/collectables/coin.png"
+dest_files=[ "res://.import/coin.png-422fb12edf9e1957188503a31618d8cc.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

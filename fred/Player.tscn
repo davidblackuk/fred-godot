@@ -1,10 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://images/fred/fred.png" type="Texture" id=2]
-[ext_resource path="res://sfx/fred/fred-step-1.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/fred/fred-step-2.wav" type="AudioStream" id=4]
-[ext_resource path="res://sfx/fred/fred-dead.wav" type="AudioStream" id=5]
+[ext_resource path="res://images/fred/fred.png" type="Texture" id=1]
+[ext_resource path="res://sfx/fred/fred-step-1.wav" type="AudioStream" id=2]
+[ext_resource path="res://sfx/fred/fred-step-2.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/fred/fred-dead.wav" type="AudioStream" id=4]
+[ext_resource path="res://fred/PlayerStateMachine.gd" type="Script" id=5]
+[ext_resource path="res://fred/Player.gd" type="Script" id=6]
+[ext_resource path="res://controls/state-machine-hud/StateMachineHUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fred/states/Dead.gd" type="Script" id=8]
+[ext_resource path="res://fred/states/Climbing.gd" type="Script" id=9]
+[ext_resource path="res://fred/states/Falling.gd" type="Script" id=10]
+[ext_resource path="res://fred/states/Jumping.gd" type="Script" id=11]
+[ext_resource path="res://fred/states/Dying.gd" type="Script" id=12]
+[ext_resource path="res://fred/states/Idle.gd" type="Script" id=13]
+[ext_resource path="res://fred/states/Walking.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 32 )
@@ -52,9 +61,21 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 5 )
+"stream": ExtResource( 4 )
 } ],
 "times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.360784, 0.360784, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -99,11 +120,7 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 3 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 4 )
+"stream": ExtResource( 2 )
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -111,34 +128,28 @@ tracks/1/keys = {
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 4 )
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
 } ],
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 )
 }
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 6
-script = ExtResource( 1 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
-}
-
-[node name="Label" type="Label" parent="."]
-margin_left = -22.5211
-margin_top = -51.0268
-margin_right = 17.4789
-margin_bottom = -37.0268
-text = "walk"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0610943, 0.197758 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 hframes = 17
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -150,5 +161,34 @@ anims/Idle = SubResource( 4 )
 anims/Walk = SubResource( 5 )
 
 [node name="Step1AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 volume_db = -30.45
+
+[node name="FsmState" parent="." instance=ExtResource( 7 )]
+position = Vector2( -0.157494, -47.2471 )
+
+[node name="States" type="Node" parent="."]
+
+[node name="Climbing" type="Node" parent="States"]
+script = ExtResource( 9 )
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource( 8 )
+
+[node name="Dying" type="Node" parent="States"]
+script = ExtResource( 12 )
+
+[node name="Falling" type="Node" parent="States"]
+script = ExtResource( 10 )
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource( 13 )
+
+[node name="Jumping" type="Node" parent="States"]
+script = ExtResource( 11 )
+
+[node name="Walking" type="Node" parent="States"]
+script = ExtResource( 14 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 5 )

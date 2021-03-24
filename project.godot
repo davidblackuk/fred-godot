@@ -9,19 +9,49 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Palette",
+"language": "GDScript",
+"path": "res://controls/themes/Palette.gd"
+}, {
+"base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://fred/PlayerStateMachine.gd"
+}, {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://common/StateMachine.gd"
+"path": "res://state-machine/StateMachine.gd"
+}, {
+"base": "Node",
+"class": "StateMachineState",
+"language": "GDScript",
+"path": "res://state-machine/StateMachineState.gd"
+}, {
+"base": "Node",
+"class": "StateMachineWithPDA",
+"language": "GDScript",
+"path": "res://state-machine/StateMachineWithPDA.gd"
+}, {
+"base": "Node",
+"class": "VictimStateMachine",
+"language": "GDScript",
+"path": "res://victims/VictimStateMachine.gd"
 } ]
 _global_script_class_icons={
-"StateMachine": ""
+"Palette": "",
+"Player": "",
+"StateMachine": "",
+"StateMachineState": "",
+"StateMachineWithPDA": "",
+"VictimStateMachine": ""
 }
 
 [application]
 
 config/name="Son of Fred"
-run/main_scene="res://Levels/Level 003.tscn"
+run/main_scene="res://Levels/Level 001.tscn"
 boot_splash/image="res://images/splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
@@ -51,4 +81,5 @@ ui_jump={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

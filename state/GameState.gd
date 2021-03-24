@@ -3,6 +3,9 @@ extends Node
 var score  setget set_score, get_score
 var deaths setget set_deaths, get_deaths
 
+var show_states = true
+var god_mode = false
+
 var _score = 0;
 var _deaths = 0
 

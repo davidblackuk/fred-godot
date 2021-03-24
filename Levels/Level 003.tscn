@@ -1,17 +1,21 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fred/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
-[ext_resource path="res://controls/game/SkyBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Palette.tscn" type="PackedScene" id=6]
+[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=7]
-[ext_resource path="res://sprites/victims/victim.tscn" type="PackedScene" id=8]
-[ext_resource path="res://controls/game/ScoreHud.tscn" type="PackedScene" id=9]
+[ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=11]
-[ext_resource path="res://controls/MovingPlatforms/MovingPlatform.tscn" type="PackedScene" id=15]
+[ext_resource path="res://controls/moving-platforms/MovingPlatform.tscn" type="PackedScene" id=15]
+
+
+
+
 
 [sub_resource type="GDScript" id=1]
 script/source = "tool
@@ -52,22 +56,13 @@ func set_door_tint(value):
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 608, 0, 0, 0, 0, 168, 288 )
+"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 167.265, 613.688, 0, 0, 0, 0, 168, 288 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 168, 608, 0, 0, 0, 0, 168, 408, 0, 0, 0, 0, 168, 288 )
+"points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 167.246, 614.21, 0, 0, 0, 0, 168, 408, 0, 0, 0, 0, 168, 288 )
 }
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends Path2D
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var follower = get_node(\"./PathFollow2D\")
-	follower.set_offset(follower.get_offset() + 100 * delta)
-"
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 7 )
@@ -85,7 +80,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -393216, 19, 0, -393185, 19, 0, -327680, 19, 0, -327649, 19, 0, -262144, 19, 0, -262113, 19, 0, -196608, 19, 0, -196577, 19, 0, -131072, 19, 0, -131041, 19, 0, -65536, 19, 0, -65505, 19, 0, 0, 19, 0, 31, 19, 0, 65536, 19, 0, 65567, 19, 0, 131072, 19, 0, 131103, 19, 0, 196608, 19, 0, 196639, 19, 0, 262144, 19, 0, 262175, 19, 0, 327680, 19, 0, 327711, 19, 0, 393216, 19, 0, 393247, 19, 0, 458752, 19, 0, 458783, 19, 0, 524288, 19, 0, 524319, 19, 0, 589824, 19, 0, 589844, 23, 0, 589845, 23, 0, 589846, 23, 0, 589847, 23, 0, 589848, 23, 0, 589849, 23, 0, 589850, 23, 0, 589851, 23, 0, 589852, 23, 0, 589853, 23, 0, 589854, 23, 0, 589855, 19, 0, 655360, 19, 0, 655391, 19, 0, 720896, 19, 0, 720927, 19, 0, 786432, 19, 0, 786463, 19, 0, 851968, 19, 0, 851969, 27, 0, 851970, 27, 0, 851971, 27, 0, 851972, 27, 0, 851973, 27, 0, 851976, 30, 0, 851977, 30, 0, 851981, 30, 0, 851999, 19, 0, 917504, 19, 0, 983040, 19, 0, 1048576, 19, 0, 1114112, 20, 0, 1114113, 21, 0, 1114114, 21, 0, 1114115, 21, 0, 1114116, 21, 0, 1114117, 21, 0, 1114118, 21, 0, 1114119, 21, 0, 1114120, 21, 0, 1114121, 21, 0, 1114122, 21, 0, 1114123, 21, 0, 1114124, 21, 0, 1114125, 21, 0, 1114126, 21, 0, 1114127, 21, 0, 1114128, 21, 0, 1114129, 21, 0, 1114130, 21, 0, 1114131, 21, 0, 1114132, 21, 0, 1114133, 21, 0, 1114134, 21, 0, 1114135, 21, 0, 1114136, 21, 0, 1114137, 21, 0, 1114138, 21, 0, 1114139, 21, 0, 1114140, 21, 0, 1114141, 21, 0, 1114142, 21, 0, 1114143, 22, 0 )
+tile_data = PoolIntArray( -393216, 19, 0, -393185, 19, 0, -327680, 19, 0, -327649, 19, 0, -262144, 19, 0, -262113, 19, 0, -196608, 19, 0, -196577, 19, 0, -131072, 19, 0, -131041, 19, 0, -65536, 19, 0, -65505, 19, 0, 0, 19, 0, 31, 19, 0, 65536, 19, 0, 65567, 19, 0, 131072, 19, 0, 131103, 19, 0, 196608, 19, 0, 196639, 19, 0, 262144, 19, 0, 262175, 19, 0, 327680, 19, 0, 327711, 19, 0, 393216, 19, 0, 393247, 19, 0, 458752, 19, 0, 458783, 19, 0, 524288, 19, 0, 524319, 19, 0, 589824, 19, 0, 589844, 23, 0, 589845, 23, 0, 589846, 23, 0, 589847, 23, 0, 589848, 23, 0, 589849, 23, 0, 589850, 23, 0, 589851, 23, 0, 589852, 23, 0, 589853, 23, 0, 589854, 23, 0, 589855, 19, 0, 655360, 19, 0, 655391, 19, 0, 720896, 19, 0, 720927, 19, 0, 786432, 19, 0, 786463, 19, 0, 851968, 19, 0, 851969, 27, 0, 851970, 27, 0, 851972, 27, 0, 851973, 27, 0, 851976, 30, 0, 851977, 30, 0, 851981, 30, 0, 851999, 19, 0, 917504, 19, 0, 983040, 19, 0, 1048576, 19, 0, 1114112, 20, 0, 1114113, 21, 0, 1114114, 21, 0, 1114115, 21, 0, 1114116, 21, 0, 1114117, 21, 0, 1114118, 21, 0, 1114119, 21, 0, 1114120, 21, 0, 1114121, 21, 0, 1114122, 21, 0, 1114123, 21, 0, 1114124, 21, 0, 1114125, 21, 0, 1114126, 21, 0, 1114127, 21, 0, 1114128, 21, 0, 1114129, 21, 0, 1114130, 21, 0, 1114131, 21, 0, 1114132, 21, 0, 1114133, 21, 0, 1114134, 21, 0, 1114135, 21, 0, 1114136, 21, 0, 1114137, 21, 0, 1114138, 21, 0, 1114139, 21, 0, 1114140, 21, 0, 1114141, 21, 0, 1114142, 21, 0, 1114143, 22, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
@@ -116,6 +111,7 @@ position = Vector2( 112, 400 )
 
 [node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
+ladder_type = 2
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
@@ -172,7 +168,7 @@ position = Vector2( 688, 48 )
 ladder_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 698.96 )
+position = Vector2( 110.501, 699.896 )
 
 [node name="Victims" type="Node2D" parent="."]
 
@@ -190,17 +186,18 @@ position = Vector2( 72.009, 811.995 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Enemies"]
-position = Vector2( 168, 96 )
+position = Vector2( 168, 90 )
 curve = SubResource( 2 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
+velocity = 1.5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D"]
-position = Vector2( 168, 368.408 )
+position = Vector2( 167.639, 448.154 )
 rotation = -7.79733e-06
-offset = 80.42
+offset = 160.006
 rotate = false
 
 [node name="Enemy" parent="Enemies/Path2D/PathFollow2D" instance=ExtResource( 10 )]
@@ -209,15 +206,16 @@ sprite_tint = Color( 0.0705882, 0.854902, 0.0705882, 1 )
 [node name="Path2D2" type="Path2D" parent="Enemies"]
 position = Vector2( 330, 90 )
 curve = SubResource( 3 )
-script = SubResource( 4 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
+velocity = 1.5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2"]
-position = Vector2( 168, 422.215 )
+position = Vector2( 167.895, 450.528 )
 rotation = -7.79733e-06
-offset = 505.786
+offset = 162.539
 rotate = false
 
 [node name="Enemy" parent="Enemies/Path2D2/PathFollow2D" instance=ExtResource( 10 )]
@@ -230,31 +228,31 @@ sprite_tint = Color( 1, 1, 0, 1 )
 position = Vector2( 258.361, 621.847 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform" index="0"]
-position = Vector2( -0.861237, -154.824 )
+position = Vector2( -1.50662, -84.1991 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform/Path2D" index="0"]
-position = Vector2( -0.861231, -154.824 )
-offset = 423.117
+position = Vector2( -1.50661, -84.1991 )
+offset = 117.533
 
 [node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource( 15 )]
 position = Vector2( 416, 624 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform2" index="0"]
-position = Vector2( -1.67645, -60.6617 )
+position = Vector2( -1.42072, -84.3085 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform2/Path2D" index="0"]
-position = Vector2( -1.67645, -60.6617 )
-offset = 141.039
+position = Vector2( -1.42071, -84.3084 )
+offset = 352.598
 
 [node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource( 15 )]
 position = Vector2( 576, 624 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform3" index="0"]
-position = Vector2( -1.97992, -13.8243 )
+position = Vector2( -1.50659, -84.1991 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform3/Path2D" index="0"]
-position = Vector2( -1.97994, -13.8244 )
-offset = 282.078
+position = Vector2( -1.50661, -84.1991 )
+offset = 117.533
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]

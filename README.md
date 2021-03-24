@@ -35,9 +35,10 @@ Should we move this into a project board on Git hub?
 + Change game resolution to match charactor width height of spectrum? (currently the hight is too short)
 + Ladders
   + fall over ladder latches to it (musnt stop getting off!)
-
++ Convert enemies to AnimatedSprite?
 + Fred death
   + ~~Enemy collisions~~
+  + Deadly spikes!
   + One shot or health bar?
   + Falling too far
   + Behaviour
@@ -76,6 +77,14 @@ Should we move this into a project board on Git hub?
 + persist progress
 + have a menu screen
 
++ Auto wire up
+  + need to consider large levels with thousands of ladders and enemies
+  + Level.gd searches for all ladders and connects them to the player
+    + Get child node Victims
+    + process all child nodes tyha are ladders
+    + Saves manual attachment.
+    + we already count victims
+  + Level.gd searches all children and registers enemies
 
 
 

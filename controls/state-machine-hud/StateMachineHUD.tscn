@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+onready var state_machine = get_parent().get_node(\"StateMachine\")
+onready var label = get_node(\"Label\")
+
+func _process(delta):
+	if GameState.show_states:
+		label.text = state_machine.state
+"
+
+[node name="FsmState" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -41.8595
+margin_top = -6.73514
+margin_right = 42.1405
+margin_bottom = 7.26486
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

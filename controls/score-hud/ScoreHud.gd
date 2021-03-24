@@ -10,7 +10,6 @@ onready var level_name_label =  get_node("LevelName")
 # we sweep up to this
 var on_screen_score = 0
 
-
 # how long since we last incremented the score
 var total_delta_since_last_update = 0
 
@@ -42,7 +41,6 @@ func update():
 	display_score()
 	display_deaths()	
 	
-
 func display_score():	
 	score_label.text = "%05d" % on_screen_score
 	

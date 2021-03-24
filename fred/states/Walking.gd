@@ -9,7 +9,7 @@ func exit_state(old_state, new_state, parent):
 func get_transition(delta, parent):
 	if parent.has_enemy_hit:
 		return Player.STATE_DYING
-	if parent.motion.y > 0:
+	if parent.motion.y > 0 && !(parent.is_on_ladder() && !parent.is_on_floor()):
 		return Player.STATE_FALLING
 	elif Input.is_action_pressed("ui_up") && parent.is_on_ladder():
 		return Player.STATE_CLIMBING
@@ -35,3 +35,4 @@ func state_logic(delta, parent):
 
 
 
+ 

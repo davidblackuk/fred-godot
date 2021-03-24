@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Palette",
 "language": "GDScript",
-"path": "res://Palette.gd"
+"path": "res://controls/themes/Palette.gd"
 }, {
 "base": "Node",
 "class": "Player",

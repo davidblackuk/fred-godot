@@ -11,10 +11,13 @@ func get_transition(delta, parent):
 		return Player.STATE_JUMPING
 	elif Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right"):
 		return Player.STATE_WALKING
+	elif parent.is_on_ladder() && !parent.is_on_floor():
+		return Player.STATE_CLIMBING
 	return null
 
 func state_logic(delta, parent):
 	parent.process_gravity()
+		
 	parent.process_movement(delta)
 
 func enter_state(new_state, old_state, parent):

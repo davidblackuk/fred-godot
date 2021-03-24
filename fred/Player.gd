@@ -81,7 +81,7 @@ func jump():
 func fall():
 	# when y is below start Y, cancel motion.x
 	jump_height = (jump_start_y - global_position.y)
-	if jump_height < -82:
+	if jump_height < -90:
 		motion.x = 0
 
 

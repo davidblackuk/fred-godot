@@ -10,8 +10,17 @@ const SCORE_MULTIPLIER = 22
 #           0 (22)  1 (44)    2 (66) 3 (88)
 export(int, "LOW", "MEDIUM", "HIGH", "OMG") var reward_level = 0 
 
+export var speed_scale = 1.0
+export(int, 7) var starting_frame = 0
+
+onready var animated_sprite = get_node("Area2D/AnimatedSprite")
+
+
 func _ready():
 	color_according_to_reward()
+	animated_sprite.speed_scale = speed_scale
+	animated_sprite.frame = starting_frame
+	
 
 func color_according_to_reward():
 	match reward_level:

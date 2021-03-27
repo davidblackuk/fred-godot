@@ -149,7 +149,6 @@ position = Vector2( 0.0610943, 0.197758 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 17
-frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -162,7 +161,6 @@ anims/Walk = SubResource( 5 )
 
 [node name="Step1AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -30.45
 
 [node name="FsmState" parent="." instance=ExtResource( 7 )]
 position = Vector2( -0.157494, -47.2471 )

@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal update_hud()
-
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
 const CLIMB_VELOCITY = 150
@@ -22,7 +20,7 @@ var has_enemy_hit = false
 var jump_height = 0
 var jump_start_y = 0
 	
-func process_movement(delta):
+func process_movement(_delta):
 	motion = move_and_slide(motion, Vector2.UP)
 	
 func process_gravity():

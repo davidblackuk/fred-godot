@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://fred/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=11]
 [ext_resource path="res://collectables/Coin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 script/source = "tool
@@ -308,12 +309,29 @@ sprite_tint = Color( 1, 0, 0, 1 )
 
 [node name="Coin" parent="Collectables" instance=ExtResource( 12 )]
 position = Vector2( 48, 152 )
-speed_scale = 1.0
 
 [node name="Coin4" parent="Collectables" instance=ExtResource( 12 )]
 position = Vector2( 976, 152 )
 reward_level = 1
 speed_scale = 2.0
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike1" parent="Spikes" groups=[
+"Spikes",
+] instance=ExtResource( 13 )]
+position = Vector2( 832, 144 )
+spike_type = 1
+
+[node name="Spike2" parent="Spikes" groups=[
+"Spikes",
+] instance=ExtResource( 13 )]
+position = Vector2( 912, 272 )
+
+[node name="Spike3" parent="Spikes" groups=[
+"Spikes",
+] instance=ExtResource( 13 )]
+position = Vector2( 944, 272 )
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]

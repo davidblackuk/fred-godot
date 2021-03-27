@@ -1,17 +1,17 @@
 extends "res://state-machine/StateMachineState.gd"
 
-func get_transition(delta, parent):
+func get_transition(_delta, _player):
 	# like in life there is no transition out of being dead
 	return null
 
-func state_logic(delta, parent):
-	parent.process_gravity()
-	parent.process_movement(delta)
+func state_logic(delta, player):
+	player.process_gravity()
+	player.process_movement(delta)
 
-func enter_state(new_state, old_state, parent):
+func enter_state(_new_state, _old_state, player):
 	GameState.life_lost()
-	parent.die()
+	player.die()
 
-func exit_state(old_state, new_state, parent):
+func exit_state(_old_state, _new_state, _player):
 	pass
 

@@ -1,17 +1,17 @@
 extends "res://state-machine/StateMachineState.gd"
 
-func get_transition(delta, parent):
-	if parent.is_on_floor():
+func get_transition(_delta, player):
+	if player.is_on_floor():
 		return Player.STATE_DEAD
 	return null
 	
-func state_logic(delta, parent):
-	parent.process_gravity()
-	parent.process_movement(delta)
+func state_logic(delta, player):
+	player.process_gravity()
+	player.process_movement(delta)
 
-func enter_state(new_state, old_state, parent):
+func enter_state(_new_state, _old_state, _player):
 	pass
 
-func exit_state(old_state, new_state, parent):
+func exit_state(_old_state, _new_state, _player):
 	pass
 

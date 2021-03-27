@@ -1,37 +1,37 @@
 extends "res://state-machine/StateMachineState.gd"
 
-func enter_state(new_state, old_state, parent):
-	parent.animation_player.play("Walk")
+func enter_state(_new_state, _old_state, player):
+	player.animation_player.play("Walk")
 
-func exit_state(old_state, new_state, parent):
+func exit_state(_old_state, _new_state, _player):
 	pass
 
-func get_transition(delta, parent):
-	if parent.has_enemy_hit:
+func get_transition(_delta, player):
+	if player.has_enemy_hit:
 		return Player.STATE_DYING
-	if parent.motion.y > 0 && !(parent.is_on_ladder() && !parent.is_on_floor()):
+	if player.motion.y > 0 && !(player.is_on_ladder() && !player.is_on_floor()):
 		return Player.STATE_FALLING
-	elif Input.is_action_pressed("ui_up") && parent.is_on_ladder():
+	elif Input.is_action_pressed("ui_up") && player.is_on_ladder():
 		return Player.STATE_CLIMBING
-	elif Input.is_action_pressed("ui_down") && parent.is_on_ladder() && !parent.is_on_floor():
+	elif Input.is_action_pressed("ui_down") && player.is_on_ladder() && !player.is_on_floor():
 		return Player.STATE_CLIMBING
-	elif Input.is_action_just_pressed("ui_jump") && parent.is_on_floor():
+	elif Input.is_action_just_pressed("ui_jump") && player.is_on_floor():
 		return Player.STATE_JUMPING
 	elif !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
 		return Player.STATE_IDLE
 	return null
 
-func state_logic(delta, parent):
-	parent.process_gravity()
+func state_logic(delta, player):
+	player.process_gravity()
 	
 	if Input.is_action_pressed("ui_left"):
-		parent.motion.x = -parent.HORIZONTAL_VELOCITY
-		parent.sprite.set_flip_h(true)
+		player.motion.x = -player.HORIZONTAL_VELOCITY
+		player.sprite.set_flip_h(true)
 	elif Input.is_action_pressed("ui_right"):
-		parent.sprite.set_flip_h(false)		
-		parent.motion.x = parent.HORIZONTAL_VELOCITY
+		player.sprite.set_flip_h(false)		
+		player.motion.x = player.HORIZONTAL_VELOCITY
 	
-	parent.process_movement(delta)
+	player.process_movement(delta)
 
 
 

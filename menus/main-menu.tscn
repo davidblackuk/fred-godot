@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://fonts/press-start-64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menus/main-menu.gd" type="Script" id=5]
+[ext_resource path="res://controls/fades/fade-to-black.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/splash-400.png" type="Texture" id=7]
+[ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=8]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="SkyBox" parent="." instance=ExtResource( 3 )]
+color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+
+[node name="VBoxOuter" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 776.0
+custom_constants/separation = 96
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxOuter"]
+margin_right = 1024.0
+margin_bottom = 160.0
+custom_constants/margin_top = 96
+
+[node name="Title" type="Label" parent="VBoxOuter/MarginContainer"]
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.172549, 0.184314, 0.4, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_constants/shadow_as_outline = 0
+text = "son of fred"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="MainArea" type="HBoxContainer" parent="VBoxOuter"]
+margin_top = 256.0
+margin_right = 1024.0
+margin_bottom = 656.0
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="ButtonContainer" type="MarginContainer" parent="VBoxOuter/MainArea"]
+margin_right = 687.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 64
+custom_constants/margin_top = 16
+custom_constants/margin_left = 64
+custom_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxOuter/MainArea/ButtonContainer"]
+margin_left = 64.0
+margin_top = 16.0
+margin_right = 623.0
+margin_bottom = 384.0
+custom_constants/separation = 64
+alignment = 1
+
+[node name="Continue" parent="VBoxOuter/MainArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 559.0
+margin_bottom = 80.0
+disabled = true
+
+[node name="Label" parent="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/Continue" index="0"]
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+text = "Continue"
+
+[node name="NewGame" parent="VBoxOuter/MainArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 144.0
+margin_right = 559.0
+margin_bottom = 224.0
+
+[node name="Label" parent="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/NewGame" index="0"]
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "New Game"
+
+[node name="Options" parent="VBoxOuter/MainArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 288.0
+margin_right = 559.0
+margin_bottom = 368.0
+disabled = true
+
+[node name="Label" parent="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/Options" index="0"]
+custom_colors/font_color = Color( 1, 0, 1, 1 )
+text = "Options"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/MainArea"]
+margin_left = 687.0
+margin_right = 1024.0
+margin_bottom = 400.0
+custom_constants/margin_right = 64
+
+[node name="Cover" type="TextureRect" parent="VBoxOuter/MainArea/MarginContainer"]
+margin_right = 273.0
+margin_bottom = 400.0
+texture = ExtResource( 7 )
+
+[node name="Palette" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80, 920 )
+
+[node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Label" type="Label" parent="."]
+margin_top = 744.0
+margin_right = 1024.0
+margin_bottom = 768.0
+custom_fonts/font = ExtResource( 8 )
+text = "0.3.0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
+[connection signal="pressed" from="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
+[connection signal="pressed" from="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]
+[connection signal="fade_complete" from="FadeToBlack" to="." method="_on_fade_complete"]
+
+[editable path="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/Continue"]
+
+[editable path="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/NewGame"]
+
+[editable path="VBoxOuter/MainArea/ButtonContainer/VBoxContainer/Options"]

@@ -4,12 +4,12 @@
 [ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menus/main-menu.gd" type="Script" id=5]
+[ext_resource path="res://menus/options-menu.gd" type="Script" id=5]
 [ext_resource path="res://controls/fades/fade-to-black.tscn" type="PackedScene" id=6]
 [ext_resource path="res://images/splash-400.png" type="Texture" id=7]
-[ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=8]
+[ext_resource path="res://fonts/pres-start-32.tres" type="DynamicFont" id=8]
 
-[node name="MainMenu" type="Control"]
+[node name="OptionsMenu" type="Control"]
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,7 +41,7 @@ custom_colors/font_color_shadow = Color( 0.172549, 0.184314, 0.4, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
 custom_constants/shadow_as_outline = 0
-text = "son of fred"
+text = "Options"
 align = 1
 valign = 1
 uppercase = true
@@ -49,13 +49,13 @@ uppercase = true
 [node name="ContentArea" type="HBoxContainer" parent="VBoxOuter"]
 margin_top = 256.0
 margin_right = 1024.0
-margin_bottom = 731.0
+margin_bottom = 656.0
 size_flags_vertical = 0
 custom_constants/separation = 0
 
 [node name="ButtonContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_right = 687.0
-margin_bottom = 475.0
+margin_bottom = 400.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 64
@@ -67,85 +67,52 @@ custom_constants/margin_bottom = 16
 margin_left = 64.0
 margin_top = 16.0
 margin_right = 623.0
-margin_bottom = 459.0
-custom_constants/separation = 41
+margin_bottom = 384.0
+custom_constants/separation = 64
 alignment = 1
 
-[node name="Continue" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 0.0
+[node name="ShowDebug" type="CheckBox" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer"]
+margin_top = 40.0
 margin_right = 559.0
 margin_bottom = 80.0
-disabled = true
+custom_fonts/font = ExtResource( 8 )
+text = " Show debug info"
 
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" index="0"]
-text = "Continue"
-
-[node name="NewGame" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 121.0
+[node name="GodMode" type="CheckBox" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer"]
+margin_top = 144.0
 margin_right = 559.0
-margin_bottom = 201.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 8 )
+text = " God mode"
 
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" index="0"]
-text = "New Game"
-
-[node name="Options" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="Back" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
-margin_top = 242.0
+margin_top = 248.0
 margin_right = 559.0
-margin_bottom = 322.0
+margin_bottom = 328.0
 
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" index="0"]
-text = "Options"
-
-[node name="Quit" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 363.0
-margin_right = 559.0
-margin_bottom = 443.0
-
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit" index="0"]
-text = "Quit"
+[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Back" index="0"]
+text = "Back"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_left = 687.0
 margin_right = 1024.0
-margin_bottom = 475.0
+margin_bottom = 400.0
 custom_constants/margin_right = 64
 
 [node name="Cover" type="TextureRect" parent="VBoxOuter/ContentArea/MarginContainer"]
 margin_right = 273.0
-margin_bottom = 475.0
+margin_bottom = 400.0
 texture = ExtResource( 7 )
-stretch_mode = 4
 
 [node name="Palette" parent="." instance=ExtResource( 4 )]
 position = Vector2( 80, 920 )
 
-[node name="Label" type="Label" parent="."]
-margin_top = 744.0
-margin_right = 1024.0
-margin_bottom = 768.0
-custom_fonts/font = ExtResource( 8 )
-text = "0.3.0"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
 visible = false
-[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
-[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
-[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]
-[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/ShowDebug" to="." method="_on_ShowDebug_toggled"]
+[connection signal="toggled" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/GodMode" to="." method="_on_GodMode_toggled"]
+[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="fade_complete" from="FadeToBlack" to="." method="_on_fade_complete"]
 
-[editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue"]
-
-[editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame"]
-
-[editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options"]
-
-[editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit"]
+[editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Back"]

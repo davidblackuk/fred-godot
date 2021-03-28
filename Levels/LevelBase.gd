@@ -12,6 +12,11 @@ func _ready():
 	count_victims()
 	connect_spikes_to_player()
 	
+func _process(delta):
+	if (Input.is_action_just_pressed("ui_home")):
+		get_tree().change_scene("res://menus/main-menu.tscn")
+		
+	
 func count_victims():
 	total_victims = victims.get_child_count() if victims != null else 0
 

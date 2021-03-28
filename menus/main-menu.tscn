@@ -5,7 +5,7 @@
 [ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menus/main-menu.gd" type="Script" id=5]
-[ext_resource path="res://controls/fades/fade-to-black.tscn" type="PackedScene" id=6]
+[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=6]
 [ext_resource path="res://images/splash-400.png" type="Texture" id=7]
 [ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=8]
 
@@ -134,13 +134,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
+[node name="Fader" parent="." instance=ExtResource( 6 )]
 visible = false
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="fade_complete" from="FadeToBlack" to="." method="_on_fade_complete"]
+[connection signal="fade_out_complete" from="Fader" to="." method="_on_Fader_fade_out_complete"]
 
 [editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue"]
 

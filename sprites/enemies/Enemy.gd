@@ -13,7 +13,7 @@ func _ready():
 		player.play(animation)
 
 func _on_StaticBody2D_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" && !GameState.god_mode:
 		emit_signal("fred_is_dead")
 
 func get_animation():

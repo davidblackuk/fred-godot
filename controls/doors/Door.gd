@@ -1,13 +1,15 @@
 tool
 extends Node2D
 
-export(String, FILE, "*.tscn") var next_level
+signal go_to_next_scene()
 
 export(Color, RGB) var door_tint = Color.white 
 
 onready var roller = get_node("Area2D/Roller")
 onready var door_top = get_node("Area2D/Door Top")
 onready var door_bottom = get_node("Area2D/Door Bottom")
+
+
 
 func _ready():
 	roller.modulate = door_tint
@@ -19,8 +21,7 @@ func _ready():
 #
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
-		# warning-ignore:return_value_discarded
-		get_tree().change_scene(next_level) # Replace with function body.
+		emit_signal("go_to_next_scene")
 
 #
 # Animate the shutter then when complete, remove the static body 

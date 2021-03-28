@@ -76,37 +76,33 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 559.0
 margin_bottom = 80.0
+custom_colors/font_color = Color( 0.0705882, 1, 0.0705882, 1 )
 disabled = true
-
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" index="0"]
-text = "Continue"
+text = "CONTINUE"
 
 [node name="NewGame" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = 121.0
 margin_right = 559.0
 margin_bottom = 201.0
-
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" index="0"]
-text = "New Game"
+custom_colors/font_color = Color( 1, 0.0705882, 1, 1 )
+text = "NEW GAME"
 
 [node name="Options" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = 242.0
 margin_right = 559.0
 margin_bottom = 322.0
-
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" index="0"]
-text = "Options"
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+text = "OPTIONS"
 
 [node name="Quit" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = 363.0
 margin_right = 559.0
 margin_bottom = 443.0
-
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit" index="0"]
-text = "Quit"
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "QUIT"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_left = 687.0

@@ -90,9 +90,7 @@ margin_left = 0.0
 margin_top = 248.0
 margin_right = 559.0
 margin_bottom = 328.0
-
-[node name="Label" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Back" index="0"]
-text = "Back"
+text = "BACK"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_left = 687.0

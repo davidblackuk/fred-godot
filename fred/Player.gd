@@ -12,6 +12,7 @@ onready var sprite = get_node("Sprite")
 var motion = Vector2()
 var active_ladders = []
 var has_enemy_hit = false
+var floor_normal = Vector2(0, -1)
 
 # follows the current jump height, negative on the way up, positive on falling after reaching 
 # initial position. Used to check if fall distance exceeds the death height. most probably this 
@@ -21,7 +22,7 @@ var jump_height = 0
 var jump_start_y = 0
 	
 func process_movement(_delta):
-	motion = move_and_slide(motion, Vector2.UP)
+	motion = move_and_slide(motion, floor_normal)
 	
 func process_gravity():
 	motion.y += GRAVITY

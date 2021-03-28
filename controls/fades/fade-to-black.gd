@@ -11,3 +11,4 @@ func fade():
 
 func _on_animation_finished(anim_name):
 	emit_signal("fade_complete")
+	

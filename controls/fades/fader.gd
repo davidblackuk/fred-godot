@@ -16,7 +16,6 @@ func fade_in():
 	show()
 	player.play("fade_in")
 
-
 func _on_animation_finished(anim_name):
 	if (anim_name == "fade_out"):
 		emit_signal("fade_out_complete")

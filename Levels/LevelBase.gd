@@ -12,6 +12,7 @@ onready var victims = get_node_or_null("Victims")
 onready var fader = get_node("Fader")
 
 func _ready():
+	GameState.current_level = get_tree().current_scene.filename
 	fader.fade_in()
 	count_victims()
 	connect_spikes_to_player()

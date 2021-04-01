@@ -12,7 +12,7 @@ onready var victims = get_node_or_null("Victims")
 onready var fader = get_node("Fader")
 
 func _ready():
-	GameState.current_level = get_tree().current_scene.filename
+	GameStateManager.current_level = get_tree().current_scene.filename
 	fader.fade_in()
 	count_victims()
 	connect_spikes_to_player()
@@ -21,7 +21,7 @@ func _process(delta):
 	if (Input.is_action_just_pressed("ui_home")):
 		next_scene = "res://menus/main-menu.tscn"
 		fader.fade_out()
-	if (Input.is_action_just_pressed("ui_end") && GameState.debug_mode):
+	if (Input.is_action_just_pressed("ui_end") && GameStateManager.debug_mode):
 		emit_signal("level_complete")
 	
 func count_victims():

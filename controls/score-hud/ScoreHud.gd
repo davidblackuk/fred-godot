@@ -16,13 +16,13 @@ var total_delta_since_last_update = 0
 # we increment the on screen score every this seconds
 const score_update_period = 0.05
 
-# we update the on screen score by this many every time to the GameState.score value
+# we update the on screen score by this many every time to the GameStateManager.score value
 const score_update_step = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# on level load, initialse the current score to the game score
-	on_screen_score = GameState.score
+	on_screen_score = GameStateManager.score
 	level_name_label.text = level_name
 	update()
 	
@@ -30,10 +30,10 @@ func _ready():
 func _process(delta):
 	total_delta_since_last_update += delta
 	if (total_delta_since_last_update >= score_update_period):
-		if (on_screen_score + score_update_step < GameState.score):
+		if (on_screen_score + score_update_step < GameStateManager.score):
 			on_screen_score += score_update_step
 		else:
-			on_screen_score = GameState.score
+			on_screen_score = GameStateManager.score
 		total_delta_since_last_update = 0
 		display_score()
 	
@@ -45,6 +45,6 @@ func display_score():
 	score_label.text = "%05d" % on_screen_score
 	
 func display_deaths():
-	deaths_label.text = "%03d" % GameState.deaths
+	deaths_label.text = "%03d" % GameStateManager.deaths
 	
 

@@ -52,7 +52,7 @@ func _fred_is_dead():
 
 #has the fall range exceeded the height past which fred dies
 func has_fallen_to_death():
-	return jump_height < FALL_HEIGHT_FOR_DEATH && !GameState.god_mode
+	return jump_height < FALL_HEIGHT_FOR_DEATH && !GameStateManager.god_mode
 
 func die():
 	arrest_all_motion()

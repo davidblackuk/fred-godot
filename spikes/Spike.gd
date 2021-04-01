@@ -15,7 +15,7 @@ func _ready():
 	sprite.modulate = spike_color
 
 func _on_Area2D_body_entered(body):
-	if (body.name == "Player" && !GameState.god_mode):
+	if (body.name == "Player" && !GameStateManager.god_mode):
 		audio_player.play()
 		animation_player.play("Hit")
 		emit_signal("player_hit_spike")

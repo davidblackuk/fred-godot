@@ -45,6 +45,7 @@ tile_data = PoolIntArray( -393216, 19, 0, -393185, 19, 0, -327680, 19, 0, -32764
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
+door_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladders" type="Node2D" parent="."]
 position = Vector2( 0, 192 )
@@ -160,7 +161,7 @@ ladder_type = 2
 ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 110.501, 699.896 )
+position = Vector2( 60.1041, 698.636 )
 
 [node name="Victims" type="Node2D" parent="."]
 
@@ -193,6 +194,7 @@ offset = 160.006
 rotate = false
 
 [node name="Enemy" parent="Enemies/Path2D/PathFollow2D" instance=ExtResource( 10 )]
+animation_speed = 1.0
 sprite_tint = Color( 0.0705882, 0.854902, 0.0705882, 1 )
 
 [node name="Path2D2" type="Path2D" parent="Enemies"]
@@ -247,6 +249,7 @@ position = Vector2( -1.50661, -84.1991 )
 offset = 117.533
 
 [node name="Fader" parent="." instance=ExtResource( 12 )]
+visible = false
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]

@@ -86,10 +86,7 @@ func climb():
 	else:
 		animation_player.stop(false)
 
-func jump():
-	if is_on_floor():
-		snap_vector = Vector2.ZERO
-	jump_height = (jump_start_y - global_position.y)
+
 
 func fall():
 	# when y is below start Y, cancel motion.x

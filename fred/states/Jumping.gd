@@ -3,13 +3,17 @@ extends "res://state-machine/StateMachineState.gd"
 func get_transition(_delta, player):
 	if player.has_enemy_hit:
 		return Player.STATE_DYING
-	if player.motion.y > 0:
-		return Player.STATE_FALLING
+	elif player.is_on_floor():
+		return "POP"
 	return null
 
 func state_logic(delta, player):
 	player.process_gravity()
-	player.jump();
+	
+	if player.is_on_floor():
+		player.snap_vector = Vector2.ZERO
+	player.jump_height = (player.jump_start_y - player.global_position.y)
+	
 	player.process_movement(delta)
 	
 func enter_state(_new_state, _old_state, player):

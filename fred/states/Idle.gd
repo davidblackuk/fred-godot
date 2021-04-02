@@ -8,7 +8,7 @@ func get_transition(_delta, player):
 	elif Input.is_action_pressed("ui_down") && player.is_on_ladder() :
 		return Player.STATE_CLIMBING
 	elif Input.is_action_just_pressed("ui_jump") && player.is_on_floor():
-		return Player.STATE_JUMPING
+		return "PUSH:" + Player.STATE_JUMPING
 	elif Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right"):
 		return Player.STATE_WALKING
 	elif player.is_on_ladder() && !player.is_on_floor():
@@ -16,12 +16,14 @@ func get_transition(_delta, player):
 	return null
 
 func state_logic(delta, player):
+	player.motion.x = 0
 	player.process_gravity()
-		
+	player.jump_height = (player.jump_start_y - player.global_position.y)
 	player.process_movement(delta)
 
 func enter_state(_new_state, _old_state, player):
 	player.motion.x = 0
+	player.jump_start_y = player.global_position.y
 	player.animation_player.play("Idle")
 			
 func exit_state(_old_state, _new_state, _player):

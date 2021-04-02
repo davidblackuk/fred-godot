@@ -2,6 +2,11 @@ extends KinematicBody2D
 
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
+const FLOOR_NORMAL = Vector2.UP
+const SNAP_DIRECTION = Vector2.DOWN
+const SNAP_LENGTH = 32
+
+
 const CLIMB_VELOCITY = 150
 const GRAVITY = 10
 const FALL_HEIGHT_FOR_DEATH = -95
@@ -10,9 +15,12 @@ onready var animation_player = get_node("AnimationPlayer")
 onready var sprite = get_node("Sprite")
 
 var motion = Vector2()
+var snap_vector = SNAP_DIRECTION * SNAP_LENGTH
+
+
 var active_ladders = []
 var has_enemy_hit = false
-var floor_normal = Vector2(0, -1)
+
 
 # follows the current jump height, negative on the way up, positive on falling after reaching 
 # initial position. Used to check if fall distance exceeds the death height. most probably this 
@@ -22,8 +30,10 @@ var jump_height = 0
 var jump_start_y = 0
 	
 func process_movement(_delta):
-	motion = move_and_slide(motion, floor_normal)
-	
+	motion = move_and_slide_with_snap(motion, snap_vector, FLOOR_NORMAL, false)
+	if is_on_floor() and snap_vector == Vector2.ZERO:
+		snap_vector = SNAP_DIRECTION * SNAP_LENGTH
+		
 func process_gravity():
 	motion.y += GRAVITY
 
@@ -62,6 +72,8 @@ func die():
 	get_tree().reload_current_scene()
 
 func climb():
+	if is_on_floor():
+		snap_vector = Vector2.ZERO
 	arrest_all_motion()
 	if Input.is_action_pressed("ui_up") and is_on_ladder():
 		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
@@ -74,8 +86,7 @@ func climb():
 	else:
 		animation_player.stop(false)
 
-func jump():
-	jump_height = (jump_start_y - global_position.y)
+
 
 func fall():
 	# when y is below start Y, cancel motion.x

@@ -12,6 +12,7 @@ margin_right = 42.1405
 margin_bottom = 7.26486
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "none"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

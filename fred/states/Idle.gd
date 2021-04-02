@@ -18,11 +18,12 @@ func get_transition(_delta, player):
 func state_logic(delta, player):
 	player.motion.x = 0
 	player.process_gravity()
-		
+	player.jump_height = (player.jump_start_y - player.global_position.y)
 	player.process_movement(delta)
 
 func enter_state(_new_state, _old_state, player):
 	player.motion.x = 0
+	player.jump_start_y = player.global_position.y
 	player.animation_player.play("Idle")
 			
 func exit_state(_old_state, _new_state, _player):

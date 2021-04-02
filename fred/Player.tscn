@@ -14,7 +14,6 @@
 [ext_resource path="res://fred/states/Dying.gd" type="Script" id=12]
 [ext_resource path="res://fred/states/Idle.gd" type="Script" id=13]
 [ext_resource path="res://fred/states/Walking.gd" type="Script" id=14]
-[ext_resource path="res://fred/states/Falling.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 32 )
@@ -138,6 +137,34 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 )
 }
 
+[sub_resource type="GDScript" id=6]
+script/source = "extends \"res://state-machine/StateMachineState.gd\"
+
+func get_transition(_delta, player):
+	if player.has_enemy_hit:
+		return Player.STATE_DYING
+	if player.is_on_floor():
+		if player.has_fallen_to_death():
+			return Player.STATE_DYING
+		else:
+			return \"POP\"
+	return null
+
+func state_logic(delta, player):
+	player.process_gravity()
+	player.fall();
+	player.process_movement(delta)
+
+func enter_state(_new_state, old_state, player):
+	if old_state == Player.STATE_WALKING:
+		player.motion.x = 0
+	player.jump_start_y = player.global_position.y
+
+func exit_state(_old_state, _new_state, _player):
+	pass
+
+"
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 6
 script = ExtResource( 6 )
@@ -187,7 +214,7 @@ script = ExtResource( 11 )
 script = ExtResource( 14 )
 
 [node name="Falling" type="Node" parent="States"]
-script = ExtResource( 15 )
+script = SubResource( 6 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )

@@ -24,15 +24,20 @@ func _physics_process(delta):
 # sets the new state and orchestrates the leave / enter calls
 #
 func _set_state(new_state):
+	
+	if (state == new_state):
+		return
+	
 	var have_popped = false
 	print(previous_state, " >> ", new_state)
 
 	if (new_state.begins_with("PUSH:")):
 		new_state = str(new_state).substr(5)
 		_state_stack.push_front(state)
-		print("pushed state: " , new_state)
+		print("pushed state: " , state, " and moved to ", new_state)
 	elif (new_state == "POP"):
 		new_state = _state_stack.pop_front()
+		print ("popped state ", new_state)
 		have_popped = true
 
 

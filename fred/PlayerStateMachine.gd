@@ -4,7 +4,6 @@ class_name Player
 
 const STATE_WALKING = "walking"
 const STATE_JUMPING = "jumping"
-const STATE_FALLING = "falling"
 const STATE_CLIMBING = "climbing"
 const STATE_DYING = "dying"
 const STATE_DEAD = "dead"
@@ -16,7 +15,6 @@ onready var _dying_state_script = get_node("../States/Dying")
 onready var _idle_state_script = get_node("../States/Idle")
 onready var _jumping_state_script = get_node("../States/Jumping")
 onready var _walking_state_script = get_node("../States/Walking")
-onready var _falling_state_script = get_node("../States/Falling")
 
 func _ready():
 	add_state(STATE_WALKING, _walking_state_script)
@@ -25,6 +23,5 @@ func _ready():
 	add_state(STATE_DYING, _dying_state_script)
 	add_state(STATE_DEAD, _dead_state_script)
 	add_state(STATE_IDLE, _idle_state_script)
-	add_state(STATE_FALLING, _falling_state_script)
 	call_deferred("_set_state", STATE_IDLE)
 

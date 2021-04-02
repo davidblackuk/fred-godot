@@ -1,6 +1,6 @@
 extends Node
 
-const first_level = "res://Levels/Level 001.tscn"
+const first_level = "res://Levels/Level 003.tscn"
 
 var score  setget set_score, get_score
 var deaths setget set_deaths, get_deaths

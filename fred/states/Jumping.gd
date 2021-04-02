@@ -3,8 +3,8 @@ extends "res://state-machine/StateMachineState.gd"
 func get_transition(_delta, player):
 	if player.has_enemy_hit:
 		return Player.STATE_DYING
-	if player.motion.y > 0:
-		return Player.STATE_FALLING
+	if player.is_on_floor():
+		return "POP"
 	return null
 
 func state_logic(delta, player):

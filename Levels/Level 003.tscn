@@ -11,57 +11,22 @@
 [ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=11]
+[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=12]
 [ext_resource path="res://controls/moving-platforms/MovingPlatform.tscn" type="PackedScene" id=15]
 
-[sub_resource type="GDScript" id=1]
-script/source = "tool
-extends Node2D
-
-export(String, FILE, \"*.tscn\") var next_level
-
-export(Color, RGB) var door_tint = Color.white setget set_door_tint, get_door_tint
-
-#
-# Fred has walked into the door and triggered entry to the next level
-#
-func _on_Area2D_body_entered(body):
-	if body.name == \"Player\":
-		# warning-ignore:return_value_discarded
-		get_tree().change_scene(next_level) # Replace with function body.
-
-#
-# Animate the shutter then when complete, remove the static body 
-# collision that prevents pred from entering and hitting the Area2d
-# that initiates the level change
-#
-func _level_complete():
-	var animator = get_node(\"Area2D/AnimationPlayer\")
-	animator.play(\"Roller\")
-	yield(animator, \"animation_finished\")
-	get_node(\"StaticBody2D\").set_collision_mask_bit(0, false)
-
-
-func get_door_tint():
-	return get_node(\"Area2D/Roller\").modulate
-
-func set_door_tint(value):
-	get_node(\"Area2D/Roller\").modulate = value
-	get_node(\"Area2D/Door Top\").modulate = value
-	get_node(\"Area2D/Door Bottom\").modulate = value
-"
-
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 167.265, 613.688, 0, 0, 0, 0, 168, 288 )
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 167.246, 614.21, 0, 0, 0, 0, 168, 408, 0, 0, 0, 0, 168, 288 )
 }
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 7 )
+next_scene = "res://menus/main-menu.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 5 )]
 color = Color( 0.447059, 0.0470588, 0.447059, 1 )
@@ -80,9 +45,6 @@ tile_data = PoolIntArray( -393216, 19, 0, -393185, 19, 0, -327680, 19, 0, -32764
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
-script = SubResource( 1 )
-next_level = "res://Levels/Level 001.tscn"
-door_tint = Color( 1, 1, 0.0705882, 1 )
 
 [node name="Ladders" type="Node2D" parent="."]
 position = Vector2( 0, 192 )
@@ -92,47 +54,69 @@ position = Vector2( 0, 192 )
 [node name="Ladder" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 528 )
 ladder_type = 1
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder2" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 496 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder3" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 464 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder4" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 432 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder5" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 400 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
 ladder_type = 2
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
 [node name="Ladder16" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder18" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder19" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder20" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder21" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder22" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder 4" type="Node2D" parent="Ladders"]
 position = Vector2( 192, 0 )
@@ -143,25 +127,37 @@ __meta__ = {
 [node name="Ladder16" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder18" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder19" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder20" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder21" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
+ladder_type = 0
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder22" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
+ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 110.501, 699.896 )
@@ -183,7 +179,7 @@ position = Vector2( 72.009, 811.995 )
 
 [node name="Path2D" type="Path2D" parent="Enemies"]
 position = Vector2( 168, 90 )
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
@@ -197,12 +193,11 @@ offset = 160.006
 rotate = false
 
 [node name="Enemy" parent="Enemies/Path2D/PathFollow2D" instance=ExtResource( 10 )]
-animation_speed = 1.0
 sprite_tint = Color( 0.0705882, 0.854902, 0.0705882, 1 )
 
 [node name="Path2D2" type="Path2D" parent="Enemies"]
 position = Vector2( 330, 90 )
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
@@ -250,7 +245,10 @@ position = Vector2( -1.50659, -84.1991 )
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform3/Path2D" index="0"]
 position = Vector2( -1.50661, -84.1991 )
 offset = 117.533
+
+[node name="Fader" parent="." instance=ExtResource( 12 )]
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
+[connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder3" to="Player" method="_ladder_status_changed"]
@@ -275,6 +273,7 @@ offset = 117.533
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
 [connection signal="fred_is_dead" from="Enemies/Path2D/PathFollow2D/Enemy" to="Player" method="_fred_is_dead"]
 [connection signal="fred_is_dead" from="Enemies/Path2D2/PathFollow2D/Enemy" to="Player" method="_fred_is_dead"]
+[connection signal="fade_out_complete" from="Fader" to="." method="_on_fader_fade_out_complete"]
 
 [editable path="MovingPlatforms/MovingPlatform"]
 

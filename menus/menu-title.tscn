@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/press-start-64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menus/menu-title.gd" type="Script" id=2]
+
+[node name="Title" type="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 160.0
+custom_constants/margin_top = 96
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.172549, 0.184314, 0.4, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_constants/shadow_as_outline = 0
+text = "son of fred"
+align = 1
+valign = 1
+uppercase = true

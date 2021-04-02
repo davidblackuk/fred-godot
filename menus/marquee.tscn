@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=1]
+
+[node name="Marquee" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 7512.0
+margin_bottom = 32.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "For some reason there always had to be a scrolling marquee on all games back in the day. So.. Welcome to Son Of Fred a recreation of a crappy 80s game.... Controls: [color=yellow]arrow keys[/color] to move / climb, [color=yellow]space[/color] to jump. Use the [color=yellow]Home[/color] key to return to the menu. In debug mode: The [color=yellow]End[/color] key  will open the door to the next level."
+text = "For some reason there always had to be a scrolling marquee on all games back in the day. So.. Welcome to Son Of Fred a recreation of a crappy 80s game.... Controls: arrow keys to move / climb, space to jump. Use the Home key to return to the menu. In debug mode: The End key  will open the door to the next level."
+__meta__ = {
+"_edit_use_anchors_": false
+}

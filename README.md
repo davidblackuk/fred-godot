@@ -10,6 +10,14 @@ The game counts the number of lives lost, not those left. The carry over from th
 
 Icon sizing and platfoms are faithful to the original pallettes and devices but i do allow myself a one pizel black mask for sprites. Also no attribute clashes
 
+Release 3:
+  + collectable coins  
+  + main menu
+  + new statemachine based system
+  + movable platforms
+  + SPIKES!
+  + extra level
+
 
 Release 2:
   + Score in hud animates up to new value
@@ -31,25 +39,10 @@ Release 1:
 # TODO
 
 Should we move this into a project board on Git hub?
++ Move and slide with snap
++ music
+  + minuet in G https://www.youtube.com/watch?v=icZob9-1MDw
 
-+ Change game resolution to match charactor width height of spectrum? (currently the hight is too short)
-+ Ladders
-  + fall over ladder latches to it (musnt stop getting off!)
-+ Convert enemies to AnimatedSprite?
-+ Fred death
-  + ~~Enemy collisions~~
-  + Deadly spikes!
-  + One shot or health bar?
-  + Falling too far
-  + Behaviour
-    + restart level?
-    +   All victims reset?
-    + reset Fred
-    + ~~Death animation~~
-    + Fade out scene?
-
-+ collectable coins / tools
-    + less points than a victim
     
 + Rescue victims
     + Should We use the same mechanic as the original game and make fred visit the ambulance on each rescue?
@@ -57,16 +50,7 @@ Should we move this into a project board on Git hub?
         + or victims animate them selves to the ambulance
     + Monitor count of victim rescues
         + Increment score (Are we even going to show it unless there are other things to get points from)
-    + Open the door and send off the ambulance on level complete
-    + Fade out victim on rescue
-    + play sound on rescue
     + particle effect on rescue
-+ Conveyers
-+ Sliding platforns 
-+ Lifts
-+ Crumbling platforms
-+ Slopes (with jump through?)
-+ Ropes
 
 + Improve graphics as levels go on 
   + ie spectrum -> cpc -> amiga pallette

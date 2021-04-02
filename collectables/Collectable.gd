@@ -37,7 +37,7 @@ func color_according_to_reward():
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		audio_player.play()
-		GameState.add_score((reward_level+1) * SCORE_MULTIPLIER)
+		GameStateManager.add_score((reward_level+1) * SCORE_MULTIPLIER)
 		# play a sound and animate out fade to alpha 0
 		yield(audio_player, "finished")
 		queue_free()

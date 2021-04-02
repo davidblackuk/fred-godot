@@ -6,5 +6,5 @@ onready var label = get_node("Label")
 
 
 func _process(delta):
-	if GameState.show_states:
+	if GameStateManager.debug_mode:
 		label.text = state_machine.state

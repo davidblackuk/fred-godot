@@ -9,7 +9,7 @@ func state_logic(_delta, _victim):
 	pass
 
 func enter_state(_new_state, _old_state, victim):
-	GameState.add_score(victim.POINTS_SCORED)
+	GameStateManager.add_score(victim.POINTS_SCORED)
 	victim.broadcast_rescued()
 	victim.animate_and_dequeue()
 

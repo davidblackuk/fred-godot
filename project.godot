@@ -25,11 +25,6 @@ _global_script_classes=[ {
 "path": "res://fred/PlayerStateMachine.gd"
 }, {
 "base": "Node",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://state-machine/StateMachine.gd"
-}, {
-"base": "Node",
 "class": "StateMachineState",
 "language": "GDScript",
 "path": "res://state-machine/StateMachineState.gd"
@@ -48,7 +43,6 @@ _global_script_class_icons={
 "GameState": "",
 "Palette": "",
 "Player": "",
-"StateMachine": "",
 "StateMachineState": "",
 "StateMachineWithPDA": "",
 "VictimStateMachine": ""

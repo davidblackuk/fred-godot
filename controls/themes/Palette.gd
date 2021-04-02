@@ -25,4 +25,3 @@ const bright_magenta = Color("ff00ff")
 func _ready():
 	if Engine.editor_hint == false:
 		queue_free()
-

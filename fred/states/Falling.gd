@@ -7,7 +7,7 @@ func get_transition(_delta, player):
 		if player.has_fallen_to_death():
 			return Player.STATE_DYING
 		else:
-			return Player.STATE_IDLE
+			return "POP"
 	return null
 
 func state_logic(delta, player):

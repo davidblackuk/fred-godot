@@ -3,8 +3,10 @@ extends "res://state-machine/StateMachineState.gd"
 func get_transition(_delta, player):
 	if player.has_enemy_hit:
 		return Player.STATE_DYING
-	if player.is_on_floor():
+	if !player.is_on_floor() && player.jump_height < 0:
 		print("exit jump player height: ", player.jump_height)
+		return Player.STATE_FALLING
+	elif player.is_on_floor():
 		return "POP"
 	return null
 

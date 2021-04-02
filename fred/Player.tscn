@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://images/fred/fred.png" type="Texture" id=1]
 [ext_resource path="res://sfx/fred/fred-step-1.wav" type="AudioStream" id=2]
@@ -9,10 +9,12 @@
 [ext_resource path="res://controls/state-machine-hud/StateMachineHUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fred/states/Dead.gd" type="Script" id=8]
 [ext_resource path="res://fred/states/Climbing.gd" type="Script" id=9]
+[ext_resource path="res://fred/controls/PlayerDebugHud.tscn" type="PackedScene" id=10]
 [ext_resource path="res://fred/states/Jumping.gd" type="Script" id=11]
 [ext_resource path="res://fred/states/Dying.gd" type="Script" id=12]
 [ext_resource path="res://fred/states/Idle.gd" type="Script" id=13]
 [ext_resource path="res://fred/states/Walking.gd" type="Script" id=14]
+[ext_resource path="res://fred/states/Falling.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 32 )
@@ -184,5 +186,11 @@ script = ExtResource( 11 )
 [node name="Walking" type="Node" parent="States"]
 script = ExtResource( 14 )
 
+[node name="Falling" type="Node" parent="States"]
+script = ExtResource( 15 )
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="DebugHud" parent="." instance=ExtResource( 10 )]
+position = Vector2( -4.33823, -71.7477 )

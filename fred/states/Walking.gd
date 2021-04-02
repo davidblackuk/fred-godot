@@ -9,6 +9,8 @@ func exit_state(_old_state, _new_state, _player):
 func get_transition(_delta, player):
 	if player.has_enemy_hit:
 		return Player.STATE_DYING
+	elif player.motion.y > 0 && !(player.is_on_ladder() && !player.is_on_floor()):
+		return "PUSH:" + Player.STATE_FALLING
 	elif Input.is_action_pressed("ui_up") && player.is_on_ladder():
 		return Player.STATE_CLIMBING
 	elif Input.is_action_pressed("ui_down") && player.is_on_ladder() && !player.is_on_floor():

@@ -13,9 +13,11 @@ Icon sizing and platfoms are faithful to the original pallettes and devices but 
 Release 3:
   + collectable coins  
   + main menu
+  + levels / menu fade in and out
   + new statemachine based system
   + movable platforms
   + SPIKES!
+  + Game state now in a single place for later save functionality
   + extra level
 
 

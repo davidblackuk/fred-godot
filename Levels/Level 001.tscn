@@ -68,95 +68,139 @@ position = Vector2( 0, 192 )
 
 [node name="Ladder 1" type="Node2D" parent="Ladders"]
 
-[node name="Ladder" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 528 )
 ladder_type = 1
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder2" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder2" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 496 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder3" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder3" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 464 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder4" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder4" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 432 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder5" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder5" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 400 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder6" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder7" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder7" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 336 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder8" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder8" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 304 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder9" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder9" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 272 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder10" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder10" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 240 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder11" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder11" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 208 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder12" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder12" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 176 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder13" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder13" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 144 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder14" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder14" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 112 )
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
-[node name="Ladder15" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder15" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 80 )
 ladder_type = 2
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
-[node name="Ladder16" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder17" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder18" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder19" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder20" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder21" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder22" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
@@ -167,32 +211,46 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Ladder16" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder17" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder18" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder19" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder20" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder21" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder22" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 3" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
@@ -299,30 +357,6 @@ position = Vector2( 944, 272 )
 visible = false
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder6" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder7" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder8" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder9" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder10" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder11" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder12" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder13" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder14" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder15" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder16" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder17" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder18" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder19" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder20" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder21" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder22" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder16" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder17" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder18" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder19" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder20" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder21" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 3/Ladder22" to="Player" method="_ladder_status_changed"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
 [connection signal="fred_is_dead" from="Enemies/Path2D/PathFollow2D/Enemy" to="Player" method="_fred_is_dead"]

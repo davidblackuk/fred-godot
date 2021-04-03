@@ -10,23 +10,26 @@ The game counts the number of lives lost, not those left. The carry over from th
 
 Icon sizing and platfoms are faithful to the original pallettes and devices but i do allow myself a one pizel black mask for sprites. Also no attribute clashes
 
-Release 3:
+Release 0.33:
   + collectable coins  
   + main menu
-  + levels / menu fade in and out
+  + levels fade in and out
+  + auto wire up ladders
+  + Debug mode
+  + God mode
+  + progress persistence
   + new statemachine based system
   + movable platforms
   + SPIKES!
-  + Game state now in a single place for later save functionality
+  + 2 extra level
+
+
+Release 0.2:
+  + Score in hud animates up to new value
   + extra level
 
 
-Release 2:
-  + Score in hud animates up to new value
-  + Added second level (which will become level 1)
-
-
-Release 1:
+Release 0.1:
   + Basic game in place
   + Platforms
   + ladders
@@ -71,35 +74,3 @@ Should we move this into a project board on Git hub?
     + Saves manual attachment.
     + we already count victims
   + Level.gd searches all children and registers enemies
-
-
-
-# done
-
-+ Fred death
-  + ~~Enemy collisions~~
-  + Behaviour
-  + ~~Death animation~~
-
-+ ~~Ladders~~
-  + ~~Fred can pause on climbing ladders~~
-  + ~~Fred can exit / fall off ladders by walking~~
-  + ~~We want to be able to tint ladders~~
-
-
-+ ~~Sky box!~~
-+ ~~Palette~~
-+ ~~Mask fred~~
-+ ~~Door tint~~
-+ ~~Export to HTML and host on overtaken by events~~
-
-
-
-
-
-
-# new level cheat sheet
-make sure level uses LevelBase.gd as it's scripts 
-
-
-

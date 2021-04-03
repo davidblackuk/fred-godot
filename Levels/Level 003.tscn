@@ -70,48 +70,74 @@ position = Vector2( 0, 192 )
 
 [node name="Ladder 1" type="Node2D" parent="Ladders"]
 
-[node name="Ladder" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 528 )
 ladder_type = 1
 
-[node name="Ladder2" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder2" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 496 )
 
-[node name="Ladder3" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder3" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 464 )
 
-[node name="Ladder4" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder4" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 432 )
 
-[node name="Ladder5" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder5" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 400 )
 
-[node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
+[node name="Ladder6" parent="Ladders/Ladder 1" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
 ladder_type = 2
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
-[node name="Ladder16" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
 
-[node name="Ladder17" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
 
-[node name="Ladder18" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
 
-[node name="Ladder19" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
 
-[node name="Ladder20" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
 
-[node name="Ladder21" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
 
-[node name="Ladder22" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 2" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
 
@@ -121,54 +147,84 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Ladder16" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
 
-[node name="Ladder17" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
 
-[node name="Ladder18" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
 
-[node name="Ladder19" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
 
-[node name="Ladder20" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
 
-[node name="Ladder21" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
 
-[node name="Ladder22" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 4" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
 
 [node name="Ladder 5" type="Node" parent="Ladders"]
 
-[node name="Ladder23" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder23" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 400 )
 ladder_type = 2
 
-[node name="Ladder24" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder24" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 432 )
 
-[node name="Ladder25" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder25" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 464 )
 
-[node name="Ladder26" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder26" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 496 )
 
-[node name="Ladder27" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder27" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 528 )
 
-[node name="Ladder28" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder28" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 560 )
 
-[node name="Ladder29" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder29" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 592 )
 
-[node name="Ladder30" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
+[node name="Ladder30" parent="Ladders/Ladder 5" groups=[
+"Ladders",
+] instance=ExtResource( 4 )]
 position = Vector2( 784, 624 )
 ladder_type = 2
 
@@ -340,34 +396,6 @@ spike_type = 1
 spike_color = Color( 1, 0, 0, 1 )
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder3" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder4" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder5" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder6" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder16" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder17" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder18" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder19" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder20" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder21" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 2/Ladder22" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder16" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder17" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder18" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder19" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder20" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder21" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 4/Ladder22" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder23" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder24" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder25" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder26" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder27" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder28" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder29" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 5/Ladder30" to="Player" method="_ladder_status_changed"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
 [connection signal="fred_is_dead" from="Enemies/Path2D/PathFollow2D/Enemy" to="Player" method="_fred_is_dead"]

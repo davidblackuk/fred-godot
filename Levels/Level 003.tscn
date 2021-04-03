@@ -21,12 +21,12 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 168, 288, 0, 0, 0, 0, 167.265, 613.688, 0, 0, 0, 0, 168, 288 )
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 166, 286, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 166, 614, 0, 0, 0, 0, 166, 374, 0, 0, 0, 0, 166, 286 )
 }
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Path2D
 
 export var velocity = 1.0
@@ -37,7 +37,7 @@ func _process(delta):
 	follower.set_offset(follower.get_offset() + (100 * velocity) * delta)
 "
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 104, 392, 0, 0, 0, 0, 168, 424, 0, 0, 0, 0, 240, 392, 0, 0, 0, 0, 104, 392 )
 }
@@ -73,69 +73,47 @@ position = Vector2( 0, 192 )
 [node name="Ladder" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 528 )
 ladder_type = 1
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder2" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 496 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder3" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 464 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder4" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 432 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder5" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 400 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
 ladder_type = 2
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
 [node name="Ladder16" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder18" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder19" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder20" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder21" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder22" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder 4" type="Node2D" parent="Ladders"]
 position = Vector2( 192, 0 )
@@ -146,79 +124,53 @@ __meta__ = {
 [node name="Ladder16" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder18" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder19" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder20" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder21" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder22" parent="Ladders/Ladder 4" instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder 5" type="Node" parent="Ladders"]
 
 [node name="Ladder23" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 400 )
 ladder_type = 2
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder24" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 432 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder25" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 464 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder26" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 496 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder27" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 528 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder28" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 560 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder29" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 592 )
-ladder_type = 0
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladder30" parent="Ladders/Ladder 5" instance=ExtResource( 4 )]
 position = Vector2( 784, 624 )
 ladder_type = 2
-ladder_tint = Color( 1, 1, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 704 )
@@ -260,8 +212,8 @@ animation_name = "Bottle"
 
 [node name="Path2D2" type="Path2D" parent="Enemies"]
 position = Vector2( 330, 90 )
-curve = SubResource( 3 )
-script = SubResource( 4 )
+curve = SubResource( 2 )
+script = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -279,7 +231,7 @@ animation_name = "Bottle"
 
 [node name="Path2D3" type="Path2D" parent="Enemies"]
 position = Vector2( 720, -232 )
-curve = SubResource( 2 )
+curve = SubResource( 4 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true

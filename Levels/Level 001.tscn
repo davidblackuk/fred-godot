@@ -75,67 +75,54 @@ ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder2" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 496 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder3" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 464 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder4" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 432 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder5" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 400 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder6" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder7" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 336 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder8" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 304 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder9" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 272 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder10" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 240 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder11" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 208 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder12" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 176 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder13" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 144 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder14" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
 position = Vector2( 112, 112 )
-ladder_type = 0
 ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder15" parent="Ladders/Ladder 1" instance=ExtResource( 4 )]
@@ -147,32 +134,26 @@ ladder_tint = Color( 0.215686, 0.588235, 0.588235, 1 )
 
 [node name="Ladder16" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder18" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder19" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder20" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder21" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder22" parent="Ladders/Ladder 2" instance=ExtResource( 4 )]
@@ -193,27 +174,22 @@ ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder18" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder19" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder20" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder21" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
-ladder_type = 0
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder22" parent="Ladders/Ladder 3" instance=ExtResource( 4 )]
@@ -323,11 +299,6 @@ position = Vector2( 944, 272 )
 visible = false
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder2" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder3" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder4" to="Player" method="_ladder_status_changed"]
-[connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder5" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder6" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder7" to="Player" method="_ladder_status_changed"]
 [connection signal="ladder_status_changed" from="Ladders/Ladder 1/Ladder8" to="Player" method="_ladder_status_changed"]

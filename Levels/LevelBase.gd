@@ -16,6 +16,7 @@ func _ready():
 	fader.fade_in()
 	count_victims()
 	connect_spikes_to_player()
+	connect_ladders_to_players()
 	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_home")):
@@ -38,6 +39,13 @@ func _on_victim_rescued():
 #
 func connect_spikes_to_player():
 	get_tree().call_group("Spikes", "connect", "player_hit_spike", player, "_fred_is_dead")
+
+#
+# Get the members of the ladders group and attach the ladder_status_changed() signal to
+# the players _ladder_status_changed() function. This enables climbing ladders
+#
+func connect_ladders_to_players():
+	get_tree().call_group("Ladders", "connect", "ladder_status_changed", player, "_ladder_status_changed")
 
 
 func _on_fader_fade_out_complete():

@@ -17,7 +17,7 @@ func _ready():
 	count_victims()
 	connect_spikes_to_player()
 	connect_ladders_to_player()
-	connect_conveyers_to_player()
+	connect_conveyors_to_player()
 	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_home")):
@@ -52,8 +52,8 @@ func connect_ladders_to_player():
 # Get the members of the conveyers group and attach the conveyer_status_changed() signal to
 # the players _conveyer_status_changed() function. This enables convyers
 #
-func connect_conveyers_to_player():
-	get_tree().call_group("Ladders", "connect", "conveyer_status_changed", player, "_conveyer_status_changed")
+func connect_conveyors_to_player():
+	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", player, "_conveyor_status_changed")
 
 
 func _on_fader_fade_out_complete():

@@ -23,8 +23,8 @@ var has_enemy_hit = false
 var active_ladders = []
 
 # conveyers the player is currently over
-var active_conveyers = []
-
+var active_conveyors = []
+var current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
 
 # follows the current jump height, negative on the way up, positive on falling after reaching 
 # initial position. Used to check if fall distance exceeds the death height. most probably this 
@@ -38,10 +38,8 @@ func process_movement(_delta):
 	if is_on_floor() and snap_vector == Vector2.ZERO:
 		snap_vector = SNAP_DIRECTION * SNAP_LENGTH
 
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.name != "Tiles":
-			print("I collided with ", collision.collider.name)
+	if is_standing_on_conveyer():
+		print("standing on conveyer going ", current_conveyor_direction)
 		
 		
 func process_gravity():
@@ -67,13 +65,16 @@ func _ladder_status_changed(ladder_node, is_entry):
 		active_ladders.erase(ladder_node)	
 
 func is_standing_on_conveyer():
-	return not active_ladders.empty() && is_on_floor()
+	return !active_conveyors.empty() && is_on_floor() && active_conveyors[0].global_position.y > global_position.y
 		
-func _conveyer_status_changed(conveyer_node, is_entry):
+func _conveyor_status_changed(conveyor_node, is_entry):
 	if is_entry:
-		active_conveyers.append(conveyer_node)
+		active_conveyors.append(conveyor_node)	
+		current_conveyor_direction = conveyor_node.direction
 	else:
-		active_conveyers.erase(conveyer_node)	
+		active_conveyors.erase(conveyor_node)
+		if (active_conveyors.empty()):
+			current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
 	
 		
 		

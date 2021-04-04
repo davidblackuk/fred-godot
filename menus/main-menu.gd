@@ -33,7 +33,6 @@ func _options_pressed():
 	fader.fade_out()
 
 func _on_quit_pressed():
-	GameStateManager.save()
 	scene_to_load = "QUIT"
 	fader.fade_out()
 

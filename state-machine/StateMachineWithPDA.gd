@@ -29,7 +29,6 @@ func _set_state(new_state):
 		return
 	
 	var have_popped = false
-	print(previous_state, " >> ", new_state)
 
 	if (new_state.begins_with("PUSH:")):
 		new_state = str(new_state).substr(5)

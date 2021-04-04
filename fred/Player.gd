@@ -16,10 +16,14 @@ onready var sprite = get_node("Sprite")
 
 var motion = Vector2()
 var snap_vector = SNAP_DIRECTION * SNAP_LENGTH
-
-
-var active_ladders = []
 var has_enemy_hit = false
+
+
+# ladders the player is currently over
+var active_ladders = []
+
+# conveyers the player is currently over
+var active_conveyers = []
 
 
 # follows the current jump height, negative on the way up, positive on falling after reaching 
@@ -33,6 +37,12 @@ func process_movement(_delta):
 	motion = move_and_slide_with_snap(motion, snap_vector, FLOOR_NORMAL, false)
 	if is_on_floor() and snap_vector == Vector2.ZERO:
 		snap_vector = SNAP_DIRECTION * SNAP_LENGTH
+
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name != "Tiles":
+			print("I collided with ", collision.collider.name)
+		
 		
 func process_gravity():
 	motion.y += GRAVITY
@@ -55,6 +65,17 @@ func _ladder_status_changed(ladder_node, is_entry):
 		active_ladders.append(ladder_node)
 	else:
 		active_ladders.erase(ladder_node)	
+
+func is_standing_on_conveyer():
+	return not active_ladders.empty() && is_on_floor()
+		
+func _conveyer_status_changed(conveyer_node, is_entry):
+	if is_entry:
+		active_conveyers.append(conveyer_node)
+	else:
+		active_conveyers.erase(conveyer_node)	
+	
+		
 		
 #enemy sprite collision
 func _fred_is_dead():

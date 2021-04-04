@@ -44,7 +44,7 @@ _data = {
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 7 )
-next_scene = "res://menus/main-menu.tscn"
+next_scene = "res://Levels/Level 004.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 5 )]
 color = Color( 0.447059, 0.0470588, 0.447059, 1 )
@@ -63,7 +63,6 @@ tile_data = PoolIntArray( -196608, 1073741844, 0, -196607, 21, 0, -196606, 21, 0
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
-door_tint = Color( 1, 1, 1, 1 )
 
 [node name="Ladders" type="Node2D" parent="."]
 position = Vector2( 0, 192 )

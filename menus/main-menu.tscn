@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/press-start-64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://menus/main-menu.gd" type="Script" id=5]
 [ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=6]
 [ext_resource path="res://images/splash-400.png" type="Texture" id=7]
-[ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=8]
+[ext_resource path="res://fonts/pres-start-16.tres" type="DynamicFont" id=8]
+[ext_resource path="res://fonts/pres-start-32.tres" type="DynamicFont" id=9]
 
 [node name="MainMenu" type="Control"]
 script = ExtResource( 5 )
@@ -49,13 +50,13 @@ uppercase = true
 [node name="ContentArea" type="HBoxContainer" parent="VBoxOuter"]
 margin_top = 192.0
 margin_right = 1024.0
-margin_bottom = 640.0
+margin_bottom = 679.0
 size_flags_vertical = 0
 custom_constants/separation = 0
 
 [node name="ButtonContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_right = 687.0
-margin_bottom = 448.0
+margin_bottom = 487.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 64
@@ -67,8 +68,8 @@ custom_constants/margin_bottom = 16
 margin_left = 64.0
 margin_top = 16.0
 margin_right = 623.0
-margin_bottom = 432.0
-custom_constants/separation = 32
+margin_bottom = 471.0
+custom_constants/separation = -5
 alignment = 1
 
 [node name="Continue" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
@@ -85,9 +86,9 @@ text = "CONTINUE"
 
 [node name="NewGame" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
-margin_top = 112.0
+margin_top = 75.0
 margin_right = 559.0
-margin_bottom = 192.0
+margin_bottom = 155.0
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
@@ -95,33 +96,53 @@ text = "NEW GAME"
 
 [node name="Options" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
-margin_top = 224.0
+margin_top = 150.0
 margin_right = 559.0
-margin_bottom = 304.0
+margin_bottom = 230.0
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
 text = "OPTIONS"
 
+[node name="Load" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 225.0
+margin_right = 559.0
+margin_bottom = 305.0
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+text = "LOAD"
+
+[node name="Save" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 300.0
+margin_right = 559.0
+margin_bottom = 380.0
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+text = "SAVE"
+
 [node name="Quit" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_left = 0.0
-margin_top = 336.0
+margin_top = 375.0
 margin_right = 559.0
-margin_bottom = 416.0
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+margin_bottom = 455.0
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
 text = "QUIT"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_left = 687.0
 margin_right = 1024.0
-margin_bottom = 448.0
+margin_bottom = 487.0
 custom_constants/margin_right = 64
 
 [node name="Cover" type="TextureRect" parent="VBoxOuter/ContentArea/MarginContainer"]
 margin_right = 273.0
-margin_bottom = 448.0
+margin_bottom = 487.0
 texture = ExtResource( 7 )
 stretch_mode = 4
 
@@ -129,10 +150,11 @@ stretch_mode = 4
 position = Vector2( 80, 920 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 744.0
+margin_top = 752.0
 margin_right = 1024.0
 margin_bottom = 768.0
 custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
 text = "0.3.0"
 align = 2
 __meta__ = {
@@ -141,9 +163,103 @@ __meta__ = {
 
 [node name="Fader" parent="." instance=ExtResource( 6 )]
 visible = false
+
+[node name="SaveConfimation" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 1107.82
+margin_top = 275.388
+margin_right = 1478.82
+margin_bottom = 491.388
+rect_rotation = -0.0796325
+window_title = "Game saved"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="SaveConfimation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -49.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveConfimation/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 350.0
+margin_bottom = 154.0
+
+[node name="Label" type="Label" parent="SaveConfimation/MarginContainer/VBoxContainer"]
+margin_right = 345.0
+margin_bottom = 149.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "game saved"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="LoadConfirmation" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 1107.82
+margin_top = 275.388
+margin_right = 1478.82
+margin_bottom = 491.388
+rect_rotation = -0.0796325
+window_title = "Game saved"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadConfirmation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -36.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadConfirmation/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 357.0
+margin_bottom = 167.0
+
+[node name="Label" type="Label" parent="LoadConfirmation/MarginContainer/VBoxContainer"]
+margin_right = 352.0
+margin_bottom = 162.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "game loaded"
+align = 1
+valign = 1
+uppercase = true
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]
+[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="fade_out_complete" from="Fader" to="." method="_on_Fader_fade_out_complete"]
 

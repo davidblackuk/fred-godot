@@ -20,8 +20,10 @@ Release 0.33:
   + progress persistence
   + new statemachine based system
   + movable platforms
+  + crumbling platforms
+  + conveyors
   + SPIKES!
-  + 2 extra level
+  + 2 extra levels inc manic miner shout out
 
 
 Release 0.2:

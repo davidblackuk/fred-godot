@@ -1,6 +1,8 @@
 extends Node
 
-const first_level = "res://Levels/Level 001.tscn"
+const SAVE_FILE_PATH = "user://game-save.dat"
+const FIRST_LEVEL = "res://Levels/Level 001.tscn"
+
 
 var score  setget set_score, get_score
 var deaths setget set_deaths, get_deaths
@@ -13,7 +15,7 @@ var _game_state = GameState.new()
 
 func reset():
 	_game_state = GameState.new()
-	_game_state.current_level = first_level
+	_game_state.current_level = FIRST_LEVEL
 
 func get_score():
 	return _game_state.score
@@ -56,4 +58,31 @@ func get_god_mode():
 
 
 
+
+func save_file_exists():
+	var file = File.new()
+	return file.file_exists(SAVE_FILE_PATH)
+
+func save():
+	var file = File.new()
+	var error = file.open(SAVE_FILE_PATH, File.WRITE)
+	if error == OK:
+		file.store_var(_game_state)
+		file.close()
+	else:
+		print("File open for save state failed, error code: ", error)
+
+func load():
+	if save_file_exists():
+		var file = File.new()
+		var error = file.open(SAVE_FILE_PATH, File.READ)
+		if error == OK:
+			var data = file.get_var()
+			print(data)
+			file.close()
+			_game_state = data
+		else:
+			print("File open for read state failed, error code: ", error)
+		
+		
 

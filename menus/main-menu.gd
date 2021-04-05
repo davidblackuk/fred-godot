@@ -3,18 +3,25 @@ extends Control
 onready var fader = get_node("Fader")
 onready var new_game_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame")
 onready var continue_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue")
+onready var load_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Load")
+onready var save_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Save")
 
 var scene_to_load = null
 
 func _ready():
 	fader.fade_in()
+	set_button_state()
 	
+func set_button_state():
+	var has_current_level = GameStateManager.current_level != null
+
+	load_button.disabled = !GameStateManager.save_file_exists()
+	continue_button.disabled = !has_current_level
+	save_button.disabled = !has_current_level
 	
-	if (GameStateManager.current_level == null):
-		continue_button.disabled = true
+	if !has_current_level:
 		new_game_button.grab_focus()
 	else:
-		continue_button.disabled = false
 		continue_button.grab_focus()
 
 func _new_game_pressed():
@@ -42,3 +49,10 @@ func _on_Fader_fade_out_complete():
 	else:
 		get_tree().quit()
 
+func _on_Load_pressed():
+	GameStateManager.load()
+	set_button_state()
+
+
+func _on_Save_pressed():
+	GameStateManager.save()

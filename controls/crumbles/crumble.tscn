@@ -29,8 +29,10 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.447059, 0.447059, 0.0470588, 1 )
 texture = ExtResource( 1 )
 hframes = 9
+frame = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

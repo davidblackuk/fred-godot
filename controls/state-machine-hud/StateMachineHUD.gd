@@ -8,3 +8,5 @@ onready var label = get_node("Label")
 func _process(delta):
 	if GameStateManager.debug_mode:
 		label.text = state_machine.state
+	else:
+		queue_free()

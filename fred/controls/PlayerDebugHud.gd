@@ -9,3 +9,5 @@ func _process(delta):
 	if GameStateManager.debug_mode:
 		jump_height.text = str(int(player.jump_height))
 		motion.text = str(player.motion)
+	else:
+		queue_free()

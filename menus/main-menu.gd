@@ -5,6 +5,9 @@ onready var new_game_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VB
 onready var continue_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue")
 onready var load_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Load")
 onready var save_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Save")
+onready var save_confirm = get_node("SaveConfimation")
+onready var load_confirm = get_node("LoadConfirmation")
+
 
 var scene_to_load = null
 
@@ -52,7 +55,9 @@ func _on_Fader_fade_out_complete():
 func _on_Load_pressed():
 	GameStateManager.load()
 	set_button_state()
+	load_confirm.popup_centered()
 
 
 func _on_Save_pressed():
 	GameStateManager.save()
+	save_confirm.popup_centered()

@@ -8,7 +8,6 @@ export(String) var animation_name = "Bulb"
 func _ready():
 	var player = get_node_or_null("Area2D/AnimationPlayer")
 	if player:
-		print("Play ", animation_name)
 		player.play(animation_name)
 	
 

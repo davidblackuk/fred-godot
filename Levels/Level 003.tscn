@@ -225,10 +225,7 @@ position = Vector2( 784, 592 )
 "Ladders",
 ] instance=ExtResource( 4 )]
 position = Vector2( 784, 624 )
-ladder_type = 2
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 704 )
+ladder_type = 1
 
 [node name="Victims" type="Node2D" parent="."]
 
@@ -336,9 +333,6 @@ position = Vector2( -1.50659, -84.1991 )
 position = Vector2( -1.50661, -84.1991 )
 offset = 117.533
 
-[node name="Fader" parent="." instance=ExtResource( 12 )]
-visible = false
-
 [node name="Collectables" type="Node" parent="."]
 
 [node name="Coin" parent="Collectables" instance=ExtResource( 14 )]
@@ -393,6 +387,14 @@ spike_color = Color( 1, 0, 0, 1 )
 position = Vector2( 80, 144 )
 spike_type = 1
 spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 704 )
+z_index = 1
+
+[node name="Fader" parent="." instance=ExtResource( 12 )]
+visible = false
+z_index = 4096
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]

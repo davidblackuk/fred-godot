@@ -36,11 +36,7 @@ var jump_start_y = 0
 func process_movement(_delta):
 	motion = move_and_slide_with_snap(motion, snap_vector, FLOOR_NORMAL, false)
 	if is_on_floor() and snap_vector == Vector2.ZERO:
-		snap_vector = SNAP_DIRECTION * SNAP_LENGTH
-
-	if is_standing_on_conveyer():
-		print("standing on conveyer going ", current_conveyor_direction)
-		
+		snap_vector = SNAP_DIRECTION * SNAP_LENGTH		
 		
 func process_gravity():
 	motion.y += GRAVITY

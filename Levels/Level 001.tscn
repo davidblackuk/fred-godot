@@ -354,6 +354,7 @@ position = Vector2( 944, 272 )
 
 [node name="Fader" parent="." instance=ExtResource( 14 )]
 visible = false
+z_index = 4096
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]

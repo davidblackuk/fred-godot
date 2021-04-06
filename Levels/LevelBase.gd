@@ -61,7 +61,6 @@ func _on_fader_fade_out_complete():
 
 func goto_next_scene():
 	if next_scene != null:
-		print("Going to next scene: ", next_scene)
 		get_tree().change_scene(next_scene)
 
 func _player_entered_door():

@@ -1,4 +1,6 @@
+
 extends Node2D
+
 
 signal fade_out_complete()
 signal fade_in_complete()
@@ -22,3 +24,4 @@ func _on_animation_finished(anim_name):
 	else:
 		hide()
 		emit_signal("fade_in_complete")
+

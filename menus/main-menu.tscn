@@ -25,7 +25,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 23 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1024, 696 ), Vector2( -6500, 696 ) ]
+"values": [ Vector2( 1024, 696 ), Vector2( -6700, 696 ) ]
 }
 
 [node name="MainMenu" type="Control"]
@@ -179,9 +179,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fader" parent="." instance=ExtResource( 6 )]
-visible = false
-
 [node name="SaveConfimation" type="AcceptDialog" parent="."]
 visible = true
 margin_left = 1107.82
@@ -279,10 +276,10 @@ uppercase = true
 [node name="Label" type="Label" parent="ScrollingMarquee"]
 margin_left = 1024.0
 margin_top = 696.0
-margin_right = 7360.0
+margin_right = 7408.0
 margin_bottom = 720.0
 custom_fonts/font = ExtResource( 10 )
-text = "Son of Fred, the fireman returns... Rescue victims, collect coins. Over one exciting and difficult levels. Controls: Arrow keys for left / right / up / down (or WASD), space to jump. Home key returns to the menu. Debug mode: End, opens the door to the next level. "
+text = "Son of Fred, the fireman returns... Rescue victims, collect coins. Over one exciting and difficult level(s). Controls: Arrow keys for left / right / up / down (or WASD), space to jump. Home key returns to the menu. Debug mode: End, opens the door to the next level. "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -290,6 +287,10 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ScrollingMarquee"]
 autoplay = "Scroll"
 anims/Scroll = SubResource( 1 )
+
+[node name="Fader" parent="." instance=ExtResource( 6 )]
+visible = false
+z_index = 4096
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]

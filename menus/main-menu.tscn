@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/press-start-64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
@@ -9,6 +9,24 @@
 [ext_resource path="res://images/splash-400.png" type="Texture" id=7]
 [ext_resource path="res://fonts/pres-start-16.tres" type="DynamicFont" id=8]
 [ext_resource path="res://fonts/pres-start-32.tres" type="DynamicFont" id=9]
+[ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Scroll"
+length = 23.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 23 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 696 ), Vector2( -6500, 696 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 script = ExtResource( 5 )
@@ -255,6 +273,23 @@ text = "game loaded"
 align = 1
 valign = 1
 uppercase = true
+
+[node name="ScrollingMarquee" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="ScrollingMarquee"]
+margin_left = 1024.0
+margin_top = 696.0
+margin_right = 7360.0
+margin_bottom = 720.0
+custom_fonts/font = ExtResource( 10 )
+text = "Son of Fred, the fireman returns... Rescue victims, collect coins. Over one exciting and difficult levels. Controls: Arrow keys for left / right / up / down (or WASD), space to jump. Home key returns to the menu. Debug mode: End, opens the door to the next level. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScrollingMarquee"]
+autoplay = "Scroll"
+anims/Scroll = SubResource( 1 )
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]

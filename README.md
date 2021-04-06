@@ -17,12 +17,13 @@ Release 0.33:
   + auto wire up ladders
   + Debug mode
   + God mode
-  + progress persistence
+  + Game save / load
   + new statemachine based system
   + movable platforms
   + crumbling platforms
   + conveyors
   + SPIKES!
+  + Scrolling Marquee
   + 2 extra levels inc manic miner shout out
 
 

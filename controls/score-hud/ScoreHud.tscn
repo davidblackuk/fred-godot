@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://fonts/pres-start-12.tres" type="DynamicFont" id=1]
 [ext_resource path="res://controls/score-hud/ScoreHud.gd" type="Script" id=2]
 [ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=3]
 
@@ -79,6 +80,54 @@ custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "000"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug" type="Node" parent="."]
+
+[node name="LabelFPS" type="Label" parent="Debug"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 43.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.772549, 0.729412, 0.729412, 1 )
+text = "FPS:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueFPS" type="Label" parent="Debug"]
+margin_left = 51.0
+margin_top = 3.0
+margin_right = 91.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelMem" type="Label" parent="Debug"]
+margin_left = 3.0
+margin_top = 17.0
+margin_right = 51.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.772549, 0.729412, 0.729412, 1 )
+text = "MEM:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueMem" type="Label" parent="Debug"]
+margin_left = 51.0
+margin_top = 17.0
+margin_right = 91.0
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 1 )
+text = "00"
 __meta__ = {
 "_edit_use_anchors_": false
 }

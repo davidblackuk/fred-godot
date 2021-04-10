@@ -3,9 +3,15 @@ extends Node2D
 
 export(String) var level_name = "??"
 
-onready var deaths_label =  get_node("Deaths/DeathValue")
-onready var score_label =  get_node("Score/ScoreValue")
-onready var level_name_label =  get_node("LevelName")
+onready var deaths_label =  $Deaths/DeathValue
+onready var score_label =  $Score/ScoreValue
+onready var level_name_label =  $LevelName
+
+onready var fps_label = $Debug/LabelFPS
+onready var fps_value = $Debug/ValueFPS
+onready var mem_label = $Debug/LabelMem
+onready var mem_value = $Debug/ValueMem
+
 
 # we sweep up to this
 var on_screen_score = 0
@@ -24,6 +30,7 @@ func _ready():
 	# on level load, initialse the current score to the game score
 	on_screen_score = GameStateManager.score
 	level_name_label.text = level_name
+	hide_stats_if_not_debug()
 	update()
 	
 # update the score on screen incrementing it until we reach the current game score
@@ -36,6 +43,8 @@ func _process(delta):
 			on_screen_score = GameStateManager.score
 		total_delta_since_last_update = 0
 		display_score()
+		
+	update_debug_info()
 	
 func update():
 	display_score()
@@ -47,4 +56,15 @@ func display_score():
 func display_deaths():
 	deaths_label.text = "%03d" % GameStateManager.deaths
 	
-
+func hide_stats_if_not_debug():
+	if (!GameStateManager.debug_mode):
+		fps_label.hide()
+		fps_value.hide()
+		mem_label.hide()
+		mem_value.hide()
+		
+func update_debug_info():
+	var fps = Performance.get_monitor(Performance.TIME_FPS)
+	var memory = Performance.get_monitor(Performance.MEMORY_STATIC) / 1024 / 1024
+	fps_value.text = str(fps)
+	mem_value.text = str(int(memory))

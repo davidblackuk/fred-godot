@@ -279,7 +279,7 @@ rotate = false
 [node name="Enemy" parent="Enemies/Path2D2/PathFollow2D" instance=ExtResource( 10 )]
 animation_speed = 1.5
 sprite_tint = Color( 1, 1, 0, 1 )
-animation_name = "Bottle"
+animation_name = "HourGlass"
 
 [node name="Path2D3" type="Path2D" parent="Enemies"]
 position = Vector2( 720, -232 )

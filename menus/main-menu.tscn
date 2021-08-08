@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://fonts/press-start-64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://fonts/pres-start-16.tres" type="DynamicFont" id=8]
 [ext_resource path="res://fonts/pres-start-32.tres" type="DynamicFont" id=9]
 [ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=10]
+[ext_resource path="res://images/fred/fred.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Scroll"
@@ -26,6 +27,102 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1024, 696 ), Vector2( -6700, 696 ) ]
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 690.685, 203.173, 0, 0, 0, 0, 947.364, 202.112, -7.68388, -10.865, 7.68388, 10.865, 966.103, 211.481, 0, 0, 0, 0, 972.78, 229.689, 0, 0, 0, 0, 970.864, 603.337, 11.7438, -4.39714, -11.7438, 4.39714, 961.007, 632.422, 0, 0, 0, 0, 939.087, 636.135, 0, 0, 0, 0, 691.386, 636.596, 6.55477, 4.52149, -6.55477, -4.52149, 669.118, 632.422, 0, 0, 0, 0, 664.699, 596.537, 0, 0, 0, 0, 664.671, 533.112, 0, 0, 0, 0, 665.052, 215.547, -4.53729, 3.90216, 4.53729, -3.90216, 670.241, 205.744, 0, 0, 0, 0, 691.498, 203.353 )
+}
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 11 )
+region = Rect2( 36, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 11 )
+region = Rect2( 72, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 11 )
+region = Rect2( 108, 0, 36, 36 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Walk Box Art"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Walk Box Art"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.5 ]
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 704, 184, 0, 0, 0, 0, 872, 184, -16.2709, 0.39685, 16.2709, -0.39685, 920, 168, 0, 0, 0, 0, 968, 184, 0, 0, 0, 0, 1064, 184, -16.6677, -0.39685, 16.6677, 0.39685, 1112, 168, 0, 0, 0, 0, 1152, 184, 0, 0, 0, 0, 1376, 184 )
+}
+
+[sub_resource type="Animation" id=11]
+length = 16.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PathFollow2D/AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [node name="MainMenu" type="Control"]
@@ -173,7 +270,7 @@ margin_right = 1024.0
 margin_bottom = 768.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
-text = "0.3.4"
+text = "0.4.0"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -291,6 +388,64 @@ anims/Scroll = SubResource( 1 )
 [node name="Fader" parent="." instance=ExtResource( 6 )]
 visible = false
 z_index = 4096
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 4.15814, 16.3163 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 690.685, 203.173 )
+rotation = -0.00413279
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+frames = SubResource( 7 )
+frame = 2
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
+autoplay = "Walk Box Art"
+"anims/Walk Box Art" = SubResource( 8 )
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2( 4.15814, 16.3163 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2( 690.685, 203.173 )
+rotation = -0.00413279
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D3/PathFollow2D"]
+frames = SubResource( 7 )
+frame = 1
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3"]
+autoplay = "Walk Box Art"
+"anims/Walk Box Art" = SubResource( 9 )
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2( -536, -136 )
+curve = SubResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 1216.52, 184 )
+offset = 524.42
+rotate = false
+loop = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D2/PathFollow2D"]
+frames = SubResource( 7 )
+frame = 2
+playing = true
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D2"]
+autoplay = "Walk Box Art"
+"anims/Walk Box Art" = SubResource( 11 )
+
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options" to="." method="_options_pressed"]
@@ -300,9 +455,6 @@ z_index = 4096
 [connection signal="fade_out_complete" from="Fader" to="." method="_on_Fader_fade_out_complete"]
 
 [editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue"]
-
 [editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame"]
-
 [editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Options"]
-
 [editable path="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Quit"]

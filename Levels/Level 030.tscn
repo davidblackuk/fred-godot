@@ -44,7 +44,7 @@ _data = {
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 7 )
-next_scene = "res://Levels/Level 004.tscn"
+next_scene = "res://Levels/Level 999.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 5 )]
 color = Color( 0.447059, 0.0470588, 0.447059, 1 )
@@ -396,6 +396,7 @@ z_index = 1
 [node name="Fader" parent="." instance=ExtResource( 12 )]
 visible = false
 z_index = 4096
+
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
@@ -406,7 +407,5 @@ z_index = 4096
 [connection signal="fade_out_complete" from="Fader" to="." method="_on_fader_fade_out_complete"]
 
 [editable path="MovingPlatforms/MovingPlatform"]
-
 [editable path="MovingPlatforms/MovingPlatform2"]
-
 [editable path="MovingPlatforms/MovingPlatform3"]

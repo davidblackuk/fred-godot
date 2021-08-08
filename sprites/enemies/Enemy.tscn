@@ -139,7 +139,7 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 24
-frame = 16
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 2, 0 )
@@ -153,4 +153,5 @@ anims/Camera = SubResource( 4 )
 anims/Ghost = SubResource( 5 )
 anims/HourGlass = SubResource( 6 )
 anims/Spider = SubResource( 7 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_StaticBody2D_body_entered"]

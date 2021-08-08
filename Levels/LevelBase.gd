@@ -55,13 +55,26 @@ func connect_ladders_to_player():
 func connect_conveyors_to_player():
 	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", player, "_conveyor_status_changed")
 
+#
+# the player has entered the door and is going to proceed to 
+# the next level after we fade the scene out 
+#
+func _player_entered_door():
+	fader.fade_out()
 
+#
+# The scene has faded out, we go to the next scene
+#
 func _on_fader_fade_out_complete():
 	goto_next_scene()
 
+#
+# We go to the next scene, if set. The next scene is defined as
+# a property of the root node. Fairly simple. Last level, currently
+# redirects to the main menu, though we really should do a game over
+# congratulations type scene when we have a fuller set of levels
+#
 func goto_next_scene():
 	if next_scene != null:
 		get_tree().change_scene(next_scene)
 
-func _player_entered_door():
-	fader.fade_out()

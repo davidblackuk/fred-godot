@@ -45,7 +45,7 @@ func _process(delta):
 
 [node name="Level 2" type="Node2D"]
 script = ExtResource( 2 )
-next_scene = "res://Levels/Level 003a.tscn"
+next_scene = "res://Levels/Level 003.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 7 )]
 color = Color( 0.00392157, 0.0627451, 0.0666667, 1 )

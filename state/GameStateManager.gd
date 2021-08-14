@@ -11,10 +11,7 @@ var game_timer = StopWatch.new()
 var level_timer = StopWatch.new()
 var game_state = GameState.new(FIRST_LEVEL);
 
-#
-# resets the state to default values, while this could be just an empty 
-# dictionary, this is more explicit
-#
+
 func reset():
 	game_state.reset(FIRST_LEVEL);
 	game_timer.reset()
@@ -44,6 +41,8 @@ func add_score(value):
 # collected is passed in for high score purposes
 #
 func level_complete(next_level, collectables_percent):
+	game_timer.pause()
+	level_timer.pause()
 	var levelTime = level_timer.ellapsed_msec()
 	
 	print (game_state.current_level, " ",  collectables_percent, " -> ", next_level)

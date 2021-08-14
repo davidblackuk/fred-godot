@@ -3,6 +3,9 @@ extends Node2D
 var total_victims = 0
 var rescued_victims = 0
 
+var total_items = 0.0
+var collected_items = 0.0
+
 export(String, FILE, "*.tscn") var next_scene
 
 signal level_complete()
@@ -33,6 +36,13 @@ func _on_victim_rescued():
 	rescued_victims = rescued_victims + 1
 	if rescued_victims == total_victims:
 		emit_signal("level_complete")
+
+func _on_item_collected(reward):
+	GameStateManager.add_score(reward)
+	collected_items += 1
+
+func connect_coins_to_self():
+	get_tree().call_group("Collectables", "connect", "item_collected", self, "_on_item_collected")
 
 #
 # Get the members of the spikes group and attach the player_hit_spike() signal to
@@ -76,5 +86,5 @@ func _on_fader_fade_out_complete():
 #
 func goto_next_scene():
 	if next_scene != null:
-		get_tree().change_scene(next_scene)
+		GameStateManager.level_complete(next_scene, 1 if total_items == 0  else collected_items / total_items )
 

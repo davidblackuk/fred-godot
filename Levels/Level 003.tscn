@@ -326,10 +326,14 @@ sprite_tint = Color( 1, 0, 0, 1 )
 
 [node name="Collectables" type="Node2D" parent="."]
 
-[node name="Coin" parent="Collectables" instance=ExtResource( 12 )]
+[node name="Coin" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 12 )]
 position = Vector2( 48, 152 )
 
-[node name="Coin4" parent="Collectables" instance=ExtResource( 12 )]
+[node name="Coin4" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 12 )]
 position = Vector2( 976, 152 )
 reward_level = 1
 speed_scale = 2.0

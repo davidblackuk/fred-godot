@@ -100,23 +100,33 @@ anims/bounce = SubResource( 2 )
 
 [node name="Collectables" type="Node" parent="."]
 
-[node name="Coin" parent="Collectables" instance=ExtResource( 5 )]
+[node name="Coin" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 5 )]
 position = Vector2( 304, 144 )
 reward_level = 1
 
-[node name="Coin2" parent="Collectables" instance=ExtResource( 5 )]
+[node name="Coin2" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 5 )]
 position = Vector2( 529, 176 )
 reward_level = 1
 
-[node name="Coin5" parent="Collectables" instance=ExtResource( 5 )]
+[node name="Coin5" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 5 )]
 position = Vector2( 976, 152 )
 reward_level = 1
 
-[node name="Coin3" parent="Collectables" instance=ExtResource( 5 )]
+[node name="Coin3" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 5 )]
 position = Vector2( 784, 272 )
 reward_level = 1
 
-[node name="Coin4" parent="Collectables" instance=ExtResource( 5 )]
+[node name="Coin4" parent="Collectables" groups=[
+"Collectables",
+] instance=ExtResource( 5 )]
 position = Vector2( 976, 336 )
 reward_level = 1
 

@@ -1,11 +1,15 @@
 extends Node2D
 
+signal item_collected(reward)
+
 const LOW 		= 0
 const MEDIUM	= 1
 const HIGH 		= 2
 const OMG 		= 3
 
 const SCORE_MULTIPLIER = 22
+
+var collected = false
 
 #           0 (22)  1 (44)    2 (66) 3 (88)
 export(int, "LOW", "MEDIUM", "HIGH", "OMG") var reward_level = 0 
@@ -34,8 +38,9 @@ func color_according_to_reward():
 			modulate =  Palette.bright_yellow
 
 func _on_Area2D_body_entered(body):
-	if body.name == "Player":
-		GameStateManager.add_score((reward_level+1) * SCORE_MULTIPLIER)
+	if body.name == "Player" && !collected:
+		collected = true
+		emit_signal("item_collected", (reward_level+1) * SCORE_MULTIPLIER)
 		$AnimationPlayer.play("Collected")
 
 

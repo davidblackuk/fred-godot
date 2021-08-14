@@ -12,8 +12,8 @@ var scene_to_load = null
 func _ready():
 	fader.fade_in()
 	back_button.grab_focus()
-	show_debug_check_box.pressed = GameStateManager.debug_mode
-	god_mode_check_box.pressed = GameStateManager.god_mode
+	show_debug_check_box.pressed = GameStateManager.game_state.debug_mode
+	god_mode_check_box.pressed = GameStateManager.game_state.god_mode
 
 
 func _continue_pressed():
@@ -28,11 +28,11 @@ func _on_Back_pressed():
 
 
 func _on_ShowDebug_toggled(button_pressed):
-	GameStateManager.debug_mode = button_pressed
+	GameStateManager.game_state.debug_mode = button_pressed
 
 
 func _on_GodMode_toggled(button_pressed):
-	GameStateManager.god_mode = button_pressed
+	GameStateManager.game_state.god_mode = button_pressed
 
 
 func _on_FadeToBlack_fade_out_complete():

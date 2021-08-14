@@ -15,6 +15,7 @@ var game_state = GameState.new(FIRST_LEVEL);
 func reset():
 	game_state.reset(FIRST_LEVEL);
 	game_timer.reset()
+	level_timer.reset();
 	var x = game_timer.as_string()
 
 #

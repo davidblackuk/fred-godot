@@ -13,14 +13,17 @@ signal level_complete()
 onready var player = get_node("Player")
 onready var victims = get_node_or_null("Victims")
 onready var fader = get_node("Fader")
+onready var collectables = get_node("Collectables")
 
 func _ready():
 	GameStateManager.game_state.current_level = get_tree().current_scene.filename
 	fader.fade_in()
 	count_victims()
+	count_collectables()
 	connect_spikes_to_player()
 	connect_ladders_to_player()
 	connect_conveyors_to_player()
+	connect_coins_to_self()
 	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_home")):
@@ -31,6 +34,10 @@ func _process(delta):
 	
 func count_victims():
 	total_victims = victims.get_child_count() if victims != null else 0
+	
+func count_collectables():
+	total_items = collectables.get_child_count() if collectables != null else 0
+	
 
 func _on_victim_rescued():
 	rescued_victims = rescued_victims + 1
@@ -86,5 +93,5 @@ func _on_fader_fade_out_complete():
 #
 func goto_next_scene():
 	if next_scene != null:
-		GameStateManager.level_complete(next_scene, 1 if total_items == 0  else collected_items / total_items )
+		GameStateManager.level_complete(next_scene, 1 if total_items == 0  else float(collected_items) / float(total_items) )
 

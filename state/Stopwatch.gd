@@ -9,6 +9,8 @@ var pause_msec
 var paused = false
 var last_formatted_value = "0:00:00"
 
+var time_functions = TimeFunctions.new()
+
 func _init():
 	reset()
 
@@ -48,9 +50,5 @@ func ellapsed_msec():
 #
 func as_string():
 	if (start_msec):
-		var totalSecs = (ellapsed_msec() / 1000)
-		var minutes = (totalSecs / 60) % 60
-		var hours = totalSecs / (60*60)
-		var format = "%d:%02d:%02d"
-		last_formatted_value = format % [hours, minutes, totalSecs % 60]
+		last_formatted_value = time_functions.msec_to_hours_minutes_seconds(ellapsed_msec())
 	return last_formatted_value

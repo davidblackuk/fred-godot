@@ -18,15 +18,19 @@ onready var collectables = get_node("Collectables")
 var exit_is_to_menu = false
 
 func _ready():
+	GameManager.level_timer.pause()
 	GameManager.game_state.current_level = get_tree().current_scene.filename
-	fader.fade_in()
 	count_victims()
 	count_collectables()
 	connect_spikes_to_player()
 	connect_ladders_to_player()
 	connect_conveyors_to_player()
 	connect_coins_to_self()
-	GameManager.level_timer.reset()
+	connect_fader_to_self()
+	fader.fade_in()
+	# if fading in pause the game to allow high scores to be shown
+	get_tree().paused = true
+		
 	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_home")):		
@@ -75,6 +79,10 @@ func connect_ladders_to_player():
 func connect_conveyors_to_player():
 	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", player, "_conveyor_status_changed")
 
+func connect_fader_to_self():
+	fader.connect("fade_out_complete", self, "_on_fader_fade_out_complete")
+	fader.connect("fade_in_complete", self, "_on_fader_fade_in_complete")
+
 #
 # the player has entered the door and is going to proceed to 
 # the next level after we fade the scene out 
@@ -87,6 +95,12 @@ func _player_entered_door():
 #
 func _on_fader_fade_out_complete():
 	goto_next_scene()
+	
+func _on_fader_fade_in_complete():
+	GameManager.last_level_was_high_score = false
+	GameManager.level_timer.reset()
+	GameManager.game_timer.continue()
+	get_tree().paused = false
 
 #
 # We go to the next scene, if set. The next scene is defined as

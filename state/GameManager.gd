@@ -1,18 +1,15 @@
 extends Node
 
-
 const FIRST_LEVEL = "res://Levels/Level 001.tscn"
-
-
-# the game state instance
-
 
 var game_timer = StopWatch.new()
 var level_timer = StopWatch.new()
-var game_state = GameState.new(FIRST_LEVEL);
+var game_state = GameState.new(FIRST_LEVEL)
 var high_score_table = HighScoreTable.new()
 
 var last_level_was_high_score = false
+var last_level_msecs = 0
+var last_level_percent = 0
 
 func reset():
 	game_state.reset(FIRST_LEVEL);
@@ -44,9 +41,10 @@ func add_score(value):
 func level_complete(next_level, collectables_percent):
 	game_timer.pause()
 	level_timer.pause()
-	var levelTime = level_timer.ellapsed_msec()
-	# check high score etc
-	last_level_was_high_score = high_score_table.record_level_time(game_state.current_level, level_timer.ellapsed_msec(), collectables_percent)
+	last_level_msecs = level_timer.ellapsed_msec()
+	last_level_percent = collectables_percent
+	last_level_was_high_score = high_score_table.record_level_time(game_state.current_level, last_level_msecs, last_level_percent)
+
 	if next_level != null:
 		get_tree().change_scene(next_level)
 

@@ -6,6 +6,7 @@ class_name HighScoreTable
 const MSEC_KEY = "msecs"
 const PERC_KEY = "perc"
 
+# these should go in game_state
 var _level_scores = {}
 
 #
@@ -18,13 +19,9 @@ var _level_scores = {}
 func record_level_time(level_scene_name, time_msec, perc):
 	var level_number = int(_get_level_number(level_scene_name))
 	var res = false
-	if (_level_scores.has(level_number) && _is_better_score(level_number, time_msec, perc)):
+	if (_is_better_score(level_number, time_msec, perc)):
 		_set_level_score(level_number, time_msec, perc)
-		res = true
-	else:
-		_set_level_score(level_number, time_msec, perc)
-		res = true
-	
+		res = true	
 	print ("lvl: ", level_number, ", msec: ",  time_msec, ", perc: ", perc, "high score: ", res)
 	return res
 
@@ -40,9 +37,22 @@ func _set_level_score(level_number, time_msec, percentage):
 		MSEC_KEY: time_msec,
 		PERC_KEY: percentage
 	}
-
+#
+# Do the current stats, top any existing stats for this level
+#
 func  _is_better_score(level_number, time_msec, perc):
-	pass
+	# no recorded score means this is top trump
+	if !_level_scores.has(level_number):
+		return true
+	var current = _level_scores[level_number]	
+	# better percentage is beats any time regardless
+	if (perc > current[PERC_KEY]):
+		return true
+	else: # finally a lower time wins
+		return time_msec < current[MSEC_KEY] 
 
+#
+# extract the level number from the resource
+#
 func _get_level_number(resource):
 	return resource.replace("res://state/Level ","").replace(".tscn", "");

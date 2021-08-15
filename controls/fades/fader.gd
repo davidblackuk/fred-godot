@@ -13,7 +13,7 @@ onready var text = get_node("Text")
 var is_level_record = false
 
 func _ready():
-	if !is_level_record:
+	if !GameManager.last_level_was_highscore:
 		text.hide()
 
 func fade_out():

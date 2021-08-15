@@ -12,6 +12,8 @@ var level_timer = StopWatch.new()
 var game_state = GameState.new(FIRST_LEVEL);
 var high_score_table = HighScoreTable.new()
 
+var last_level_was_high_score = false
+
 func reset():
 	game_state.reset(FIRST_LEVEL);
 	game_timer.reset()
@@ -32,9 +34,8 @@ func add_score(value):
 	game_state.score = new_score
 
 
-#
-# level management
-#
+# ------------------------------------------------------------------------------
+# LEVEL HANDLING
 
 #
 # level is complete, the next level's scene and the percentage of collectables
@@ -45,7 +46,7 @@ func level_complete(next_level, collectables_percent):
 	level_timer.pause()
 	var levelTime = level_timer.ellapsed_msec()
 	# check high score etc
-	high_score_table.record_level_time(game_state.current_level, level_timer.ellapsed_msec(), collectables_percent)
+	last_level_was_high_score = high_score_table.record_level_time(game_state.current_level, level_timer.ellapsed_msec(), collectables_percent)
 	if next_level != null:
 		get_tree().change_scene(next_level)
 
@@ -54,4 +55,5 @@ func level_complete(next_level, collectables_percent):
 #
 func level_quit():
 	game_timer.pause()	
+	last_level_was_high_score = false
 	get_tree().change_scene("res://menus/main-menu.tscn")

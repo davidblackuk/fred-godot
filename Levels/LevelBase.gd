@@ -15,6 +15,8 @@ onready var victims = get_node_or_null("Victims")
 onready var fader = get_node("Fader")
 onready var collectables = get_node("Collectables")
 
+var exit_is_to_menu = false
+
 func _ready():
 	GameManager.game_state.current_level = get_tree().current_scene.filename
 	fader.fade_in()
@@ -24,10 +26,11 @@ func _ready():
 	connect_ladders_to_player()
 	connect_conveyors_to_player()
 	connect_coins_to_self()
+	GameManager.level_timer.reset()
 	
 func _process(delta):
-	if (Input.is_action_just_pressed("ui_home")):
-		next_scene = "res://menus/main-menu.tscn"
+	if (Input.is_action_just_pressed("ui_home")):		
+		exit_is_to_menu = true
 		fader.fade_out()
 	if (Input.is_action_just_pressed("ui_end") && GameManager.game_state.debug_mode):
 		emit_signal("level_complete")
@@ -92,6 +95,9 @@ func _on_fader_fade_out_complete():
 # congratulations type scene when we have a fuller set of levels
 #
 func goto_next_scene():
-	if next_scene != null:
-		GameManager.level_complete(next_scene, 1 if total_items == 0  else float(collected_items) / float(total_items) )
+	if exit_is_to_menu:
+		GameManager.level_quit()
+	elif next_scene != null:
+		var perc =  100 if total_items == 0  else int((float(collected_items) / float(total_items)*100))
+		GameManager.level_complete(next_scene, perc)
 

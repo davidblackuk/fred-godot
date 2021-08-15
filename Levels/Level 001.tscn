@@ -54,7 +54,7 @@ tile_data = PoolIntArray( -196608, -1610612714, 0, -196607, -1610612736, 0, -196
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1008, 656 )
-door_tint = Color( 0.486275, 0.113725, 0.486275, 1 )
+door_tint = Color( 1, 0, 1, 1 )
 
 [node name="Ladders" type="Node2D" parent="."]
 position = Vector2( 0, 192 )

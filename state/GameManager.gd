@@ -10,7 +10,7 @@ const FIRST_LEVEL = "res://Levels/Level 001.tscn"
 var game_timer = StopWatch.new()
 var level_timer = StopWatch.new()
 var game_state = GameState.new(FIRST_LEVEL);
-
+var high_score_table = HighScoreTable.new()
 
 func reset():
 	game_state.reset(FIRST_LEVEL);
@@ -30,7 +30,6 @@ func life_lost():
 func add_score(value):
 	var new_score = game_state.score + value
 	game_state.score = new_score
-	print("Add to score ", value, " total: " , game_state.score)
 
 
 #
@@ -45,10 +44,14 @@ func level_complete(next_level, collectables_percent):
 	game_timer.pause()
 	level_timer.pause()
 	var levelTime = level_timer.ellapsed_msec()
-	
-	print (game_state.current_level, " ",  collectables_percent, " -> ", next_level)
-	
 	# check high score etc
+	high_score_table.record_level_time(game_state.current_level, level_timer.ellapsed_msec(), collectables_percent)
 	if next_level != null:
 		get_tree().change_scene(next_level)
 
+#
+# user has quit to the main menu, no need to test for high score etc
+#
+func level_quit():
+	game_timer.pause()	
+	get_tree().change_scene("res://menus/main-menu.tscn")

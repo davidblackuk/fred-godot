@@ -9,6 +9,9 @@ var pause_msec
 var paused = false
 var last_formatted_value = "0:00:00"
 
+func _init():
+	reset()
+
 #
 # Reset the stopwatch to zero and start it running
 #

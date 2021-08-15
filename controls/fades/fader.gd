@@ -8,6 +8,14 @@ signal fade_in_complete()
 onready var player = get_node("AnimationPlayer")
 onready var color_rect = get_node("ColorRect")
 
+onready var text = get_node("Text")
+
+var is_level_record = false
+
+func _ready():
+	if !is_level_record:
+		text.hide()
+
 func fade_out():
 	color_rect.color = Color.transparent
 	show()

@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://controls/fades/fader.gd" type="Script" id=1]
+[ext_resource path="res://fonts/H1.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/H2.tres" type="DynamicFont" id=3]
+[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -49,4 +52,76 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 2 )
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Text"]
+margin_left = 8.0
+margin_top = 192.0
+margin_right = 1024.0
+margin_bottom = 248.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "Level record!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelItemsColectedText" type="Label" parent="Text"]
+margin_top = 488.0
+margin_right = 1024.0
+margin_bottom = 524.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 0.0705882, 1 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "Items collected"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelItemsColectedValue" type="Label" parent="Text"]
+margin_top = 544.0
+margin_right = 1024.0
+margin_bottom = 580.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "100%"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Text"]
+margin_left = 8.0
+margin_top = 320.0
+margin_right = 1024.0
+margin_bottom = 356.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "Time"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Text"]
+margin_left = 8.0
+margin_top = 376.0
+margin_right = 1024.0
+margin_bottom = 412.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "0:00:00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Palette" parent="." instance=ExtResource( 4 )]
+position = Vector2( 88, 816 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

@@ -16,7 +16,7 @@ onready var fader = get_node("Fader")
 onready var collectables = get_node("Collectables")
 
 func _ready():
-	GameStateManager.game_state.current_level = get_tree().current_scene.filename
+	GameManager.game_state.current_level = get_tree().current_scene.filename
 	fader.fade_in()
 	count_victims()
 	count_collectables()
@@ -29,7 +29,7 @@ func _process(delta):
 	if (Input.is_action_just_pressed("ui_home")):
 		next_scene = "res://menus/main-menu.tscn"
 		fader.fade_out()
-	if (Input.is_action_just_pressed("ui_end") && GameStateManager.game_state.debug_mode):
+	if (Input.is_action_just_pressed("ui_end") && GameManager.game_state.debug_mode):
 		emit_signal("level_complete")
 	
 func count_victims():
@@ -45,7 +45,7 @@ func _on_victim_rescued():
 		emit_signal("level_complete")
 
 func _on_item_collected(reward):
-	GameStateManager.add_score(reward)
+	GameManager.add_score(reward)
 	collected_items += 1
 
 func connect_coins_to_self():
@@ -93,5 +93,5 @@ func _on_fader_fade_out_complete():
 #
 func goto_next_scene():
 	if next_scene != null:
-		GameStateManager.level_complete(next_scene, 1 if total_items == 0  else float(collected_items) / float(total_items) )
+		GameManager.level_complete(next_scene, 1 if total_items == 0  else float(collected_items) / float(total_items) )
 

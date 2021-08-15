@@ -16,9 +16,9 @@ func _ready():
 	set_button_state()
 	
 func set_button_state():
-	var has_current_level = GameStateManager.game_state.current_level != null
+	var has_current_level = GameManager.game_state.current_level != null
 
-	load_button.disabled = !GameStateManager.game_state.save_file_exists()
+	load_button.disabled = !GameManager.game_state.save_file_exists()
 	continue_button.disabled = !has_current_level
 	save_button.disabled = !has_current_level
 	
@@ -28,15 +28,15 @@ func set_button_state():
 		continue_button.grab_focus()
 
 func _new_game_pressed():
-	GameStateManager.reset()
+	GameManager.reset()
 	_start()
 
 func _continue_pressed():
-	GameStateManager.game_timer.continue()
+	GameManager.game_timer.continue()
 	_start()
 
 func _start():
-	scene_to_load = GameStateManager.game_state.current_level
+	scene_to_load = GameManager.game_state.current_level
 	fader.fade_out()
 
 func _options_pressed():
@@ -54,13 +54,13 @@ func _on_Fader_fade_out_complete():
 		get_tree().quit()
 
 func _on_Load_pressed():
-	GameStateManager.load()
+	GameManager.load()
 	set_button_state()
 	load_confirm.popup_centered()
 
 
 func _on_Save_pressed():
-	GameStateManager.save()
+	GameManager.save()
 	save_confirm.popup_centered()
 
 

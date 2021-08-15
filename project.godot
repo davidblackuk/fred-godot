@@ -71,7 +71,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameStateManager="*res://state/GameStateManager.gd"
+GameManager="*res://state/GameManager.gd"
 
 [display]
 

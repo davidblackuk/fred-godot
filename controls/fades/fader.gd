@@ -11,8 +11,8 @@ onready var color_rect = get_node("ColorRect")
 
 onready var text = get_node("Text")
 
-onready var labelTimeValue = get_node("Text/labelTimeValue")
-onready var labelPercentValue = get_node("Text/LabelItemsColectedValue")
+onready var labelTimeValue = get_node("Text/Time/labelTimeValue")
+onready var labelPercentValue = get_node("Text/Items/LabelItemsColectedValue")
 
 var is_level_record = GameManager.last_level_was_high_score
 

@@ -38,6 +38,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text/Items:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -787, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Text/Time:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 638, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Text/Title node:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -243 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Text:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.3
@@ -62,7 +110,7 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 768.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,8 +121,11 @@ anims/fade_in_slow = SubResource( 2 )
 anims/fade_out = SubResource( 3 )
 
 [node name="Text" type="Node2D" parent="."]
+visible = false
 
-[node name="Label" type="Label" parent="Text"]
+[node name="Title node" type="Node2D" parent="Text"]
+
+[node name="Title" type="Label" parent="Text/Title node"]
 margin_left = 8.0
 margin_top = 192.0
 margin_right = 1024.0
@@ -88,32 +139,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelItemsColectedText" type="Label" parent="Text"]
-margin_top = 488.0
-margin_right = 1024.0
-margin_bottom = 524.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 0.0705882, 1 )
-custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
-text = "Items collected"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Time" type="Node2D" parent="Text"]
 
-[node name="LabelItemsColectedValue" type="Label" parent="Text"]
-margin_top = 544.0
-margin_right = 1024.0
-margin_bottom = 580.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
-text = "100%"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="labelTimeText" type="Label" parent="Text"]
+[node name="labelTimeText" type="Label" parent="Text/Time"]
 margin_left = 8.0
 margin_top = 320.0
 margin_right = 1024.0
@@ -127,7 +155,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="labelTimeValue" type="Label" parent="Text"]
+[node name="labelTimeValue" type="Label" parent="Text/Time"]
 margin_left = 8.0
 margin_top = 376.0
 margin_right = 1024.0
@@ -135,6 +163,33 @@ margin_bottom = 412.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
 text = "0:00:00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="Node2D" parent="Text"]
+
+[node name="LabelItemsColectedText" type="Label" parent="Text/Items"]
+margin_top = 488.0
+margin_right = 1024.0
+margin_bottom = 524.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 0.0705882, 1 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "Items collected"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelItemsColectedValue" type="Label" parent="Text/Items"]
+margin_top = 544.0
+margin_right = 1024.0
+margin_bottom = 580.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.447059, 0.447059, 0.447059, 1 )
+text = "100%"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

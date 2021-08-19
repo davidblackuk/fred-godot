@@ -24,6 +24,7 @@ func _ready():
 	count_collectables()
 	connect_spikes_to_player()
 	connect_ladders_to_player()
+	connect_enemies_to_player()
 	connect_conveyors_to_player()
 	connect_coins_to_self()
 	connect_fader_to_self()
@@ -57,6 +58,10 @@ func _on_item_collected(reward):
 
 func connect_coins_to_self():
 	get_tree().call_group("Collectables", "connect", "item_collected", self, "_on_item_collected")
+
+
+func connect_enemies_to_player():
+	get_tree().call_group("Enemies", "connect", "fred_is_dead", player, "_fred_is_dead")
 
 #
 # Get the members of the spikes group and attach the player_hit_spike() signal to

@@ -91,7 +91,9 @@ curve = SubResource( 1 )
 position = Vector2( -104, -40 )
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Enemy" parent="Enemies/Path2D/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_name = "Camera"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies"]

@@ -141,7 +141,9 @@ position = Vector2( 40, -92.026 )
 offset = 364.953
 rotate = false
 
-[node name="Bottle" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Bottle" parent="Enemies/White Path/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_speed = 2.0
 sprite_tint = Color( 1, 0.176471, 0.176471, 1 )
 animation_name = "Bottle"
@@ -156,7 +158,9 @@ position = Vector2( 40, -274.242 )
 offset = 182.674
 rotate = false
 
-[node name="Bottle" parent="Enemies/White Path2/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Bottle" parent="Enemies/White Path2/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_speed = 3.0
 sprite_tint = Color( 1, 0.235294, 0.235294, 1 )
 animation_name = "Bottle"
@@ -171,7 +175,9 @@ position = Vector2( 40, -274.56 )
 offset = 547.43
 rotate = false
 
-[node name="Bottle" parent="Enemies/White Path3/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Bottle" parent="Enemies/White Path3/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_speed = 4.0
 sprite_tint = Color( 1, 0.0705882, 0.0705882, 1 )
 animation_name = "Bottle"
@@ -186,13 +192,15 @@ position = Vector2( 40, -457 )
 offset = 729.906
 rotate = false
 
-[node name="Bottle" parent="Enemies/White Path4/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Bottle" parent="Enemies/White Path4/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_speed = 5.0
 sprite_tint = Color( 0.827451, 0.215686, 0.215686, 1 )
 animation_name = "Bottle"
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 56, 696 )
+position = Vector2( 56, 704 )
 
 [node name="Victims" type="Node2D" parent="."]
 
@@ -263,10 +271,6 @@ spike_color = Color( 1, 0, 0, 1 )
 
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
-[connection signal="fred_is_dead" from="Enemies/White Path/PathFollow2D/Bottle" to="Player" method="_fred_is_dead"]
-[connection signal="fred_is_dead" from="Enemies/White Path2/PathFollow2D/Bottle" to="Player" method="_fred_is_dead"]
-[connection signal="fred_is_dead" from="Enemies/White Path3/PathFollow2D/Bottle" to="Player" method="_fred_is_dead"]
-[connection signal="fred_is_dead" from="Enemies/White Path4/PathFollow2D/Bottle" to="Player" method="_fred_is_dead"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
 [connection signal="fade_out_complete" from="Fader" to="." method="_on_fader_fade_out_complete"]

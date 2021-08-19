@@ -238,7 +238,9 @@ position = Vector2( 409.318, 184.979 )
 offset = 171.456
 rotate = false
 
-[node name="Spider" parent="Enemies/Green Path/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Spider" parent="Enemies/Green Path/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 sprite_tint = Color( 0, 1, 0, 1 )
 animation_name = "Spider"
 
@@ -251,7 +253,9 @@ script = ExtResource( 1 )
 position = Vector2( 240, 184 )
 rotate = false
 
-[node name="Spider" parent="Enemies/Yellow Path/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Spider" parent="Enemies/Yellow Path/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_speed = 1.5
 sprite_tint = Color( 1, 1, 0, 1 )
 animation_name = "Spider"
@@ -267,7 +271,9 @@ position = Vector2( 137.998, -1 )
 offset = 122.114
 rotate = false
 
-[node name="Spider" parent="Enemies/Cyan Path/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Spider" parent="Enemies/Cyan Path/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 sprite_tint = Color( 0, 1, 1, 1 )
 animation_name = "Spider"
 
@@ -281,7 +287,9 @@ position = Vector2( 32.6694, -15.0244 )
 offset = 182.674
 rotate = false
 
-[node name="Spider" parent="Enemies/White Path/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Spider" parent="Enemies/White Path/PathFollow2D" groups=[
+"Enemies",
+] instance=ExtResource( 4 )]
 animation_speed = 2.0
 animation_name = "Spider"
 
@@ -315,10 +323,6 @@ z_index = 4096
 
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
-[connection signal="fred_is_dead" from="Enemies/Green Path/PathFollow2D/Spider" to="Player" method="_fred_is_dead"]
-[connection signal="fred_is_dead" from="Enemies/Yellow Path/PathFollow2D/Spider" to="Player" method="_fred_is_dead"]
-[connection signal="fred_is_dead" from="Enemies/Cyan Path/PathFollow2D/Spider" to="Player" method="_fred_is_dead"]
-[connection signal="fred_is_dead" from="Enemies/White Path/PathFollow2D/Spider" to="Player" method="_fred_is_dead"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim3" to="." method="_on_victim_rescued"]

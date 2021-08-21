@@ -6,15 +6,22 @@ export(String) var level_name = "??"
 onready var game_time_label =  $GameTime/GameTimeValue
 onready var level_time_label =  $LevelTime/LevelTimeValue
 
+onready var level_record_label =  $LabelLevelRecord
+
 onready var lives_label =  $Lives/LivesValue
 onready var score_label =  $Score/ScoreValue
+
 onready var level_name_label =  $LevelName
+
+onready var god_mode_label = $Debug/LabelGodMode
 
 onready var fps_label = $Debug/LabelFPS
 onready var fps_value = $Debug/ValueFPS
+
 onready var mem_label = $Debug/LabelMem
 onready var mem_value = $Debug/ValueMem
 
+var time_functions = TimeFunctions.new()
 
 # we sweep up to this
 var on_screen_score = 0
@@ -34,6 +41,8 @@ func _ready():
 	on_screen_score = GameManager.game_state.score
 	level_name_label.text = level_name
 	hide_stats_if_not_debug()
+	show_if_god_mode()
+	show_high_score()
 	update()
 	
 # update the score on screen incrementing it until we reach the current game score
@@ -77,3 +86,18 @@ func update_debug_info():
 func update_ellapsed_time():
 	game_time_label.text = GameManager.game_timer.as_string()
 	level_time_label.text = GameManager.level_timer.as_string()
+	
+func show_high_score():
+	var text = ""
+	var score = GameManager.high_score_table.get_high_score_for_level(GameManager.game_state.current_level)
+	if (score != null):
+		var percentage = score[HighScoreTable.PERC_KEY]
+		var time = time_functions.msec_to_minutes_seconds(score[HighScoreTable.MSEC_KEY])
+		var format = "%d%% in %s on %s"
+		text = format % [percentage, time, "99/99/9999"] if score != null else ""
+	
+	level_record_label.text = text
+
+func show_if_god_mode():
+	if (!GameManager.game_state.god_mode):
+		god_mode_label.hide()

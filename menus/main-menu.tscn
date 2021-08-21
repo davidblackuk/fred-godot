@@ -399,6 +399,7 @@ rotation = -0.00413279
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 frames = SubResource( 7 )
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
@@ -415,7 +416,7 @@ rotation = -0.00413279
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D3/PathFollow2D"]
 frames = SubResource( 7 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3"]
@@ -437,6 +438,7 @@ loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D2/PathFollow2D"]
 frames = SubResource( 7 )
+frame = 3
 playing = true
 flip_h = true
 

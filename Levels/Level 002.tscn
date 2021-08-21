@@ -327,4 +327,3 @@ z_index = 4096
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim3" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim4" to="." method="_on_victim_rescued"]
-[connection signal="fade_out_complete" from="Fader" to="." method="_on_fader_fade_out_complete"]

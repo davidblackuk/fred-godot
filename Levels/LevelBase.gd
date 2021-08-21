@@ -13,7 +13,7 @@ signal level_complete()
 onready var player = get_node("Player")
 onready var victims = get_node_or_null("Victims")
 onready var fader = get_node("Fader")
-onready var collectables = get_node("Collectables")
+onready var collectables = get_node_or_null("Collectables")
 
 var exit_is_to_menu = false
 

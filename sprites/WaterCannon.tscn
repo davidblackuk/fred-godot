@@ -39,7 +39,6 @@ method_call_mode = 1
 anims/body = SubResource( 1 )
 
 [node name="BlobSprite" type="Sprite" parent="AnimationPlayer"]
-position = Vector2( 45.1742, 0 )
 texture = ExtResource( 1 )
 hframes = 5
 frame = 4
@@ -47,5 +46,3 @@ frame = 4
 [node name="BodySprite" type="Sprite" parent="AnimationPlayer"]
 texture = ExtResource( 1 )
 hframes = 5
-
-[node name="Area2D" type="Area2D" parent="."]

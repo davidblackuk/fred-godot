@@ -51,6 +51,8 @@ func  _is_better_score(level_number, time_msec, perc):
 	else: # finally a lower time wins
 		return time_msec < current[MSEC_KEY] 
 
+func _has_previous_score_recorded(level_number):
+	_level_scores.has(level_number)
 #
 # extract the level number from the resource
 #

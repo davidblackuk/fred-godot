@@ -25,7 +25,7 @@ func reset(first_level):
 		SCORE_KEY: 0,
 		DEATHS_KEY: 0, 
 		CURRENT_LEVEL_KEY: first_level, 
-		DEBUG_MODE_KEY: false, 
+		DEBUG_MODE_KEY: true, 
 		GOD_MODE_KEY: false, 
 	}	
 	

@@ -163,4 +163,3 @@ z_index = 4096
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
-[connection signal="fade_out_complete" from="Fader" to="." method="_on_fader_fade_out_complete"]

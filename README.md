@@ -10,6 +10,13 @@ The game counts the number of lives lost, not those left. The carry over from th
 
 Icon sizing and platfoms are faithful to the original pallettes and devices but i do allow myself a one pizel black mask for sprites. Also no attribute clashes
 
+Release 0.4
+  + Onscreen timers for the level and game
+  + High score table for recording:
+    + Fastest time with best completion through each level
+    + Complete run through times
+  + Several more new levels
+
 Release 0.33:
   + collectable coins  
   + main menu
@@ -18,7 +25,7 @@ Release 0.33:
   + Debug mode
   + God mode
   + Game save / load
-  + new statemachine based system
+  + new state-machine based system
   + movable platforms
   + crumbling platforms
   + conveyors

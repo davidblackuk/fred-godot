@@ -9,7 +9,7 @@ func state_logic(delta, player):
 	player.process_movement(delta)
 
 func enter_state(_new_state, _old_state, player):
-	GameStateManager.life_lost()
+	GameManager.life_lost()
 	player.die()
 
 func exit_state(_old_state, _new_state, _player):

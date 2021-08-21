@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://controls/conveyers/conveyer-belt.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "GameState",
 "language": "GDScript",
 "path": "res://state/GameState.gd"
+}, {
+"base": "Reference",
+"class": "HighScoreTable",
+"language": "GDScript",
+"path": "res://state/HighScoreTable.gd"
 }, {
 "base": "Node2D",
 "class": "Palette",
@@ -39,6 +44,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://state-machine/StateMachineWithPDA.gd"
 }, {
+"base": "Reference",
+"class": "StopWatch",
+"language": "GDScript",
+"path": "res://state/Stopwatch.gd"
+}, {
+"base": "Reference",
+"class": "TimeFunctions",
+"language": "GDScript",
+"path": "res://state/TimeFunctions.gd"
+}, {
 "base": "Node",
 "class": "VictimStateMachine",
 "language": "GDScript",
@@ -47,10 +62,13 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ConveyorBelt": "",
 "GameState": "",
+"HighScoreTable": "",
 "Palette": "",
 "Player": "",
 "StateMachineState": "",
 "StateMachineWithPDA": "",
+"StopWatch": "",
+"TimeFunctions": "",
 "VictimStateMachine": ""
 }
 
@@ -65,7 +83,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameStateManager="*res://state/GameStateManager.gd"
+GameManager="*res://state/GameManager.gd"
 
 [display]
 
@@ -127,5 +145,4 @@ quick_load={
 
 quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://default_env.tres"
 quality/2d/use_pixel_snap=true

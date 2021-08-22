@@ -5,6 +5,7 @@ class_name HighScoreTable
 
 const MSEC_KEY = "msecs"
 const PERC_KEY = "perc"
+const WHEN_KEY = "when"
 
 # these should go in game_state
 var _level_scores = {}
@@ -49,9 +50,11 @@ func record_game_time(levelSceneName, time_msec):
 	return false
 
 func _set_level_score(level_number, time_msec, percentage):
+	
 	_level_scores[level_number] = {
 		MSEC_KEY: time_msec,
-		PERC_KEY: percentage
+		PERC_KEY: percentage,
+		WHEN_KEY: OS.get_datetime(false)
 	}
 	persistence.save(_level_scores)
 #

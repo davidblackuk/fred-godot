@@ -92,9 +92,15 @@ func show_high_score():
 	var score = GameManager.high_score_table.get_high_score_for_level(GameManager.game_state.current_level)
 	if (score != null):
 		var percentage = score[HighScoreTable.PERC_KEY]
+		var dateFormat = "%d/%d/%d"
+		var date = dateFormat % [
+			score[HighScoreTable.WHEN_KEY]["day"],
+			score[HighScoreTable.WHEN_KEY]["month"],
+			score[HighScoreTable.WHEN_KEY]["year"]
+		]
 		var time = time_functions.msec_to_minutes_seconds(score[HighScoreTable.MSEC_KEY])
-		var format = "%d%% in %s on %s"
-		text = format % [percentage, time, "99/99/9999"] if score != null else ""
+		var textFormat = "%d%% in %s on %s"
+		text = textFormat % [percentage, time, date] if score != null else ""
 	
 	level_record_label.text = text
 

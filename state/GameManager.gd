@@ -46,6 +46,7 @@ func level_complete(next_level, collectables_percent):
 	last_level_was_high_score = high_score_table.record_level_time(game_state.current_level, last_level_msecs, last_level_percent)
 
 	if next_level != null:
+		game_state.current_level = next_level
 		get_tree().change_scene(next_level)
 
 #

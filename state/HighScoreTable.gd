@@ -5,9 +5,17 @@ class_name HighScoreTable
 
 const MSEC_KEY = "msecs"
 const PERC_KEY = "perc"
+const WHEN_KEY = "when"
 
 # these should go in game_state
 var _level_scores = {}
+
+var persistence = DictionaryPersistence.new("user://high-scores.dat")
+
+func _init():
+	if (persistence.save_file_exists()):
+		_level_scores = persistence.load()
+	
 
 #
 # Records the time taken to complete a level as a high score, if the time is lower
@@ -28,6 +36,12 @@ func record_level_time(level_scene_name, time_msec, perc):
 	print ("lvl: ", level_number, ", msec: ",  time_msec, ", perc: ", perc, "high score: ", res)
 	return res
 
+func get_high_score_for_level(level_scene_name):
+	var level_number = int(_get_level_number(level_scene_name))
+	if (_has_previous_score_recorded(level_number)):
+		return _level_scores[level_number]
+	return null
+
 #
 # Records the time taken for a complete run through of the game, completing 
 # all levels and collecting all items. Returns true if this is a record run through
@@ -36,10 +50,13 @@ func record_game_time(levelSceneName, time_msec):
 	return false
 
 func _set_level_score(level_number, time_msec, percentage):
+	
 	_level_scores[level_number] = {
 		MSEC_KEY: time_msec,
-		PERC_KEY: percentage
+		PERC_KEY: percentage,
+		WHEN_KEY: OS.get_datetime(false)
 	}
+	persistence.save(_level_scores)
 #
 # Do the current stats, top any existing stats for this level
 #

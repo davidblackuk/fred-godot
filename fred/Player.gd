@@ -11,6 +11,12 @@ const CLIMB_VELOCITY = 150
 const GRAVITY = 10
 const FALL_HEIGHT_FOR_DEATH = -95
 
+export(String, "ZX", "CPC", "AMIGA", "PC") var fred_style = "ZX" 
+
+var zx_image = preload("res://images/fred/fred.png")
+var cpc_image = preload("res://images/fred/fred-cpc.png")
+
+
 onready var animation_player = get_node("AnimationPlayer")
 onready var sprite = get_node("Sprite")
 
@@ -33,6 +39,12 @@ var current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
 var jump_height = 0
 var jump_start_y = 0
 	
+func _ready():
+	if fred_style == "ZX":
+		sprite.set_texture(zx_image)	
+	else:
+		sprite.set_texture(cpc_image)	
+
 func process_movement(_delta):
 	motion = move_and_slide_with_snap(motion, snap_vector, FLOOR_NORMAL, false)
 	if is_on_floor() and snap_vector == Vector2.ZERO:

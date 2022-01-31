@@ -1,0 +1,201 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://controls/doors/Entrance.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/pres-start-12.tres" type="DynamicFont" id=4]
+[ext_resource path="res://images/fred/fred.png" type="Texture" id=5]
+[ext_resource path="res://images/fred/fred-cpc.png" type="Texture" id=6]
+[ext_resource path="res://cut-scenes/zx-to-cpc.gd" type="Script" id=7]
+[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "zx fred walk"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/zx-fred:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 64, 512 ), Vector2( 512, 512 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/zx-fred:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/cpc-fred:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, 512 ), Vector2( 512, 512 ), Vector2( 1008, 512 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer/cpc-fred:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_enter_next_level"
+} ]
+}
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 36, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 72, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 108, 0, 36, 36 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 36, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 72, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 108, 0, 36, 36 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+next_scene = "res://Levels/Level 005.tscn"
+
+[node name="SkyBox" parent="." instance=ExtResource( 8 )]
+color = Color( 0, 0, 0, 1 )
+
+[node name="tile-map-back" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, -1610612699, 0, 1, 38, 0, 2, 38, 0, 3, 38, 0, 4, 38, 0, 5, 38, 0, 6, 38, 0, 7, 38, 0, 8, 38, 0, 9, 38, 0, 10, 38, 0, 11, 38, 0, 12, 38, 0, 13, 38, 0, 14, 38, 0, 15, 38, 0, 16, 45, 0, 17, 45, 0, 18, 45, 0, 19, 45, 0, 20, 45, 0, 21, 45, 0, 22, 45, 0, 23, 45, 0, 24, 45, 0, 25, 45, 0, 26, 45, 0, 27, 45, 0, 28, 45, 0, 29, 45, 0, 30, 45, 0, 31, -1073741778, 0, 65536, 36, 0, 65552, 57, 0, 65553, 58, 0, 65554, 57, 0, 65555, 58, 0, 65556, 57, 0, 65557, 58, 0, 65558, 57, 0, 65559, 58, 0, 65560, 57, 0, 65561, 58, 0, 65562, 57, 0, 65563, 58, 0, 65564, 57, 0, 65565, 58, 0, 65566, 57, 0, 65567, 42, 0, 131072, 36, 0, 131088, 58, 0, 131089, 57, 0, 131090, 58, 0, 131091, 57, 0, 131092, 58, 0, 131093, 57, 0, 131094, 58, 0, 131095, 57, 0, 131096, 58, 0, 131097, 57, 0, 131098, 58, 0, 131099, 57, 0, 131100, 58, 0, 131101, 57, 0, 131102, 58, 0, 131103, 42, 0, 196608, 36, 0, 196624, 57, 0, 196625, 58, 0, 196626, 57, 0, 196627, 58, 0, 196628, 57, 0, 196629, 58, 0, 196630, 57, 0, 196631, 58, 0, 196632, 57, 0, 196633, 58, 0, 196634, 57, 0, 196635, 58, 0, 196636, 57, 0, 196637, 58, 0, 196638, 57, 0, 196639, 42, 0, 262144, 36, 0, 262160, 58, 0, 262161, 57, 0, 262162, 58, 0, 262163, 57, 0, 262164, 58, 0, 262165, 57, 0, 262166, 58, 0, 262167, 57, 0, 262168, 58, 0, 262169, 57, 0, 262170, 58, 0, 262171, 57, 0, 262172, 58, 0, 262173, 57, 0, 262174, 58, 0, 262175, 42, 0, 327680, 36, 0, 327696, 57, 0, 327697, 58, 0, 327698, 57, 0, 327699, 58, 0, 327700, 57, 0, 327701, 58, 0, 327702, 57, 0, 327703, 58, 0, 327704, 57, 0, 327705, 58, 0, 327706, 57, 0, 327707, 58, 0, 327708, 57, 0, 327709, 58, 0, 327710, 57, 0, 327711, 42, 0, 393216, 36, 0, 393232, 58, 0, 393233, 57, 0, 393234, 58, 0, 393235, 57, 0, 393236, 58, 0, 393237, 57, 0, 393238, 58, 0, 393239, 57, 0, 393240, 58, 0, 393241, 57, 0, 393242, 58, 0, 393243, 57, 0, 393244, 58, 0, 393245, 57, 0, 393246, 58, 0, 393247, 42, 0, 458752, 36, 0, 458768, 57, 0, 458769, 58, 0, 458770, 57, 0, 458771, 58, 0, 458772, 57, 0, 458773, 58, 0, 458774, 57, 0, 458775, 58, 0, 458776, 57, 0, 458777, 58, 0, 458778, 57, 0, 458779, 58, 0, 458780, 57, 0, 458781, 58, 0, 458782, 57, 0, 458783, 42, 0, 524288, 36, 0, 524304, 58, 0, 524305, 57, 0, 524306, 58, 0, 524307, 57, 0, 524308, 58, 0, 524309, 57, 0, 524310, 58, 0, 524311, 57, 0, 524312, 58, 0, 524313, 57, 0, 524314, 58, 0, 524315, 57, 0, 524316, 58, 0, 524317, 57, 0, 524318, 58, 0, 524319, 42, 0, 589824, 36, 0, 589840, 57, 0, 589841, 58, 0, 589842, 57, 0, 589843, 58, 0, 589844, 57, 0, 589845, 58, 0, 589846, 57, 0, 589847, 58, 0, 589848, 57, 0, 589849, 58, 0, 589850, 57, 0, 589851, 58, 0, 589852, 57, 0, 589853, 58, 0, 589854, 57, 0, 589855, 42, 0, 655360, 36, 0, 655376, 58, 0, 655377, 57, 0, 655378, 58, 0, 655379, 57, 0, 655380, 58, 0, 655381, 57, 0, 655382, 58, 0, 655383, 57, 0, 655384, 58, 0, 655385, 57, 0, 655386, 58, 0, 655387, 57, 0, 655388, 58, 0, 655389, 57, 0, 655390, 58, 0, 655391, 42, 0, 720896, 36, 0, 720912, 57, 0, 720913, 58, 0, 720914, 57, 0, 720915, 58, 0, 720916, 57, 0, 720917, 58, 0, 720918, 57, 0, 720919, 58, 0, 720920, 57, 0, 720921, 58, 0, 720922, 57, 0, 720923, 58, 0, 720924, 57, 0, 720925, 58, 0, 720926, 57, 0, 720927, 42, 0, 786432, 36, 0, 786448, 58, 0, 786449, 57, 0, 786450, 58, 0, 786451, 57, 0, 786452, 58, 0, 786453, 57, 0, 786454, 58, 0, 786455, 57, 0, 786456, 58, 0, 786457, 57, 0, 786458, 58, 0, 786459, 57, 0, 786460, 58, 0, 786461, 57, 0, 786462, 58, 0, 786463, 42, 0, 851968, 36, 0, 851984, 57, 0, 851986, 57, 0, 851987, 58, 0, 851988, 57, 0, 851989, 58, 0, 851990, 57, 0, 851991, 58, 0, 851992, 57, 0, 851993, 58, 0, 851994, 57, 0, 851995, 58, 0, 851996, 57, 0, 851997, 58, 0, 851998, 57, 0, 851999, 42, 0, 917520, 58, 0, 917521, 57, 0, 917522, 58, 0, 917523, 57, 0, 917524, 58, 0, 917525, 57, 0, 917526, 58, 0, 917527, 57, 0, 917528, 58, 0, 917529, 57, 0, 917530, 58, 0, 917531, 57, 0, 917532, 58, 0, 917533, 57, 0, 917534, 58, 0, 983056, 57, 0, 983057, 58, 0, 983058, 57, 0, 983059, 58, 0, 983060, 57, 0, 983061, 58, 0, 983062, 57, 0, 983063, 58, 0, 983064, 57, 0, 983065, 58, 0, 983066, 57, 0, 983067, 58, 0, 983068, 57, 0, 983069, 58, 0, 983070, 57, 0, 1048592, 58, 0, 1048593, 57, 0, 1048594, 58, 0, 1048595, 57, 0, 1048596, 58, 0, 1048597, 57, 0, 1048598, 58, 0, 1048599, 57, 0, 1048600, 58, 0, 1048601, 57, 0, 1048602, 58, 0, 1048603, 57, 0, 1048604, 58, 0, 1048605, 57, 0, 1048606, 58, 0, 1114112, 36, 0, 1114113, 15, 0, 1114114, 15, 0, 1114115, 15, 0, 1114116, 15, 0, 1114117, 15, 0, 1114118, 15, 0, 1114119, 15, 0, 1114120, 15, 0, 1114121, 15, 0, 1114122, 15, 0, 1114123, 15, 0, 1114124, 15, 0, 1114125, 15, 0, 1114126, 15, 0, 1114127, 15, 0, 1114128, 43, 0, 1114129, 43, 0, 1114130, 43, 0, 1114131, 43, 0, 1114132, 43, 0, 1114133, 43, 0, 1114134, 43, 0, 1114135, 43, 0, 1114136, 43, 0, 1114137, 43, 0, 1114138, 43, 0, 1114139, 43, 0, 1114140, 43, 0, 1114141, 43, 0, 1114142, 43, 0, 1114143, 42, 0, 1179648, 36, 0, 1179679, 42, 0, 1245184, 36, 0, 1245215, 42, 0, 1310720, 36, 0, 1310751, 42, 0, 1376256, 36, 0, 1376287, 42, 0, 1441792, 36, 0, 1441823, 42, 0, 1507328, 37, 0, 1507329, 38, 0, 1507330, 38, 0, 1507331, 38, 0, 1507332, 38, 0, 1507333, 38, 0, 1507334, 38, 0, 1507335, 38, 0, 1507336, 38, 0, 1507337, 38, 0, 1507338, 38, 0, 1507339, 38, 0, 1507340, 38, 0, 1507341, 38, 0, 1507342, 38, 0, 1507343, 38, 0, 1507344, 45, 0, 1507345, 45, 0, 1507346, 45, 0, 1507347, 45, 0, 1507348, 45, 0, 1507349, 45, 0, 1507350, 45, 0, 1507351, 45, 0, 1507352, 45, 0, 1507353, 45, 0, 1507354, 45, 0, 1507355, 45, 0, 1507356, 45, 0, 1507357, 45, 0, 1507358, 45, 0, 1507359, -1073741780, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "zx fred walk"
+"anims/zx fred walk" = SubResource( 1 )
+
+[node name="zx-fred" type="AnimatedSprite" parent="AnimationPlayer"]
+position = Vector2( 64, 512 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="cpc-fred" type="AnimatedSprite" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 512, 512 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 11 )
+frame = 3
+playing = true
+
+[node name="Entrance" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 464 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1008, 464 )
+
+[node name="tile-map-fore" type="TileMap" parent="."]
+z_index = 999
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 851981, 47, 0, 851982, 55, 0, 851983, 48, 0, 851984, 49, 0, 851985, 55, 0, 851986, 54, 0, 917519, 52, 0, 917520, 53, 0, 983055, 52, 0, 983056, 53, 0, 1048591, 50, 0, 1048592, 51, 0 )
+
+[node name="cpc" type="Label" parent="tile-map-fore"]
+margin_left = 517.0
+margin_top = 427.0
+margin_right = 613.0
+margin_bottom = 441.0
+custom_colors/font_color = Color( 0.964706, 0.701961, 0.0745098, 1 )
+custom_colors/font_outline_modulate = Color( 0.956863, 0.972549, 0.976471, 1 )
+custom_colors/font_color_shadow = Color( 0.129412, 0.0352941, 0.0352941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "CPC Zone"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zx" type="Label" parent="tile-map-fore"]
+margin_left = 432.0
+margin_top = 427.0
+margin_right = 516.0
+margin_bottom = 441.0
+custom_colors/font_color = Color( 0.964706, 0.701961, 0.0745098, 1 )
+custom_colors/font_outline_modulate = Color( 0.956863, 0.972549, 0.976471, 1 )
+custom_colors/font_color_shadow = Color( 0.129412, 0.0352941, 0.0352941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "ZX Land"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" parent="." instance=ExtResource( 9 )]
+z_index = 999

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fred-walk.png-1efd7a8ae78c3b025464462d45db3ec3.stex"
+path="res://.import/icon.png-91b084043b8aaf2f1c906e7b9fa92969.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/fred/fred-walk.png"
-dest_files=[ "res://.import/fred-walk.png-1efd7a8ae78c3b025464462d45db3ec3.stex" ]
+source_file="res://addons/gut/icon.png"
+dest_files=[ "res://.import/icon.png-91b084043b8aaf2f1c906e7b9fa92969.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -63,51 +63,38 @@ position = Vector2( 0, 192 )
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
-[node name="Ladder16" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 528 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder17" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 496 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder18" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 464 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder19" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 432 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder20" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 400 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder21" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 368 )
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
-[node name="Ladder22" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 336 )
 ladder_type = 2
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 704 )
+fred_style = "CPC"
 
 [node name="Victims" type="Node2D" parent="."]
 
@@ -138,25 +125,19 @@ rotation = -7.79733e-06
 offset = 1104.12
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D3/PathFollow2D" groups=[
-"Enemies",
-] instance=ExtResource( 10 )]
+[node name="Enemy" parent="Enemies/Path2D3/PathFollow2D" groups=["Enemies"] instance=ExtResource( 10 )]
 position = Vector2( 16.0001, -7.99988 )
 animation_speed = 1.3
 sprite_tint = Color( 1, 0, 0, 1 )
 
 [node name="Collectables" type="Node2D" parent="."]
 
-[node name="Coin" parent="Collectables" groups=[
-"Collectables",
-] instance=ExtResource( 12 )]
+[node name="Coin" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
 position = Vector2( 528, 480 )
 
 [node name="Spikes" type="Node" parent="."]
 
-[node name="Spike2" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 736, 720 )
 
 [node name="Fader" parent="." instance=ExtResource( 14 )]

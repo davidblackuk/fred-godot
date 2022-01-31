@@ -38,12 +38,16 @@ func add_score(value):
 # level is complete, the next level's scene and the percentage of collectables
 # collected is passed in for high score purposes
 #
-func level_complete(next_level, collectables_percent):
+func level_complete(next_level, collectables_percent, from_cut_scene = false):
 	game_timer.pause()
 	level_timer.pause()
 	last_level_msecs = level_timer.ellapsed_msec()
 	last_level_percent = collectables_percent
+	
 	last_level_was_high_score = high_score_table.record_level_time(game_state.current_level, last_level_msecs, last_level_percent)
+
+	last_level_was_high_score = (false if from_cut_scene else last_level_was_high_score)
+
 
 	if next_level != null:
 		game_state.current_level = next_level

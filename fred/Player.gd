@@ -45,6 +45,7 @@ func _ready():
 	else:
 		sprite.set_texture(cpc_image)	
 
+
 func process_movement(_delta):
 	motion = move_and_slide_with_snap(motion, snap_vector, FLOOR_NORMAL, false)
 	if is_on_floor() and snap_vector == Vector2.ZERO:

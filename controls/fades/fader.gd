@@ -16,7 +16,7 @@ onready var labelPercentValue = get_node("Text/Items/LabelItemsColectedValue")
 
 var is_level_record = GameManager.last_level_was_high_score
 
-func _ready():	
+func _ready():
 	if !is_level_record:
 		text.hide()
 	else:

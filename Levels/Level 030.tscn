@@ -69,74 +69,48 @@ position = Vector2( 0, 192 )
 
 [node name="Ladder 1" type="Node2D" parent="Ladders"]
 
-[node name="Ladder" parent="Ladders/Ladder 1" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder" parent="Ladders/Ladder 1" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 112, 528 )
 ladder_type = 1
 
-[node name="Ladder2" parent="Ladders/Ladder 1" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder2" parent="Ladders/Ladder 1" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 112, 496 )
 
-[node name="Ladder3" parent="Ladders/Ladder 1" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder3" parent="Ladders/Ladder 1" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 112, 464 )
 
-[node name="Ladder4" parent="Ladders/Ladder 1" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder4" parent="Ladders/Ladder 1" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 112, 432 )
 
-[node name="Ladder5" parent="Ladders/Ladder 1" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder5" parent="Ladders/Ladder 1" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 112, 400 )
 
-[node name="Ladder6" parent="Ladders/Ladder 1" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder6" parent="Ladders/Ladder 1" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 112, 368 )
 ladder_type = 2
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
 
-[node name="Ladder16" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
 
-[node name="Ladder17" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
 
-[node name="Ladder18" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
 
-[node name="Ladder19" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
 
-[node name="Ladder20" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
 
-[node name="Ladder21" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
 
-[node name="Ladder22" parent="Ladders/Ladder 2" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
 
@@ -146,84 +120,54 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Ladder16" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder16" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 240 )
 ladder_type = 1
 
-[node name="Ladder17" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder17" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 208 )
 
-[node name="Ladder18" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder18" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 176 )
 
-[node name="Ladder19" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder19" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 144 )
 
-[node name="Ladder20" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder20" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 112 )
 
-[node name="Ladder21" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder21" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 80 )
 
-[node name="Ladder22" parent="Ladders/Ladder 4" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder22" parent="Ladders/Ladder 4" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 688, 48 )
 ladder_type = 2
 
 [node name="Ladder 5" type="Node" parent="Ladders"]
 
-[node name="Ladder23" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder23" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 400 )
 ladder_type = 2
 
-[node name="Ladder24" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder24" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 432 )
 
-[node name="Ladder25" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder25" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 464 )
 
-[node name="Ladder26" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder26" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 496 )
 
-[node name="Ladder27" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder27" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 528 )
 
-[node name="Ladder28" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder28" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 560 )
 
-[node name="Ladder29" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder29" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 592 )
 
-[node name="Ladder30" parent="Ladders/Ladder 5" groups=[
-"Ladders",
-] instance=ExtResource( 4 )]
+[node name="Ladder30" parent="Ladders/Ladder 5" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 784, 624 )
 ladder_type = 1
 
@@ -257,9 +201,7 @@ rotation = -7.79733e-06
 offset = 160.006
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D/PathFollow2D" groups=[
-"Enemies",
-] instance=ExtResource( 10 )]
+[node name="Enemy" parent="Enemies/Path2D/PathFollow2D" groups=["Enemies"] instance=ExtResource( 10 )]
 animation_speed = 1.3
 sprite_tint = Color( 0.0705882, 0.854902, 0.0705882, 1 )
 animation_name = "Bottle"
@@ -278,9 +220,7 @@ rotation = -7.79733e-06
 offset = 162.539
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D2/PathFollow2D" groups=[
-"Enemies",
-] instance=ExtResource( 10 )]
+[node name="Enemy" parent="Enemies/Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource( 10 )]
 position = Vector2( -1.74118, -2.5835 )
 animation_speed = 1.5
 sprite_tint = Color( 1, 1, 0, 1 )
@@ -301,9 +241,7 @@ rotation = -7.79733e-06
 offset = 162.539
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D3/PathFollow2D" groups=[
-"Enemies",
-] instance=ExtResource( 10 )]
+[node name="Enemy" parent="Enemies/Path2D3/PathFollow2D" groups=["Enemies"] instance=ExtResource( 10 )]
 animation_speed = 1.8
 sprite_tint = Color( 1, 1, 0, 1 )
 animation_name = "Bottle"
@@ -342,61 +280,43 @@ offset = 117.533
 
 [node name="Collectables" type="Node" parent="."]
 
-[node name="Coin" parent="Collectables" groups=[
-"Collectables",
-] instance=ExtResource( 14 )]
+[node name="Coin" parent="Collectables" groups=["Collectables"] instance=ExtResource( 14 )]
 position = Vector2( 272, 152 )
 reward_level = 1
 
-[node name="Coin2" parent="Collectables" groups=[
-"Collectables",
-] instance=ExtResource( 14 )]
+[node name="Coin2" parent="Collectables" groups=["Collectables"] instance=ExtResource( 14 )]
 position = Vector2( 400, 152 )
 reward_level = 1
 
-[node name="Coin3" parent="Collectables" groups=[
-"Collectables",
-] instance=ExtResource( 14 )]
+[node name="Coin3" parent="Collectables" groups=["Collectables"] instance=ExtResource( 14 )]
 position = Vector2( 528, 152 )
 reward_level = 1
 
 [node name="Spikes" type="Node" parent="."]
 
-[node name="Spike" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 48, 144 )
 spike_type = 2
 spike_color = Color( 1, 0, 0, 1 )
 
-[node name="Spike3" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike3" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 48, 176 )
 spike_type = 1
 spike_color = Color( 1, 0, 0, 1 )
 
-[node name="Spike4" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike4" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 128, 272 )
 spike_color = Color( 1, 0, 0, 1 )
 
-[node name="Spike5" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike5" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 336, 272 )
 spike_color = Color( 1, 0, 0, 1 )
 
-[node name="Spike6" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike6" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 464, 272 )
 spike_color = Color( 1, 0, 0, 1 )
 
-[node name="Spike2" parent="Spikes" groups=[
-"Spikes",
-] instance=ExtResource( 13 )]
+[node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
 position = Vector2( 80, 144 )
 spike_type = 1
 spike_color = Color( 1, 0, 0, 1 )

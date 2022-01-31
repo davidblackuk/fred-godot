@@ -151,12 +151,12 @@ custom_constants/margin_top = 64
 margin_top = 64.0
 margin_right = 1024.0
 margin_bottom = 128.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.172549, 0.184314, 0.4, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
 custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 1 )
 text = "son of fred"
 align = 1
 valign = 1
@@ -268,8 +268,8 @@ position = Vector2( 80, 920 )
 margin_top = 752.0
 margin_right = 1024.0
 margin_bottom = 768.0
-custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = "0.4.0"
 align = 2
 __meta__ = {
@@ -313,10 +313,10 @@ margin_bottom = 167.0
 margin_right = 345.0
 margin_bottom = 162.0
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5
+custom_fonts/font = ExtResource( 9 )
 text = "game saved"
 align = 1
 valign = 1
@@ -359,10 +359,10 @@ margin_bottom = 167.0
 margin_right = 352.0
 margin_bottom = 162.0
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5
+custom_fonts/font = ExtResource( 9 )
 text = "game loaded"
 align = 1
 valign = 1
@@ -399,6 +399,7 @@ rotation = -0.00413279
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 frames = SubResource( 7 )
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
@@ -415,7 +416,7 @@ rotation = -0.00413279
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D3/PathFollow2D"]
 frames = SubResource( 7 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3"]
@@ -437,6 +438,7 @@ loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D2/PathFollow2D"]
 frames = SubResource( 7 )
+frame = 3
 playing = true
 flip_h = true
 

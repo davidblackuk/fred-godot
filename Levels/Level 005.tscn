@@ -16,7 +16,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, 56, 405, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 392, 408, 0, 0, 0, 0, 152, 408, 0, 0, 0, 0, -424, 408 )
+"points": PoolVector2Array( 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 488, 406, 0, 0, 0, 0, 152, 408, 0, 0, 0, 0, -424, 408 )
 }
 
 [sub_resource type="GDScript" id=2]
@@ -29,9 +29,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# flips the sprite at the halfway point
 func _process(delta):
 	var follower = get_node(\"./PathFollow2D\")
-	follower.set_offset(follower.get_offset() + 100 * delta)
+	var enemy = get_node(\"./PathFollow2D/Enemy\")
+	var new_offset = follower.get_offset() + 100 * delta
+	follower.set_offset(new_offset)
+	enemy.flip_horizontal = (follower.unit_offset < 0.5)
 "
 
 [node name="Level 5" type="Node2D"]
@@ -119,13 +123,12 @@ position = Vector2( 64, 816 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Path2D3" type="Path2D" parent="Enemies"]
-position = Vector2( 488, 3 )
+position = Vector2( 488, 306 )
 curve = SubResource( 1 )
 script = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D3"]
-position = Vector2( 101.813, 408 )
-rotation = -7.79733e-06
+position = Vector2( 292.022, 407.166 )
 offset = 1104.12
 rotate = false
 

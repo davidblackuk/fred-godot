@@ -104,6 +104,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "Penguin"
+length = 2.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -169,7 +171,7 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 29
-frame = 17
+frame = 27
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 2, 0 )

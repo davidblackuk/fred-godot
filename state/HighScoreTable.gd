@@ -13,9 +13,14 @@ var _level_scores = {}
 var persistence = DictionaryPersistence.new("user://high-scores.dat")
 
 func _init():
+	load_scores()
+	
+func load_scores():
 	if (persistence.save_file_exists()):
 		_level_scores = persistence.load()
-	
+	for i in _level_scores:
+		var score =  _level_scores[i]
+		print("level ", i, " score ", score)
 
 #
 # Records the time taken to complete a level as a high score, if the time is lower

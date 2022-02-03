@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://fred/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles.tres" type="TileSet" id=2]
@@ -9,17 +9,185 @@
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=7]
 [ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=8]
 [ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://images/enemies/bulb.png" type="Texture" id=10]
+[ext_resource path="res://controls/moving-platforms/Path2D.gd" type="Script" id=11]
 [ext_resource path="res://collectables/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=13]
 [ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=14]
+[ext_resource path="res://images/moving-platforms/yellow-chain.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Path2DWithDirectionFlip.gd" type="Script" id=16]
+[ext_resource path="res://sprites/enemies/Enemy.gd" type="Script" id=17]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 488, 406, 0, 0, 0, 0, 152, 408, 0, 0, 0, 0, -424, 408 )
+"points": PoolVector2Array( 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -64.3249, 407.864, 0, 0, 0, 0, -34.9579, 408.657, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 488, 406, 0, 0, 0, 0, 153.149, 408.657, 0, 0, 0, 0, 114.258, 407.07, 0, 0, 0, 0, 77.7475, 408.657, 0, 0, 0, 0, -424, 408 )
 }
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 19.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Bottle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Camera"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Ghost"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 21, 22, 23 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "HourGlass"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Penguin"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 26, 27, 28 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 10 ), SubResource( 10 ) ]
+}
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 192.126, 594.361, 0, 0, 0, 0, 430.55, 593.371, 0, 0, 0, 0, 192.133, 594.398 )
+}
+
+[sub_resource type="GDScript" id=12]
 script/source = "extends Path2D
 
 
@@ -37,6 +205,170 @@ func _process(delta):
 	follower.set_offset(new_offset)
 	enemy.flip_horizontal = (follower.unit_offset < 0.5)
 "
+
+[sub_resource type="Animation" id=13]
+resource_name = "Bottle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Camera"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Ghost"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 21, 22, 23 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "HourGlass"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Penguin"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 26, 27, 28 ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=20]
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 10 ), SubResource( 10 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 48.25, 15.8921 )
+
+[sub_resource type="Curve2D" id=22]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.160492, -199.968, 0, 0, 0, 0, 132.378, -200.047, 0, 0, 0, 0, 132.676, -200.047, 0, 0, 0, 0, -0.488831, -200 )
+}
 
 [node name="Level 5" type="Node2D"]
 script = ExtResource( 7 )
@@ -64,7 +396,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 720897, 64, 0, 720898, 63, 0, 720899, 63, 0, 720900, 63, 0, 720901, 63, 0, 720902, 65, 0 )
+tile_data = PoolIntArray( 720897, 64, 0, 720898, 63, 0, 720899, 63, 0, 720900, 63, 0, 720901, 63, 0, 720902, 65, 0, 720914, 64, 0, 720915, 63, 0, 720916, 63, 0, 720917, 63, 0, 720918, 63, 0, 720919, 63, 0, 720920, 63, 0, 720922, 63, 0, 720923, 63, 0, 720924, 63, 0, 720925, 63, 0, 720926, 65, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 656 )
@@ -73,6 +405,10 @@ position = Vector2( 1008, 656 )
 position = Vector2( 0, 192 )
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
+position = Vector2( 287.32, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Ladder16" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 528 )
@@ -110,11 +446,11 @@ fred_style = "CPC"
 [node name="Victims" type="Node2D" parent="."]
 
 [node name="Victim" parent="Victims" instance=ExtResource( 8 )]
-position = Vector2( 472, 544 )
+position = Vector2( 60.6284, 703.357 )
 sprite_tint = Color( 1, 1, 0, 1 )
 
 [node name="Victim2" parent="Victims" instance=ExtResource( 8 )]
-position = Vector2( 584, 544 )
+position = Vector2( 967.357, 510.236 )
 sprite_tint = Color( 1, 1, 0, 1 )
 
 [node name="Palette" parent="." instance=ExtResource( 6 )]
@@ -123,37 +459,154 @@ position = Vector2( 64, 816 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Path2D3" type="Path2D" parent="Enemies"]
-position = Vector2( 488, 306 )
+position = Vector2( 484.825, 306 )
 curve = SubResource( 1 )
-script = SubResource( 2 )
+script = ExtResource( 16 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D3"]
-position = Vector2( 292.022, 407.166 )
-offset = 1104.12
+position = Vector2( 7.7815, 408 )
+offset = 432.121
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D3/PathFollow2D" groups=["Enemies"] instance=ExtResource( 10 )]
+[node name="Enemy" type="Node2D" parent="Enemies/Path2D3/PathFollow2D" groups=["Enemies"]]
 position = Vector2( 16.0001, -7.99988 )
+script = ExtResource( 17 )
 animation_speed = 1.3
 animation_name = "Penguin"
+
+[node name="Area2D" type="Area2D" parent="Enemies/Path2D3/PathFollow2D/Enemy"]
+
+[node name="Sprite" type="Sprite" parent="Enemies/Path2D3/PathFollow2D/Enemy/Area2D"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+hframes = 29
+frame = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Path2D3/PathFollow2D/Enemy/Area2D"]
+position = Vector2( 2, 0 )
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Path2D3/PathFollow2D/Enemy/Area2D"]
+autoplay = "Bottle"
+playback_speed = 1.3
+anims/Bottle = SubResource( 2 )
+anims/Bulb = SubResource( 3 )
+anims/Camera = SubResource( 4 )
+anims/Ghost = SubResource( 5 )
+anims/HourGlass = SubResource( 6 )
+anims/Penguin = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+anims/Spider = SubResource( 7 )
+
+[node name="Path2D4" type="Path2D" parent="Enemies"]
+position = Vector2( 477.682, -71.8014 )
+curve = SubResource( 11 )
+script = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D4"]
+position = Vector2( 191.924, 596.491 )
+rotate = false
+
+[node name="Enemy" type="Node2D" parent="Enemies/Path2D4/PathFollow2D" groups=["Enemies"]]
+position = Vector2( 16.0001, -7.99988 )
+script = ExtResource( 17 )
+animation_speed = 1.3
+animation_name = "Penguin"
+
+[node name="Area2D" type="Area2D" parent="Enemies/Path2D4/PathFollow2D/Enemy"]
+
+[node name="Sprite" type="Sprite" parent="Enemies/Path2D4/PathFollow2D/Enemy/Area2D"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+hframes = 29
+frame = 27
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Path2D4/PathFollow2D/Enemy/Area2D"]
+position = Vector2( 2, 0 )
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Path2D4/PathFollow2D/Enemy/Area2D"]
+autoplay = "Bottle"
+playback_speed = 1.3
+anims/Bottle = SubResource( 13 )
+anims/Bulb = SubResource( 14 )
+anims/Camera = SubResource( 15 )
+anims/Ghost = SubResource( 16 )
+anims/HourGlass = SubResource( 17 )
+anims/Penguin = SubResource( 18 )
+anims/RESET = SubResource( 19 )
+anims/Spider = SubResource( 20 )
 
 [node name="Collectables" type="Node2D" parent="."]
 position = Vector2( 0, 3 )
 
 [node name="Coin" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
-position = Vector2( 528, 480 )
+position = Vector2( 472, 269 )
 
 [node name="Spikes" type="Node" parent="."]
 
 [node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
-position = Vector2( 736, 720 )
+position = Vector2( 204.221, 527.925 )
+spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+
+[node name="Spike5" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
+position = Vector2( 353.762, 720 )
+spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+
+[node name="Spike6" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
+position = Vector2( 321.688, 720 )
+spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+
+[node name="Spike3" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
+position = Vector2( 597.896, 528.718 )
+spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+
+[node name="Spike4" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
+position = Vector2( 630.438, 528.718 )
 spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
 
 [node name="Fader" parent="." instance=ExtResource( 14 )]
 visible = false
 z_index = 4096
 
+[node name="Moving Platforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform" type="Node2D" parent="Moving Platforms"]
+position = Vector2( 336, 760 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Platform" type="KinematicBody2D" parent="Moving Platforms/MovingPlatform"]
+position = Vector2( 124.494, -200.044 )
+rotation = -0.00325842
+scale = Vector2( 0.996419, 1 )
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="Moving Platforms/MovingPlatform/Platform"]
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving Platforms/MovingPlatform/Platform"]
+shape = SubResource( 21 )
+
+[node name="Path2D" type="Path2D" parent="Moving Platforms/MovingPlatform"]
+position = Vector2( 0.48708, 0 )
+scale = Vector2( 0.996419, 1 )
+curve = SubResource( 22 )
+script = ExtResource( 11 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moving Platforms/MovingPlatform/Path2D"]
+position = Vector2( 124.453, -200.044 )
+rotation = -0.00324675
+offset = 135.004
+rotate = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Moving Platforms/MovingPlatform/Path2D/PathFollow2D"]
+remote_path = NodePath("../../../Platform")
+
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
+[connection signal="body_entered" from="Enemies/Path2D3/PathFollow2D/Enemy/Area2D" to="Enemies/Path2D3/PathFollow2D/Enemy" method="_on_StaticBody2D_body_entered"]
+[connection signal="body_entered" from="Enemies/Path2D4/PathFollow2D/Enemy/Area2D" to="Enemies/Path2D4/PathFollow2D/Enemy" method="_on_StaticBody2D_body_entered"]

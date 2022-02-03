@@ -252,30 +252,30 @@ animation_name = "Bottle"
 position = Vector2( 258.361, 621.847 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform" index="0"]
-position = Vector2( -1.50662, -84.1991 )
+position = Vector2( 117.001, -200.042 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform/Path2D" index="0"]
-position = Vector2( -1.50661, -84.1991 )
+position = Vector2( 117.001, -200.042 )
 offset = 117.533
 
 [node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource( 15 )]
 position = Vector2( 416, 624 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform2" index="0"]
-position = Vector2( -1.42072, -84.3085 )
+position = Vector2( -0.488831, -200 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform2/Path2D" index="0"]
-position = Vector2( -1.42071, -84.3084 )
+position = Vector2( -0.488831, -200 )
 offset = 352.598
 
 [node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource( 15 )]
 position = Vector2( 576, 624 )
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform3" index="0"]
-position = Vector2( -1.50659, -84.1991 )
+position = Vector2( 117.001, -200.042 )
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform3/Path2D" index="0"]
-position = Vector2( -1.50661, -84.1991 )
+position = Vector2( 117.001, -200.042 )
 offset = 117.533
 
 [node name="Collectables" type="Node" parent="."]

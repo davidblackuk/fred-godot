@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/twoup.png-ec57b78cc92a0b5380dbb8dfbedb04a1.stex"
+path="res://.import/all.png-6d6e81df9f7a2b5e18efe1cf84a781c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/victims/twoup.png"
-dest_files=[ "res://.import/twoup.png-ec57b78cc92a0b5380dbb8dfbedb04a1.stex" ]
+source_file="res://images/moving-platforms/all.png"
+dest_files=[ "res://.import/all.png-6d6e81df9f7a2b5e18efe1cf84a781c3.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

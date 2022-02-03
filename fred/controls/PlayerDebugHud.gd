@@ -5,7 +5,7 @@ onready var motion = get_node("Motion")
 onready var player = get_parent()
 
 
-func _process(delta):
+func _process(_delta):
 	if GameManager.game_state.debug_mode:
 		jump_height.text = str(int(player.jump_height))
 		motion.text = str(player.motion)

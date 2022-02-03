@@ -33,7 +33,7 @@ func _ready():
 	get_tree().paused = true
 		
 	
-func _process(delta):
+func _process(_delta):
 	if (Input.is_action_just_pressed("ui_home")):		
 		exit_is_to_menu = true
 		fader.fade_out()

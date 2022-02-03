@@ -51,7 +51,7 @@ func get_high_score_for_level(level_scene_name):
 # Records the time taken for a complete run through of the game, completing 
 # all levels and collecting all items. Returns true if this is a record run through
 #
-func record_game_time(levelSceneName, time_msec):
+func record_game_time(_levelSceneName, _time_msec):
 	return false
 
 func _set_level_score(level_number, time_msec, percentage):

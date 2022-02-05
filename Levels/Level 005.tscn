@@ -19,7 +19,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -64.3249, 407.864, 0, 0, 0, 0, -34.9579, 408.657, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 488, 406, 0, 0, 0, 0, 153.149, 408.657, 0, 0, 0, 0, 114.258, 407.07, 0, 0, 0, 0, 77.7475, 408.657, 0, 0, 0, 0, -424, 408 )
+"points": PoolVector2Array( 0, 0, 0, 0, -380.825, 406, 0, 0, 0, 0, -380.825, 406, 0, 0, 0, 0, -64.3249, 407.864, 0, 0, 0, 0, -34.9579, 408.657, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 488, 406, 0, 0, 0, 0, 153.149, 408.657, 0, 0, 0, 0, 114.258, 407.07, 0, 0, 0, 0, 77.7475, 408.657, 0, 0, 0, 0, -380.825, 406 )
 }
 
 [sub_resource type="CapsuleShape2D" id=10]
@@ -472,7 +472,7 @@ curve = SubResource( 1 )
 script = ExtResource( 16 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D3"]
-position = Vector2( 8.1208, 408.557 )
+position = Vector2( 50.9989, 408.457 )
 offset = 432.121
 rotate = false
 
@@ -487,8 +487,8 @@ animation_name = "Penguin"
 [node name="Sprite" type="Sprite" parent="Enemies/Path2D3/PathFollow2D/Enemy/Area2D"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
-hframes = 29
-frame = 25
+hframes = 33
+frame = 27
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Path2D3/PathFollow2D/Enemy/Area2D"]
 position = Vector2( 2, 0 )
@@ -519,15 +519,15 @@ rotate = false
 position = Vector2( 16.0001, -7.99988 )
 script = ExtResource( 17 )
 animation_speed = 1.3
-animation_name = "Penguin"
+animation_name = "Snowman"
 
 [node name="Area2D" type="Area2D" parent="Enemies/Path2D4/PathFollow2D/Enemy"]
 
 [node name="Sprite" type="Sprite" parent="Enemies/Path2D4/PathFollow2D/Enemy/Area2D"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
-hframes = 29
-frame = 25
+hframes = 33
+frame = 27
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Path2D4/PathFollow2D/Enemy/Area2D"]
 position = Vector2( 2, 0 )
@@ -586,6 +586,9 @@ image_frame = 1
 
 [node name="Platform" parent="Moving Platforms/MovingPlatform2" index="0"]
 position = Vector2( -0.659241, -201.633 )
+
+[node name="Sprite" parent="Moving Platforms/MovingPlatform2/Platform" index="0"]
+frame = 1
 
 [node name="Path2D" parent="Moving Platforms/MovingPlatform2" index="1"]
 position = Vector2( 0, -1.52588e-05 )

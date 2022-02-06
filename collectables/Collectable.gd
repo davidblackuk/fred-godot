@@ -44,5 +44,5 @@ func _on_Area2D_body_entered(body):
 		$AnimationPlayer.play("Collected")
 
 
-func _on_animation_finished(anim_name):
+func _on_animation_finished(_anim_name):
 	queue_free() # Replace with function body.

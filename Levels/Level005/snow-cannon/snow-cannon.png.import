@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles-sheet.png-2a5d260aae896533f15de3b35ac335aa.stex"
+path="res://.import/snow-cannon.png-625d21546d61eb9058b43b4d91e1251e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/tiles-sheet.png"
-dest_files=[ "res://.import/tiles-sheet.png-2a5d260aae896533f15de3b35ac335aa.stex" ]
+source_file="res://Levels/Level005/snow-cannon/snow-cannon.png"
+dest_files=[ "res://.import/snow-cannon.png-625d21546d61eb9058b43b4d91e1251e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

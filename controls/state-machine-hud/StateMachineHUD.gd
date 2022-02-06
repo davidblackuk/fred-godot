@@ -5,7 +5,7 @@ onready var label = get_node("Label")
 
 
 
-func _process(delta):
+func _process(_delta):
 	if GameManager.game_state.debug_mode:
 		label.text = state_machine.state
 	else:

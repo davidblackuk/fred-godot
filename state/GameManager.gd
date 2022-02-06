@@ -15,7 +15,6 @@ func reset():
 	game_state.reset(FIRST_LEVEL);
 	game_timer.reset()
 	level_timer.reset();
-	var x = game_timer.as_string()
 
 #
 # Record an instance of freds frequent, but always heroic, deaths

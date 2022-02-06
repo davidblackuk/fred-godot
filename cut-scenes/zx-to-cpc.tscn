@@ -127,7 +127,7 @@ animations = [ {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
-next_scene = "res://Levels/Level 005.tscn"
+next_scene = "res://Levels/Level005/Level 005.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 8 )]
 color = Color( 0, 0, 0, 1 )

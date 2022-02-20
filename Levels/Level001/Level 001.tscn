@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=2]
@@ -7,17 +7,116 @@
 [ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=7]
-[ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level001/bottle/bottle-sprite-frames.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://fred/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=11]
 [ext_resource path="res://tiles.tres" type="TileSet" id=12]
-[ext_resource path="res://Levels/Level001/PathWithVelocity.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/EnemyArea2D.gd" type="Script" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 40, -457, 0, 0, 0, 0, 40, -89, 0, 0, 0, 0, 40, -457 )
+"points": PoolVector2Array( 0, 0, 0, 0, 189.961, 126.406, 0, 0, 0, 0, 192, 127, 0, 0, 0, 0, 192, 319 )
 }
+
+[sub_resource type="Animation" id=9]
+resource_name = "Move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 26.0385
+height = 10.7345
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 416, 279, 0, 0, 0, 0, 416, -33 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 24.0
+height = 16.0
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 640, 271, 0, 0, 0, 0, 640, -1 )
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 24.0
+height = 16.0
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 864, 319, 0, 0, 0, 0, 864, -41 )
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 24.0
+height = 16.0
 
 [node name="Level 1" type="Node2D" groups=["Collectables"]]
 script = ExtResource( 11 )
@@ -27,7 +126,7 @@ next_scene = "res://Levels/Level002/Level 002.tscn"
 color = Color( 0.447059, 0.0470588, 0.447059, 1 )
 
 [node name="ScoreHud" parent="." instance=ExtResource( 4 )]
-level_name = "Hot chilli sauce"
+level_name = "Ketchup or Catsup??"
 
 [node name="Tiles" type="TileMap" parent="."]
 position = Vector2( 0, 192 )
@@ -91,69 +190,108 @@ ladder_type = 2
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( 0, 193 )
 
-[node name="White Path" type="Path2D" parent="Enemies"]
-position = Vector2( 152, 432 )
+[node name="Bottle1Path" type="Path2D" parent="Enemies"]
 curve = SubResource( 1 )
-script = ExtResource( 13 )
-velocity = 120.0
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path"]
-position = Vector2( 40, -92.026 )
-offset = 364.953
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle1Path"]
+autoplay = "Move"
+anims/Move = SubResource( 9 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle1Path"]
+position = Vector2( 192, 293.295 )
+offset = 167.393
 rotate = false
+loop = false
 
-[node name="Bottle" parent="Enemies/White Path/PathFollow2D" groups=["Enemies"] instance=ExtResource( 8 )]
-animation_speed = 2.0
-sprite_tint = Color( 1, 0.176471, 0.176471, 1 )
-animation_name = "Bottle"
-
-[node name="White Path2" type="Path2D" parent="Enemies"]
-position = Vector2( 374, 432 )
-curve = SubResource( 1 )
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle1Path/PathFollow2D"]
 script = ExtResource( 13 )
-velocity = 80.0
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path2"]
-position = Vector2( 40, -274.242 )
-offset = 182.674
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle1Path/PathFollow2D/Area2D"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle1Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.0705882, 0.0705882, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+playing = true
+
+[node name="Bottle2Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle2Path"]
+autoplay = "Move"
+anims/Move = SubResource( 10 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle2Path"]
+position = Vector2( 416, 34.0195 )
+offset = 245.143
 rotate = false
+loop = false
 
-[node name="Bottle" parent="Enemies/White Path2/PathFollow2D" groups=["Enemies"] instance=ExtResource( 8 )]
-animation_speed = 3.0
-sprite_tint = Color( 1, 0.235294, 0.235294, 1 )
-animation_name = "Bottle"
-
-[node name="White Path3" type="Path2D" parent="Enemies"]
-position = Vector2( 598, 432 )
-curve = SubResource( 1 )
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle2Path/PathFollow2D"]
 script = ExtResource( 13 )
-velocity = 250.0
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path3"]
-position = Vector2( 40, -274.56 )
-offset = 547.43
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle2Path/PathFollow2D/Area2D"]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle2Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.176471, 0.176471, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 1
+playing = true
+
+[node name="Bottle3Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle3Path"]
+autoplay = "Move"
+anims/Move = SubResource( 11 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle3Path"]
+position = Vector2( 640, 234.038 )
+offset = 36.9578
 rotate = false
+loop = false
 
-[node name="Bottle" parent="Enemies/White Path3/PathFollow2D" groups=["Enemies"] instance=ExtResource( 8 )]
-animation_speed = 4.0
-sprite_tint = Color( 1, 0.0705882, 0.0705882, 1 )
-animation_name = "Bottle"
-
-[node name="White Path4" type="Path2D" parent="Enemies"]
-position = Vector2( 823, 432 )
-curve = SubResource( 1 )
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle3Path/PathFollow2D"]
 script = ExtResource( 13 )
-velocity = 200.0
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path4"]
-position = Vector2( 40, -457 )
-offset = 729.906
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle3Path/PathFollow2D/Area2D"]
+shape = SubResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle3Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.0705882, 0.0705882, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 2
+playing = true
+
+[node name="Bottle4Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle4Path"]
+autoplay = "Move"
+anims/Move = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle4Path"]
+position = Vector2( 864, 243.7 )
+offset = 75.314
 rotate = false
+loop = false
 
-[node name="Bottle" parent="Enemies/White Path4/PathFollow2D" groups=["Enemies"] instance=ExtResource( 8 )]
-animation_speed = 5.0
-sprite_tint = Color( 0.827451, 0.215686, 0.215686, 1 )
-animation_name = "Bottle"
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle4Path/PathFollow2D"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle4Path/PathFollow2D/Area2D"]
+shape = SubResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle4Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.0705882, 0.0705882, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 1
+playing = true
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 56, 704 )

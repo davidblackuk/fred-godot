@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://controls/doors/Entrance.tscn" type="PackedScene" id=5]
 [ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=7]
@@ -11,22 +10,157 @@
 [ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=9]
 [ext_resource path="res://fred/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=11]
-[ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=12]
 [ext_resource path="res://tiles.tres" type="TileSet" id=13]
+[ext_resource path="res://Levels/Level002/spider/spider.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/EnemyArea2D.gd" type="Script" id=15]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 240, 184, 0, 0, 0, 0, 413, 185, 0, 0, 0, 0, 240, 184 )
+"points": PoolVector2Array( 0, 0, 0, 0, 242.115, 187.061, 0, 0, 0, 0, 415.788, 187.061 )
 }
+
+[sub_resource type="Animation" id=11]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemies/Green Path/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 16.1575
+height = 34.6338
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=18]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0, 0.5, 0.0, 0.5 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 17.217
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 15.9996, -1, 0, 0, 0, 0, 197.23, -1, 0, 0, 0, 0, 197.23, -225, 0, 0, 0, 0, 283.076, -225, 0, 0, 0, 0, 197.23, -225, 0, 0, 0, 0, 197.23, -1, 0, 0, 0, 0, 283.076, -1, 0, 0, 0, 0, 15.9996, -1 )
+"points": PoolVector2Array( 0, 0, 0, 0, 273.74, -224.62, 0, 0, 0, 0, 197.23, -225, 0, 0, 0, 0, 197.23, -1, 0, 0, 0, 0, 15.9996, -1 )
 }
+
+[sub_resource type="Animation" id=26]
+resource_name = "Move"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 18.3394
+height = 25.2687
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 216, -16, 0, 0, 0, 0, 28, -15, 0, 0, 0, 0, 192, -16, 0, 0, 0, 0, 216, -16 )
+"points": PoolVector2Array( 0, 0, 0, 0, -7.76947, 75.9642, 0, 0, 0, 0, -8.61124, -13.4126, 0, 0, 0, 0, 216.743, -14.0072 )
 }
 
 [sub_resource type="GDScript" id=4]
@@ -43,6 +177,50 @@ func _process(delta):
 	var follower = get_node(\"./PathFollow2D\")
 	follower.set_offset(follower.get_offset() + 100 * delta)
 "
+
+[sub_resource type="Animation" id=19]
+resource_name = "Move"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 17.4322
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Level 2" type="Node2D"]
 script = ExtResource( 11 )
@@ -176,59 +354,110 @@ position = Vector2( 0, 193 )
 [node name="Green Path" type="Path2D" parent="Enemies"]
 position = Vector2( -32, 8 )
 curve = SubResource( 1 )
-script = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Green Path"]
+root_node = NodePath("../../..")
+autoplay = "Move"
+anims/Move = SubResource( 11 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Green Path"]
-position = Vector2( 409.318, 184.979 )
-offset = 171.456
+position = Vector2( 375.517, 187.061 )
+offset = 133.213
 rotate = false
 
-[node name="Spider" parent="Enemies/Green Path/PathFollow2D" groups=["Enemies"] instance=ExtResource( 4 )]
-sprite_tint = Color( 0, 1, 0, 1 )
-animation_name = "Spider"
+[node name="Area2D" type="Area2D" parent="Enemies/Green Path/PathFollow2D"]
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Green Path/PathFollow2D/Area2D"]
+shape = SubResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Green Path/PathFollow2D/Area2D"]
+modulate = Color( 0, 1, 0, 1 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 10 )
+frame = 2
+playing = true
 
 [node name="Yellow Path" type="Path2D" parent="Enemies"]
 position = Vector2( 404, 7 )
 curve = SubResource( 1 )
-script = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Yellow Path"]
+autoplay = "Move"
+anims/Move = SubResource( 18 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Yellow Path"]
-position = Vector2( 240, 184 )
+position = Vector2( 251.334, 187.061 )
+offset = 9.21498
 rotate = false
 
-[node name="Spider" parent="Enemies/Yellow Path/PathFollow2D" groups=["Enemies"] instance=ExtResource( 4 )]
-animation_speed = 1.5
-sprite_tint = Color( 1, 1, 0, 1 )
-animation_name = "Spider"
+[node name="Area2D" type="Area2D" parent="Enemies/Yellow Path/PathFollow2D"]
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Yellow Path/PathFollow2D/Area2D"]
+shape = SubResource( 12 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Yellow Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 1, 0, 1 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 13 )
+frame = 2
+playing = true
 
 [node name="Cyan Path" type="Path2D" parent="Enemies"]
 position = Vector2( 746.581, 352 )
 scale = Vector2( 0.83871, 1 )
 curve = SubResource( 2 )
-script = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Cyan Path"]
+autoplay = "Move"
+anims/Move = SubResource( 26 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Cyan Path"]
-position = Vector2( 137.998, -1 )
-offset = 122.114
+position = Vector2( 15.9996, -1 )
+offset = 478.415
 rotate = false
 
-[node name="Spider" parent="Enemies/Cyan Path/PathFollow2D" groups=["Enemies"] instance=ExtResource( 4 )]
-sprite_tint = Color( 0, 1, 1, 1 )
-animation_name = "Spider"
+[node name="Area2D" type="Area2D" parent="Enemies/Cyan Path/PathFollow2D"]
+script = ExtResource( 15 )
 
-[node name="White Path" type="Path2D" parent="Enemies"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Cyan Path/PathFollow2D/Area2D"]
+shape = SubResource( 27 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Cyan Path/PathFollow2D/Area2D"]
+modulate = Color( 0, 1, 1, 1 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 32 )
+frame = 3
+playing = true
+
+[node name="Magenta Path" type="Path2D" parent="Enemies"]
 position = Vector2( 152, 432 )
 curve = SubResource( 3 )
 script = SubResource( 4 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/White Path"]
-position = Vector2( 32.6694, -15.0244 )
-offset = 182.674
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Magenta Path"]
+autoplay = "Move"
+anims/Move = SubResource( 19 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Magenta Path"]
+position = Vector2( 216.743, -14.0072 )
+offset = 312.948
 rotate = false
 
-[node name="Spider" parent="Enemies/White Path/PathFollow2D" groups=["Enemies"] instance=ExtResource( 4 )]
-animation_speed = 2.0
-animation_name = "Spider"
+[node name="Area2D" type="Area2D" parent="Enemies/Magenta Path/PathFollow2D"]
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Magenta Path/PathFollow2D/Area2D"]
+shape = SubResource( 20 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Magenta Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0, 1, 1 )
+position = Vector2( -1.68372, -0.280579 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 25 )
+frame = 3
+playing = true
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 48, 704 )

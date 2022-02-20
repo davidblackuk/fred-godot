@@ -1,0 +1,454 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Levels/LevelBase.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level004/ghost/ghost.png" type="Texture" id=2]
+[ext_resource path="res://controls/doors/Entrance.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/crumbles/crumble.tscn" type="PackedScene" id=4]
+[ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ladder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://collectables/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://controls/conveyers/conveyer-belt.tscn" type="PackedScene" id=10]
+[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=11]
+[ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=12]
+[ext_resource path="res://fred/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=14]
+[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tiles.tres" type="TileSet" id=16]
+[ext_resource path="res://Scripts/EnemyArea2D.gd" type="Script" id=17]
+[ext_resource path="res://Levels/Level004/egg-timer/egg-timer.png" type="Texture" id=18]
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 920, 624, 0, 0, 0, 0, 312, 628 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Move"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PathFollow2D/Area2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0, 720.0, 1080.0, 1440.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 23.9999
+height = 16.0005
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 18 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 18 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 18 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 480, 392, 0, 0, 0, 0, 960, 392 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Move"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 24.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Level 4" type="Node2D"]
+script = ExtResource( 1 )
+next_scene = "res://cut-scenes/zx-to-cpc.tscn"
+
+[node name="SkyBox" parent="." instance=ExtResource( 7 )]
+margin_left = 1.0
+margin_right = 1025.0
+color = Color( 0.137255, 0.137255, 0.137255, 1 )
+
+[node name="Entrance" parent="." instance=ExtResource( 3 )]
+position = Vector2( 16.5294, 658 )
+door_tint = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="ScoreHud" parent="." instance=ExtResource( 5 )]
+level_name = "chimney sweep"
+
+[node name="Tiles" type="TileMap" parent="."]
+position = Vector2( 1, 192 )
+tile_set = ExtResource( 16 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196608, -1610612699, 0, -196607, -1610612700, 0, -196606, -1610612700, 0, -196605, -1610612700, 0, -196604, -1610612700, 0, -196603, -1610612700, 0, -196602, -1610612700, 0, -196601, -1610612700, 0, -196600, -1610612700, 0, -196599, -1610612700, 0, -196598, -1610612700, 0, -196597, -1610612700, 0, -196596, -1610612700, 0, -196595, -1610612700, 0, -196594, -1610612700, 0, -196593, -1610612700, 0, -196592, -1610612700, 0, -196591, -1610612700, 0, -196590, -1610612700, 0, -196589, -1610612700, 0, -196588, -1610612700, 0, -196587, -1610612700, 0, -196586, -1610612700, 0, -196585, -1610612700, 0, -196584, -1610612700, 0, -196583, -1610612700, 0, -196582, -1610612700, 0, -196581, -1610612700, 0, -196580, -1610612700, 0, -196579, -1610612700, 0, -196578, -1610612700, 0, -196577, -1073741785, 0, -131072, 36, 0, -131041, 36, 0, -65536, 36, 0, -65505, 36, 0, 0, 36, 0, 31, 36, 0, 65536, 36, 0, 65567, 36, 0, 131072, 36, 0, 131103, 36, 0, 196608, 36, 0, 196609, 40, 0, 196610, 41, 0, 196615, 40, 0, 196616, 41, 0, 196634, 14, 0, 196635, 14, 0, 196637, 14, 0, 196638, 14, 0, 196639, 36, 0, 262144, 36, 0, 262145, 33, 0, 262146, 35, 0, 262151, 33, 0, 262152, 35, 0, 262175, 36, 0, 327680, 36, 0, 327681, 33, 0, 327682, 35, 0, 327687, 33, 0, 327688, 35, 0, 327711, 36, 0, 393216, 36, 0, 393217, 33, 0, 393218, 35, 0, 393223, 33, 0, 393224, 35, 0, 393247, 36, 0, 458752, 36, 0, 458753, 33, 0, 458754, 35, 0, 458759, 33, 0, 458760, 35, 0, 458761, 14, 0, 458762, 14, 0, 458763, 14, 0, 458764, 14, 0, 458765, 14, 0, 458766, 14, 0, 458767, 14, 0, 458768, 14, 0, 458769, 14, 0, 458770, 14, 0, 458771, 14, 0, 458772, 14, 0, 458773, 14, 0, 458774, 14, 0, 458775, 14, 0, 458776, 14, 0, 458777, 14, 0, 458778, 14, 0, 458779, 14, 0, 458781, 14, 0, 458782, 14, 0, 458783, 36, 0, 524288, 36, 0, 524289, 33, 0, 524290, 35, 0, 524295, 33, 0, 524296, 35, 0, 589824, 36, 0, 589825, 33, 0, 589826, 35, 0, 589831, 33, 0, 589832, 35, 0, 655360, 36, 0, 655361, 33, 0, 655362, 35, 0, 655367, 33, 0, 655368, 35, 0, 720896, 36, 0, 720897, 33, 0, 720898, 35, 0, 720903, 33, 0, 720904, 35, 0, 720905, 14, 0, 720906, 14, 0, 720908, 14, 0, 720922, 14, 0, 720923, 14, 0, 720924, 14, 0, 720925, 14, 0, 720926, 14, 0, 720927, 36, 0, 786432, 36, 0, 786433, 33, 0, 786434, 35, 0, 786439, 33, 0, 786440, 35, 0, 786463, 36, 0, 851968, 36, 0, 851969, 33, 0, 851970, 35, 0, 851975, 33, 0, 851976, 35, 0, 851999, 36, 0, 917511, 33, 0, 917512, 35, 0, 917535, 36, 0, 983047, 33, 0, 983048, 35, 0, 983071, 36, 0, 1048583, 33, 0, 1048584, 35, 0, 1048607, 36, 0, 1114112, 37, 0, 1114113, 38, 0, 1114114, 38, 0, 1114115, 38, 0, 1114116, 38, 0, 1114117, 38, 0, 1114118, 38, 0, 1114119, 38, 0, 1114120, 38, 0, 1114121, 38, 0, 1114122, 38, 0, 1114123, 38, 0, 1114124, 38, 0, 1114125, 38, 0, 1114126, 38, 0, 1114127, 38, 0, 1114128, 38, 0, 1114129, 38, 0, 1114130, 38, 0, 1114131, 38, 0, 1114132, 38, 0, 1114133, 38, 0, 1114134, 38, 0, 1114135, 38, 0, 1114136, 38, 0, 1114137, 38, 0, 1114138, 38, 0, 1114139, 38, 0, 1114140, 38, 0, 1114141, 38, 0, 1114142, 38, 0, 1114143, 39, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1008, 464 )
+
+[node name="Ladders" type="Node2D" parent="."]
+position = Vector2( 0, 192 )
+
+[node name="Ladder 2" type="Node2D" parent="Ladders"]
+
+[node name="Ladder16" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 528 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder17" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 496 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder18" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 464 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder19" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 432 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder20" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 400 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder21" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 368 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder22" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 369, 336 )
+ladder_type = 2
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder 3" type="Node2D" parent="Ladders"]
+
+[node name="Ladder16" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 240 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder23" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 272 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder24" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 305.265 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder25" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 336 )
+ladder_type = 1
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder17" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 208 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder18" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 176 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder19" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 144 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder20" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 112 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder21" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 80 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder22" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 6 )]
+position = Vector2( 912, 48 )
+ladder_type = 2
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 13 )]
+position = Vector2( 56, 704 )
+
+[node name="Victims" type="Node2D" parent="."]
+
+[node name="Victim" parent="Victims" instance=ExtResource( 12 )]
+position = Vector2( 63.3889, 254 )
+sprite_tint = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="Victim2" parent="Victims" instance=ExtResource( 12 )]
+position = Vector2( 968, 704 )
+sprite_tint = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="Victim3" parent="Victims" instance=ExtResource( 12 )]
+position = Vector2( 432, 384 )
+sprite_tint = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="Victim4" parent="Victims" instance=ExtResource( 12 )]
+position = Vector2( 312, 512 )
+sprite_tint = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="Palette" parent="." instance=ExtResource( 11 )]
+position = Vector2( 64, 816 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EggTimerPath2D" type="Path2D" parent="Enemies"]
+position = Vector2( 0, 76 )
+curve = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/EggTimerPath2D"]
+autoplay = "Move"
+anims/Move = SubResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/EggTimerPath2D"]
+position = Vector2( 804.485, 624.76 )
+offset = 115.515
+rotate = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/EggTimerPath2D/PathFollow2D"]
+rotation = 22.7485
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/EggTimerPath2D/PathFollow2D/Area2D"]
+shape = SubResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/EggTimerPath2D/PathFollow2D/Area2D"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 12 )
+frame = 2
+playing = true
+
+[node name="GhostPath" type="Path2D" parent="Enemies"]
+position = Vector2( 0, -3 )
+curve = SubResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/GhostPath"]
+autoplay = "Move"
+anims/Move = SubResource( 14 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/GhostPath"]
+position = Vector2( 480, 392 )
+rotate = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/GhostPath/PathFollow2D"]
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/GhostPath/PathFollow2D/Area2D"]
+shape = SubResource( 15 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/GhostPath/PathFollow2D/Area2D"]
+scale = Vector2( 1.5, 2 )
+frames = SubResource( 20 )
+frame = 1
+playing = true
+
+[node name="Collectables" type="Node2D" parent="."]
+
+[node name="Coin" parent="Collectables" groups=["Collectables"] instance=ExtResource( 9 )]
+position = Vector2( 208, 144 )
+
+[node name="Coin2" parent="Collectables" groups=["Collectables"] instance=ExtResource( 9 )]
+position = Vector2( 336, 144 )
+reward_level = 1
+
+[node name="Coin3" parent="Collectables" groups=["Collectables"] instance=ExtResource( 9 )]
+position = Vector2( 528, 144 )
+reward_level = 2
+
+[node name="Coin4" parent="Collectables" groups=["Collectables"] instance=ExtResource( 9 )]
+position = Vector2( 768, 144 )
+reward_level = 3
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 176, 720 )
+
+[node name="Spike6" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 528, 720 )
+
+[node name="Spike7" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 752, 720 )
+
+[node name="Spike12" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 304, 400 )
+
+[node name="Spike13" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 336, 400 )
+
+[node name="Spike3" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 849, 272 )
+
+[node name="Spike5" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 968, 272 )
+
+[node name="Spike4" parent="Spikes" groups=["Spikes"] instance=ExtResource( 14 )]
+position = Vector2( 208, 720 )
+
+[node name="Fader" parent="." instance=ExtResource( 15 )]
+visible = false
+z_index = 4096
+
+[node name="Crumbles" type="Node2D" parent="."]
+
+[node name="Crumble" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 208, 688 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble2" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 112, 624 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble3" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 208, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble4" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 112, 496 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble5" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 208, 432 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble6" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 112, 368 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble7" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 208, 304 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble8" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 720, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble9" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 688, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble10" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 656, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble11" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 495.98, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble12" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 463.959, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Crumble13" parent="Crumbles" instance=ExtResource( 4 )]
+position = Vector2( 431.98, 560 )
+crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="Conveyors" type="Node2D" parent="."]
+
+[node name="ConveyorBelt" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+position = Vector2( 432, 304 )
+direction = 1
+conveyor_tint = Color( 1, 0, 1, 1 )
+
+[node name="ConveyorBelt2" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+position = Vector2( 464, 304 )
+direction = 1
+conveyor_tint = Color( 1, 0, 1, 1 )
+
+[node name="ConveyorBelt3" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+position = Vector2( 496, 304 )
+direction = 1
+conveyor_tint = Color( 1, 0, 1, 1 )
+
+[node name="ConveyorBelt4" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+position = Vector2( 656, 304 )
+direction = 1
+conveyor_tint = Color( 1, 0, 1, 1 )
+
+[node name="ConveyorBelt5" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+position = Vector2( 688, 304 )
+direction = 1
+conveyor_tint = Color( 1, 0, 1, 1 )
+
+[node name="ConveyorBelt6" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+position = Vector2( 720, 304 )
+direction = 1
+conveyor_tint = Color( 1, 0, 1, 1 )
+
+[connection signal="level_complete" from="." to="Door" method="_level_complete"]
+[connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
+[connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Victims/Victim3" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Victims/Victim4" to="." method="_on_victim_rescued"]

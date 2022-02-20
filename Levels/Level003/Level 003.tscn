@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://sprites/enemies/EnemyPath2D.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level003/bulb/bulb-sprite-frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Levels/LevelBase.gd" type="Script" id=2]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=3]
 [ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=4]
@@ -8,7 +8,7 @@
 [ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=6]
 [ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sprites/enemies/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/EnemyArea2D.gd" type="Script" id=9]
 [ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=10]
 [ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=11]
 [ext_resource path="res://controls/doors/Entrance.tscn" type="PackedScene" id=12]
@@ -16,34 +16,86 @@
 [ext_resource path="res://collectables/Coin.tscn" type="PackedScene" id=14]
 [ext_resource path="res://tiles.tres" type="TileSet" id=15]
 
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 307.144, 258.89, 0, 0, 0, 0, 112.172, 258.89, 0, 0, 0, 0, 112.172, 417.325, 0, 0, 0, 0, 334.548, 417.955 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Move"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 24.0002
+height = 15.9996
+
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 152, 408, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 264, 408, 0, 0, 0, 0, 416, 408, 0, 0, 0, 0, 152, 408 )
+"points": PoolVector2Array( 0, 0, 0, 0, 439.41, 404.79, 0, 0, 0, 0, 224.908, 404.79, 0, 0, 0, 0, 224.908, 238.165, 0, 0, 0, 0, 408.542, 238.795 )
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Animation" id=8]
+resource_name = "Move"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 24.7207
+
+[sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, -424, 408, 0, 0, 0, 0, 248, 408, 0, 0, 0, 0, 392, 408, 0, 0, 0, 0, 152, 408, 0, 0, 0, 0, -424, 408 )
+"points": PoolVector2Array( 0, 0, 0, 0, 160.234, 706.936, 0, 0, 0, 0, 973.853, 706.936 )
 }
 
-[sub_resource type="GDScript" id=3]
-script/source = "extends Path2D
+[sub_resource type="Animation" id=10]
+resource_name = "Move"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0 ]
+}
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var follower = get_node(\"./PathFollow2D\")
-	follower.set_offset(follower.get_offset() + 100 * delta)
-"
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 19.3354
+height = 23.6471
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 2 )
-next_scene = "res://Levels/Level 004.tscn"
+next_scene = "res://Levels/Level004/Level 004.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 7 )]
 color = Color( 0.0470588, 0.0470588, 0.447059, 1 )
@@ -216,60 +268,84 @@ position = Vector2( 64, 816 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="Enemies"]
-position = Vector2( -8, 16 )
-curve = SubResource( 1 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="GreenPath2D" type="Path2D" parent="Enemies"]
+position = Vector2( 0, 2.48291 )
+scale = Vector2( 1, 0.994059 )
+curve = SubResource( 3 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D"]
-position = Vector2( 152, 408 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/GreenPath2D"]
+autoplay = "Move"
+anims/Move = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/GreenPath2D"]
+position = Vector2( 112.172, 379.342 )
 rotation = -7.79733e-06
+offset = 315.067
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D/PathFollow2D" groups=["Enemies"] instance=ExtResource( 9 )]
-position = Vector2( 16.0001, -7.99988 )
-sprite_tint = Color( 0.0705882, 0.854902, 0.0705882, 1 )
-animation_name = "Bulb"
+[node name="Area2D" type="Area2D" parent="Enemies/GreenPath2D/PathFollow2D"]
+script = ExtResource( 9 )
 
-[node name="Path2D2" type="Path2D" parent="Enemies"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/GreenPath2D/PathFollow2D/Area2D"]
+shape = SubResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/GreenPath2D/PathFollow2D/Area2D"]
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+frame = 2
+playing = true
+
+[node name="YellowPath2D2" type="Path2D" parent="Enemies"]
 position = Vector2( 464, 16 )
 curve = SubResource( 1 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2"]
-position = Vector2( 287.279, 408 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/YellowPath2D2"]
+autoplay = "Move"
+anims/Move = SubResource( 8 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/YellowPath2D2"]
+position = Vector2( 411.49, 404.79 )
 rotation = -7.79733e-06
-offset = 384.775
+offset = 27.9295
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource( 9 )]
-position = Vector2( 16.0001, -7.99988 )
-animation_speed = 0.8
-sprite_tint = Color( 1, 1, 0, 1 )
-animation_name = "Bulb"
+[node name="Area2D" type="Area2D" parent="Enemies/YellowPath2D2/PathFollow2D"]
+script = ExtResource( 9 )
 
-[node name="Path2D3" type="Path2D" parent="Enemies"]
-position = Vector2( 568, 306 )
-curve = SubResource( 2 )
-script = SubResource( 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/YellowPath2D2/PathFollow2D/Area2D"]
+shape = SubResource( 6 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D3"]
-position = Vector2( 101.813, 408 )
-rotation = -7.79733e-06
-offset = 1104.12
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/YellowPath2D2/PathFollow2D/Area2D"]
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+frame = 1
+speed_scale = 1.2
+playing = true
+
+[node name="RedPath2D" type="Path2D" parent="Enemies"]
+curve = SubResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/RedPath2D"]
+autoplay = "Move"
+anims/Move = SubResource( 10 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/RedPath2D"]
+position = Vector2( 507.137, 706.936 )
+rotation = 0.00113852
+offset = 346.851
 rotate = false
 
-[node name="Enemy" parent="Enemies/Path2D3/PathFollow2D" groups=["Enemies"] instance=ExtResource( 9 )]
-position = Vector2( 16.0001, -7.99988 )
-animation_speed = 1.3
-sprite_tint = Color( 1, 0, 0, 1 )
-animation_name = "Bulb"
+[node name="Area2D" type="Area2D" parent="Enemies/RedPath2D/PathFollow2D"]
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/RedPath2D/PathFollow2D/Area2D"]
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/RedPath2D/PathFollow2D/Area2D"]
+shape = SubResource( 11 )
 
 [node name="Collectables" type="Node2D" parent="."]
 

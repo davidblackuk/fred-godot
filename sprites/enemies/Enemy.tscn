@@ -188,6 +188,7 @@ animation_name = "Snowman"
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 33
+frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 2, 0 )

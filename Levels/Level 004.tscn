@@ -164,7 +164,7 @@ ladder_type = 2
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 968, 504 )
+position = Vector2( 56, 704 )
 
 [node name="Victims" type="Node2D" parent="."]
 

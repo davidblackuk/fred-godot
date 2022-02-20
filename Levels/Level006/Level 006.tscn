@@ -1,0 +1,430 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://fred/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level006/tomato/tomato.png" type="Texture" id=2]
+[ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/LevelBase.gd" type="Script" id=7]
+[ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/Level006/orange/orange.png" type="Texture" id=10]
+[ext_resource path="res://Levels/Level006/tile-set.tres" type="TileSet" id=11]
+[ext_resource path="res://collectables/Coin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=13]
+[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Level006/bannana/bannana.png" type="Texture" id=15]
+[ext_resource path="res://controls/doors/Entrance.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Levels/Level006/platforms/platform.png" type="Texture" id=17]
+
+[sub_resource type="Curve2D" id=24]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -442.258, 256.85, 0, 0, 0, 0, -89.9232, 257.691 )
+}
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 15 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 15 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=25]
+radius = 16.1584
+height = 35.7156
+
+[sub_resource type="Animation" id=33]
+resource_name = "Move"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2DLeft:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PathFollow2DLeft/Area2D/BannanaSpriteLeft:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2DLeft:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Curve2D" id=26]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -385.78, 5.13684, 0, 0, 0, 0, -0.552307, 4.23639 )
+}
+
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 19.5809
+height = 26.4066
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 15 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 15 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=35]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2DRight:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PathFollow2DRight/Area2D/BannanaSpriteRight:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 10 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 10 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 12.9406, 48.0816 )
+
+[sub_resource type="Curve2D" id=22]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 685.4, 996.217, 0, 0, 0, 0, 684.4, 868.217 )
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/MovablePlatform1PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[node name="Level 6" type="Node2D"]
+script = ExtResource( 7 )
+next_scene = "res://Levels/Level 030.tscn"
+
+[node name="SkyBox" parent="." instance=ExtResource( 5 )]
+margin_top = 3.0
+margin_bottom = 771.0
+color = Color( 0.501961, 0.501961, 1, 1 )
+
+[node name="ScoreHud" parent="." instance=ExtResource( 9 )]
+level_name = "Fruity"
+
+[node name="PlatformsTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 196608, 12, 0, 196609, 10, 0, 196610, 9, 0, 196611, 9, 0, 196612, 15, 0, 196613, 12, 0, 196614, 10, 0, 196615, 9, 0, 196616, 10, 0, 196617, 10, 0, 196618, 9, 0, 196619, 9, 0, 196620, 12, 0, 196621, 10, 0, 196622, 9, 0, 196623, 12, 0, 196624, 10, 0, 196625, 9, 0, 196626, 9, 0, 196627, 12, 0, 196628, 9, 0, 196629, 10, 0, 196630, 9, 0, 196631, 9, 0, 196632, 12, 0, 196633, 9, 0, 196634, 9, 0, 196635, 10, 0, 196636, 10, 0, 196637, 9, 0, 196638, 12, 0, 196639, 12, 0, 262144, 9, 0, 327680, 10, 0, 393216, 10, 0, 458752, 12, 0, 458779, 0, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 4, 0, 524288, 10, 0, 524307, 0, 0, 524308, 1, 0, 524309, 2, 0, 524319, 9, 0, 589824, 15, 0, 589855, 10, 0, 655360, 9, 0, 655391, 12, 0, 720896, 10, 0, 720927, 10, 0, 786432, 9, 0, 786463, 9, 0, 851968, 13, 0, 851999, 14, 0, 917504, 14, 0, 917535, 12, 0, 983040, 10, 0, 983071, 9, 0, 1048576, 9, 0, 1048607, 10, 0, 1114112, 15, 0, 1114143, 12, 0, 1179648, 10, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179679, 11, 0, 1245184, 12, 0, 1245215, 9, 0, 1310751, 14, 0, 1376270, 0, 0, 1376271, 1, 0, 1376272, 1, 0, 1376273, 2, 0, 1376287, 10, 0, 1441806, 6, 0, 1441807, 14, 0, 1441808, 12, 0, 1441809, 8, 0, 1441823, 12, 0, 1507328, 3, 0, 1507329, 4, 0, 1507330, 4, 0, 1507331, 4, 0, 1507332, 4, 0, 1507333, 4, 0, 1507334, 4, 0, 1507335, 4, 0, 1507336, 4, 0, 1507337, 4, 0, 1507338, 4, 0, 1507339, 4, 0, 1507340, 4, 0, 1507341, 4, 0, 1507342, 3, 0, 1507343, 3, 0, 1507344, 3, 0, 1507345, 3, 0, 1507346, 4, 0, 1507347, 4, 0, 1507348, 4, 0, 1507349, 4, 0, 1507350, 4, 0, 1507351, 4, 0, 1507352, 4, 0, 1507353, 4, 0, 1507354, 4, 0, 1507355, 4, 0, 1507356, 4, 0, 1507357, 4, 0, 1507358, 4, 0, 1507359, 3, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1008, 146 )
+
+[node name="Ladders" type="Node2D" parent="."]
+visible = false
+position = Vector2( 0, 192 )
+
+[node name="Ladder 2" type="Node2D" parent="Ladders"]
+
+[node name="Ladder16" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 528 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder17" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 496 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder18" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 464 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder19" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 432 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder20" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 400 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder21" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 368 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder22" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 336 )
+ladder_type = 2
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 704 )
+fred_style = "CPC"
+
+[node name="Victims" type="Node2D" parent="."]
+
+[node name="Victim" parent="Victims" instance=ExtResource( 8 )]
+position = Vector2( 272, 192 )
+sprite_tint = Color( 1, 1, 0, 1 )
+
+[node name="Victim2" parent="Victims" instance=ExtResource( 8 )]
+position = Vector2( 336, 192 )
+sprite_tint = Color( 1, 1, 0, 1 )
+
+[node name="Palette" parent="." instance=ExtResource( 6 )]
+position = Vector2( 64, 816 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="BannanaPathLeft" type="Path2D" parent="Enemies"]
+position = Vector2( 528, 452.069 )
+curve = SubResource( 24 )
+
+[node name="PathFollow2DLeft" type="PathFollow2D" parent="Enemies/BannanaPathLeft"]
+position = Vector2( -442.258, 256.85 )
+rotate = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/BannanaPathLeft/PathFollow2DLeft"]
+
+[node name="BannanaSpriteLeft" type="AnimatedSprite" parent="Enemies/BannanaPathLeft/PathFollow2DLeft/Area2D"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 12 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/BannanaPathLeft/PathFollow2DLeft/Area2D"]
+shape = SubResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/BannanaPathLeft"]
+autoplay = "Move"
+anims/Move = SubResource( 33 )
+anims/RESET = SubResource( 34 )
+
+[node name="BannanaRight" type="Path2D" parent="Enemies"]
+position = Vector2( 968.932, 703.318 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2DRight" type="PathFollow2D" parent="Enemies/BannanaRight"]
+position = Vector2( -49.1866, 4.35007 )
+offset = 336.773
+rotate = false
+loop = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/BannanaRight/PathFollow2DRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/BannanaRight/PathFollow2DRight/Area2D"]
+position = Vector2( 1.55908, 0.189026 )
+shape = SubResource( 27 )
+
+[node name="BannanaSpriteRight" type="AnimatedSprite" parent="Enemies/BannanaRight/PathFollow2DRight/Area2D"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 32 )
+frame = 2
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/BannanaRight"]
+autoplay = "Move"
+anims/Move = SubResource( 35 )
+
+[node name="Collectables" type="Node2D" parent="."]
+
+[node name="Coin" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
+position = Vector2( 184, 176 )
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
+position = Vector2( 392, 176 )
+
+[node name="Fader" parent="." instance=ExtResource( 14 )]
+visible = false
+z_index = 4096
+
+[node name="TomatoStrite" type="AnimatedSprite" parent="."]
+position = Vector2( 208, 320 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 7 )
+playing = true
+
+[node name="OrangeSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 248, 475 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 21 )
+frame = 1
+playing = true
+
+[node name="Entrance" parent="." instance=ExtResource( 16 )]
+position = Vector2( 16, 656.753 )
+
+[node name="Movables" type="Node2D" parent="."]
+
+[node name="Platform1" type="Node2D" parent="Movables"]
+position = Vector2( 42, 5 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Movables/Platform1"]
+position = Vector2( 766.846, 687.322 )
+rotation = 1.56921
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movables/Platform1/KinematicBody2D"]
+position = Vector2( -3.4315, -9.34753 )
+rotation = 1.16415e-10
+shape = SubResource( 23 )
+
+[node name="Sprite" type="Sprite" parent="Movables/Platform1/KinematicBody2D"]
+position = Vector2( 0.0147095, -9.25647 )
+rotation = -1.5708
+texture = ExtResource( 17 )
+
+[node name="Path2D" type="Path2D" parent="Movables/Platform1"]
+position = Vector2( 81.6, -289.217 )
+curve = SubResource( 22 )
+
+[node name="MovablePlatform1PathFollow2D" type="PathFollow2D" parent="Movables/Platform1/Path2D"]
+position = Vector2( 685.246, 976.539 )
+rotation = 1.56921
+offset = 19.685
+rotate = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Movables/Platform1/Path2D/MovablePlatform1PathFollow2D"]
+remote_path = NodePath("../../../KinematicBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Movables/Platform1"]
+autoplay = "Move"
+anims/Move = SubResource( 36 )
+
+[connection signal="level_complete" from="." to="Door" method="_level_complete"]
+[connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
+[connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]

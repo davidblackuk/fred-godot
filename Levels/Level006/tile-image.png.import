@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/killers.png-2280e6863d241a0694927ae8eb443ffb.stex"
+path="res://.import/tile-image.png-90219bc599affa580c46a31c0be50fd6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/static-killers/killers.png"
-dest_files=[ "res://.import/killers.png-2280e6863d241a0694927ae8eb443ffb.stex" ]
+source_file="res://Levels/Level006/tile-image.png"
+dest_files=[ "res://.import/tile-image.png-90219bc599affa580c46a31c0be50fd6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/killers.png-2280e6863d241a0694927ae8eb443ffb.stex"
+path="res://.import/platform.png-56699e4e277dd65c51221e78183cf183.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/static-killers/killers.png"
-dest_files=[ "res://.import/killers.png-2280e6863d241a0694927ae8eb443ffb.stex" ]
+source_file="res://Levels/Level006/platforms/platform.png"
+dest_files=[ "res://.import/platform.png-56699e4e277dd65c51221e78183cf183.stex" ]
 
 [params]
 

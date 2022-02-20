@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/killers.png-2280e6863d241a0694927ae8eb443ffb.stex"
+path="res://.import/bannana.png-68acef9321dd3def8bc61197ad2d91d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/static-killers/killers.png"
-dest_files=[ "res://.import/killers.png-2280e6863d241a0694927ae8eb443ffb.stex" ]
+source_file="res://Levels/Level006/bannana/bannana.png"
+dest_files=[ "res://.import/bannana.png-68acef9321dd3def8bc61197ad2d91d9.stex" ]
 
 [params]
 

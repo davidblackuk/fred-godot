@@ -286,7 +286,7 @@ shape = SubResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/EggTimerPath2D/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 12 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="GhostPath" type="Path2D" parent="Enemies"]
@@ -310,7 +310,6 @@ shape = SubResource( 15 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/GhostPath/PathFollow2D/Area2D"]
 scale = Vector2( 1.5, 2 )
 frames = SubResource( 20 )
-frame = 1
 playing = true
 
 [node name="Collectables" type="Node2D" parent="."]
@@ -416,32 +415,32 @@ crumble_tint = Color( 0.447059, 0.0470588, 0.447059, 1 )
 
 [node name="Conveyors" type="Node2D" parent="."]
 
-[node name="ConveyorBelt" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+[node name="ConveyorBelt" parent="Conveyors" instance=ExtResource( 10 )]
 position = Vector2( 432, 304 )
 direction = 1
 conveyor_tint = Color( 1, 0, 1, 1 )
 
-[node name="ConveyorBelt2" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+[node name="ConveyorBelt2" parent="Conveyors" instance=ExtResource( 10 )]
 position = Vector2( 464, 304 )
 direction = 1
 conveyor_tint = Color( 1, 0, 1, 1 )
 
-[node name="ConveyorBelt3" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+[node name="ConveyorBelt3" parent="Conveyors" instance=ExtResource( 10 )]
 position = Vector2( 496, 304 )
 direction = 1
 conveyor_tint = Color( 1, 0, 1, 1 )
 
-[node name="ConveyorBelt4" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+[node name="ConveyorBelt4" parent="Conveyors" instance=ExtResource( 10 )]
 position = Vector2( 656, 304 )
 direction = 1
 conveyor_tint = Color( 1, 0, 1, 1 )
 
-[node name="ConveyorBelt5" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+[node name="ConveyorBelt5" parent="Conveyors" instance=ExtResource( 10 )]
 position = Vector2( 688, 304 )
 direction = 1
 conveyor_tint = Color( 1, 0, 1, 1 )
 
-[node name="ConveyorBelt6" parent="Conveyors" groups=["Conveyors"] instance=ExtResource( 10 )]
+[node name="ConveyorBelt6" parent="Conveyors" instance=ExtResource( 10 )]
 position = Vector2( 720, 304 )
 direction = 1
 conveyor_tint = Color( 1, 0, 1, 1 )

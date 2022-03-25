@@ -16,6 +16,7 @@ signal conveyor_status_changed(conveyor_node, is_entry)
 func _ready():
 	sprite.flip_h = (direction == DIRECTION_RIGHT)
 	sprite.modulate = conveyor_tint
+	add_to_group("Conveyors")
 
 func _on_player_detection_area_body_entered(body):
 	if body.name == "Player":

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water-cannon.png-2b19225851a7f55747db3b91c0a4e3b5.stex"
+path="res://.import/ghost.png-894e48c5fe0a8221cf2bf49cc12fa1bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/enemies/water-cannon.png"
-dest_files=[ "res://.import/water-cannon.png-2b19225851a7f55747db3b91c0a4e3b5.stex" ]
+source_file="res://Levels/Level004/ghost/ghost.png"
+dest_files=[ "res://.import/ghost.png-894e48c5fe0a8221cf2bf49cc12fa1bd.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

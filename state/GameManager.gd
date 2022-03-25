@@ -1,6 +1,6 @@
 extends Node
 
-const FIRST_LEVEL = "res://Levels/Level 001.tscn"
+const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
 
 var game_timer = StopWatch.new()
 var level_timer = StopWatch.new()
@@ -59,3 +59,11 @@ func level_quit():
 	game_timer.pause()	
 	last_level_was_high_score = false
 	get_tree().change_scene("res://menus/main-menu.tscn")
+
+
+func save():
+	game_state.save()
+
+func load():
+	game_state.load()
+

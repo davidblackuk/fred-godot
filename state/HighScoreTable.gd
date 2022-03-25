@@ -18,9 +18,9 @@ func _init():
 func load_scores():
 	if (persistence.save_file_exists()):
 		_level_scores = persistence.load()
-	for i in _level_scores:
-		var score =  _level_scores[i]
-		print("level ", i, " score ", score)
+#	for i in _level_scores:
+#		var score =  _level_scores[i]
+#		print("level ", i, " score ", score)
 
 #
 # Records the time taken to complete a level as a high score, if the time is lower

@@ -107,7 +107,7 @@ func _ready():
 
 [node name="Level 5" type="Node2D"]
 script = ExtResource( 5 )
-next_scene = "res://Levels/Level 006.tscn"
+next_scene = "res://Levels/Level006/Level 006.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 7 )]
 color = Color( 0, 0, 0.501961, 1 )
@@ -204,7 +204,7 @@ ladder_type = 2
 ladder_tint = Color( 0.501961, 0, 0, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 55.5146, 510.943 )
+position = Vector2( 55.8425, 512 )
 fred_style = "CPC"
 
 [node name="Victims" type="Node2D" parent="."]
@@ -254,6 +254,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Penguin1Path/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 28 )
+frame = 1
 playing = true
 
 [node name="SnowmanPath" type="Path2D" parent="Enemies" groups=["Enemies"]]
@@ -262,7 +263,7 @@ curve = SubResource( 11 )
 script = ExtResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/SnowmanPath"]
-position = Vector2( 250.366, 591.801 )
+position = Vector2( 250.415, 592.016 )
 offset = 80.0614
 rotate = false
 
@@ -276,7 +277,6 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/SnowmanPath/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 33 )
-frame = 3
 playing = true
 
 [node name="SnowballPath" type="Path2D" parent="Enemies" groups=["Enemies"]]
@@ -326,31 +326,38 @@ reward_level = 2
 
 [node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 204.221, 528.925 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 0.996078, 1, 1 )
 
 [node name="Spike7" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 204.221, 242 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Spike5" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 353.762, 722 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Spike6" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 321.688, 722 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Spike3" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 597.896, 528.718 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Spike4" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 630.438, 528.718 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Spike8" parent="Spikes" groups=["Spikes"] instance=ExtResource( 11 )]
 position = Vector2( 872, 242 )
-spike_color = Color( 0.952941, 0.631373, 0.972549, 1 )
+spike_type = 4
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Fader" parent="." instance=ExtResource( 10 )]
 visible = false

@@ -1,0 +1,362 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ladder.tscn" type="PackedScene" id=2]
+[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/score-hud/ScoreHud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://controls/doors/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://victims/Victim.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level001/bottle/bottle-sprite-frames.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://fred/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://spikes/Spike.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/LevelBase.gd" type="Script" id=11]
+[ext_resource path="res://tiles.tres" type="TileSet" id=12]
+[ext_resource path="res://Scripts/EnemyArea2D.gd" type="Script" id=13]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 189.961, 126.406, 0, 0, 0, 0, 192, 127, 0, 0, 0, 0, 192, 319 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 26.0385
+height = 10.7345
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 416, 279, 0, 0, 0, 0, 416, -33 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 24.0
+height = 16.0
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 640, 271, 0, 0, 0, 0, 640, -1 )
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 24.0
+height = 16.0
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 864, 319, 0, 0, 0, 0, 864, -41 )
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 24.0
+height = 16.0
+
+[node name="Level 1" type="Node2D" groups=["Collectables"]]
+script = ExtResource( 11 )
+next_scene = "res://Levels/Level002/Level 002.tscn"
+
+[node name="SkyBox" parent="." instance=ExtResource( 5 )]
+color = Color( 0.447059, 0.0470588, 0.447059, 1 )
+
+[node name="ScoreHud" parent="." instance=ExtResource( 4 )]
+level_name = "Ketchup or Catsup??"
+
+[node name="Tiles" type="TileMap" parent="."]
+position = Vector2( 0, 192 )
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196608, -1610612714, 0, -196607, -1610612736, 0, -196606, -1610612736, 0, -196605, -1610612736, 0, -196604, -1610612736, 0, -196603, -1610612736, 0, -196602, -1610612736, 0, -196601, -1610612736, 0, -196600, -1610612736, 0, -196599, -1610612736, 0, -196598, -1610612736, 0, -196597, -1610612736, 0, -196596, -1610612736, 0, -196595, -1610612736, 0, -196594, -1610612736, 0, -196593, -1610612736, 0, -196592, -1610612736, 0, -196591, -1610612736, 0, -196590, -1610612736, 0, -196589, -1610612736, 0, -196588, -1610612736, 0, -196587, -1610612736, 0, -196586, -1610612736, 0, -196585, -1610612736, 0, -196584, -1610612736, 0, -196583, -1610612736, 0, -196582, -1610612736, 0, -196581, -1610612736, 0, -196580, -1610612736, 0, -196579, -1610612736, 0, -196578, -1610612736, 0, -196577, 1610612758, 0, -131072, 0, 0, -131041, 536870912, 0, -65536, 0, 0, -65505, 536870912, 0, 0, 0, 0, 31, 536870912, 0, 65536, 0, 0, 65567, 536870912, 0, 131072, 0, 0, 131103, 536870912, 0, 196608, 0, 0, 196639, 536870912, 0, 262144, 0, 0, 262175, 536870912, 0, 327680, 0, 0, 327711, 536870912, 0, 393216, 0, 0, 393247, 536870912, 0, 458752, 0, 0, 458753, 1, 0, 458754, 1, 0, 458755, 536870913, 0, 458756, -536870909, 0, 458759, 536870915, 0, 458760, 1, 0, 458761, 536870913, 0, 458762, 536870913, 0, 458763, -536870909, 0, 458766, 536870915, 0, 458767, 1, 0, 458769, 536870913, 0, 458770, -536870909, 0, 458773, 536870915, 0, 458774, 1, 0, 458775, 1, 0, 458776, 536870913, 0, 458777, -536870909, 0, 458780, 536870915, 0, 458781, 1, 0, 458782, 1, 0, 458783, 536870912, 0, 524288, 0, 0, 524292, -536870911, 0, 524295, -1073741823, 0, 524299, -536870911, 0, 524302, -2147483647, 0, 524306, -536870911, 0, 524309, -1073741823, 0, 524313, -536870911, 0, 524316, -1073741823, 0, 524319, 536870912, 0, 589824, 0, 0, 589828, -536870911, 0, 589831, -1073741823, 0, 589835, -536870911, 0, 589838, -2147483647, 0, 589842, -536870911, 0, 589845, -1073741823, 0, 589849, -536870911, 0, 589852, -1073741823, 0, 589855, 536870912, 0, 655360, 0, 0, 655364, -536870911, 0, 655367, -1073741823, 0, 655371, -536870911, 0, 655374, -1073741823, 0, 655378, -536870911, 0, 655381, -2147483647, 0, 655385, -536870911, 0, 655388, -1073741823, 0, 655391, 536870912, 0, 720896, 0, 0, 720900, -536870911, 0, 720903, -1073741823, 0, 720907, -536870911, 0, 720910, -1073741823, 0, 720914, -536870911, 0, 720917, -1073741823, 0, 720921, -536870911, 0, 720924, -1073741823, 0, 720927, 536870912, 0, 786432, 0, 0, 786436, -536870910, 0, 786437, 1, 0, 786438, 1, 0, 786439, -1073741822, 0, 786443, -536870910, 0, 786444, 1, 0, 786445, 1, 0, 786446, -1073741822, 0, 786450, -536870910, 0, 786451, 536870913, 0, 786452, 536870913, 0, 786453, -1073741822, 0, 786457, -536870910, 0, 786458, 536870913, 0, 786459, 536870913, 0, 786460, -1073741822, 0, 786463, 536870912, 0, 851968, 0, 0, 851999, 536870912, 0, 917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1114112, 22, 0, 1114113, -536870912, 0, 1114114, -536870912, 0, 1114115, -536870912, 0, 1114116, -536870912, 0, 1114117, -536870912, 0, 1114118, -536870912, 0, 1114119, -536870912, 0, 1114120, -536870912, 0, 1114121, -536870912, 0, 1114122, -536870912, 0, 1114123, -536870912, 0, 1114124, -536870912, 0, 1114125, -536870912, 0, 1114126, -536870912, 0, 1114127, -536870912, 0, 1114128, -536870912, 0, 1114129, -536870912, 0, 1114130, -536870912, 0, 1114131, -536870912, 0, 1114132, -536870912, 0, 1114133, -536870912, 0, 1114134, -536870912, 0, 1114135, -536870912, 0, 1114136, -536870912, 0, 1114137, -536870912, 0, 1114138, -536870912, 0, 1114139, -536870912, 0, 1114140, -536870912, 0, 1114141, -536870912, 0, 1114142, -536870912, 0, 1114143, -536870912, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1008, 656 )
+door_tint = Color( 1, 0, 1, 1 )
+
+[node name="Ladders" type="Node2D" parent="."]
+position = Vector2( 0, 192 )
+
+[node name="Ladder mid 2" type="Node2D" parent="Ladders"]
+
+[node name="Ladder12" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 528 )
+ladder_type = 1
+
+[node name="Ladder13" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 496 )
+
+[node name="Ladder14" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 464 )
+
+[node name="Ladder15" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 432 )
+
+[node name="Ladder16" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 400 )
+
+[node name="Ladder17" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 368 )
+
+[node name="Ladder18" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 336 )
+
+[node name="Ladder23" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 304 )
+
+[node name="Ladder24" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 272 )
+
+[node name="Ladder20" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 240 )
+
+[node name="Ladder21" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 208 )
+
+[node name="Ladder22" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 176 )
+
+[node name="Ladder19" parent="Ladders/Ladder mid 2" groups=["Ladders"] instance=ExtResource( 2 )]
+position = Vector2( 528, 144 )
+ladder_type = 2
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 0, 193 )
+
+[node name="Bottle1Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle1Path"]
+autoplay = "Move"
+anims/Move = SubResource( 9 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle1Path"]
+position = Vector2( 192, 293.295 )
+offset = 167.393
+rotate = false
+loop = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle1Path/PathFollow2D"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle1Path/PathFollow2D/Area2D"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle1Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.0705882, 0.0705882, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 1
+playing = true
+
+[node name="Bottle2Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle2Path"]
+autoplay = "Move"
+anims/Move = SubResource( 10 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle2Path"]
+position = Vector2( 416, 34.0195 )
+offset = 245.143
+rotate = false
+loop = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle2Path/PathFollow2D"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle2Path/PathFollow2D/Area2D"]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle2Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.176471, 0.176471, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 2
+playing = true
+
+[node name="Bottle3Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle3Path"]
+autoplay = "Move"
+anims/Move = SubResource( 11 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle3Path"]
+position = Vector2( 640, 234.038 )
+offset = 36.9578
+rotate = false
+loop = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle3Path/PathFollow2D"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle3Path/PathFollow2D/Area2D"]
+shape = SubResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle3Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.0705882, 0.0705882, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 3
+playing = true
+
+[node name="Bottle4Path" type="Path2D" parent="Enemies"]
+curve = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Bottle4Path"]
+autoplay = "Move"
+anims/Move = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Bottle4Path"]
+position = Vector2( 864, 243.7 )
+offset = 75.314
+rotate = false
+loop = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/Bottle4Path/PathFollow2D"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Bottle4Path/PathFollow2D/Area2D"]
+shape = SubResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Bottle4Path/PathFollow2D/Area2D"]
+modulate = Color( 1, 0.0705882, 0.0705882, 1 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 8 )
+frame = 2
+playing = true
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 56, 704 )
+
+[node name="Victims" type="Node2D" parent="."]
+
+[node name="Victim" parent="Victims" instance=ExtResource( 7 )]
+position = Vector2( 960, 384 )
+sprite_tint = Color( 0, 1, 0, 1 )
+
+[node name="Victim2" parent="Victims" instance=ExtResource( 7 )]
+position = Vector2( 64, 384 )
+sprite_tint = Color( 0, 1, 0, 1 )
+
+[node name="Palette" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, 832 )
+
+[node name="Fader" parent="." instance=ExtResource( 3 )]
+visible = false
+z_index = 4096
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike1" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 176, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 400, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike9" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 688, 402 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike10" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 367, 402 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike4" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 432, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike5" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 624, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike6" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 656, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike7" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 848, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike8" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 880, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[node name="Spike3" parent="Spikes" groups=["Spikes"] instance=ExtResource( 10 )]
+position = Vector2( 208, 560 )
+spike_color = Color( 1, 0, 0, 1 )
+
+[connection signal="level_complete" from="." to="Door" method="_level_complete"]
+[connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
+[connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]

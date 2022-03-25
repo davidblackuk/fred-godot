@@ -292,6 +292,7 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/GreenPath2D/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
+frame = 1
 playing = true
 
 [node name="YellowPath2D2" type="Path2D" parent="Enemies"]
@@ -317,6 +318,7 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/YellowPath2D2/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
+frame = 2
 speed_scale = 1.2
 playing = true
 
@@ -339,7 +341,6 @@ script = ExtResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/RedPath2D/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/RedPath2D/PathFollow2D/Area2D"]

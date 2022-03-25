@@ -192,6 +192,8 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 559.0
 margin_bottom = 80.0
+focus_neighbour_top = NodePath("../Quit")
+focus_neighbour_bottom = NodePath("../NewGame")
 custom_colors/font_color_disabled = Color( 0.447059, 0.447059, 0.447059, 1 )
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
@@ -204,6 +206,8 @@ margin_left = 0.0
 margin_top = 75.0
 margin_right = 559.0
 margin_bottom = 155.0
+focus_neighbour_top = NodePath("../Continue")
+focus_neighbour_bottom = NodePath("../Options")
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
@@ -214,6 +218,8 @@ margin_left = 0.0
 margin_top = 150.0
 margin_right = 559.0
 margin_bottom = 230.0
+focus_neighbour_top = NodePath("../NewGame")
+focus_neighbour_bottom = NodePath("../Load")
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
@@ -224,6 +230,8 @@ margin_left = 0.0
 margin_top = 225.0
 margin_right = 559.0
 margin_bottom = 305.0
+focus_neighbour_top = NodePath("../Options")
+focus_neighbour_bottom = NodePath("../Save")
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
@@ -234,6 +242,8 @@ margin_left = 0.0
 margin_top = 300.0
 margin_right = 559.0
 margin_bottom = 380.0
+focus_neighbour_top = NodePath("../Load")
+focus_neighbour_bottom = NodePath("../Quit")
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
@@ -244,6 +254,8 @@ margin_left = 0.0
 margin_top = 375.0
 margin_right = 559.0
 margin_bottom = 455.0
+focus_neighbour_top = NodePath("../Save")
+focus_neighbour_bottom = NodePath("../Continue")
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
@@ -270,11 +282,8 @@ margin_right = 1024.0
 margin_bottom = 768.0
 custom_colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
 custom_fonts/font = ExtResource( 8 )
-text = "0.4.1"
+text = "0.4.3"
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SaveConfimation" type="AcceptDialog" parent="."]
 visible = true
@@ -399,7 +408,7 @@ rotation = -0.00413279
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
@@ -416,7 +425,7 @@ rotation = -0.00413279
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D3/PathFollow2D"]
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3"]
@@ -438,7 +447,7 @@ loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D2/PathFollow2D"]
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 

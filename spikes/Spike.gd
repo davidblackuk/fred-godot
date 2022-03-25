@@ -3,7 +3,7 @@ extends Node2D
 
 signal player_hit_spike()
 
-export(int, "SPIKE UP", "SPIKE DOWN", "FILL", "BUSH", "CPCFLAME") var spike_type = 0 
+export(int, "SPIKE UP", "SPIKE DOWN", "FILL", "BUSH", "CPCFLAME", "WOOD") var spike_type = 0 
 export(Color, RGB) var spike_color = Palette.red
 
 onready var sprite = get_node("Area2D/Sprite")

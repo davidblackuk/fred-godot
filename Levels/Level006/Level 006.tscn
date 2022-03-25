@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://fred/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level006/tomato/tomato.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Levels/Level006/platforms/platform.png" type="Texture" id=17]
 [ext_resource path="res://controls/conveyers/conveyer-belt.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scripts/EnemyArea2D.gd" type="Script" id=19]
+[ext_resource path="res://controls/crumbles/crumble.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Curve2D" id=24]
 _data = {
@@ -39,7 +40,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2.5, 5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0, 0.0 ]
+"values": [ 1.0, 0.0, 1.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PathFollow2DLeft/Area2D/BannanaSpriteLeft:flip_h")
@@ -51,7 +52,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.5, 5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true, false ]
 }
 
 [sub_resource type="Animation" id=34]
@@ -208,6 +209,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Curve2D" id=40]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 144, 160, 0, 0, 0, 0, 144, 424 )
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0, 0.0, 0.5 ]
+}
+
+[sub_resource type="CircleShape2D" id=42]
+radius = 28.8444
+
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
@@ -237,7 +263,7 @@ extents = Vector2( 12.9406, 48.0816 )
 
 [sub_resource type="Curve2D" id=22]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 685.4, 996.217, 0, 0, 0, 0, 684.4, 868.217 )
+"points": PoolVector2Array( 0, 0, 0, 0, 554.4, 1016.22, 0, 0, 0, 0, 730.4, 1016.22 )
 }
 
 [sub_resource type="Animation" id=36]
@@ -258,34 +284,51 @@ tracks/0/keys = {
 }
 
 [node name="Level 6" type="Node2D"]
+position = Vector2( 0, 1 )
 script = ExtResource( 7 )
 next_scene = "res://Levels/Level 030.tscn"
 
 [node name="SkyBox" parent="." instance=ExtResource( 5 )]
-margin_top = 3.0
-margin_bottom = 771.0
 color = Color( 0.501961, 0.501961, 1, 1 )
 
 [node name="ScoreHud" parent="." instance=ExtResource( 9 )]
 level_name = "Fruity"
 
-[node name="PlatformsTilemap" type="TileMap" parent="."]
+[node name="WallsTilemap" type="TileMap" parent="."]
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 196608, 12, 0, 196609, 10, 0, 196610, 9, 0, 196611, 9, 0, 196612, 15, 0, 196613, 12, 0, 196614, 10, 0, 196615, 9, 0, 196616, 10, 0, 196617, 10, 0, 196618, 9, 0, 196619, 9, 0, 196620, 12, 0, 196621, 10, 0, 196622, 9, 0, 196623, 12, 0, 196624, 10, 0, 196625, 9, 0, 196626, 9, 0, 196627, 12, 0, 196628, 9, 0, 196629, 10, 0, 196630, 9, 0, 196631, 9, 0, 196632, 12, 0, 196633, 9, 0, 196634, 9, 0, 196635, 10, 0, 196636, 10, 0, 196637, 9, 0, 196638, 12, 0, 196639, 12, 0, 262144, 9, 0, 327680, 10, 0, 393216, 10, 0, 458752, 12, 0, 458779, 0, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 4, 0, 524288, 10, 0, 524307, 0, 0, 524308, 1, 0, 524309, 2, 0, 524319, 9, 0, 589824, 15, 0, 589855, 10, 0, 655360, 9, 0, 655391, 12, 0, 720896, 10, 0, 720927, 10, 0, 786432, 9, 0, 786463, 9, 0, 851968, 13, 0, 851999, 14, 0, 917504, 14, 0, 917535, 12, 0, 983040, 10, 0, 983071, 9, 0, 1048576, 9, 0, 1048607, 10, 0, 1114112, 15, 0, 1114143, 12, 0, 1179648, 10, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 11, 0, 1245184, 12, 0, 1245215, 9, 0, 1310751, 14, 0, 1376270, 1, 0, 1376271, 1, 0, 1376272, 1, 0, 1376273, 1, 0, 1376287, 10, 0, 1441806, 10, 0, 1441807, 14, 0, 1441808, 12, 0, 1441809, 9, 0, 1441823, 12, 0, 1507328, 3, 0, 1507329, 4, 0, 1507330, 4, 0, 1507331, 4, 0, 1507332, 4, 0, 1507333, 4, 0, 1507334, 4, 0, 1507335, 4, 0, 1507336, 4, 0, 1507337, 4, 0, 1507338, 4, 0, 1507339, 4, 0, 1507340, 4, 0, 1507341, 4, 0, 1507342, 3, 0, 1507343, 3, 0, 1507344, 3, 0, 1507345, 3, 0, 1507346, 4, 0, 1507347, 4, 0, 1507348, 4, 0, 1507349, 4, 0, 1507350, 4, 0, 1507351, 4, 0, 1507352, 4, 0, 1507353, 4, 0, 1507354, 4, 0, 1507355, 4, 0, 1507356, 4, 0, 1507357, 4, 0, 1507358, 4, 0, 1507359, 3, 0 )
+tile_data = PoolIntArray( 196608, 16, 0, 196609, 16, 0, 196610, 16, 0, 196611, 16, 0, 196612, 16, 0, 196613, 16, 0, 196614, 16, 0, 196615, 16, 0, 196616, 16, 0, 196617, 16, 0, 196618, 16, 0, 196619, 16, 0, 196620, 16, 0, 196621, 16, 0, 196622, 16, 0, 196623, 16, 0, 196624, 16, 0, 196625, 16, 0, 196626, 16, 0, 196627, 16, 0, 196628, 16, 0, 196629, 16, 0, 196630, 16, 0, 196631, 16, 0, 196632, 16, 0, 196633, 16, 0, 196634, 16, 0, 196635, 16, 0, 196636, 16, 0, 196637, 16, 0, 196638, 16, 0, 196639, 16, 0, 262144, 16, 0, 327680, 16, 0, 393216, 16, 0, 458752, 16, 0, 458753, 18, 0, 458754, 18, 0, 458774, 18, 0, 458775, 18, 0, 458776, 18, 0, 458777, 18, 0, 458778, 18, 0, 458779, 18, 0, 458780, 18, 0, 458781, 18, 0, 458782, 18, 0, 458783, 16, 0, 524288, 16, 0, 524294, 18, 0, 524295, 18, 0, 524299, 18, 0, 524300, 18, 0, 524304, 18, 0, 524305, 18, 0, 524307, 18, 0, 524319, 16, 0, 589824, 16, 0, 589855, 16, 0, 655360, 16, 0, 655391, 16, 0, 720896, 16, 0, 720912, 18, 0, 720913, 18, 0, 720914, 18, 0, 720915, 18, 0, 720925, 18, 0, 720926, 18, 0, 720927, 16, 0, 786432, 16, 0, 786433, 18, 0, 786463, 16, 0, 851968, 16, 0, 851999, 16, 0, 917504, 16, 0, 917508, 18, 0, 917535, 16, 0, 983040, 16, 0, 983071, 16, 0, 1048576, 16, 0, 1048577, 18, 0, 1048607, 16, 0, 1114112, 16, 0, 1114143, 16, 0, 1179648, 16, 0, 1179649, 18, 0, 1179650, 18, 0, 1179651, 18, 0, 1179668, 18, 0, 1179669, 18, 0, 1179670, 18, 0, 1179673, 18, 0, 1179674, 18, 0, 1179675, 18, 0, 1179677, 18, 0, 1179678, 18, 0, 1179679, 16, 0, 1245184, 16, 0, 1245215, 16, 0, 1310751, 16, 0, 1376270, 16, 0, 1376271, 16, 0, 1376272, 16, 0, 1376273, 16, 0, 1376287, 16, 0, 1441806, 16, 0, 1441807, 16, 0, 1441808, 16, 0, 1441809, 16, 0, 1441823, 16, 0, 1507328, 16, 0, 1507329, 16, 0, 1507330, 16, 0, 1507331, 16, 0, 1507332, 16, 0, 1507333, 16, 0, 1507334, 16, 0, 1507335, 16, 0, 1507336, 16, 0, 1507337, 16, 0, 1507338, 16, 0, 1507339, 16, 0, 1507340, 16, 0, 1507341, 16, 0, 1507342, 16, 0, 1507343, 16, 0, 1507344, 16, 0, 1507345, 16, 0, 1507346, 16, 0, 1507347, 16, 0, 1507348, 16, 0, 1507349, 16, 0, 1507350, 16, 0, 1507351, 16, 0, 1507352, 16, 0, 1507353, 16, 0, 1507354, 16, 0, 1507355, 16, 0, 1507356, 16, 0, 1507357, 16, 0, 1507358, 16, 0, 1507359, 16, 0 )
+
+[node name="FruitTileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 196608, 19, 0, 196612, 536870934, 0, 196616, 21, 0, 196619, 20, 0, 196622, 536870933, 0, 196625, 536870931, 0, 196629, 536870934, 0, 196631, 536870933, 0, 196633, 20, 0, 196636, 19, 0, 393211, 19, 0, 327680, 536870934, 0, 393216, 536870933, 0, 458754, 22, 0, 458775, 19, 0, 458777, 20, 0, 458780, 19, 0, 458782, 20, 0, 524288, 20, 0, 524295, 21, 0, 524299, 22, 0, 524304, 20, 0, 655391, 20, 0, 720896, 22, 0, 720913, 19, 0, 720915, 20, 0, 720927, 536870933, 0, 786433, 19, 0, 851999, 19, 0, 917504, 19, 0, 917508, 21, 0, 983071, 536870934, 0, 1114104, 19, 0, 1114112, 20, 0, 1114143, 536870931, 0, 1179650, 22, 0, 1179670, 19, 0, 1179674, 20, 0, 1179677, 19, 0, 1245184, 536870933, 0, 1245215, 20, 0, 1376271, 20, 0, 1376272, 22, 0, 1376287, 536870933, 0, 1441809, 19, 0, 1507330, 22, 0, 1507334, 19, 0, 1507336, 20, 0, 1507339, 19, 0, 1507343, 22, 0, 1507348, 20, 0, 1507351, 22, 0, 1507354, 22, 0, 1507358, 19, 0 )
+
+[node name="TileForegroundMap" type="TileMap" parent="."]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 196609, 1610612753, 0, 196610, 1610612753, 0, 196611, 1610612753, 0, 196612, 1610612753, 0, 196613, 1610612753, 0, 196614, 1610612753, 0, 196615, 1610612753, 0, 196616, 1610612753, 0, 196617, 1610612753, 0, 196618, 1610612753, 0, 196619, 1610612753, 0, 196620, 1610612753, 0, 196621, 1610612753, 0, 196622, 1610612753, 0, 196623, 1610612753, 0, 196624, 1610612753, 0, 196625, 1610612753, 0, 196626, 1610612753, 0, 196627, 1610612753, 0, 196628, 1610612753, 0, 196629, 1610612753, 0, 196630, 1610612753, 0, 196631, 1610612753, 0, 196632, 1610612753, 0, 196633, 1610612753, 0, 196634, 1610612753, 0, 196635, 1610612753, 0, 196636, 1610612753, 0, 196637, 1610612753, 0, 196638, 1610612753, 0, 196639, 1610612753, 0, 262144, -1610612719, 0, 327680, -1610612719, 0, 393216, -1610612719, 0, 458752, -1610612719, 0, 458753, 17, 0, 458754, 17, 0, 458774, 17, 0, 458775, 17, 0, 458776, 17, 0, 458777, 17, 0, 458778, 17, 0, 458779, 17, 0, 458780, 17, 0, 458781, 17, 0, 458782, 17, 0, 458783, 17, 0, 524288, -1610612719, 0, 524294, 17, 0, 524295, 17, 0, 524299, 17, 0, 524300, 17, 0, 524304, 17, 0, 524305, 17, 0, 524307, 17, 0, 524319, -1073741807, 0, 589824, -1610612719, 0, 589855, -1073741807, 0, 655360, -1610612719, 0, 655391, -1073741807, 0, 720896, -1610612719, 0, 720912, 17, 0, 720913, 17, 0, 720914, 17, 0, 720915, 17, 0, 720925, 17, 0, 720926, 17, 0, 720927, -1073741807, 0, 786432, -1610612719, 0, 786433, 17, 0, 786463, -1073741807, 0, 851968, -1610612719, 0, 851999, -1073741807, 0, 917504, -1610612719, 0, 917508, 17, 0, 917535, -1073741807, 0, 983040, -1610612719, 0, 983071, -1073741807, 0, 1048577, 17, 0, 1048607, -1073741807, 0, 1114112, -536870895, 0, 1114143, -1073741807, 0, 1179649, 17, 0, 1179650, 17, 0, 1179651, 17, 0, 1179668, 17, 0, 1179669, 17, 0, 1179670, 17, 0, 1179673, 17, 0, 1179674, 17, 0, 1179675, 17, 0, 1179677, 17, 0, 1179678, 17, 0, 1179679, 17, 0, 1245215, -1073741807, 0, 1310751, -1073741807, 0, 1376270, 23, 0, 1376271, 17, 0, 1376272, 17, 0, 1376273, 536870935, 0, 1376287, -1073741807, 0, 1441806, -1073741807, 0, 1441809, -1610612719, 0, 1441823, -1073741807, 0, 1507328, 17, 0, 1507329, 17, 0, 1507330, 17, 0, 1507331, 17, 0, 1507332, 17, 0, 1507333, 17, 0, 1507334, 17, 0, 1507335, 17, 0, 1507336, 17, 0, 1507337, 17, 0, 1507338, 17, 0, 1507339, 17, 0, 1507340, 17, 0, 1507341, 17, 0, 1507346, 17, 0, 1507347, 17, 0, 1507348, 17, 0, 1507349, 17, 0, 1507350, 17, 0, 1507351, 17, 0, 1507352, 17, 0, 1507353, 17, 0, 1507354, 17, 0, 1507355, 17, 0, 1507356, 17, 0, 1507357, 17, 0, 1507358, 17, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 146 )
 
 [node name="Ladders" type="Node2D" parent="."]
-visible = false
 position = Vector2( 0, 192 )
 
 [node name="Ladder 2" type="Node2D" parent="Ladders"]
+position = Vector2( 384, 0 )
 
 [node name="Ladder16" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
 position = Vector2( 528, 528 )
+ladder_type = 1
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder23" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 528, 528 )
+ladder_type = 1
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
 [node name="Ladder17" parent="Ladders/Ladder 2" groups=["Ladders"] instance=ExtResource( 4 )]
@@ -313,19 +356,44 @@ position = Vector2( 528, 336 )
 ladder_type = 2
 ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
 
+[node name="Ladder 3" type="Node2D" parent="Ladders"]
+
+[node name="Ladder25" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 592, 114 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder26" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 592, 82 )
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder27" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 592, 50 )
+ladder_type = 2
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
+[node name="Ladder24" parent="Ladders/Ladder 3" groups=["Ladders"] instance=ExtResource( 4 )]
+position = Vector2( 592, 146 )
+ladder_type = 1
+ladder_tint = Color( 0.0470588, 0.498039, 0.498039, 1 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 688, 544 )
+position = Vector2( 46.1228, 702.209 )
 fred_style = "CPC"
 
 [node name="Victims" type="Node2D" parent="."]
 
 [node name="Victim" parent="Victims" instance=ExtResource( 8 )]
 position = Vector2( 960, 544 )
-sprite_tint = Color( 1, 1, 0, 1 )
+flip_horizontal = true
+animation_name = "Farmer"
+
+[node name="Victim3" parent="Victims" instance=ExtResource( 8 )]
+position = Vector2( 960, 317.349 )
+animation_name = "Farmer"
 
 [node name="Victim2" parent="Victims" instance=ExtResource( 8 )]
-position = Vector2( 336, 192 )
-sprite_tint = Color( 1, 1, 0, 1 )
+position = Vector2( 57.0506, 192 )
+animation_name = "Farmer"
 
 [node name="Palette" parent="." instance=ExtResource( 6 )]
 position = Vector2( 64, 816 )
@@ -342,7 +410,8 @@ anims/Move = SubResource( 33 )
 anims/RESET = SubResource( 34 )
 
 [node name="PathFollow2DLeft" type="PathFollow2D" parent="Enemies/BannanaPathLeft"]
-position = Vector2( -442.258, 256.85 )
+position = Vector2( -89.9232, 257.691 )
+offset = 352.562
 rotate = false
 
 [node name="Area2D" type="Area2D" parent="Enemies/BannanaPathLeft/PathFollow2DLeft"]
@@ -351,7 +420,6 @@ script = ExtResource( 19 )
 [node name="BannanaSpriteLeft" type="AnimatedSprite" parent="Enemies/BannanaPathLeft/PathFollow2DLeft/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 12 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/BannanaPathLeft/PathFollow2DLeft/Area2D"]
@@ -384,6 +452,7 @@ shape = SubResource( 27 )
 [node name="BannanaSpriteRight" type="AnimatedSprite" parent="Enemies/BannanaRight/PathFollow2DRight/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 32 )
+frame = 3
 playing = true
 flip_h = true
 
@@ -395,7 +464,7 @@ autoplay = "Move"
 anims/Move = SubResource( 38 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/OrangeOnCanveyorPath"]
-position = Vector2( 223.692, 548.229 )
+position = Vector2( 544, 544 )
 rotation = 0.000917288
 rotate = false
 
@@ -408,29 +477,59 @@ shape = SubResource( 39 )
 [node name="OrangeSprite" type="AnimatedSprite" parent="Enemies/OrangeOnCanveyorPath/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 21 )
-frame = 3
+frame = 2
+playing = true
+
+[node name="TomatoLeft" type="Path2D" parent="Enemies"]
+curve = SubResource( 40 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/TomatoLeft"]
+autoplay = "Move"
+anims/Move = SubResource( 41 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/TomatoLeft"]
+position = Vector2( 144, 292.084 )
+offset = 131.919
+rotate = false
+
+[node name="Area2D" type="Area2D" parent="Enemies/TomatoLeft/PathFollow2D"]
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/TomatoLeft/PathFollow2D/Area2D"]
+shape = SubResource( 42 )
+
+[node name="TomatoStrite" type="AnimatedSprite" parent="Enemies/TomatoLeft/PathFollow2D/Area2D"]
+position = Vector2( 0, -6.73514 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="Collectables" type="Node2D" parent="."]
 
 [node name="Coin" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
-position = Vector2( 184, 176 )
+position = Vector2( 232, 146 )
+reward_level = 2
+
+[node name="Coin2" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
+position = Vector2( 383.98, 146 )
+
+[node name="Coin3" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
+position = Vector2( 383.98, 303.753 )
+
+[node name="Coin4" parent="Collectables" groups=["Collectables"] instance=ExtResource( 12 )]
+position = Vector2( 224, 303 )
 
 [node name="Spikes" type="Node" parent="."]
 
 [node name="Spike2" parent="Spikes" groups=["Spikes"] instance=ExtResource( 13 )]
-position = Vector2( 392, 176 )
+position = Vector2( 656, 563 )
+spike_type = 5
+spike_color = Color( 1, 1, 1, 1 )
 
 [node name="Fader" parent="." instance=ExtResource( 14 )]
 visible = false
 z_index = 4096
-
-[node name="TomatoStrite" type="AnimatedSprite" parent="."]
-position = Vector2( 208, 320 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
-frame = 2
-playing = true
 
 [node name="Entrance" parent="." instance=ExtResource( 16 )]
 position = Vector2( 16, 656.753 )
@@ -438,33 +537,33 @@ position = Vector2( 16, 656.753 )
 [node name="Movables" type="Node2D" parent="."]
 
 [node name="Platform1" type="Node2D" parent="Movables"]
-position = Vector2( 42, 5 )
+position = Vector2( 680, -125 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Movables/Platform1"]
-position = Vector2( 766.846, 687.322 )
+position = Vector2( -2.07288, 492.003 )
 rotation = 1.56921
+motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Movables/Platform1/KinematicBody2D"]
-position = Vector2( -3.4315, -9.34753 )
 rotation = 1.16415e-10
 shape = SubResource( 23 )
 
 [node name="Sprite" type="Sprite" parent="Movables/Platform1/KinematicBody2D"]
-position = Vector2( 0.0147095, -9.25647 )
+position = Vector2( 1.02878, -18.0713 )
 rotation = -1.5708
 texture = ExtResource( 17 )
 
 [node name="Path2D" type="Path2D" parent="Movables/Platform1"]
-position = Vector2( 81.6, -289.217 )
+position = Vector2( -578.4, -524.217 )
 curve = SubResource( 22 )
 
 [node name="MovablePlatform1PathFollow2D" type="PathFollow2D" parent="Movables/Platform1/Path2D"]
-position = Vector2( 685.246, 976.539 )
+position = Vector2( 554.4, 1016.22 )
 rotation = 1.56921
-offset = 19.685
 rotate = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Movables/Platform1/Path2D/MovablePlatform1PathFollow2D"]
+position = Vector2( 0.034668, -21.9271 )
 remote_path = NodePath("../../../KinematicBody2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Movables/Platform1"]
@@ -475,35 +574,64 @@ anims/Move = SubResource( 36 )
 
 [node name="ConveyorBelt" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 496, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt2" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 464, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt4" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 431.98, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt5" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 400, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt6" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 368, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt7" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 336, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt8" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 304, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt9" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 272, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt10" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 240, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
 
 [node name="ConveyorBelt3" parent="Conveyers" instance=ExtResource( 18 )]
 position = Vector2( 528, 592 )
+conveyor_tint = Color( 0, 0.509804, 0, 1 )
+
+[node name="Crumbles" type="Node2D" parent="."]
+
+[node name="Crumble" parent="Crumbles" instance=ExtResource( 20 )]
+position = Vector2( 208, 367 )
+crumble_tint = Color( 0, 0.501961, 0, 1 )
+
+[node name="Crumble2" parent="Crumbles" instance=ExtResource( 20 )]
+position = Vector2( 239.98, 367 )
+crumble_tint = Color( 0, 0.501961, 0, 1 )
+
+[node name="Crumble3" parent="Crumbles" instance=ExtResource( 20 )]
+position = Vector2( 367.98, 367 )
+crumble_tint = Color( 0, 0.501961, 0, 1 )
+
+[node name="Crumble4" parent="Crumbles" instance=ExtResource( 20 )]
+position = Vector2( 400, 367 )
+crumble_tint = Color( 0, 0.501961, 0, 1 )
 
 [connection signal="level_complete" from="." to="Door" method="_level_complete"]
 [connection signal="go_to_next_scene" from="Door" to="." method="_player_entered_door"]
 [connection signal="victim_rescued" from="Victims/Victim" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Victims/Victim3" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Victims/Victim2" to="." method="_on_victim_rescued"]

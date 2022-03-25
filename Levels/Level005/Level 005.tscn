@@ -254,7 +254,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Penguin1Path/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 28 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="SnowmanPath" type="Path2D" parent="Enemies" groups=["Enemies"]]
@@ -277,7 +277,6 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/SnowmanPath/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 33 )
-frame = 2
 playing = true
 
 [node name="SnowballPath" type="Path2D" parent="Enemies" groups=["Enemies"]]

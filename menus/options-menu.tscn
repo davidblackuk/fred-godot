@@ -35,12 +35,12 @@ custom_constants/margin_top = 96
 margin_top = 96.0
 margin_right = 1024.0
 margin_bottom = 160.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.172549, 0.184314, 0.4, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
 custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 1 )
 text = "Options"
 align = 1
 valign = 1
@@ -75,22 +75,26 @@ alignment = 1
 margin_top = 40.0
 margin_right = 559.0
 margin_bottom = 80.0
-custom_fonts/font = ExtResource( 8 )
+focus_neighbour_top = NodePath("../Back")
+focus_neighbour_bottom = NodePath("../GodMode")
 custom_colors/font_color_hover_pressed = Color( 0, 1, 1, 1 )
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = " Show debug info"
 
 [node name="GodMode" type="CheckBox" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer"]
 margin_top = 144.0
 margin_right = 559.0
 margin_bottom = 184.0
-custom_fonts/font = ExtResource( 8 )
+focus_neighbour_top = NodePath("../ShowDebug")
+focus_neighbour_bottom = NodePath("../Back")
 custom_colors/font_color_hover_pressed = Color( 0, 1, 1, 1 )
 custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = " God mode"
 
 [node name="Back" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
@@ -98,9 +102,12 @@ margin_left = 0.0
 margin_top = 248.0
 margin_right = 559.0
 margin_bottom = 328.0
+focus_neighbour_top = NodePath("../GodMode")
+focus_neighbour_bottom = NodePath("../ShowDebug")
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0.0705882, 1 )
-text = "BACK"
+text = "<< BACK"
+align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 margin_left = 687.0
@@ -121,6 +128,7 @@ visible = false
 
 [node name="Palette2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 792 )
+
 [connection signal="toggled" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/ShowDebug" to="." method="_on_ShowDebug_toggled"]
 [connection signal="toggled" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/GodMode" to="." method="_on_GodMode_toggled"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

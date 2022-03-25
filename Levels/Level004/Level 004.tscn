@@ -286,7 +286,7 @@ shape = SubResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/EggTimerPath2D/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 12 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="GhostPath" type="Path2D" parent="Enemies"]
@@ -310,6 +310,7 @@ shape = SubResource( 15 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/GhostPath/PathFollow2D/Area2D"]
 scale = Vector2( 1.5, 2 )
 frames = SubResource( 20 )
+frame = 2
 playing = true
 
 [node name="Collectables" type="Node2D" parent="."]

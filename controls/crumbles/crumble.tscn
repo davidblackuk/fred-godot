@@ -46,6 +46,7 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crumbling = SubResource( 3 )
+
 [connection signal="body_entered" from="StaticBody2D/AnimationControlArea2D" to="." method="_on_animation_control_area_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/AnimationControlArea2D" to="." method="_on_animation_control_area_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

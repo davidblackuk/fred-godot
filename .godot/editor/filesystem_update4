@@ -1,4 +1,7 @@
 res://menus/main-menu.tscn
-res://state/GameManager.gd
+res://Levels/LevelBase.gd
+res://state/HighScoreTable.gd
 res://state/GameState.gd
-res://state/DictionaryPersistence.gd
+res://menus/main-menu.gd
+res://Levels/Level002/Level 002.tscn
+res://state/GameManager.gd

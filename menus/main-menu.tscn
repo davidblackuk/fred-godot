@@ -163,9 +163,6 @@ _data = {
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5")
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SkyBox" parent="." instance=ExtResource("3")]
 layout_mode = 0
@@ -292,6 +289,7 @@ text = "0.4.3"
 horizontal_alignment = 2
 
 [node name="SaveConfimation" type="AcceptDialog" parent="."]
+position = Vector2i(0, 36)
 size = Vector2i(186, 100)
 visible = true
 
@@ -324,6 +322,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="LoadConfirmation" type="AcceptDialog" parent="."]
+position = Vector2i(0, 36)
 size = Vector2i(202, 100)
 visible = true
 

@@ -1,11 +1,11 @@
 extends Node
 
-# const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
-const FIRST_LEVEL = "res://Levels/Level002/Level 002.tscn"
-#const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
+const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
+# const FIRST_LEVEL = "res://Levels/Level002/Level 002.tscn"
+# const FIRST_LEVEL = "res://Levels/Level003/Level 003.tscn"
 
-var game_timer: Timer = Timer.new()
-var level_timer: Timer = Timer.new()
+var game_timer: StopWatch = StopWatch.new()
+var level_timer: StopWatch = StopWatch.new()
 var game_state = GameState.new(FIRST_LEVEL)
 var high_score_table = HighScoreTable.new()
 

@@ -18,9 +18,9 @@ func _ready():
 func set_button_state():
 	var has_current_level = GameManager.game_state.current_level != null
 
-	load_button.disabled = !GameManager.game_state.save_file_exists()
+	load_button.disabled = true
 	continue_button.disabled = !has_current_level
-	save_button.disabled = !has_current_level
+	save_button.disabled = true
 	
 	if !has_current_level:
 		new_game_button.grab_focus()
@@ -32,7 +32,7 @@ func _new_game_pressed():
 	_start()
 
 func _continue_pressed():
-	GameManager.game_timer.continue()
+	GameManager.game_timer.cont()
 	_start()
 
 func _start():
@@ -62,6 +62,3 @@ func _on_Load_pressed():
 func _on_Save_pressed():
 	GameManager.save()
 	save_confirm.popup_centered()
-
-
-

@@ -6,7 +6,9 @@ var rescued_victims = 0
 var total_items = 0.0
 var collected_items = 0.0
 
-@export var next_scene # (String, FILE, "*.tscn")
+#@export var next_scene # (String, FILE, "*.tscn")
+
+@export var next_scene: PackedScene
 
 signal level_complete()
 
@@ -19,7 +21,7 @@ var exit_is_to_menu = false
 
 func _ready():
 	GameManager.level_timer.pause()
-	GameManager.game_state.current_level = get_tree().current_scene.filename
+	GameManager.game_state.current_level = get_tree().current_scene.scene_file_path
 	count_victims()
 	count_collectables()
 	connect_spikes_to_player()
@@ -104,7 +106,7 @@ func _on_fader_fade_out_complete():
 func _on_fader_fade_in_complete():
 	GameManager.last_level_was_high_score = false
 	GameManager.level_timer.reset()
-	GameManager.game_timer.continue()
+	GameManager.game_timer.cont()
 	get_tree().paused = false
 
 #
@@ -119,4 +121,3 @@ func goto_next_scene():
 	elif next_scene != null:
 		var perc =  100 if total_items == 0  else int((float(collected_items) / float(total_items)*100))
 		GameManager.level_complete(next_scene, perc)
-

@@ -33,7 +33,7 @@ func pause():
 #
 # continue / unpause the soptwatch
 #
-func continue():
+func cont():
 	if (paused && start_msec):
 		start_msec += (Time.get_ticks_msec() - pause_msec)
 	paused = false

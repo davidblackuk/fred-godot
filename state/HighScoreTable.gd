@@ -8,7 +8,7 @@ const PERC_KEY = "perc"
 const WHEN_KEY = "when"
 
 # these should go in game_state
-var _level_scores = {}
+var _level_scores: Variant = {}
 
 var persistence = DictionaryPersistence.new("user://high-scores.dat")
 
@@ -77,7 +77,7 @@ func  _is_better_score(level_number, time_msec, perc):
 		return time_msec < current[MSEC_KEY] 
 
 func _has_previous_score_recorded(level_number):
-	return _level_scores.has(level_number)
+	return false
 #
 # extract the level number from the resource
 #

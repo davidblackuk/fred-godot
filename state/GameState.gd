@@ -86,43 +86,5 @@ func get_god_mode():
 	
 	
 
-# ----------------
-# Persistance code
-# todo: seperate class please
-# ----------------
-
-const SAVE_FILE_PATH = "user://game-save.dat"
-#
-# Tests if a save file exists for the game
-#
-func save_file_exists():
-	return FileAccess.file_exists(SAVE_FILE_PATH)
-
-#
-# Saves the current game state to disk
-#
-func save():
-	var file:FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
-	
-	if file != null:
-		file.store_var(_game_state)
-		file.close()
-	else:
-		print("File open for save state failed, error code: ", FileAccess.get_open_error())
-
-#
-# Loads the game state from disk and sets it as the current state.
-#
-func load():
-	if save_file_exists():
-		var file: FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
-		if file != null:
-			var data = file.get_var()
-			print("Load state: ", data)
-			file.close()
-			_game_state = data
-		else:
-			print("File open for read state failed, error code: ", FileAccess.get_open_error())
-	
 	
 	

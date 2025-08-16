@@ -59,7 +59,7 @@ func _set_level_score(level_number, time_msec, percentage):
 	_level_scores[level_number] = {
 		MSEC_KEY: time_msec,
 		PERC_KEY: percentage,
-		WHEN_KEY: OS.get_datetime(false)
+		WHEN_KEY: Time.get_datetime_dict_from_system(false)
 	}
 	persistence.save(_level_scores)
 #

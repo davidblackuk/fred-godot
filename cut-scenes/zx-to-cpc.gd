@@ -1,9 +1,9 @@
 extends Node2D
 
-export(String, FILE, "*.tscn") var next_scene
+@export var next_scene # (String, FILE, "*.tscn")
 
-onready var door = $Door
-onready var fader = get_node("Fader")
+@onready var door = $Door
+@onready var fader = get_node("Fader")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +23,8 @@ func on_enter_next_level():
 
 
 func connect_fader_to_self():
-	fader.connect("fade_out_complete", self, "_on_fader_fade_out_complete")
-	fader.connect("fade_in_complete", self, "_on_fader_fade_in_complete")
+	fader.connect("fade_out_complete", Callable(self, "_on_fader_fade_out_complete"))
+	fader.connect("fade_in_complete", Callable(self, "_on_fader_fade_in_complete"))
 	
 	
 	

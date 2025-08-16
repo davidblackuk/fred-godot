@@ -10,13 +10,13 @@ const STATE_DEAD = "dead"
 const STATE_IDLE = "idle"
 const STATE_CONVEYED = "conveyed"
 
-onready var _climbing_state_script = get_node("../States/Climbing")
-onready var _dead_state_script = get_node("../States/Dead")
-onready var _dying_state_script = get_node("../States/Dying")
-onready var _idle_state_script = get_node("../States/Idle")
-onready var _jumping_state_script = get_node("../States/Jumping")
-onready var _walking_state_script = get_node("../States/Walking")
-onready var _conveyed_state_script = get_node("../States/Conveyed")
+@onready var _climbing_state_script = get_node("../States/Climbing")
+@onready var _dead_state_script = get_node("../States/Dead")
+@onready var _dying_state_script = get_node("../States/Dying")
+@onready var _idle_state_script = get_node("../States/Idle")
+@onready var _jumping_state_script = get_node("../States/Jumping")
+@onready var _walking_state_script = get_node("../States/Walking")
+@onready var _conveyed_state_script = get_node("../States/Conveyed")
 
 func _ready():
 	add_state(STATE_WALKING, _walking_state_script)

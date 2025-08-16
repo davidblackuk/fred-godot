@@ -11,11 +11,11 @@ const GOD_MODE_KEY = "god_mode"
 var _game_state = { }
 
 # settter getters to encapsulate the dictionary
-var score  setget set_score, get_score
-var deaths setget set_deaths, get_deaths
-var current_level setget set_current_level, get_current_level
-var debug_mode = false setget set_debug_mode, get_debug_mode
-var god_mode = false setget set_god_mode, get_god_mode
+var score : get = get_score, set = set_score
+var deaths : get = get_deaths, set = set_deaths
+var current_level : get = get_current_level, set = set_current_level
+var debug_mode = false: get = get_debug_mode, set = set_debug_mode
+var god_mode = false: get = get_god_mode, set = set_god_mode
 
 func _init(first_level):
 	reset(first_level)
@@ -96,35 +96,33 @@ const SAVE_FILE_PATH = "user://game-save.dat"
 # Tests if a save file exists for the game
 #
 func save_file_exists():
-	var file = File.new()
-	return file.file_exists(SAVE_FILE_PATH)
+	return FileAccess.file_exists(SAVE_FILE_PATH)
 
 #
 # Saves the current game state to disk
 #
 func save():
-	var file = File.new()
-	var error = file.open(SAVE_FILE_PATH, File.WRITE)
-	if error == OK:
+	var file:FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+	
+	if file != null:
 		file.store_var(_game_state)
 		file.close()
 	else:
-		print("File open for save state failed, error code: ", error)
+		print("File open for save state failed, error code: ", FileAccess.get_open_error())
 
 #
 # Loads the game state from disk and sets it as the current state.
 #
 func load():
 	if save_file_exists():
-		var file = File.new()
-		var error = file.open(SAVE_FILE_PATH, File.READ)
-		if error == OK:
+		var file: FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+		if file != null:
 			var data = file.get_var()
 			print("Load state: ", data)
 			file.close()
 			_game_state = data
 		else:
-			print("File open for read state failed, error code: ", error)
+			print("File open for read state failed, error code: ", FileAccess.get_open_error())
 	
 	
 	

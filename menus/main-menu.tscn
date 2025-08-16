@@ -1,453 +1,431 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=3 uid="uid://cutmi42mn1j5p"]
 
-[ext_resource path="res://fonts/press-start-64.tres" type="DynamicFont" id=1]
-[ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menus/main-menu.gd" type="Script" id=5]
-[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/splash-400.png" type="Texture" id=7]
-[ext_resource path="res://fonts/pres-start-16.tres" type="DynamicFont" id=8]
-[ext_resource path="res://fonts/pres-start-32.tres" type="DynamicFont" id=9]
-[ext_resource path="res://fonts/pres-start-24.tres" type="DynamicFont" id=10]
-[ext_resource path="res://images/fred/fred.png" type="Texture" id=11]
+[ext_resource type="FontFile" path="res://fonts/press-start-64.tres" id="1"]
+[ext_resource type="PackedScene" path="res://menus/main-button.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://controls/sky-box/SkyBox.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://controls/themes/Palette.tscn" id="4"]
+[ext_resource type="Script" uid="uid://eg2qghyf831s" path="res://menus/main-menu.gd" id="5"]
+[ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://dv3q8se7vccj6" path="res://images/splash-400.png" id="7"]
+[ext_resource type="FontFile" path="res://fonts/pres-start-16.tres" id="8"]
+[ext_resource type="FontFile" path="res://fonts/pres-start-32.tres" id="9"]
+[ext_resource type="FontFile" path="res://fonts/pres-start-24.tres" id="10"]
+[ext_resource type="Texture2D" uid="uid://cq4hk2wedvguq" path="res://images/fred/fred.png" id="11"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Scroll"
 length = 23.0
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Label:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 23 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 23),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 1024, 696 ), Vector2( -6700, 696 ) ]
+"values": [Vector2(1024, 696), Vector2(-6700, 696)]
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqx5h"]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 690.685, 203.173, 0, 0, 0, 0, 947.364, 202.112, -7.68388, -10.865, 7.68388, 10.865, 966.103, 211.481, 0, 0, 0, 0, 972.78, 229.689, 0, 0, 0, 0, 970.864, 603.337, 11.7438, -4.39714, -11.7438, 4.39714, 961.007, 632.422, 0, 0, 0, 0, 939.087, 636.135, 0, 0, 0, 0, 691.386, 636.596, 6.55477, 4.52149, -6.55477, -4.52149, 669.118, 632.422, 0, 0, 0, 0, 664.699, 596.537, 0, 0, 0, 0, 664.671, 533.112, 0, 0, 0, 0, 665.052, 215.547, -4.53729, 3.90216, 4.53729, -3.90216, 670.241, 205.744, 0, 0, 0, 0, 691.498, 203.353 )
+&"Scroll": SubResource("1")
 }
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 36, 36 )
+[sub_resource type="Curve2D" id="2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 690.685, 203.173, 0, 0, 0, 0, 947.364, 202.112, -7.68388, -10.865, 7.68388, 10.865, 966.103, 211.481, 0, 0, 0, 0, 972.78, 229.689, 0, 0, 0, 0, 970.864, 603.337, 11.7438, -4.39714, -11.7438, 4.39714, 961.007, 632.422, 0, 0, 0, 0, 939.087, 636.135, 0, 0, 0, 0, 691.386, 636.596, 6.55477, 4.52149, -6.55477, -4.52149, 669.118, 632.422, 0, 0, 0, 0, 664.699, 596.537, 0, 0, 0, 0, 664.671, 533.112, 0, 0, 0, 0, 665.052, 215.547, -4.53729, 3.90216, 4.53729, -3.90216, 670.241, 205.744, 0, 0, 0, 0, 691.498, 203.353)
+}
+point_count = 14
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 11 )
-region = Rect2( 36, 0, 36, 36 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("11")
+region = Rect2(0, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 11 )
-region = Rect2( 72, 0, 36, 36 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("11")
+region = Rect2(36, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 11 )
-region = Rect2( 108, 0, 36, 36 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("11")
+region = Rect2(72, 0, 36, 36)
 
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("11")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id="8"]
 resource_name = "Walk Box Art"
 length = 8.0
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("PathFollow2D:unit_offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "Walk Box Art"
-length = 8.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 0.5, 1.5 ]
+"values": [0.0, 1.0]
 }
 
-[sub_resource type="Curve2D" id=10]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_navty"]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 704, 184, 0, 0, 0, 0, 872, 184, -16.2709, 0.39685, 16.2709, -0.39685, 920, 168, 0, 0, 0, 0, 968, 184, 0, 0, 0, 0, 1064, 184, -16.6677, -0.39685, 16.6677, 0.39685, 1112, 168, 0, 0, 0, 0, 1152, 184, 0, 0, 0, 0, 1376, 184 )
+&"Walk Box Art": SubResource("8")
 }
 
-[sub_resource type="Animation" id=11]
-length = 16.0
-loop = true
+[sub_resource type="Animation" id="9"]
+resource_name = "Walk Box Art"
+length = 8.0
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("PathFollow2D:unit_offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 0.0, 1.0 ]
+"values": [0.5, 1.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jojrt"]
+_data = {
+&"Walk Box Art": SubResource("9")
+}
+
+[sub_resource type="Curve2D" id="10"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 704, 184, 0, 0, 0, 0, 872, 184, -16.2709, 0.39685, 16.2709, -0.39685, 920, 168, 0, 0, 0, 0, 968, 184, 0, 0, 0, 0, 1064, 184, -16.6677, -0.39685, 16.6677, 0.39685, 1112, 168, 0, 0, 0, 0, 1152, 184, 0, 0, 0, 0, 1376, 184)
+}
+point_count = 8
+
+[sub_resource type="Animation" id="11"]
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PathFollow2D/AnimatedSprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D/AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ false, true ]
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfher"]
+_data = {
+&"Walk Box Art": SubResource("11")
 }
 
 [node name="MainMenu" type="Control"]
-script = ExtResource( 5 )
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SkyBox" parent="." instance=ExtResource( 3 )]
-color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+[node name="SkyBox" parent="." instance=ExtResource("3")]
+layout_mode = 0
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
 
 [node name="VBoxOuter" type="VBoxContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 776.0
-custom_constants/separation = 64
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 776.0
+theme_override_constants/separation = 64
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter"]
-margin_right = 1024.0
-margin_bottom = 128.0
-custom_constants/margin_top = 64
+layout_mode = 2
+theme_override_constants/margin_top = 64
 
 [node name="Title" type="Label" parent="VBoxOuter/MarginContainer"]
-margin_top = 64.0
-margin_right = 1024.0
-margin_bottom = 128.0
-custom_colors/font_color = Color( 1, 1, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.172549, 0.184314, 0.4, 1 )
-custom_constants/shadow_offset_x = 3
-custom_constants/shadow_offset_y = 3
-custom_constants/shadow_as_outline = 0
-custom_fonts/font = ExtResource( 1 )
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.172549, 0.184314, 0.4, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("1")
 text = "son of fred"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="ContentArea" type="HBoxContainer" parent="VBoxOuter"]
-margin_top = 192.0
-margin_right = 1024.0
-margin_bottom = 679.0
+layout_mode = 2
 size_flags_vertical = 0
-custom_constants/separation = 0
+theme_override_constants/separation = 0
 
 [node name="ButtonContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
-margin_right = 687.0
-margin_bottom = 487.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 64
-custom_constants/margin_top = 16
-custom_constants/margin_left = 64
-custom_constants/margin_bottom = 16
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxOuter/ContentArea/ButtonContainer"]
-margin_left = 64.0
-margin_top = 16.0
-margin_right = 623.0
-margin_bottom = 471.0
-custom_constants/separation = -5
+layout_mode = 2
+theme_override_constants/separation = -5
 alignment = 1
 
-[node name="Continue" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 559.0
-margin_bottom = 80.0
-focus_neighbour_top = NodePath("../Quit")
-focus_neighbour_bottom = NodePath("../NewGame")
-custom_colors/font_color_disabled = Color( 0.447059, 0.447059, 0.447059, 1 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+[node name="Continue" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../NewGame")
+theme_override_colors/font_disabled_color = Color(0.447059, 0.447059, 0.447059, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 disabled = true
 text = "CONTINUE"
 
-[node name="NewGame" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 75.0
-margin_right = 559.0
-margin_bottom = 155.0
-focus_neighbour_top = NodePath("../Continue")
-focus_neighbour_bottom = NodePath("../Options")
-custom_colors/font_color = Color( 0, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+[node name="NewGame" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Continue")
+focus_neighbor_bottom = NodePath("../Options")
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 text = "NEW GAME"
 
-[node name="Options" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 150.0
-margin_right = 559.0
-margin_bottom = 230.0
-focus_neighbour_top = NodePath("../NewGame")
-focus_neighbour_bottom = NodePath("../Load")
-custom_colors/font_color = Color( 0, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+[node name="Options" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Load")
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 text = "OPTIONS"
 
-[node name="Load" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 225.0
-margin_right = 559.0
-margin_bottom = 305.0
-focus_neighbour_top = NodePath("../Options")
-focus_neighbour_bottom = NodePath("../Save")
-custom_colors/font_color = Color( 0, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+[node name="Load" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Save")
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 text = "LOAD"
 
-[node name="Save" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 300.0
-margin_right = 559.0
-margin_bottom = 380.0
-focus_neighbour_top = NodePath("../Load")
-focus_neighbour_bottom = NodePath("../Quit")
-custom_colors/font_color = Color( 0, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+[node name="Save" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Load")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 text = "SAVE"
 
-[node name="Quit" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 375.0
-margin_right = 559.0
-margin_bottom = 455.0
-focus_neighbour_top = NodePath("../Save")
-focus_neighbour_bottom = NodePath("../Continue")
-custom_colors/font_color = Color( 0, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 1, 1, 1 )
+[node name="Quit" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Save")
+focus_neighbor_bottom = NodePath("../Continue")
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 text = "QUIT"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
-margin_left = 687.0
-margin_right = 1024.0
-margin_bottom = 487.0
-custom_constants/margin_right = 64
+layout_mode = 2
+theme_override_constants/margin_right = 64
 
 [node name="Cover" type="TextureRect" parent="VBoxOuter/ContentArea/MarginContainer"]
-margin_right = 273.0
-margin_bottom = 487.0
-texture = ExtResource( 7 )
+layout_mode = 2
+texture = ExtResource("7")
 stretch_mode = 4
 
-[node name="Palette" parent="." instance=ExtResource( 4 )]
-position = Vector2( 80, 920 )
+[node name="Palette" parent="." instance=ExtResource("4")]
+position = Vector2(80, 920)
 
 [node name="Label" type="Label" parent="."]
-margin_top = 752.0
-margin_right = 1024.0
-margin_bottom = 768.0
-custom_colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
-custom_fonts/font = ExtResource( 8 )
+layout_mode = 0
+offset_top = 752.0
+offset_right = 1024.0
+offset_bottom = 768.0
+theme_override_colors/font_color = Color(0.447059, 0.447059, 0.447059, 1)
+theme_override_fonts/font = ExtResource("8")
 text = "0.4.3"
-align = 2
+horizontal_alignment = 2
 
 [node name="SaveConfimation" type="AcceptDialog" parent="."]
+size = Vector2i(186, 100)
 visible = true
-margin_left = 1107.82
-margin_top = 275.388
-margin_right = 1478.82
-margin_bottom = 491.388
-rect_rotation = -0.0796325
-window_title = "Game saved"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="SaveConfimation"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -36.0
-custom_constants/margin_right = 5
-custom_constants/margin_top = 5
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SaveConfimation/MarginContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 350.0
-margin_bottom = 167.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="SaveConfimation/MarginContainer/VBoxContainer"]
-margin_right = 345.0
-margin_bottom = 162.0
+layout_mode = 2
 size_flags_vertical = 7
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 5
-custom_constants/shadow_offset_y = 5
-custom_fonts/font = ExtResource( 9 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("9")
 text = "game saved"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="LoadConfirmation" type="AcceptDialog" parent="."]
+size = Vector2i(202, 100)
 visible = true
-margin_left = 1107.82
-margin_top = 275.388
-margin_right = 1478.82
-margin_bottom = 491.388
-rect_rotation = -0.0796325
-window_title = "Game saved"
 
 [node name="MarginContainer" type="MarginContainer" parent="LoadConfirmation"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -36.0
-custom_constants/margin_right = 5
-custom_constants/margin_top = 5
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LoadConfirmation/MarginContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 357.0
-margin_bottom = 167.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="LoadConfirmation/MarginContainer/VBoxContainer"]
-margin_right = 352.0
-margin_bottom = 162.0
+layout_mode = 2
 size_flags_vertical = 7
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 5
-custom_constants/shadow_offset_y = 5
-custom_fonts/font = ExtResource( 9 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("9")
 text = "game loaded"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="ScrollingMarquee" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="ScrollingMarquee"]
-margin_left = 1024.0
-margin_top = 696.0
-margin_right = 7408.0
-margin_bottom = 720.0
-custom_fonts/font = ExtResource( 10 )
+offset_left = 1024.0
+offset_top = 696.0
+offset_right = 7408.0
+offset_bottom = 720.0
+theme_override_fonts/font = ExtResource("10")
 text = "Son of Fred, the fireman returns... Rescue victims, collect coins. Over one exciting and difficult level(s). Controls: Arrow keys for left / right / up / down (or WASD), space to jump. Home key returns to the menu. Debug mode: End, opens the door to the next level. "
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ScrollingMarquee"]
+libraries = {
+&"": SubResource("AnimationLibrary_pqx5h")
+}
 autoplay = "Scroll"
-anims/Scroll = SubResource( 1 )
 
-[node name="Fader" parent="." instance=ExtResource( 6 )]
+[node name="Fader" parent="." instance=ExtResource("6")]
 visible = false
 z_index = 4096
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 4.15814, 16.3163 )
-curve = SubResource( 2 )
+position = Vector2(4.15814, 16.3163)
+curve = SubResource("2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 690.685, 203.173 )
-rotation = -0.00413279
+position = Vector2(690.685, 203.173)
+rotation = -0.00413356
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
-frames = SubResource( 7 )
-playing = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+sprite_frames = SubResource("7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_navty")
+}
 autoplay = "Walk Box Art"
-"anims/Walk Box Art" = SubResource( 8 )
 
 [node name="Path2D3" type="Path2D" parent="."]
-position = Vector2( 4.15814, 16.3163 )
-curve = SubResource( 2 )
+position = Vector2(4.15814, 16.3163)
+curve = SubResource("2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2( 690.685, 203.173 )
-rotation = -0.00413279
+position = Vector2(690.685, 203.173)
+rotation = -0.00413356
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D3/PathFollow2D"]
-frames = SubResource( 7 )
-playing = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D3/PathFollow2D"]
+sprite_frames = SubResource("7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3"]
+libraries = {
+&"": SubResource("AnimationLibrary_jojrt")
+}
 autoplay = "Walk Box Art"
-"anims/Walk Box Art" = SubResource( 9 )
 
 [node name="Path2D2" type="Path2D" parent="."]
-position = Vector2( -536, -136 )
-curve = SubResource( 10 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2(-536, -136)
+curve = SubResource("10")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2( 1216.52, 184 )
-offset = 524.42
-rotate = false
+position = Vector2(704, 184)
 loop = false
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D2/PathFollow2D"]
-frames = SubResource( 7 )
-playing = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D2/PathFollow2D"]
+sprite_frames = SubResource("7")
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_wfher")
+}
 autoplay = "Walk Box Art"
-"anims/Walk Box Art" = SubResource( 11 )
 
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue" to="." method="_continue_pressed"]
 [connection signal="pressed" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame" to="." method="_new_game_pressed"]

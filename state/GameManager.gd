@@ -4,8 +4,8 @@ extends Node
 const FIRST_LEVEL = "res://Levels/Level002/Level 002.tscn"
 #const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
 
-var game_timer = StopWatch.new()
-var level_timer = StopWatch.new()
+var game_timer: Timer = Timer.new()
+var level_timer: Timer = Timer.new()
 var game_state = GameState.new(FIRST_LEVEL)
 var high_score_table = HighScoreTable.new()
 
@@ -52,7 +52,7 @@ func level_complete(next_level, collectables_percent, from_cut_scene = false):
 
 	if next_level != null:
 		game_state.current_level = next_level
-		get_tree().change_scene(next_level)
+		get_tree().change_scene_to_file(next_level)
 
 #
 # user has quit to the main menu, no need to test for high score etc
@@ -60,7 +60,7 @@ func level_complete(next_level, collectables_percent, from_cut_scene = false):
 func level_quit():
 	game_timer.pause()	
 	last_level_was_high_score = false
-	get_tree().change_scene("res://menus/main-menu.tscn")
+	get_tree().change_scene_to_file("res://menus/main-menu.tscn")
 
 
 func save():
@@ -68,4 +68,3 @@ func save():
 
 func load():
 	game_state.load()
-

@@ -7,7 +7,7 @@ extends Area2D
 signal fred_is_dead()
 
 func _ready():
-	connect("body_entered", self, "_on_body_entered")
+	connect("body_entered", Callable(self, "_on_body_entered"))
 	add_to_group("Enemies")
 
 func _on_body_entered(body):

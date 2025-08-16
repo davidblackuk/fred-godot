@@ -10,7 +10,7 @@ var previous_state = null
 
 var _state_stack = []
 
-onready var parent = get_parent()
+@onready var parent = get_parent()
 
 func _physics_process(delta):
 	if state != null:

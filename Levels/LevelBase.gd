@@ -6,14 +6,14 @@ var rescued_victims = 0
 var total_items = 0.0
 var collected_items = 0.0
 
-export(String, FILE, "*.tscn") var next_scene
+@export var next_scene # (String, FILE, "*.tscn")
 
 signal level_complete()
 
-onready var player = get_node("Player")
-onready var victims = get_node_or_null("Victims")
-onready var fader = get_node("Fader")
-onready var collectables = get_node_or_null("Collectables")
+@onready var player = get_node("Player")
+@onready var victims = get_node_or_null("Victims")
+@onready var fader = get_node("Fader")
+@onready var collectables = get_node_or_null("Collectables")
 
 var exit_is_to_menu = false
 
@@ -85,8 +85,8 @@ func connect_conveyors_to_player():
 	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", player, "_conveyor_status_changed")
 
 func connect_fader_to_self():
-	fader.connect("fade_out_complete", self, "_on_fader_fade_out_complete")
-	fader.connect("fade_in_complete", self, "_on_fader_fade_in_complete")
+	fader.connect("fade_out_complete", Callable(self, "_on_fader_fade_out_complete"))
+	fader.connect("fade_in_complete", Callable(self, "_on_fader_fade_in_complete"))
 
 #
 # the player has entered the door and is going to proceed to 

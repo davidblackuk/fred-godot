@@ -2,7 +2,7 @@ extends CollisionShape2D
 
 signal fred_is_dead()
 
-export(String) var animation_name = "Bulb"
+@export var animation_name: String = "Bulb"
 
 func _ready():
 	pass

@@ -1,10 +1,10 @@
-tool
+@tool
 extends Node2D
 
-onready var animation_player = get_node("AnimationPlayer")
-onready var sprite = get_node("Sprite")
+@onready var animation_player = get_node("AnimationPlayer")
+@onready var sprite = get_node("Sprite2D")
 
-export(Color, RGB) var crumble_tint = Palette.yellow 
+@export var crumble_tint = Palette.yellow  # (Color, RGB)
 
 func _ready():
 	sprite.modulate = crumble_tint

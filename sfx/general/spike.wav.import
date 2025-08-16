@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/spike.wav-4688dedfe685853f1fd1340983779944.sample"
+type="AudioStreamWAV"
+uid="uid://bk4owwrhsqonq"
+path="res://.godot/imported/spike.wav-4688dedfe685853f1fd1340983779944.sample"
 
 [deps]
 
 source_file="res://sfx/general/spike.wav"
-dest_files=[ "res://.import/spike.wav-4688dedfe685853f1fd1340983779944.sample" ]
+dest_files=["res://.godot/imported/spike.wav-4688dedfe685853f1fd1340983779944.sample"]
 
 [params]
 

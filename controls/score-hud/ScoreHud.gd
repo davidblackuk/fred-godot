@@ -1,25 +1,25 @@
 
 extends Node2D
 
-export(String) var level_name = "??"
+@export var level_name: String = "??"
 
-onready var game_time_label =  $GameTime/GameTimeValue
-onready var level_time_label =  $LevelTime/LevelTimeValue
+@onready var game_time_label =  $GameTime/GameTimeValue
+@onready var level_time_label =  $LevelTime/LevelTimeValue
 
-onready var level_record_label =  $LabelLevelRecord
+@onready var level_record_label =  $LabelLevelRecord
 
-onready var lives_label =  $Lives/LivesValue
-onready var score_label =  $Score/ScoreValue
+@onready var lives_label =  $Lives/LivesValue
+@onready var score_label =  $Score/ScoreValue
 
-onready var level_name_label =  $LevelName
+@onready var level_name_label =  $LevelName
 
-onready var god_mode_label = $Debug/LabelGodMode
+@onready var god_mode_label = $Debug/LabelGodMode
 
-onready var fps_label = $Debug/LabelFPS
-onready var fps_value = $Debug/ValueFPS
+@onready var fps_label = $Debug/LabelFPS
+@onready var fps_value = $Debug/ValueFPS
 
-onready var mem_label = $Debug/LabelMem
-onready var mem_value = $Debug/ValueMem
+@onready var mem_label = $Debug/LabelMem
+@onready var mem_value = $Debug/ValueMem
 
 var time_functions = TimeFunctions.new()
 

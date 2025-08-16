@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/fred-step-2.wav-9aa7d01fae40330792665433aacfa260.sample"
+type="AudioStreamWAV"
+uid="uid://bw0ppw00dmt7v"
+path="res://.godot/imported/fred-step-2.wav-9aa7d01fae40330792665433aacfa260.sample"
 
 [deps]
 
 source_file="res://sfx/fred/fred-step-2.wav"
-dest_files=[ "res://.import/fred-step-2.wav-9aa7d01fae40330792665433aacfa260.sample" ]
+dest_files=["res://.godot/imported/fred-step-2.wav-9aa7d01fae40330792665433aacfa260.sample"]
 
 [params]
 

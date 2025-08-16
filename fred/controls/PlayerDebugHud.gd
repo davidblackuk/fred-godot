@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var jump_height = get_node("JumpHeight")
-onready var motion = get_node("Motion")
-onready var player = get_parent()
+@onready var jump_height = get_node("JumpHeight")
+@onready var motion = get_node("Motion")
+@onready var player = get_parent()
 
 
 func _process(_delta):

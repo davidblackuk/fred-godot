@@ -1,13 +1,13 @@
-tool
+@tool
 extends Node2D
 
 signal go_to_next_scene()
 
-export(Color, RGB) var door_tint = Color.white 
+@export var door_tint = Color.WHITE  # (Color, RGB)
 
-onready var roller = get_node("Area2D/Roller")
-onready var door_top = get_node("Area2D/Door Top")
-onready var door_bottom = get_node("Area2D/Door Bottom")
+@onready var roller = get_node("Area2D/Roller")
+@onready var door_top = get_node("Area2D/Door Top")
+@onready var door_bottom = get_node("Area2D/Door Bottom")
 
 
 
@@ -31,6 +31,6 @@ func _on_Area2D_body_entered(body):
 func _level_complete():
 	var animator = get_node("Area2D/AnimationPlayer")
 	animator.play("Roller")
-	yield(animator, "animation_finished")
-	get_node("StaticBody2D").set_collision_mask_bit(0, false)
+	await animator.animation_finished
+	get_node("StaticBody2D").set_collision_mask_value(0, false)
 

@@ -1,12 +1,12 @@
 extends Control
 
-onready var fader = get_node("Fader")
-onready var new_game_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame")
-onready var continue_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue")
-onready var load_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Load")
-onready var save_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Save")
-onready var save_confirm = get_node("SaveConfimation")
-onready var load_confirm = get_node("LoadConfirmation")
+@onready var fader = get_node("Fader")
+@onready var new_game_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/NewGame")
+@onready var continue_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Continue")
+@onready var load_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Load")
+@onready var save_button = get_node("VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/Save")
+@onready var save_confirm = get_node("SaveConfimation")
+@onready var load_confirm = get_node("LoadConfirmation")
 
 
 var scene_to_load = null
@@ -49,7 +49,7 @@ func _on_quit_pressed():
 
 func _on_Fader_fade_out_complete():
 	if scene_to_load != "QUIT":
-		get_tree().change_scene(scene_to_load)
+		get_tree().change_scene_to_file(scene_to_load)
 	else:
 		get_tree().quit()
 

@@ -2,13 +2,13 @@ extends "res://sprites/SpriteBase.gd"
 
 signal victim_rescued()
 
-export(String) var animation_name = "Help"
+@export var animation_name: String = "Help"
 
 const POINTS_SCORED = 120
 
-onready var animation_player = get_node("Area2D/AnimationPlayer")
-onready var audio_player = get_node("Area2D/AudioStreamPlayer")
-onready var state_machine = get_node("StateMachine")
+@onready var animation_player = get_node("Area2D/AnimationPlayer")
+@onready var audio_player = get_node("Area2D/AudioStreamPlayer")
+@onready var state_machine = get_node("StateMachine")
 
 
 var _has_intersectedPlayer = false
@@ -35,7 +35,7 @@ func broadcast_rescued():
 func animate_and_dequeue():
 	animation_player.play("Rescued")
 	audio_player.play()
-	yield(animation_player, "animation_finished")	
+	await animation_player.animation_finished	
 	queue_free()
 
 

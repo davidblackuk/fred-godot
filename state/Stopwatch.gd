@@ -19,7 +19,7 @@ func _init():
 #
 func reset():
 	paused = false
-	start_msec = OS.get_ticks_msec()
+	start_msec = Time.get_ticks_msec()
 	pause_msec = 0
 	last_formatted_value = "0:00:00"
 
@@ -27,7 +27,7 @@ func reset():
 # Pause the stopwatch
 #
 func pause():
-	pause_msec = OS.get_ticks_msec()
+	pause_msec = Time.get_ticks_msec()
 	paused = true
 
 #
@@ -35,12 +35,12 @@ func pause():
 #
 func continue():
 	if (paused && start_msec):
-		start_msec += (OS.get_ticks_msec() - pause_msec)
+		start_msec += (Time.get_ticks_msec() - pause_msec)
 	paused = false
 	pause_msec = 0
 
 func ellapsed_msec():
-	var ticks = OS.get_ticks_msec()
+	var ticks = Time.get_ticks_msec()
 	var pms = (ticks - pause_msec if paused  else 0)
 	var res = (ticks - pms) - start_msec 
 	return res

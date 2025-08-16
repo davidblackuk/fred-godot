@@ -3,37 +3,37 @@
 #
 extends PathFollow2D
 
-export var run_speed = 1
+@export var run_speed = 1
 
 
 # Holds the current (and initial) direction along the path, incrementing or decrementing
-export var incrementing = true
+@export var incrementing = true
 
 #
 # if true the sprite will have it's image flipped horizontally when the sprite turns
 #
-export var flip_h_on_turn = false
+@export var flip_h_on_turn = false
 
 #
 # if true the sprite will have it's image flipped verically when the sprite turns
 #
-export var flip_v_on_turn = false
+@export var flip_v_on_turn = false
 
 
-onready var sprite = $AnimatedSprite
+@onready var sprite = $AnimatedSprite2D
 
 func _process(delta):
 	var new_pos = 0
 	var step = run_speed * delta
 	if (incrementing):
-		new_pos = unit_offset + step
+		new_pos = progress_ratio + step
 		if (new_pos >= 1):
 			_turn()
 	else:
-		new_pos = unit_offset - step
+		new_pos = progress_ratio - step
 		if (new_pos <= 0):
 			_turn()
-	unit_offset =  clamp(new_pos, 0, 1)
+	progress_ratio =  clamp(new_pos, 0, 1)
 
 func _turn():
 	incrementing = !incrementing

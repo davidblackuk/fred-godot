@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var state_machine = get_parent().get_node("StateMachine")
-onready var label = get_node("Label")
+@onready var state_machine = get_parent().get_node("StateMachine")
+@onready var label = get_node("Label")
 
 
 

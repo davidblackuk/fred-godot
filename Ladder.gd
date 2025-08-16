@@ -1,13 +1,13 @@
-tool
+@tool
 extends Node2D
 
 signal ladder_status_changed(ladder_node, is_entry)
 
-export(int, "MIDDLE", "BOTTOM", "TOP") var ladder_type = 0 
+@export var ladder_type = 0  # (int, "MIDDLE", "BOTTOM", "TOP")
 
-export(Color, RGB) var ladder_tint = Color.white 
+@export var ladder_tint = Color.WHITE  # (Color, RGB)
 
-onready var sprite = get_node("Sprite")
+@onready var sprite = get_node("Sprite2D")
 
 func _ready():
 	sprite.frame = ladder_type

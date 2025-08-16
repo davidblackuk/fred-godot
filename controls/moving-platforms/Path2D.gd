@@ -1,7 +1,7 @@
 extends Path2D
 
 
-export var velocity = 1.0
+@export var velocity = 1.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -6,12 +6,12 @@
 script = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -41.8595
-margin_top = -6.73514
-margin_right = 42.1405
-margin_bottom = 7.26486
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+offset_left = -41.8595
+offset_top = -6.73514
+offset_right = 42.1405
+offset_bottom = 7.26486
+theme_override_colors/font_outline_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
 text = "none"
 align = 1
 __meta__ = {

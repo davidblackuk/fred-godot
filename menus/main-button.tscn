@@ -1,15 +1,15 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://fonts/pres-start-32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/pres-start-32.tres" type="FontFile" id=1]
 
-[node name="ToolButton" type="Button"]
-margin_left = -264.0
-margin_top = -40.0
-margin_right = 264.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 80 )
+[node name="Button" type="Button"]
+offset_left = -264.0
+offset_top = -40.0
+offset_right = 264.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 0, 80 )
 size_flags_vertical = 0
-custom_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "button name"
 flat = true
 __meta__ = {

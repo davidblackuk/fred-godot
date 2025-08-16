@@ -12,12 +12,12 @@ const SCORE_MULTIPLIER = 22
 var collected = false
 
 #           0 (22)  1 (44)    2 (66) 3 (88)
-export(int, "LOW", "MEDIUM", "HIGH", "OMG") var reward_level = 0 
+@export var reward_level = 0  # (int, "LOW", "MEDIUM", "HIGH", "OMG")
 
-export var speed_scale = 1.0
-export(int, 7) var starting_frame = 0
+@export var speed_scale = 1.0
+@export var starting_frame = 0 # (int, 7)
 
-onready var animated_sprite = get_node("Area2D/AnimatedSprite")
+@onready var animated_sprite = get_node("Area2D/AnimatedSprite2D")
 
 
 func _ready():

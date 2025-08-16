@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ambulance-nee-naw.wav-db87a2c22ee99a697768126bfde73454.sample"
+type="AudioStreamWAV"
+uid="uid://e7defo0nj7oi"
+path="res://.godot/imported/ambulance-nee-naw.wav-db87a2c22ee99a697768126bfde73454.sample"
 
 [deps]
 
 source_file="res://sfx/general/ambulance-nee-naw.wav"
-dest_files=[ "res://.import/ambulance-nee-naw.wav-db87a2c22ee99a697768126bfde73454.sample" ]
+dest_files=["res://.godot/imported/ambulance-nee-naw.wav-db87a2c22ee99a697768126bfde73454.sample"]
 
 [params]
 

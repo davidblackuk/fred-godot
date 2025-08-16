@@ -1,0 +1,4 @@
+res://menus/main-menu.tscn
+res://state/GameManager.gd
+res://state/GameState.gd
+res://state/DictionaryPersistence.gd

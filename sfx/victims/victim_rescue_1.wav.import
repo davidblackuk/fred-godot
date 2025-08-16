@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/victim_rescue_1.wav-faf12478946a6fe9f1398913bd1e3196.sample"
+type="AudioStreamWAV"
+uid="uid://datj0lxjbox5n"
+path="res://.godot/imported/victim_rescue_1.wav-faf12478946a6fe9f1398913bd1e3196.sample"
 
 [deps]
 
 source_file="res://sfx/victims/victim_rescue_1.wav"
-dest_files=[ "res://.import/victim_rescue_1.wav-faf12478946a6fe9f1398913bd1e3196.sample" ]
+dest_files=["res://.godot/imported/victim_rescue_1.wav-faf12478946a6fe9f1398913bd1e3196.sample"]
 
 [params]
 

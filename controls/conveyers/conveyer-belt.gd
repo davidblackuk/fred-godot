@@ -6,10 +6,10 @@ const DIRECTION_NONE = -1
 const DIRECTION_LEFT = 0
 const DIRECTION_RIGHT = 1
 
-export(int, "LEFT", "RIGHT") var direction = DIRECTION_LEFT
-export(Color, RGB) var conveyor_tint = Color.white 
+@export var direction = DIRECTION_LEFT # (int, "LEFT", "RIGHT")
+@export var conveyor_tint = Color.WHITE  # (Color, RGB)
 
-onready var sprite = $AnimatedSprite
+@onready var sprite = $AnimatedSprite2D
 
 signal conveyor_status_changed(conveyor_node, is_entry)
 

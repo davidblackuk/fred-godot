@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://controls/moving-platforms/Path2D.gd" type="Script" id=1]
-[ext_resource path="res://images/moving-platforms/all.png" type="Texture" id=2]
+[ext_resource path="res://images/moving-platforms/all.png" type="Texture2D" id=2]
 [ext_resource path="res://controls/moving-platforms/MovingPlatform.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -9,18 +9,18 @@ extents = Vector2( 48.25, 15.8921 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -0.659241, -201.633, 0, 0, 0, 0, -128, -202, 0, 0, 0, 0, -0.488831, -201.76 )
+"points": PackedVector2Array( 0, 0, 0, 0, -0.659241, -201.633, 0, 0, 0, 0, -128, -202, 0, 0, 0, 0, -0.488831, -201.76 )
 }
 
 [node name="MovingPlatform" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Platform" type="KinematicBody2D" parent="."]
+[node name="Platform" type="CharacterBody2D" parent="."]
 position = Vector2( -0.659241, -201.633 )
 rotation = -0.00324675
 motion/sync_to_physics = true
 
-[node name="Sprite" type="Sprite" parent="Platform"]
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
 texture = ExtResource( 2 )
 hframes = 2
 

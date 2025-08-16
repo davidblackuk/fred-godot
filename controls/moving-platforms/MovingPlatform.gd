@@ -1,10 +1,10 @@
-tool
+@tool
 extends Node2D
 
 
-export var image_frame = 0 setget _set_image_frame
+@export var image_frame = 0: set = _set_image_frame
 
-onready var platform_sprite = get_node("Platform/Sprite")
+@onready var platform_sprite = get_node("Platform/Sprite2D")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

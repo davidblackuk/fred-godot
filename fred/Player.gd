@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const HORIZONTAL_VELOCITY = 150
 const JUMP_VELOCITY = 320
@@ -11,14 +11,14 @@ const CLIMB_VELOCITY = 150
 const GRAVITY = 10
 const FALL_HEIGHT_FOR_DEATH = -95
 
-export(String, "ZX", "CPC", "AMIGA", "PC") var fred_style = "ZX" 
+@export var fred_style = "ZX"  # (String, "ZX", "CPC", "AMIGA", "PC")
 
 var zx_image = preload("res://images/fred/fred.png")
 var cpc_image = preload("res://images/fred/fred-cpc.png")
 
 
-onready var animation_player = get_node("AnimationPlayer")
-onready var sprite = get_node("Sprite")
+@onready var animation_player = get_node("AnimationPlayer")
+@onready var sprite = get_node("Sprite2D")
 
 var motion = Vector2()
 var snap_vector = SNAP_DIRECTION * SNAP_LENGTH
@@ -47,7 +47,12 @@ func _ready():
 
 
 func process_movement(_delta):
-	motion = move_and_slide_with_snap(motion, snap_vector, FLOOR_NORMAL, false)
+	set_velocity(motion)
+	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `snap_vector`
+	set_up_direction(FLOOR_NORMAL)
+	set_floor_stop_on_slope_enabled(false)
+	move_and_slide()
+	motion = velocity
 	if is_on_floor() and snap_vector == Vector2.ZERO:
 		snap_vector = SNAP_DIRECTION * SNAP_LENGTH		
 		
@@ -64,7 +69,7 @@ func set_motion(x, y):
 	
 # is fred over a ladder
 func is_on_ladder():
-	return not active_ladders.empty()
+	return not active_ladders.is_empty()
 
 # collision with a ladder section detected
 func _ladder_status_changed(ladder_node, is_entry):
@@ -74,7 +79,7 @@ func _ladder_status_changed(ladder_node, is_entry):
 		active_ladders.erase(ladder_node)	
 
 func is_standing_on_conveyer():
-	return !active_conveyors.empty() && is_on_floor() && active_conveyors[0].global_position.y > global_position.y
+	return !active_conveyors.is_empty() && is_on_floor() && active_conveyors[0].global_position.y > global_position.y
 		
 func _conveyor_status_changed(conveyor_node, is_entry):
 	if is_entry:
@@ -82,7 +87,7 @@ func _conveyor_status_changed(conveyor_node, is_entry):
 		current_conveyor_direction = conveyor_node.direction
 	else:
 		active_conveyors.erase(conveyor_node)
-		if (active_conveyors.empty()):
+		if (active_conveyors.is_empty()):
 			current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
 	
 		
@@ -98,7 +103,7 @@ func has_fallen_to_death():
 func die():
 	arrest_all_motion()
 	animation_player.play("Death")
-	yield(animation_player, "animation_finished")
+	await animation_player.animation_finished
 	# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 

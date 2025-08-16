@@ -1,12 +1,12 @@
-tool
+@tool
 extends Node2D
 
 
-export(Color, RGB) var door_tint = Color.white 
+@export var door_tint = Color.WHITE  # (Color, RGB)
 
-onready var roller = $Roller
-onready var door_top = $"Door Top"
-onready var door_bottom = $"Door Bottom"
+@onready var roller = $Roller
+@onready var door_top = $"Door Top"
+@onready var door_bottom = $"Door Bottom"
 
 
 

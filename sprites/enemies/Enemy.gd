@@ -1,9 +1,9 @@
-tool
+@tool
 extends "res://sprites/SpriteBase.gd"
 
 signal fred_is_dead()
 
-export(String) var animation_name = "Bulb"
+@export var animation_name: String = "Bulb"
 
 func _ready():
 	var player = get_node_or_null("Area2D/AnimationPlayer")

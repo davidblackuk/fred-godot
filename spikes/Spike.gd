@@ -1,14 +1,14 @@
-tool
+@tool
 extends Node2D
 
 signal player_hit_spike()
 
-export(int, "SPIKE UP", "SPIKE DOWN", "FILL", "BUSH", "CPCFLAME", "WOOD") var spike_type = 0 
-export(Color, RGB) var spike_color = Palette.red
+@export var spike_type = 0  # (int, "SPIKE UP", "SPIKE DOWN", "FILL", "BUSH", "CPCFLAME", "WOOD")
+@export var spike_color = Palette.red # (Color, RGB)
 
-onready var sprite = get_node("Area2D/Sprite")
-onready var audio_player = get_node("AudioStreamPlayer")
-onready var animation_player = get_node("Area2D/AnimationPlayer")
+@onready var sprite = get_node("Area2D/Sprite2D")
+@onready var audio_player = get_node("AudioStreamPlayer")
+@onready var animation_player = get_node("Area2D/AnimationPlayer")
 
 func _ready():
 	sprite.frame = spike_type

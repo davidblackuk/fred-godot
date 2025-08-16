@@ -1,6 +1,8 @@
 extends Node
 
-const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
+# const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
+const FIRST_LEVEL = "res://Levels/Level002/Level 002.tscn"
+#const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
 
 var game_timer = StopWatch.new()
 var level_timer = StopWatch.new()

@@ -410,7 +410,7 @@ anims/Move = SubResource( 33 )
 anims/RESET = SubResource( 34 )
 
 [node name="PathFollow2DLeft" type="PathFollow2D" parent="Enemies/BannanaPathLeft"]
-position = Vector2( -89.9232, 257.691 )
+position = Vector2( -89.9233, 257.691 )
 offset = 352.562
 rotate = false
 
@@ -452,7 +452,6 @@ shape = SubResource( 27 )
 [node name="BannanaSpriteRight" type="AnimatedSprite" parent="Enemies/BannanaRight/PathFollow2DRight/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 32 )
-frame = 3
 playing = true
 flip_h = true
 
@@ -477,7 +476,6 @@ shape = SubResource( 39 )
 [node name="OrangeSprite" type="AnimatedSprite" parent="Enemies/OrangeOnCanveyorPath/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 21 )
-frame = 2
 playing = true
 
 [node name="TomatoLeft" type="Path2D" parent="Enemies"]
@@ -502,7 +500,6 @@ shape = SubResource( 42 )
 position = Vector2( 0, -6.73514 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 7 )
-frame = 1
 playing = true
 
 [node name="Collectables" type="Node2D" parent="."]
@@ -545,7 +542,6 @@ rotation = 1.56921
 motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Movables/Platform1/KinematicBody2D"]
-rotation = 1.16415e-10
 shape = SubResource( 23 )
 
 [node name="Sprite" type="Sprite" parent="Movables/Platform1/KinematicBody2D"]

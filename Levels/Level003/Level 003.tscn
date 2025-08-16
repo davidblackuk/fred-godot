@@ -104,6 +104,7 @@ color = Color( 0.0470588, 0.0470588, 0.447059, 1 )
 level_name = "Coining it in"
 
 [node name="Tiles" type="TileMap" parent="."]
+visible = false
 position = Vector2( 0, 192 )
 tile_set = ExtResource( 15 )
 cell_size = Vector2( 32, 32 )
@@ -279,7 +280,6 @@ anims/Move = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/GreenPath2D"]
 position = Vector2( 112.172, 379.342 )
-rotation = -7.79733e-06
 offset = 315.067
 rotate = false
 
@@ -292,7 +292,6 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/GreenPath2D/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-frame = 1
 playing = true
 
 [node name="YellowPath2D2" type="Path2D" parent="Enemies"]
@@ -305,7 +304,6 @@ anims/Move = SubResource( 8 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/YellowPath2D2"]
 position = Vector2( 411.49, 404.79 )
-rotation = -7.79733e-06
 offset = 27.9295
 rotate = false
 
@@ -318,7 +316,6 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/YellowPath2D2/PathFollow2D/Area2D"]
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-frame = 2
 speed_scale = 1.2
 playing = true
 

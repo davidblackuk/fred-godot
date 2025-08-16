@@ -426,7 +426,6 @@ shape = SubResource( 27 )
 modulate = Color( 0, 1, 1, 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 32 )
-frame = 1
 playing = true
 
 [node name="Magenta Path" type="Path2D" parent="Enemies"]
@@ -454,7 +453,6 @@ modulate = Color( 1, 0, 1, 1 )
 position = Vector2( -1.68372, -0.280579 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 25 )
-frame = 1
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 10 )]

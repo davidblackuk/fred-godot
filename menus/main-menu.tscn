@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://cutmi42mn1j5p"]
+[gd_scene load_steps=28 format=3 uid="uid://cutmi42mn1j5p"]
 
 [ext_resource type="FontFile" path="res://fonts/press-start-64.tres" id="1"]
-[ext_resource type="PackedScene" path="res://menus/main-button.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b2dhlr687huv0" path="res://menus/main-button.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://controls/sky-box/SkyBox.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://controls/themes/Palette.tscn" id="4"]
 [ext_resource type="Script" uid="uid://eg2qghyf831s" path="res://menus/main-menu.gd" id="5"]
@@ -11,6 +11,10 @@
 [ext_resource type="FontFile" path="res://fonts/pres-start-32.tres" id="9"]
 [ext_resource type="FontFile" path="res://fonts/pres-start-24.tres" id="10"]
 [ext_resource type="Texture2D" uid="uid://cq4hk2wedvguq" path="res://images/fred/fred.png" id="11"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqx5h"]
+font = ExtResource("1")
+font_size = 64
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Scroll"
@@ -36,9 +40,9 @@ _data = {
 
 [sub_resource type="Curve2D" id="2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 690.685, 203.173, 0, 0, 0, 0, 947.364, 202.112, -7.68388, -10.865, 7.68388, 10.865, 966.103, 211.481, 0, 0, 0, 0, 972.78, 229.689, 0, 0, 0, 0, 970.864, 603.337, 11.7438, -4.39714, -11.7438, 4.39714, 961.007, 632.422, 0, 0, 0, 0, 939.087, 636.135, 0, 0, 0, 0, 691.386, 636.596, 6.55477, 4.52149, -6.55477, -4.52149, 669.118, 632.422, 0, 0, 0, 0, 664.699, 596.537, 0, 0, 0, 0, 664.671, 533.112, 0, 0, 0, 0, 665.052, 215.547, -4.53729, 3.90216, 4.53729, -3.90216, 670.241, 205.744, 0, 0, 0, 0, 691.498, 203.353)
+"points": PackedVector2Array(0, 0, 0, 0, 690.685, 203.173, 0, 0, 0, 0, 947.364, 202.112, -7.68388, -10.865, 7.68388, 10.865, 966.103, 211.481, 0, 0, 0, 0, 972.78, 229.689, 0, 0, 0, 0, 970.864, 603.337, 11.7438, -4.39714, -11.7438, 4.39714, 961.007, 632.422, 0, 0, 0, 0, 939.087, 636.135, 0, 0, 0, 0, 862.842, 635.684, 0, 0, 0, 0, 691.386, 636.596, 6.55477, 4.52149, -6.55477, -4.52149, 669.118, 632.422, 0, 0, 0, 0, 664.699, 596.537, 0, 0, 0, 0, 664.671, 533.112, 0, 0, 0, 0, 665.052, 215.547, -4.53729, 3.90216, 4.53729, -3.90216, 670.241, 205.744, 0, 0, 0, 0, 691.498, 203.353)
 }
-point_count = 14
+point_count = 15
 
 [sub_resource type="AtlasTexture" id="3"]
 atlas = ExtResource("11")
@@ -187,6 +191,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("1")
 text = "son of fred"
+label_settings = SubResource("LabelSettings_pqx5h")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -291,7 +296,6 @@ horizontal_alignment = 2
 [node name="SaveConfimation" type="AcceptDialog" parent="."]
 position = Vector2i(0, 36)
 size = Vector2i(186, 100)
-visible = true
 
 [node name="MarginContainer" type="MarginContainer" parent="SaveConfimation"]
 anchors_preset = 15
@@ -324,7 +328,6 @@ uppercase = true
 [node name="LoadConfirmation" type="AcceptDialog" parent="."]
 position = Vector2i(0, 36)
 size = Vector2i(202, 100)
-visible = true
 
 [node name="MarginContainer" type="MarginContainer" parent="LoadConfirmation"]
 anchors_preset = 15
@@ -392,7 +395,7 @@ libraries = {
 autoplay = "Walk Box Art"
 
 [node name="Path2D3" type="Path2D" parent="."]
-position = Vector2(4.15814, 16.3163)
+position = Vector2(5, 16)
 curve = SubResource("2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
@@ -401,6 +404,7 @@ rotation = -0.00413356
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D3/PathFollow2D"]
 sprite_frames = SubResource("7")
+autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3"]
 libraries = {
@@ -418,6 +422,7 @@ loop = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D2/PathFollow2D"]
 sprite_frames = SubResource("7")
+autoplay = "default"
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D2"]

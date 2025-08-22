@@ -32,5 +32,4 @@ func _level_complete():
 	var animator = get_node("Area2D/AnimationPlayer")
 	animator.play("Roller")
 	await animator.animation_finished
-	get_node("StaticBody2D").set_collision_mask_value(0, false)
-
+	get_node("StaticBody2D").queue_free() # set_collision_mask_value(0, false)

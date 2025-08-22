@@ -8,7 +8,7 @@ const PERC_KEY = "perc"
 const WHEN_KEY = "when"
 
 # these should go in game_state
-var _level_scores: Variant = {}
+var _level_scores: Dictionary = {}
 
 var persistence = DictionaryPersistence.new("user://high-scores.dat")
 

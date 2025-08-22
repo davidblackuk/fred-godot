@@ -54,4 +54,3 @@ func _set_state(new_state):
 #
 func add_state(state_name, script):
 	states[state_name] = script
-

@@ -129,5 +129,3 @@ func fall():
 	jump_height = (jump_start_y - global_position.y)
 	if jump_height < -90:
 		motion.x = 0
-
-

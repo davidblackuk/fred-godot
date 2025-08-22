@@ -8,8 +8,7 @@ var collected_items = 0.0
 
 #@export var next_scene # (String, FILE, "*.tscn")
 
-@export var next_scene: PackedScene
-
+@export_file("*.tscn") var next_scene: String
 signal level_complete()
 
 @onready var player = get_node("Player")
@@ -54,41 +53,43 @@ func _on_victim_rescued():
 	if rescued_victims == total_victims:
 		emit_signal("level_complete")
 
-func _on_item_collected(reward):
-	GameManager.add_score(reward)
-	collected_items += 1
 
 func connect_coins_to_self():
-	get_tree().call_group("Collectables", "connect", "item_collected", self, "_on_item_collected")
+	get_tree().get_nodes_in_group("Collectables").map(func(coin): if coin.has_signal("item_collected"): coin.connect("item_collected", Callable(self, "_on_item_collected")))
 
 
 func connect_enemies_to_player():
-	get_tree().call_group("Enemies", "connect", "fred_is_dead", player, "_fred_is_dead")
+	get_tree().call_group("Enemies", "connect", "fred_is_dead", Callable(player, "_fred_is_dead"))
 
 #
 # Get the members of the spikes group and attach the player_hit_spike() signal to
 # the players _fred_is_dead() function. Death on contact ensues
 #
 func connect_spikes_to_player():
-	get_tree().call_group("Spikes", "connect", "player_hit_spike", player, "_fred_is_dead")
+	get_tree().call_group("Spikes", "connect", "player_hit_spike", Callable(player, "_fred_is_dead"))
 
 #
 # Get the members of the ladders group and attach the ladder_status_changed() signal to
 # the players _ladder_status_changed() function. This enables climbing ladders
 #
 func connect_ladders_to_player():
-	get_tree().call_group("Ladders", "connect", "ladder_status_changed", player, "_ladder_status_changed")
+	get_tree().call_group("Ladders", "connect", "ladder_status_changed", Callable(player, "_ladder_status_changed"))
 
 #
 # Get the members of the conveyers group and attach the conveyer_status_changed() signal to
 # the players _conveyer_status_changed() function. This enables convyers
 #
 func connect_conveyors_to_player():
-	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", player, "_conveyor_status_changed")
+	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", Callable(player, "_conveyor_status_changed"))
 
 func connect_fader_to_self():
 	fader.connect("fade_out_complete", Callable(self, "_on_fader_fade_out_complete"))
 	fader.connect("fade_in_complete", Callable(self, "_on_fader_fade_in_complete"))
+
+# An item (coins only at the moment) has been collected
+func _on_item_collected(reward):
+	GameManager.add_score(reward)
+	collected_items += 1
 
 #
 # the player has entered the door and is going to proceed to 

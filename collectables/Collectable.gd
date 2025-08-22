@@ -2,19 +2,22 @@ extends Node2D
 
 signal item_collected(reward)
 
-const LOW 		= 0
-const MEDIUM	= 1
-const HIGH 		= 2
-const OMG 		= 3
+enum RewardLevel {
+	LOW = 0,
+	MEDIUM = 1,
+	HIGH = 2,
+	OMG = 3
+}
 
 const SCORE_MULTIPLIER = 22
 
 var collected = false
 
 #           0 (22)  1 (44)    2 (66) 3 (88)
-@export var reward_level = 0  # (int, "LOW", "MEDIUM", "HIGH", "OMG")
+@export var reward_level: RewardLevel = RewardLevel.LOW
 
 @export var speed_scale = 1.0
+
 @export var starting_frame = 0 # (int, 7)
 
 @onready var animated_sprite = get_node("Area2D/AnimatedSprite2D")
@@ -28,13 +31,13 @@ func _ready():
 
 func color_according_to_reward():
 	match reward_level:
-		LOW:
+		RewardLevel.LOW:
 			modulate =  Palette.white
-		MEDIUM:
+		RewardLevel.MEDIUM:
 			modulate =  Palette.bright_cyan
-		HIGH:
+		RewardLevel.HIGH:
 			modulate =  Palette.bright_green
-		OMG:
+		RewardLevel.OMG:
 			modulate =  Palette.bright_yellow
 
 func _on_Area2D_body_entered(body):

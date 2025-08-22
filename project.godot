@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Son of Fred"
-run/main_scene="res://menus/main-menu.tscn"
+run/main_scene="uid://cutmi42mn1j5p"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -24,7 +24,9 @@ GameManager="*res://state/GameManager.gd"
 
 [display]
 
+window/size/viewport_width=1024
 window/size/viewport_height=768
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

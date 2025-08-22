@@ -1,7 +1,0 @@
-res://menus/main-menu.tscn
-res://Levels/LevelBase.gd
-res://state/HighScoreTable.gd
-res://state/GameState.gd
-res://menus/main-menu.gd
-res://Levels/Level002/Level 002.tscn
-res://state/GameManager.gd

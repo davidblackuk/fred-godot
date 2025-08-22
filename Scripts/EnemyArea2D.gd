@@ -13,4 +13,3 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "Player" && !GameManager.game_state.god_mode:
 		emit_signal("fred_is_dead")
-

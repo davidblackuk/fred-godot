@@ -1,144 +1,154 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=3 uid="uid://bc2wvfiayquev"]
 
-[ext_resource path="res://images/fred/fred.png" type="Texture2D" id=1]
-[ext_resource path="res://sfx/fred/fred-step-1.wav" type="AudioStream" id=2]
-[ext_resource path="res://sfx/fred/fred-step-2.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/fred/fred-dead.wav" type="AudioStream" id=4]
-[ext_resource path="res://fred/PlayerStateMachine.gd" type="Script" id=5]
-[ext_resource path="res://fred/Player.gd" type="Script" id=6]
-[ext_resource path="res://controls/state-machine-hud/StateMachineHUD.tscn" type="PackedScene" id=7]
-[ext_resource path="res://fred/states/Dead.gd" type="Script" id=8]
-[ext_resource path="res://fred/states/Climbing.gd" type="Script" id=9]
-[ext_resource path="res://fred/controls/PlayerDebugHud.tscn" type="PackedScene" id=10]
-[ext_resource path="res://fred/states/Jumping.gd" type="Script" id=11]
-[ext_resource path="res://fred/states/Dying.gd" type="Script" id=12]
-[ext_resource path="res://fred/states/Idle.gd" type="Script" id=13]
-[ext_resource path="res://fred/states/Walking.gd" type="Script" id=14]
-[ext_resource path="res://fred/states/Conveyed.gd" type="Script" id=15]
+[ext_resource type="Texture2D" uid="uid://cq4hk2wedvguq" path="res://images/fred/fred.png" id="1"]
+[ext_resource type="AudioStream" uid="uid://d3oncpxgshxip" path="res://sfx/fred/fred-step-1.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://bw0ppw00dmt7v" path="res://sfx/fred/fred-step-2.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://ciylvloopmevy" path="res://sfx/fred/fred-dead.wav" id="4"]
+[ext_resource type="Script" uid="uid://bu372oxxmw4yt" path="res://fred/PlayerStateMachine.gd" id="5"]
+[ext_resource type="Script" uid="uid://dd145depg7pig" path="res://fred/Player.gd" id="6"]
+[ext_resource type="PackedScene" path="res://controls/state-machine-hud/StateMachineHUD.tscn" id="7"]
+[ext_resource type="Script" uid="uid://6icoveonu6be" path="res://fred/states/Dead.gd" id="8"]
+[ext_resource type="Script" uid="uid://c0l63gsi34ur6" path="res://fred/states/Climbing.gd" id="9"]
+[ext_resource type="PackedScene" path="res://fred/controls/PlayerDebugHud.tscn" id="10"]
+[ext_resource type="Script" uid="uid://bgqu8i0gka4a6" path="res://fred/states/Jumping.gd" id="11"]
+[ext_resource type="Script" uid="uid://clfbsqcx7dwsd" path="res://fred/states/Dying.gd" id="12"]
+[ext_resource type="Script" uid="uid://bmxuvv5r1y14v" path="res://fred/states/Idle.gd" id="13"]
+[ext_resource type="Script" uid="uid://csxliwp6bcd0e" path="res://fred/states/Walking.gd" id="14"]
+[ext_resource type="Script" uid="uid://c6r65qts5aimv" path="res://fred/states/Conveyed.gd" id="15"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 32 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(30, 64)
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "Climb"
 length = 0.8
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 6, 7, 8, 9 ]
+"values": [6, 7, 8, 9]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "Death"
 length = 2.3
 step = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 10, 11, 12, 13, 14, 15, 16 ]
+"values": [10, 11, 12, 13, 14, 15, 16]
 }
 tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Step1AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
+"clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 4 )
-} ],
-"times": PackedFloat32Array( 0 )
+"stream": ExtResource("4")
+}],
+"times": PackedFloat32Array(0)
 }
+tracks/1/use_blend = true
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.360784, 0.360784, 1 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 0.360784, 0.360784, 1)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 length = 3.0
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1.5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 4, 5 ]
+"values": [4, 5]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 length = 0.8
-loop = true
+loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Step1AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
+"clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource("2")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 3 )
+"stream": ExtResource("3")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource("2")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 3 )
-} ],
-"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 )
+"stream": ExtResource("3")
+}],
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wg4rh"]
+_data = {
+&"Climb": SubResource("2"),
+&"Death": SubResource("3"),
+&"Idle": SubResource("4"),
+&"Walk": SubResource("5")
 }
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id="6"]
 script/source = "extends \"res://state-machine/StateMachineState.gd\"
 
 func get_transition(_delta, player):
@@ -168,60 +178,56 @@ func exit_state(_old_state, _new_state, _player):
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource("6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2( 0.0610943, 0.197758 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
+position = Vector2(0.0610943, 0.197758)
+scale = Vector2(2, 2)
+texture = ExtResource("1")
 hframes = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Climb = SubResource( 2 )
-anims/Death = SubResource( 3 )
-anims/Idle = SubResource( 4 )
-anims/Walk = SubResource( 5 )
+libraries = {
+&"": SubResource("AnimationLibrary_wg4rh")
+}
 
 [node name="Step1AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 
-[node name="FsmState" parent="." instance=ExtResource( 7 )]
-position = Vector2( -0.157494, -47.2471 )
+[node name="FsmState" parent="." instance=ExtResource("7")]
+position = Vector2(-0.157494, -47.2471)
 
 [node name="States" type="Node" parent="."]
 
 [node name="Climbing" type="Node" parent="States"]
-script = ExtResource( 9 )
+script = ExtResource("9")
 
 [node name="Dead" type="Node" parent="States"]
-script = ExtResource( 8 )
+script = ExtResource("8")
 
 [node name="Dying" type="Node" parent="States"]
-script = ExtResource( 12 )
+script = ExtResource("12")
 
 [node name="Idle" type="Node" parent="States"]
-script = ExtResource( 13 )
+script = ExtResource("13")
 
 [node name="Jumping" type="Node" parent="States"]
-script = ExtResource( 11 )
+script = ExtResource("11")
 
 [node name="Walking" type="Node" parent="States"]
-script = ExtResource( 14 )
+script = ExtResource("14")
 
 [node name="Falling" type="Node" parent="States"]
-script = SubResource( 6 )
+script = SubResource("6")
 
 [node name="Conveyed" type="Node" parent="States"]
-script = ExtResource( 15 )
+script = ExtResource("15")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 5 )
+script = ExtResource("5")
 
-[node name="DebugHud" parent="." instance=ExtResource( 10 )]
-position = Vector2( -4.33823, -71.7477 )
+[node name="DebugHud" parent="." instance=ExtResource("10")]
+position = Vector2(-4.33823, -71.7477)

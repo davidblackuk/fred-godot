@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://controls/score-hud/ScoreHud.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://controls/doors/Door.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://fred/Player.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bc2wvfiayquev" path="res://fred/Player.tscn" id="10"]
 [ext_resource type="Script" uid="uid://ckjw3r2055g46" path="res://Levels/LevelBase.gd" id="11"]
 [ext_resource type="TileSet" path="res://tiles.tres" id="13"]
 [ext_resource type="Texture2D" uid="uid://bptc8482oarvm" path="res://Levels/Level002/spider/spider.png" id="14"]

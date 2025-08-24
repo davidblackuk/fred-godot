@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj6ll0ofniubm"
-path="res://.godot/imported/fred-tiles.png-f304dffec544b6da9f385a0265850416.ctex"
+uid="uid://b4gy2w1wg4lt1"
+path="res://.godot/imported/tileset-platforms.png-eeedcee60c612f738a78e556debbb334.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tile-maps/fred-tiles.png"
-dest_files=["res://.godot/imported/fred-tiles.png-f304dffec544b6da9f385a0265850416.ctex"]
+source_file="res://tile-sets/tileset-platforms.png"
+dest_files=["res://.godot/imported/tileset-platforms.png-eeedcee60c612f738a78e556debbb334.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1755941378
+::res://::1756040058
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::-1::1755349639::0::1::::<><><>0<>0<><>::
 default_env.tres::Environment/Environment::-1::1755353704::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D/CompressedTexture2D::4226014525130522435::1755342101::1755353704::1::::<><><>0<>0<>d5a8d566d67923b46680fa16b71f3106<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
@@ -65,8 +65,8 @@ LobsterTwo-BoldItalic.ttf::FontFile/FontFile::1465496968234325378::1755342101::1
 LobsterTwo-Italic.ttf::FontFile/FontFile::8316171204292116275::1755342101::1755353704::1::::<><><>0<>0<>038c8def6aabab67dbb9d7b61081baf9<>res://.godot/imported/LobsterTwo-Italic.ttf-f93abf6c25390c85ad5fb6c4ee75159e.fontdata::
 LobsterTwo-Regular.ttf::FontFile/FontFile::8444521238073371223::1755342101::1755353704::1::::<><><>0<>0<>55c6c7a006d89c07235b67e6c544048e<>res://.godot/imported/LobsterTwo-Regular.ttf-f3fcfa01cd671c8da433dd875d0fe04b.fontdata::
 OFL.txt::TextFile/TextFile::-1::1755342101::0::1::::<><><>0<>0<><>::
-::res://collectables/::1755879927
-Coin.tscn::PackedScene/PackedScene::4209764562530315696::1755879927::0::1::::<><><>0<>0<><>::uid://c1b6ipf1n0si3::::res://collectables/Collectable.gd<>uid://gb28jw0k4yks::::res://images/collectables/coin.png<>uid://bqm1hpfo3jmda::::res://sfx/general/coin.wav
+::res://collectables/::1756039686
+Coin.tscn::PackedScene::4209764562530315696::1756039686::0::1::::<><><>0<>0<><>::uid://c1b6ipf1n0si3::::res://collectables/Collectable.gd<>uid://gb28jw0k4yks::::res://images/collectables/coin.png<>uid://bqm1hpfo3jmda::::res://sfx/general/coin.wav
 Collectable.gd::GDScript/GDScript::6601712989630074764::1755872307::0::1::::<>Node2D<><>0<>0<><>::
 ::res://controls/::1755342101
 ::res://controls/conveyers/::1755353704
@@ -88,9 +88,9 @@ fader.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res
 MovingPlatform.gd::GDScript/GDScript::6062220609540152224::1755353704::0::1::::<>Node2D<><>0<>1<><>::
 MovingPlatform.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://controls/moving-platforms/Path2D.gd<>res://images/moving-platforms/all.png<>res://controls/moving-platforms/MovingPlatform.gd
 Path2D.gd::GDScript/GDScript::305151805299977596::1755353704::0::1::::<>Path2D<><>0<>0<><>::
-::res://controls/score-hud/::1755353704
+::res://controls/score-hud/::1756039686
 ScoreHud.gd::GDScript/GDScript::3638431995944486973::1755353704::0::1::::<>Node2D<><>0<>0<><>::
-ScoreHud.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/pres-start-12.tres<>res://controls/score-hud/ScoreHud.gd<>res://fonts/pres-start-24.tres
+ScoreHud.tscn::PackedScene::1560547366561531100::1756039686::0::1::::<><><>0<>0<><>::res://fonts/pres-start-12.tres<>uid://br3qpctchc63j::::res://controls/score-hud/ScoreHud.gd<>uid://bgld6ggf0tk8t::::res://fonts/pres-start-24.tres
 ::res://controls/sky-box/::1755353704
 SkyBox.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::
 ::res://controls/state-machine-hud/::1755353704
@@ -102,30 +102,31 @@ Palette.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::r
 ::res://cut-scenes/::1755353704
 zx-to-cpc.gd::GDScript/GDScript::9087761583613123779::1755353704::0::1::::<>Node2D<><>0<>0<><>::
 zx-to-cpc.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://controls/doors/Entrance.tscn<>res://tiles.tres<>res://controls/doors/Door.tscn<>res://fonts/pres-start-12.tres<>res://images/fred/fred.png<>res://images/fred/fred-cpc.png<>res://cut-scenes/zx-to-cpc.gd<>res://controls/sky-box/SkyBox.tscn<>res://controls/fades/fader.tscn<>res://controls/score-hud/ScoreHud.tscn
-::res://fonts/::1755353704
+::res://fonts/::1756032185
 H1.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
 H2.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
 pres-start-12.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
 pres-start-16.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
-pres-start-24.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
-pres-start-32.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
+pres-start-24.tres::FontFile::2830499736075576421::1756032185::0::1::::<><><>0<>0<><>::uid://dc8ypbw30is67::::res://fonts/PressStart2P-Regular.ttf
+pres-start-32.tres::FontFile::2996239589536943785::1756031476::0::1::::<><><>0<>0<><>::uid://dc8ypbw30is67::::res://fonts/PressStart2P-Regular.ttf
 press-start-64.tres::FontFile/FontFile::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/PressStart2P-Regular.ttf
 PressStart2P-Regular.ttf::FontFile/FontFile::7369248286789293014::1755342101::1755353704::1::::<><><>0<>0<>cfb5fc732857f70b633f6638c273e9b6<>res://.godot/imported/PressStart2P-Regular.ttf-c7d83f2c4bd295d4c960a93a703ae2b2.fontdata::
-::res://fred/::1755879928
-Player.gd::GDScript/GDScript::7425316934646421650::1755867652::0::1::::<>CharacterBody2D<><>0<>0<><>::
-Player.tscn::PackedScene/PackedScene::2583910120849555053::1755879928::0::1::::<><><>0<>0<><>::uid://cq4hk2wedvguq::::res://images/fred/fred.png<>uid://d3oncpxgshxip::::res://sfx/fred/fred-step-1.wav<>uid://bw0ppw00dmt7v::::res://sfx/fred/fred-step-2.wav<>uid://ciylvloopmevy::::res://sfx/fred/fred-dead.wav<>uid://bu372oxxmw4yt::::res://fred/PlayerStateMachine.gd<>uid://dd145depg7pig::::res://fred/Player.gd<>res://controls/state-machine-hud/StateMachineHUD.tscn<>uid://6icoveonu6be::::res://fred/states/Dead.gd<>uid://c0l63gsi34ur6::::res://fred/states/Climbing.gd<>res://fred/controls/PlayerDebugHud.tscn<>uid://bgqu8i0gka4a6::::res://fred/states/Jumping.gd<>uid://clfbsqcx7dwsd::::res://fred/states/Dying.gd<>uid://bmxuvv5r1y14v::::res://fred/states/Idle.gd<>uid://csxliwp6bcd0e::::res://fred/states/Walking.gd<>uid://c6r65qts5aimv::::res://fred/states/Conveyed.gd
-PlayerStateMachine.gd::GDScript/GDScript::3849992065690734919::1755353704::0::1::::Player<>Node<><>0<>0<><>::
+::res://fred/::1756039686
+FredcollisionShape.tres::RectangleShape2D::7954204266713689810::1756028081::0::1::::<><><>0<>0<><>::
+Player.gd::GDScript/GDScript::7425316934646421650::1755963791::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Player.tscn::PackedScene::2583910120849555053::1756039686::0::1::::<><><>0<>0<><>::uid://cq4hk2wedvguq::::res://images/fred/fred.png<>uid://d3oncpxgshxip::::res://sfx/fred/fred-step-1.wav<>uid://bw0ppw00dmt7v::::res://sfx/fred/fred-step-2.wav<>uid://dllct171wccp3::::res://fred/FredcollisionShape.tres<>uid://ciylvloopmevy::::res://sfx/fred/fred-dead.wav<>uid://bu372oxxmw4yt::::res://fred/PlayerStateMachine.gd<>uid://dd145depg7pig::::res://fred/Player.gd<>res://controls/state-machine-hud/StateMachineHUD.tscn<>uid://6icoveonu6be::::res://fred/states/Dead.gd<>uid://c0l63gsi34ur6::::res://fred/states/Climbing.gd<>res://fred/controls/PlayerDebugHud.tscn<>uid://bgqu8i0gka4a6::::res://fred/states/Jumping.gd<>uid://clfbsqcx7dwsd::::res://fred/states/Dying.gd<>uid://bmxuvv5r1y14v::::res://fred/states/Idle.gd<>uid://csxliwp6bcd0e::::res://fred/states/Walking.gd<>uid://c6r65qts5aimv::::res://fred/states/Conveyed.gd<>uid://bk4owwrhsqonq::::res://sfx/general/spike.wav
+PlayerStateMachine.gd::GDScript::3849992065690734919::1756030584::0::1::::Player<>Node<><>0<>0<><>::
 ::res://fred/controls/::1755353704
 PlayerDebugHud.gd::GDScript/GDScript::5678302932615292667::1755353704::0::1::::<>Node2D<><>0<>0<><>::
 PlayerDebugHud.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://fred/controls/PlayerDebugHud.gd
-::res://fred/states/::1755353704
-Climbing.gd::GDScript/GDScript::6552203185985411417::1755349640::0::1::::<>Node<><>0<>0<><>::
+::res://fred/states/::1756039602
+Climbing.gd::GDScript::6552203185985411417::1756039602::0::1::::<>Node<><>0<>0<><>::
 Conveyed.gd::GDScript/GDScript::6985726613159953069::1755349640::0::1::::<>Node<><>0<>0<><>::
 Dead.gd::GDScript/GDScript::2192516719735544530::1755349640::0::1::::<>Node<><>0<>0<><>::
 Dying.gd::GDScript/GDScript::5555334242009044407::1755349640::0::1::::<>Node<><>0<>0<><>::
-Idle.gd::GDScript/GDScript::3277420487362803415::1755349640::0::1::::<>Node<><>0<>0<><>::
+Idle.gd::GDScript::3277420487362803415::1756031115::0::1::::<>Node<><>0<>0<><>::
 Jumping.gd::GDScript/GDScript::2841857519733363635::1755349640::0::1::::<>Node<><>0<>0<><>::
-Walking.gd::GDScript/GDScript::6084404594581516962::1755349640::0::1::::<>Node<><>0<>0<><>::
+Walking.gd::GDScript::6084404594581516962::1756034505::0::1::::<>Node<><>0<>0<><>::
 ::res://images/::1755941356
 door_cog.png::CompressedTexture2D/CompressedTexture2D::6064135104610738762::1755342101::1755353704::1::::<><><>0<>0<>5a64035006e18c5f5367b3085dee800d<>res://.godot/imported/door_cog.png-e6b173b6231af89c9c09993506ea2f69.ctex::
 door_side.png::CompressedTexture2D/CompressedTexture2D::1719014129444283356::1755342101::1755353704::1::::<><><>0<>0<>84feb96b65c2bb3415b7af9aad08cb85<>res://.godot/imported/door_side.png-0e799abaf7075d6db70e316b8f3f9031.ctex::
@@ -160,25 +161,26 @@ yellow-chain.png::CompressedTexture2D/CompressedTexture2D::8402027197598410613::
 killers.png::CompressedTexture2D/CompressedTexture2D::913629875541355232::1755342101::1755353704::1::::<><><>0<>0<>05047279afe1f0645dc201c689511917<>res://.godot/imported/killers.png-2280e6863d241a0694927ae8eb443ffb.ctex::
 ::res://images/victims/::1755353704
 twoup.png::CompressedTexture2D/CompressedTexture2D::7659814305334785957::1755342101::1755353704::1::::<><><>0<>0<>142fff3d25993649a5e14555cb902d44<>res://.godot/imported/twoup.png-ec57b78cc92a0b5380dbb8dfbedb04a1.ctex::
-::res://Levels/::1755890812
+::res://Levels/::1756028617
 Level 030.tscn::PackedScene/PackedScene::6973695898755182525::1755866603::0::1::::<><><>0<>0<><>::res://fred/Player.tscn<>res://tiles.tres<>res://controls/doors/Door.tscn<>res://Ladder.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/themes/Palette.tscn<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>res://victims/Victim.tscn<>res://controls/score-hud/ScoreHud.tscn<>res://sprites/enemies/Enemy.tscn<>uid://f3uuxlwqpha2::::res://sprites/enemies/EnemyPath2D.gd<>res://controls/fades/fader.tscn<>res://spikes/Spike.tscn<>res://collectables/Coin.tscn<>res://controls/moving-platforms/MovingPlatform.tscn
 Level 999.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://controls/themes/Palette.tscn<>res://controls/doors/Door.tscn<>res://controls/sky-box/SkyBox.tscn<>res://sprites/enemies/Enemy.tscn<>res://collectables/Coin.tscn<>res://spikes/Spike.tscn<>res://controls/crumbles/crumble.tscn<>res://fred/Player.tscn<>res://controls/conveyers/conveyer-belt.tscn<>res://controls/fades/fader.tscn<>res://controls/score-hud/ScoreHud.tscn<>res://victims/Victim.tscn<>res://Levels/LevelBase.gd<>res://tiles.tres
-LevelBase.gd::GDScript/GDScript::5494695915407097665::1755874670::0::1::::<>Node2D<><>0<>0<><>::
-levels-tileset.tres::TileSet/TileSet::1234704321631934571::1755890812::0::1::::<><><>0<>0<><>::uid://dj6ll0ofniubm::::res://tile-maps/fred-tiles.png
+LevelBase.gd::GDScript/GDScript::5494695915407097665::1755944222::0::1::::<>Node2D<><>0<>0<><>::
+levels-tileset.tres::TileSet::1234704321631934571::1756028617::0::1::::<><><>0<>0<><>::uid://dj6ll0ofniubm::::res://tile-maps/fred-tiles.png
 PathFollow2D.gd::GDScript/GDScript::3984253109831611654::1755349639::0::1::::<>PathFollow2D<><>0<>0<><>::
-::res://Levels/Level001/::1755890812
-Level 001.tscn::PackedScene/PackedScene::5779549634888607349::1755890812::0::1::::<><><>0<>0<><>::res://controls/themes/Palette.tscn<>res://Ladder.tscn<>res://controls/fades/fader.tscn<>uid://rudnufeyhkch::::res://Levels/levels-tileset.tres<>res://controls/score-hud/ScoreHud.tscn<>res://controls/doors/Door.tscn<>res://victims/Victim.tscn<>uid://cqrpdrxxoj84s::::res://Levels/Level001/bottle/bottle-sprite-frames.tres<>uid://bc2wvfiayquev::::res://fred/Player.tscn<>res://spikes/Spike.tscn<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>uid://y5estmrk8pkd::::res://Scripts/EnemyArea2D.gd
-::res://Levels/Level001/bottle/::1755879927
-bottle-sprite-frames.tres::SpriteFrames/SpriteFrames::5931874329178518456::1755879927::0::1::::<><><>0<>0<><>::uid://8piqe5amp6gj::::res://Levels/Level001/bottle/bottle.png
+::res://Levels/Level001/::1756039993
+Level 001.tscn::PackedScene::5779549634888607349::1756039993::0::1::::<><><>0<>0<><>::res://controls/themes/Palette.tscn<>res://controls/fades/fader.tscn<>uid://bw12erxccgy31::::res://Levels/Level001/main_camera.gd<>uid://rudnufeyhkch::::res://Levels/levels-tileset.tres<>uid://wh68tedjovbg::::res://controls/score-hud/ScoreHud.tscn<>uid://bjqprl7bp10p1::::res://tile-sets/tileset-ladders-and-poles.png<>res://controls/doors/Door.tscn<>res://victims/Victim.tscn<>uid://cqrpdrxxoj84s::::res://Levels/Level001/bottle/bottle-sprite-frames.tres<>uid://bc2wvfiayquev::::res://fred/Player.tscn<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>uid://y5estmrk8pkd::::res://Scripts/EnemyArea2D.gd
+main_camera.gd::GDScript::3985896495836943874::1756039733::0::1::::<>Camera2D<><>0<>0<><>::
+::res://Levels/Level001/bottle/::1756028081
+bottle-sprite-frames.tres::SpriteFrames::5931874329178518456::1756028081::0::1::::<><><>0<>0<><>::uid://8piqe5amp6gj::::res://Levels/Level001/bottle/bottle.png
 bottle.png::CompressedTexture2D/CompressedTexture2D::2347712071464770057::1755342101::1755353704::1::::<><><>0<>0<>8548b7176536b83aa0e542a6a9010acc<>res://.godot/imported/bottle.png-1a51651e5ed41f02e36559a1e9e0a4f6.ctex::
-::res://Levels/Level002/::1755879927
-Level 002.tscn::PackedScene/PackedScene::218781540067026595::1755879927::0::1::::<><><>0<>0<><>::res://controls/themes/Palette.tscn<>res://Ladder.tscn<>res://victims/Victim.tscn<>res://controls/doors/Entrance.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/score-hud/ScoreHud.tscn<>res://controls/doors/Door.tscn<>res://controls/fades/fader.tscn<>uid://bc2wvfiayquev::::res://fred/Player.tscn<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>res://tiles.tres<>uid://bptc8482oarvm::::res://Levels/Level002/spider/spider.png<>uid://y5estmrk8pkd::::res://Scripts/EnemyArea2D.gd
+::res://Levels/Level002/::1756039686
+Level 002.tscn::PackedScene::218781540067026595::1756039686::0::1::::<><><>0<>0<><>::res://controls/themes/Palette.tscn<>res://Ladder.tscn<>res://victims/Victim.tscn<>res://controls/doors/Entrance.tscn<>res://controls/sky-box/SkyBox.tscn<>uid://wh68tedjovbg::::res://controls/score-hud/ScoreHud.tscn<>res://controls/doors/Door.tscn<>res://controls/fades/fader.tscn<>uid://bc2wvfiayquev::::res://fred/Player.tscn<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>res://tiles.tres<>uid://bptc8482oarvm::::res://Levels/Level002/spider/spider.png<>uid://y5estmrk8pkd::::res://Scripts/EnemyArea2D.gd
 ::res://Levels/Level002/spider/::1755353704
 spider.png::CompressedTexture2D/CompressedTexture2D::3478658456176302490::1755342101::1755353704::1::::<><><>0<>0<>82600f083956fb42e798451d44bc9f92<>res://.godot/imported/spider.png-0211d4d0930b7ce169f2d950d06c9436.ctex::
-::res://Levels/Level003/::1755879927
-Level 003.tscn::PackedScene/PackedScene::276569621669639956::1755879927::0::1::::<><><>0<>0<><>::uid://hdojmph7h26b::::res://Levels/Level003/bulb/bulb-sprite-frames.tres<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>res://Ladder.tscn<>res://controls/doors/Door.tscn<>uid://bc2wvfiayquev::::res://fred/Player.tscn<>res://spikes/Spike.tscn<>res://controls/sky-box/SkyBox.tscn<>res://victims/Victim.tscn<>uid://y5estmrk8pkd::::res://Scripts/EnemyArea2D.gd<>res://controls/themes/Palette.tscn<>res://controls/fades/fader.tscn<>res://controls/doors/Entrance.tscn<>res://controls/score-hud/ScoreHud.tscn<>uid://b08ihbvl4et33::::res://collectables/Coin.tscn<>res://tiles.tres
-::res://Levels/Level003/bulb/::1755879927
-bulb-sprite-frames.tres::SpriteFrames/SpriteFrames::498381802585666659::1755879927::0::1::::<><><>0<>0<><>::uid://b5ursn3y5t2yv::::res://Levels/Level003/bulb/bulb.png
+::res://Levels/Level003/::1756039686
+Level 003.tscn::PackedScene::276569621669639956::1756039686::0::1::::<><><>0<>0<><>::uid://hdojmph7h26b::::res://Levels/Level003/bulb/bulb-sprite-frames.tres<>uid://ckjw3r2055g46::::res://Levels/LevelBase.gd<>res://Ladder.tscn<>res://controls/doors/Door.tscn<>uid://bc2wvfiayquev::::res://fred/Player.tscn<>uid://dxuoky5fgleme::::res://spikes/Spike.tscn<>res://controls/sky-box/SkyBox.tscn<>res://victims/Victim.tscn<>uid://y5estmrk8pkd::::res://Scripts/EnemyArea2D.gd<>res://controls/themes/Palette.tscn<>res://controls/fades/fader.tscn<>res://controls/doors/Entrance.tscn<>uid://wh68tedjovbg::::res://controls/score-hud/ScoreHud.tscn<>uid://b08ihbvl4et33::::res://collectables/Coin.tscn<>res://tiles.tres
+::res://Levels/Level003/bulb/::1756028081
+bulb-sprite-frames.tres::SpriteFrames::498381802585666659::1756028081::0::1::::<><><>0<>0<><>::uid://b5ursn3y5t2yv::::res://Levels/Level003/bulb/bulb.png
 bulb.png::CompressedTexture2D/CompressedTexture2D::4534438608271980713::1755342101::1755353704::1::::<><><>0<>0<>22b1e5e288b035a5909e1e5fdad581e0<>res://.godot/imported/bulb.png-a0aad08c39fe2964e53fdfc8ff3a7ed2.ctex::
 ::res://Levels/Level004/::1755353704
 Level 004.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://Levels/LevelBase.gd<>res://Levels/Level004/ghost/ghost.png<>res://controls/doors/Entrance.tscn<>res://controls/crumbles/crumble.tscn<>res://controls/score-hud/ScoreHud.tscn<>res://Ladder.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/doors/Door.tscn<>res://collectables/Coin.tscn<>res://controls/conveyers/conveyer-belt.tscn<>res://controls/themes/Palette.tscn<>res://victims/Victim.tscn<>res://fred/Player.tscn<>res://spikes/Spike.tscn<>res://controls/fades/fader.tscn<>res://tiles.tres<>res://Scripts/EnemyArea2D.gd<>res://Levels/Level004/egg-timer/egg-timer.png
@@ -212,11 +214,11 @@ orange.png::CompressedTexture2D/CompressedTexture2D::605515280715448636::1755342
 platform.png::CompressedTexture2D/CompressedTexture2D::4167406978767611942::1755342101::1755353704::1::::<><><>0<>0<>f666fc026113ba42ce9148a54784aa7c<>res://.godot/imported/platform.png-56699e4e277dd65c51221e78183cf183.ctex::
 ::res://Levels/Level006/tomato/::1755353704
 tomato.png::CompressedTexture2D/CompressedTexture2D::334330795417342592::1755342101::1755353704::1::::<><><>0<>0<>a1ad2ddbd390611f19bc2200965c5e7e<>res://.godot/imported/tomato.png-e3d114eeeeba59298aca81cbc803e089.ctex::
-::res://menus/::1755879927
-help-menu.tscn::PackedScene/PackedScene::4116850686442172844::1755866603::0::1::::<><><>0<>0<><>::res://fonts/press-start-64.tres<>uid://b2dhlr687huv0::::res://menus/main-button.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/themes/Palette.tscn<>uid://1fu4r051a0ov::::res://menus/options-menu.gd<>res://controls/fades/fader.tscn<>uid://dv3q8se7vccj6::::res://images/splash-400.png<>res://fonts/pres-start-32.tres
+::res://menus/::1756039686
+help-menu.tscn::PackedScene::4116850686442172844::1756039686::0::1::::<><><>0<>0<><>::res://fonts/press-start-64.tres<>uid://b2dhlr687huv0::::res://menus/main-button.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/themes/Palette.tscn<>uid://1fu4r051a0ov::::res://menus/options-menu.gd<>res://controls/fades/fader.tscn<>uid://dv3q8se7vccj6::::res://images/splash-400.png<>uid://bixnvmkb8l0jl::::res://fonts/pres-start-32.tres
 main-button.tscn::PackedScene/PackedScene::4288158200192793931::1755866603::0::1::::<><><>0<>0<><>::res://fonts/pres-start-32.tres
 main-menu.gd::GDScript/GDScript::294809899635854990::1755356425::0::1::::<>Control<><>0<>0<><>::
-main-menu.tscn::PackedScene/PackedScene::6216585873188926479::1755879927::0::1::::<><><>0<>0<><>::res://fonts/press-start-64.tres<>uid://b2dhlr687huv0::::res://menus/main-button.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/themes/Palette.tscn<>uid://eg2qghyf831s::::res://menus/main-menu.gd<>res://controls/fades/fader.tscn<>uid://dv3q8se7vccj6::::res://images/splash-400.png<>res://fonts/pres-start-16.tres<>res://fonts/pres-start-32.tres<>res://fonts/pres-start-24.tres<>uid://cq4hk2wedvguq::::res://images/fred/fred.png
+main-menu.tscn::PackedScene::6216585873188926479::1756039686::0::1::::<><><>0<>0<><>::res://fonts/press-start-64.tres<>uid://b2dhlr687huv0::::res://menus/main-button.tscn<>res://controls/sky-box/SkyBox.tscn<>res://controls/themes/Palette.tscn<>uid://eg2qghyf831s::::res://menus/main-menu.gd<>res://controls/fades/fader.tscn<>uid://dv3q8se7vccj6::::res://images/splash-400.png<>res://fonts/pres-start-16.tres<>uid://bixnvmkb8l0jl::::res://fonts/pres-start-32.tres<>uid://bgld6ggf0tk8t::::res://fonts/pres-start-24.tres<>uid://cq4hk2wedvguq::::res://images/fred/fred.png
 marquee.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/pres-start-24.tres
 menu-title.gd::GDScript/GDScript::4606690662791150591::1755353704::0::1::::<>MarginContainer<><>0<>1<><>::
 menu-title.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://fonts/press-start-64.tres<>res://menus/menu-title.gd
@@ -239,9 +241,9 @@ coin.wav::AudioStreamWAV/AudioStreamWAV::3535806653567754142::1755342101::175535
 spike.wav::AudioStreamWAV/AudioStreamWAV::3149066582423922370::1755342101::1755353704::1::::<><><>0<>0<>f3c4ba9782da9ed4155c414e2452b008<>res://.godot/imported/spike.wav-4688dedfe685853f1fd1340983779944.sample::
 ::res://sfx/victims/::1755353704
 victim_rescue_1.wav::AudioStreamWAV/AudioStreamWAV::7199076939887145669::1755342101::1755353704::1::::<><><>0<>0<>e86f39be6523711c3921747d82fdc9de<>res://.godot/imported/victim_rescue_1.wav-faf12478946a6fe9f1398913bd1e3196.sample::
-::res://spikes/::1755353704
+::res://spikes/::1756039686
 Spike.gd::GDScript/GDScript::2210581036175793255::1755353704::0::1::::<>Node2D<><>0<>1<><>::
-Spike.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://images/static-killers/killers.png<>res://spikes/Spike.gd<>res://sfx/general/spike.wav
+Spike.tscn::PackedScene::8815762212813191428::1756039686::0::1::::<><><>0<>0<><>::uid://natl6ixsbrau::::res://images/static-killers/killers.png<>uid://6q27gm615fc6::::res://spikes/Spike.gd<>uid://bk4owwrhsqonq::::res://sfx/general/spike.wav
 ::res://sprites/::1755353704
 SpriteBase.gd::GDScript/GDScript::3347546388592361577::1755353704::0::1::::<>Node2D<><>0<>0<><>::
 WaterCannon.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://images/enemies/water-cannon.png
@@ -263,8 +265,10 @@ StateMachineWithPDA.gd::GDScript/GDScript::1016143104877080443::1755872704::0::1
 ::res://tests/::1755342101
 ::res://tests/unit/::1755353704
 test_zx_to_cpc_cut_scene.gd::GDScript/GDScript::503846009957765168::1755349640::0::1::::<>Node<><>0<>0<><>::
-::res://tile-maps/::1755878571
-fred-tiles.png::CompressedTexture2D/CompressedTexture2D::7855646219806735150::1755878533::1755878571::1::::<><><>0<>0<>564f2e1b3a8212d991f7a2b73ba150c6<>res://.godot/imported/fred-tiles.png-f304dffec544b6da9f385a0265850416.ctex::
+::res://tile-maps/::1755945168
+fred-tiles.png::CompressedTexture2D/CompressedTexture2D::7855646219806735150::1755945158::1755945168::1::::<><><>0<>0<>564f2e1b3a8212d991f7a2b73ba150c6<>res://.godot/imported/fred-tiles.png-f304dffec544b6da9f385a0265850416.ctex::
+::res://tile-sets/::1755957219
+tileset-ladders-and-poles.png::CompressedTexture2D/CompressedTexture2D::3052092061145353820::1755956089::1755957219::1::::<><><>0<>0<>b9a817d9a53c3eb1afa510135a3abb17<>res://.godot/imported/tileset-ladders-and-poles.png-c9b13a7913480ab343acdcd1f9d123e0.ctex::
 ::res://victims/::1755353704
 Victim.gd::GDScript/GDScript::780163339481476916::1755353704::0::1::::<>Node2D<><>0<>0<><>::
 Victim.tscn::PackedScene/PackedScene::-1::1755353704::0::1::::<><><>0<>0<><>::res://images/victims/twoup.png<>res://victims/Victim.gd<>res://sfx/victims/victim_rescue_1.wav<>res://victims/VictimStateMachine.gd<>res://controls/state-machine-hud/StateMachineHUD.tscn<>res://victims/states/Rescued.gd<>res://victims/states/Waiting.gd

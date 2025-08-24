@@ -14,7 +14,7 @@ func get_transition(_delta, player):
 	elif Input.is_action_pressed("ui_up") && player.is_on_ladder():
 		return Player.STATE_CLIMBING
 	elif Input.is_action_pressed("ui_down") && player.is_on_ladder() && !player.is_on_floor():
-		return Player.STATE_CLIMBING
+		return Player.STATE_CLIMBING 
 	elif Input.is_action_just_pressed("ui_jump") && player.is_on_floor():
 		return "PUSH:" + Player.STATE_JUMPING
 	elif !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):

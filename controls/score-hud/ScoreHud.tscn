@@ -1,235 +1,201 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://wh68tedjovbg"]
 
-[ext_resource path="res://fonts/pres-start-12.tres" type="FontFile" id=1]
-[ext_resource path="res://controls/score-hud/ScoreHud.gd" type="Script" id=2]
-[ext_resource path="res://fonts/pres-start-24.tres" type="FontFile" id=3]
+[ext_resource type="FontFile" path="res://fonts/pres-start-12.tres" id="1"]
+[ext_resource type="Script" uid="uid://br3qpctchc63j" path="res://controls/score-hud/ScoreHud.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://bgld6ggf0tk8t" path="res://fonts/pres-start-24.tres" id="3"]
 
 [node name="ScoreHud" type="Node2D"]
-position = Vector2( 16, 71 )
-script = ExtResource( 2 )
+position = Vector2(16, 71)
+script = ExtResource("2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -16.0
 offset_top = -71.0
 offset_right = 1008.0
 offset_bottom = 24.0
-color = Color( 0.207843, 0.403922, 0.776471, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.207843, 0.403922, 0.776471, 1)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = -8.0
 offset_top = -68.0
 offset_right = 1000.0
 offset_bottom = -39.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
 text = "The difficult second Level"
-align = 1
-valign = 2
+horizontal_alignment = 1
+vertical_alignment = 2
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LabelLevelRecord" type="Label" parent="."]
 offset_left = -8.0
 offset_top = -28.0
 offset_right = 1000.0
 offset_bottom = -16.0
-pivot_offset = Vector2( 24, 8 )
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0.772549, 0.729412, 0.729412, 1 )
+pivot_offset = Vector2(24, 8)
+theme_override_colors/font_color = Color(0.772549, 0.729412, 0.729412, 1)
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 24
 text = "Record: 0:00 (31/05/2021)"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
 
 [node name="Score" type="Node2D" parent="."]
-position = Vector2( -56, -16 )
+position = Vector2(-56, -16)
 
 [node name="ScoreText" type="Label" parent="Score"]
-offset_left = 36.0
-offset_top = -30.0
-offset_right = 172.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 0, 1 )
+offset_left = 17.0
+offset_top = -27.0
+offset_right = 153.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "SCORE"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScoreValue" type="Label" parent="Score"]
-offset_left = 184.0
-offset_top = -30.0
-offset_right = 320.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+offset_left = 131.0
+offset_top = -27.0
+offset_right = 267.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "00000"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="Lives" type="Node2D" parent="."]
-position = Vector2( 747, -32 )
+position = Vector2(747, -32)
 
 [node name="LivesText" type="Label" parent="Lives"]
-offset_left = 53.0
+offset_left = 96.0
 offset_top = -14.0
-offset_right = 189.0
+offset_right = 232.0
 offset_bottom = 36.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 0, 1 )
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "Lives"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LivesValue" type="Label" parent="Lives"]
-offset_left = 189.0
+offset_left = 209.0
 offset_top = -14.0
-offset_right = 325.0
+offset_right = 345.0
 offset_bottom = 36.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "000"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="GameTime" type="Node2D" parent="."]
-position = Vector2( -72, 32 )
+position = Vector2(-72, 32)
 
 [node name="GameTimeText" type="Label" parent="GameTime"]
-offset_left = 40.0
-offset_top = -37.0
-offset_right = 176.0
-offset_bottom = 14.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 0, 1 )
+offset_left = 24.0
+offset_top = -35.0
+offset_right = 160.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "GAME
 "
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GameTimeValue" type="Label" parent="GameTime"]
-offset_left = 200.0
-offset_top = -48.0
-offset_right = 392.0
-offset_bottom = 2.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+offset_left = 132.0
+offset_top = -45.0
+offset_right = 324.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "00:00:00"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="LevelTime" type="Node2D" parent="."]
-position = Vector2( 656, 24 )
+position = Vector2(656, 24)
 
 [node name="LevelTimeText" type="Label" parent="LevelTime"]
-offset_left = 43.0
-offset_top = -41.0
-offset_right = 179.0
-offset_bottom = 9.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 0, 1 )
+offset_left = 126.0
+offset_top = -38.0
+offset_right = 262.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "Level"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LevelTimeValue" type="Label" parent="LevelTime"]
-offset_left = 192.0
-offset_top = -41.0
-offset_right = 360.0
-offset_bottom = 9.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+offset_left = 236.0
+offset_top = -38.0
+offset_right = 404.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "0:00:00"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="Debug" type="Node2D" parent="."]
-position = Vector2( 440, -4 )
+position = Vector2(440, -4)
 
 [node name="LabelFPS" type="Label" parent="Debug"]
 offset_left = -16.0
-offset_top = 8.0
+offset_top = 14.0
 offset_right = 32.0
-offset_bottom = 20.0
-pivot_offset = Vector2( 24, 8 )
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0.772549, 0.729412, 0.729412, 1 )
+offset_bottom = 26.0
+pivot_offset = Vector2(24, 8)
+theme_override_colors/font_color = Color(0.772549, 0.729412, 0.729412, 1)
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 8
 text = "FPS:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ValueFPS" type="Label" parent="Debug"]
-offset_left = 32.0
-offset_top = 8.0
-offset_right = 72.0
-offset_bottom = 22.0
-theme_override_fonts/font = ExtResource( 1 )
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 56.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 8
 text = "00"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LabelMem" type="Label" parent="Debug"]
 offset_left = 72.0
-offset_top = 8.0
+offset_top = 14.0
 offset_right = 120.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0.772549, 0.729412, 0.729412, 1 )
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.772549, 0.729412, 0.729412, 1)
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 8
 text = "MEM:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ValueMem" type="Label" parent="Debug"]
-offset_left = 117.0
-offset_top = 8.0
-offset_right = 157.0
-offset_bottom = 22.0
-theme_override_fonts/font = ExtResource( 1 )
+offset_left = 107.0
+offset_top = 14.0
+offset_right = 147.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 8
 text = "00"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LabelGodMode" type="Label" parent="Debug"]
 offset_left = -448.0
 offset_top = -59.0
 offset_right = -424.0
 offset_bottom = -45.0
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0.584314, 0.0196078, 0.0196078, 1 )
+theme_override_colors/font_color = Color(0.584314, 0.0196078, 0.0196078, 1)
+theme_override_fonts/font = ExtResource("1")
 text = "GM"
-__meta__ = {
-"_edit_use_anchors_": false
-}

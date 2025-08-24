@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://dv3q8se7vccj6" path="res://images/splash-400.png" id="7"]
 [ext_resource type="FontFile" path="res://fonts/pres-start-16.tres" id="8"]
-[ext_resource type="FontFile" path="res://fonts/pres-start-32.tres" id="9"]
-[ext_resource type="FontFile" path="res://fonts/pres-start-24.tres" id="10"]
+[ext_resource type="FontFile" uid="uid://bixnvmkb8l0jl" path="res://fonts/pres-start-32.tres" id="9"]
+[ext_resource type="FontFile" uid="uid://bgld6ggf0tk8t" path="res://fonts/pres-start-24.tres" id="10"]
 [ext_resource type="Texture2D" uid="uid://cq4hk2wedvguq" path="res://images/fred/fred.png" id="11"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pqx5h"]
@@ -223,6 +223,7 @@ theme_override_colors/font_disabled_color = Color(0.447059, 0.447059, 0.447059, 
 theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 disabled = true
 text = "CONTINUE"
 
@@ -233,6 +234,7 @@ focus_neighbor_bottom = NodePath("../Options")
 theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 text = "NEW GAME"
 
 [node name="Options" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
@@ -242,6 +244,7 @@ focus_neighbor_bottom = NodePath("../Load")
 theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 text = "OPTIONS"
 
 [node name="Load" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
@@ -251,6 +254,7 @@ focus_neighbor_bottom = NodePath("../Save")
 theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 text = "LOAD"
 
 [node name="Save" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
@@ -260,6 +264,7 @@ focus_neighbor_bottom = NodePath("../Quit")
 theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 text = "SAVE"
 
 [node name="Quit" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
@@ -269,10 +274,13 @@ focus_neighbor_bottom = NodePath("../Continue")
 theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 text = "QUIT"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/margin_right = 64
 
 [node name="Cover" type="TextureRect" parent="VBoxOuter/ContentArea/MarginContainer"]
@@ -418,6 +426,7 @@ curve = SubResource("10")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
 position = Vector2(704, 184)
+rotates = false
 loop = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D2/PathFollow2D"]

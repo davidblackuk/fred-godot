@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bc2wvfiayquev"]
+[gd_scene load_steps=24 format=3 uid="uid://bc2wvfiayquev"]
 
 [ext_resource type="Texture2D" uid="uid://cq4hk2wedvguq" path="res://images/fred/fred.png" id="1"]
 [ext_resource type="AudioStream" uid="uid://d3oncpxgshxip" path="res://sfx/fred/fred-step-1.wav" id="2"]
 [ext_resource type="AudioStream" uid="uid://bw0ppw00dmt7v" path="res://sfx/fred/fred-step-2.wav" id="3"]
+[ext_resource type="Shape2D" uid="uid://dllct171wccp3" path="res://fred/FredcollisionShape.tres" id="3_kptxn"]
 [ext_resource type="AudioStream" uid="uid://ciylvloopmevy" path="res://sfx/fred/fred-dead.wav" id="4"]
 [ext_resource type="Script" uid="uid://bu372oxxmw4yt" path="res://fred/PlayerStateMachine.gd" id="5"]
 [ext_resource type="Script" uid="uid://dd145depg7pig" path="res://fred/Player.gd" id="6"]
@@ -15,9 +16,7 @@
 [ext_resource type="Script" uid="uid://bmxuvv5r1y14v" path="res://fred/states/Idle.gd" id="13"]
 [ext_resource type="Script" uid="uid://csxliwp6bcd0e" path="res://fred/states/Walking.gd" id="14"]
 [ext_resource type="Script" uid="uid://c6r65qts5aimv" path="res://fred/states/Conveyed.gd" id="15"]
-
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(30, 64)
+[ext_resource type="AudioStream" uid="uid://bk4owwrhsqonq" path="res://sfx/general/spike.wav" id="17_0mlmg"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Climb"
@@ -177,7 +176,6 @@ func exit_state(_old_state, _new_state, _player):
 "
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
 script = ExtResource("6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -187,7 +185,7 @@ texture = ExtResource("1")
 hframes = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
+shape = ExtResource("3_kptxn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -231,3 +229,24 @@ script = ExtResource("5")
 
 [node name="DebugHud" parent="." instance=ExtResource("10")]
 position = Vector2(-4.33823, -71.7477)
+
+[node name="EnemyCollisionLayer3" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollisionLayer3"]
+shape = ExtResource("3_kptxn")
+
+[node name="FredIsDeadStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_0mlmg")
+
+[node name="LadderCollisionsLayer" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderCollisionsLayer"]
+shape = ExtResource("3_kptxn")
+
+[connection signal="body_entered" from="EnemyCollisionLayer3" to="." method="_on_enemy_collision_layer_3_body_entered"]
+[connection signal="body_entered" from="LadderCollisionsLayer" to="." method="_on_ladder_collisions_layer_body_entered"]
+[connection signal="body_exited" from="LadderCollisionsLayer" to="." method="_on_ladder_collisions_layer_body_exited"]

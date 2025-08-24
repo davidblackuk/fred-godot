@@ -1,0 +1,16 @@
+res://Levels/Level001/Level 001.tscn
+res://fonts/pres-start-32.tres
+res://fonts/pres-start-24.tres
+res://Levels/levels-tileset.tres
+res://Levels/Level001/bottle/bottle-sprite-frames.tres
+res://fred/FredcollisionShape.tres
+res://Levels/Level003/bulb/bulb-sprite-frames.tres
+res://Levels/Level001/main_camera.gd
+res://menus/main-menu.tscn
+res://Levels/Level003/Level 003.tscn
+res://collectables/Coin.tscn
+res://Levels/Level002/Level 002.tscn
+res://fred/Player.tscn
+res://spikes/Spike.tscn
+res://controls/score-hud/ScoreHud.tscn
+res://menus/help-menu.tscn

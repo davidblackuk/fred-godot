@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://1fu4r051a0ov" path="res://menus/options-menu.gd" id="5"]
 [ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://dv3q8se7vccj6" path="res://images/splash-400.png" id="7"]
-[ext_resource type="FontFile" path="res://fonts/pres-start-32.tres" id="8"]
+[ext_resource type="FontFile" uid="uid://bixnvmkb8l0jl" path="res://fonts/pres-start-32.tres" id="8"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3

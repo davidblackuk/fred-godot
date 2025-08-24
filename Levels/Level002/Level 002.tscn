@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://victims/Victim.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://controls/doors/Entrance.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://controls/sky-box/SkyBox.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://controls/score-hud/ScoreHud.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://wh68tedjovbg" path="res://controls/score-hud/ScoreHud.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://controls/doors/Door.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://bc2wvfiayquev" path="res://fred/Player.tscn" id="10"]

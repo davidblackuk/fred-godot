@@ -27,4 +27,3 @@ func _ready():
 	add_state(STATE_IDLE, _idle_state_script)
 	add_state(STATE_CONVEYED, _conveyed_state_script)
 	call_deferred("_set_state", STATE_IDLE)
-

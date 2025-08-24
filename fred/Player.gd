@@ -20,6 +20,8 @@ var cpc_image = preload("res://images/fred/fred-cpc.png")
 @onready var animation_player = get_node("AnimationPlayer")
 @onready var sprite = get_node("Sprite2D")
 
+@onready var fred_is_dead_stream_player: AudioStreamPlayer2D = $FredIsDeadStreamPlayer
+
 var motion = Vector2()
 var snap_vector = SNAP_DIRECTION * SNAP_LENGTH
 var has_enemy_hit = false
@@ -112,12 +114,11 @@ func climb():
 		snap_vector = Vector2.ZERO
 	arrest_all_motion()
 	if Input.is_action_pressed("ui_up") and is_on_ladder():
-		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
-		set_motion(deltaX*10, -CLIMB_VELOCITY)
+		# move center player to center tile?
+		set_motion(0, -CLIMB_VELOCITY)
 		animation_player.play()
 	elif Input.is_action_pressed("ui_down") and is_on_ladder():
-		var deltaX = active_ladders[0].global_position.x - sprite.global_position.x
-		set_motion(deltaX*10, CLIMB_VELOCITY)
+		set_motion(0, CLIMB_VELOCITY)
 		animation_player.play()
 	else:
 		animation_player.stop(false)
@@ -129,3 +130,20 @@ func fall():
 	jump_height = (jump_start_y - global_position.y)
 	if jump_height < -90:
 		motion.x = 0
+
+
+func _on_enemy_collision_layer_3_body_entered(body: Node2D) -> void:
+#	if (!GameManager.game_state.god_mode):
+#		fred_is_dead_stream_player.play()
+#		_fred_is_dead() 
+		print("hit")
+
+
+func _on_ladder_collisions_layer_body_entered(body: Node2D) -> void:
+	print("Ladder entry")
+	_ladder_status_changed(body,   true)
+
+
+func _on_ladder_collisions_layer_body_exited(body: Node2D) -> void:
+	print("Ladder exit")
+	_ladder_status_changed(body,   false)

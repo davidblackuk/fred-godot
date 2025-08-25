@@ -1,5 +1,5 @@
 
-extends Node2D
+extends CanvasLayer
 
 @export var level_name: String = "??"
 

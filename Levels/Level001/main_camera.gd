@@ -1,7 +1,5 @@
 extends Camera2D
 
-@onready var game_manager: Node = %GameManager
-
 @onready var screen_size: Vector2 = get_viewport_rect().size
 @export var target: Node2D
 

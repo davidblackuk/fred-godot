@@ -4,8 +4,7 @@
 [ext_resource type="Script" uid="uid://br3qpctchc63j" path="res://controls/score-hud/ScoreHud.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://bgld6ggf0tk8t" path="res://fonts/pres-start-24.tres" id="3"]
 
-[node name="ScoreHud" type="Node2D"]
-position = Vector2(16, 71)
+[node name="ScoreHud" type="CanvasLayer"]
 script = ExtResource("2")
 
 [node name="ColorRect" type="ColorRect" parent="."]

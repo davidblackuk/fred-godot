@@ -28,7 +28,7 @@ var has_enemy_hit = false
 
 
 # ladders the player is currently over
-var active_ladders = []
+var active_ladders: Dictionary = {}
 
 # conveyers the player is currently over
 var active_conveyors = []
@@ -74,13 +74,15 @@ func is_on_ladder():
 	return not active_ladders.is_empty()
 
 # collision with a ladder section detected
-func _ladder_status_changed(ladder_node, is_entry):
+func _ladder_status_changed(tileRid: RID, centerOfTile: Vector2, is_entry: bool):
 	print("ladder status changed is entry = " + str(is_entry))
 	if is_entry:
-		active_ladders.append(ladder_node)
+		if !active_ladders.has(tileRid):
+			active_ladders[tileRid] = centerOfTile
 		print("Active ladders has " + str(active_ladders.size()) + " elements" )
 	else:
-		active_ladders.erase(ladder_node)	
+		if active_ladders.has(tileRid):
+			active_ladders.erase(tileRid)
 		print("Active ladders has " + str(active_ladders.size()) + " elements" )
 
 func is_standing_on_conveyer():
@@ -118,10 +120,12 @@ func climb():
 	arrest_all_motion()
 	if Input.is_action_pressed("ui_up") and is_on_ladder():
 		# move center player to center tile?
-		set_motion(0, -CLIMB_VELOCITY)
+		var deltaX = active_ladders[active_ladders.keys()[0]].x - sprite.global_position.x
+		set_motion(deltaX*10, -CLIMB_VELOCITY)
 		animation_player.play()
 	elif Input.is_action_pressed("ui_down") and is_on_ladder():
-		set_motion(0, CLIMB_VELOCITY)
+		var deltaX = active_ladders[active_ladders.keys()[0]].x - sprite.global_position.x
+		set_motion(deltaX*10, CLIMB_VELOCITY)
 		animation_player.play()
 	else:
 		animation_player.stop(false)
@@ -143,8 +147,27 @@ func _on_enemy_collision_body_entered(body: Node2D) -> void:
 
 func _on_ladder_collisions_layer_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("Ladder entry")
-	_ladder_status_changed(body_rid,   true)
+	var centerOfTile: Vector2 = _get_tile_center_in_global_coords(body_rid, body, body_shape_index, local_shape_index)
+	
+	# passin the coords of the center this will allow us to slide fred until he 
+	# is centered on the ladder and not hitting platforms at the top
+	_ladder_status_changed(body_rid, centerOfTile,   true)
 
 func _on_ladder_collisions_layer_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("Ladder exit")
-	_ladder_status_changed(body_rid,   false)
+	_ladder_status_changed(body_rid, Vector2.ZERO,  false)
+
+#
+# From a collision with a tile map layer, map the collided cell into global coordinates
+#
+# returns - A Vector2D thyat is the center of the intersected cell
+#
+func _get_tile_center_in_global_coords(body_rid: RID, tilemap: TileMapLayer, body_shape_index: int, local_shape_index: int) -> Vector2:
+	# Get the tile’s cell coordinates from the shape index
+	var cell = tilemap.get_coords_for_body_rid(body_rid)
+
+	# Convert cell to local position
+	var local_pos = tilemap.map_to_local(cell)
+	
+	# Convert local position to global position
+	return tilemap.to_global(local_pos)

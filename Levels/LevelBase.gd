@@ -59,8 +59,10 @@ func connect_coins_to_self():
 
 
 func connect_enemies_to_player():
-	get_tree().call_group("Enemies", "connect", "fred_is_dead", Callable(player, "_fred_is_dead"))
-
+	print("Connect enemies to player...")
+	var nodes :Array= get_tree().get_nodes_in_group("Enemies")
+	nodes.map(func(e): if e.has_signal("fred_is_dead"): e.connect("fred_is_dead", Callable(player, "_fred_is_dead")))
+	print("Connected " + str(nodes.size()) + " enemies to freds _fred_is_dead function")
 #
 # Get the members of the spikes group and attach the player_hit_spike() signal to
 # the players _fred_is_dead() function. Death on contact ensues

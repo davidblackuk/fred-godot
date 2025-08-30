@@ -75,10 +75,13 @@ func is_on_ladder():
 
 # collision with a ladder section detected
 func _ladder_status_changed(ladder_node, is_entry):
+	print("ladder status changed is entry = " + str(is_entry))
 	if is_entry:
 		active_ladders.append(ladder_node)
+		print("Active ladders has " + str(active_ladders.size()) + " elements" )
 	else:
 		active_ladders.erase(ladder_node)	
+		print("Active ladders has " + str(active_ladders.size()) + " elements" )
 
 func is_standing_on_conveyer():
 	return !active_conveyors.is_empty() && is_on_floor() && active_conveyors[0].global_position.y > global_position.y
@@ -132,18 +135,16 @@ func fall():
 		motion.x = 0
 
 
-func _on_enemy_collision_layer_3_body_entered(body: Node2D) -> void:
-#	if (!GameManager.game_state.god_mode):
-#		fred_is_dead_stream_player.play()
-#		_fred_is_dead() 
-		print("hit")
+func _on_enemy_collision_body_entered(body: Node2D) -> void:
+	if (!GameManager.game_state.god_mode):
+		fred_is_dead_stream_player.play()
+		_fred_is_dead() 
+	print("hit")
 
-
-func _on_ladder_collisions_layer_body_entered(body: Node2D) -> void:
+func _on_ladder_collisions_layer_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("Ladder entry")
-	_ladder_status_changed(body,   true)
+	_ladder_status_changed(body_rid,   true)
 
-
-func _on_ladder_collisions_layer_body_exited(body: Node2D) -> void:
+func _on_ladder_collisions_layer_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("Ladder exit")
-	_ladder_status_changed(body,   false)
+	_ladder_status_changed(body_rid,   false)

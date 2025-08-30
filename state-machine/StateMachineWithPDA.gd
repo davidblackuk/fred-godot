@@ -47,6 +47,7 @@ func _set_state(new_state):
 	
 	# if we are popping back to an existing state don't re-initialize
 	if new_state != null && !have_popped:
+		print("State machine: From " + str(previous_state) + " -> " + str(new_state))
 		states[state].enter_state(new_state, previous_state, parent)
 
 #

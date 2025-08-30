@@ -13,5 +13,3 @@ func enter_state(_new_state, _old_state, _parent):
 
 func exit_state(_old_state, _new_state, _parent):
 	pass
-
-

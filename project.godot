@@ -104,9 +104,12 @@ quick_load={
 
 [layer_names]
 
-2d_physics/layer_1="Fred"
-2d_physics/layer_2="Platforms"
-2d_physics/layer_3="Walls"
+2d_physics/layer_1="Platforms"
+2d_navigation/layer_1="Platforms"
+2d_physics/layer_2="Fred Is Dead"
+2d_navigation/layer_2="Spikes and Killy things"
+2d_physics/layer_3="Ladders"
+2d_navigation/layer_3="Ladders"
 
 [rendering]
 

@@ -14,7 +14,7 @@ func _ready() -> void:
 	print ("screen size is " + str(screen_size.x) + ", " + str(screen_size.y))
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	set_screen_position()
 
 func set_screen_position():

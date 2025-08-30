@@ -185,6 +185,7 @@ texture = ExtResource("1")
 hframes = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = ExtResource("3_kptxn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -241,12 +242,12 @@ shape = ExtResource("3_kptxn")
 stream = ExtResource("17_0mlmg")
 
 [node name="LadderCollisionsLayer" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderCollisionsLayer"]
 shape = ExtResource("3_kptxn")
 
-[connection signal="body_entered" from="EnemyCollisionLayer3" to="." method="_on_enemy_collision_layer_3_body_entered"]
-[connection signal="body_entered" from="LadderCollisionsLayer" to="." method="_on_ladder_collisions_layer_body_entered"]
-[connection signal="body_exited" from="LadderCollisionsLayer" to="." method="_on_ladder_collisions_layer_body_exited"]
+[connection signal="body_entered" from="EnemyCollisionLayer3" to="." method="_on_enemy_collision_body_entered"]
+[connection signal="body_shape_entered" from="LadderCollisionsLayer" to="." method="_on_ladder_collisions_layer_body_shape_entered"]
+[connection signal="body_shape_exited" from="LadderCollisionsLayer" to="." method="_on_ladder_collisions_layer_body_shape_exited"]

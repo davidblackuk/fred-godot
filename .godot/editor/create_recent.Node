@@ -1,7 +1,8 @@
+Area2D
+RigidBody2D
+CollisionShape2D
 CanvasLayer
 Camera2D
-CollisionShape2D
-Area2D
 TileMapLayer
 AudioStreamPlayer2D
 AnimationPlayer

@@ -12,6 +12,3 @@ func _ready():
 	add_state(STATE_WAITING, _waiting_state_script)
 	add_state(STATE_RESCUED, _rescued_state_script)
 	call_deferred("_set_state", STATE_WAITING)
-
-
-

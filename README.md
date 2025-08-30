@@ -13,8 +13,8 @@ Icon sizing and platfoms are faithful to the original pallettes and devices but 
 Release 0.4
   + Onscreen timers for the level and game
   + High score table for recording:
-    + Fastest time with best completion through each level
-    + Complete run through times
+	+ Fastest time with best completion through each level
+	+ Complete run through times
   + Several more new levels
 
 Release 0.33:
@@ -47,9 +47,9 @@ Release 0.1:
   + victims
   + simple sound
   + game mechanics
-    + score in hud (non animated)
-    + Death with animation and color change
-    + level complete opens door to next room
+	+ score in hud (non animated)
+	+ Death with animation and color change
+	+ level complete opens door to next room
 
 # TODO
 
@@ -58,29 +58,29 @@ Should we move this into a project board on Git hub?
 + music
   + minuet in G https://www.youtube.com/watch?v=icZob9-1MDw
 
-    
+	
 + Rescue victims
-    + Should We use the same mechanic as the original game and make fred visit the ambulance on each rescue?
-        + Or victims animate out
-        + or victims animate them selves to the ambulance
-    + Monitor count of victim rescues
-        + Increment score (Are we even going to show it unless there are other things to get points from)
-    + particle effect on rescue
+	+ Should We use the same mechanic as the original game and make fred visit the ambulance on each rescue?
+		+ Or victims animate out
+		+ or victims animate them selves to the ambulance
+	+ Monitor count of victim rescues
+		+ Increment score (Are we even going to show it unless there are other things to get points from)
+	+ particle effect on rescue
 
 + Improve graphics as levels go on 
   + ie spectrum -> cpc -> amiga pallette
 + Multi page levels
   + Camera move on level entry
   + How to handle fred position in multilevel
-    + do we restart the entire thing? (Eek for jet set style)
+	+ do we restart the entire thing? (Eek for jet set style)
 + persist progress
 + have a menu screen
 
 + Auto wire up
   + need to consider large levels with thousands of ladders and enemies
   + Level.gd searches for all ladders and connects them to the player
-    + Get child node Victims
-    + process all child nodes tyha are ladders
-    + Saves manual attachment.
-    + we already count victims
+	+ Get child node Victims
+	+ process all child nodes tyha are ladders
+	+ Saves manual attachment.
+	+ we already count victims
   + Level.gd searches all children and registers enemies

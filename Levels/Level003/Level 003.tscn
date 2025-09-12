@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bc2wvfiayquev" path="res://fred/Player.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://dxuoky5fgleme" path="res://spikes/Spike.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://controls/sky-box/SkyBox.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://victims/Victim.tscn" id="8"]
-[ext_resource type="Script" uid="uid://y5estmrk8pkd" path="res://Scripts/EnemyArea2D.gd" id="9"]
+[ext_resource type="PackedScene" path="res://game/victims/Victim.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://controls/themes/Palette.tscn" id="10"]
 [ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://controls/doors/Entrance.tscn" id="12"]
@@ -43,6 +42,25 @@ tracks/0/keys = {
 _data = {
 &"Move": SubResource("4")
 }
+
+[sub_resource type="GDScript" id="GDScript_0i8du"]
+script/source = "extends Area2D
+
+# 
+# An Aread2d that detects the entry of the play sprite and raises the fred_is_dead signal,
+# this node is automatically entered into the Enemies group for binding
+
+signal fred_is_dead()
+
+func _ready():
+	connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+	add_to_group(\"Enemies\")
+
+func _on_body_entered(body):
+	if body.name == \"Player\" && !GameManager.game_state.god_mode:
+		print(\"emit signal fred is dead from EnemyArea2D\")
+		emit_signal(\"fred_is_dead\")
+"
 
 [sub_resource type="CapsuleShape2D" id="5"]
 radius = 7.9998
@@ -122,7 +140,6 @@ color = Color(0.0470588, 0.0470588, 0.447059, 1)
 level_name = "Coining it in"
 
 [node name="Tiles" type="TileMap" parent="."]
-visible = false
 position = Vector2(0, 192)
 tile_set = ExtResource("15")
 format = 2
@@ -296,7 +313,7 @@ position = Vector2(307.144, 258.89)
 rotation = 3.14159
 
 [node name="Area2D" type="Area2D" parent="Enemies/GreenPath2D/PathFollow2D"]
-script = ExtResource("9")
+script = SubResource("GDScript_0i8du")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/GreenPath2D/PathFollow2D/Area2D"]
 shape = SubResource("5")
@@ -320,7 +337,7 @@ position = Vector2(439.41, 404.79)
 rotation = 3.14159
 
 [node name="Area2D" type="Area2D" parent="Enemies/YellowPath2D2/PathFollow2D"]
-script = ExtResource("9")
+script = SubResource("GDScript_0i8du")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/YellowPath2D2/PathFollow2D/Area2D"]
 shape = SubResource("6")
@@ -343,7 +360,7 @@ autoplay = "Move"
 position = Vector2(160.234, 706.936)
 
 [node name="Area2D" type="Area2D" parent="Enemies/RedPath2D/PathFollow2D"]
-script = ExtResource("9")
+script = SubResource("GDScript_0i8du")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/RedPath2D/PathFollow2D/Area2D"]
 scale = Vector2(2, 2)

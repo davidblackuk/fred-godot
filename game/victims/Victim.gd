@@ -37,7 +37,3 @@ func animate_and_dequeue():
 	audio_player.play()
 	await animation_player.animation_finished	
 	queue_free()
-
-
-
-

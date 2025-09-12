@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://55alq0u13lla"]
+
+[ext_resource type="Texture2D" uid="uid://bptc8482oarvm" path="res://game/spriteframes/spider.png" id="1_7tbrj"]
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_iw2xq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw2xq"]
+atlas = ExtResource("1_7tbrj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq234"]
+atlas = ExtResource("1_7tbrj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fun6y"]
+atlas = ExtResource("1_7tbrj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k31l"]
+atlas = ExtResource("1_7tbrj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7axif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw2xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq234")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fun6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k31l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tbrj"]
+size = Vector2(56, 44)
+
+[node name="Spider" type="Area2D"]
+script = ExtResource("1_iw2xq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7axif")
+autoplay = "default"
+frame_progress = 0.899851
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_7tbrj")

@@ -232,7 +232,7 @@ script = ExtResource("5")
 position = Vector2(-4.33823, -71.7477)
 
 [node name="EnemyCollisionLayer3" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollisionLayer3"]

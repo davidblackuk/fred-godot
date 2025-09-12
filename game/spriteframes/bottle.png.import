@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8piqe5amp6gj"
-path="res://.godot/imported/bottle.png-1a51651e5ed41f02e36559a1e9e0a4f6.ctex"
+path="res://.godot/imported/bottle.png-c4692f236c0ab8ee8330bdc71648118e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Level001/bottle/bottle.png"
-dest_files=["res://.godot/imported/bottle.png-1a51651e5ed41f02e36559a1e9e0a4f6.ctex"]
+source_file="res://game/spriteframes/bottle.png"
+dest_files=["res://.godot/imported/bottle.png-c4692f236c0ab8ee8330bdc71648118e.ctex"]
 
 [params]
 

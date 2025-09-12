@@ -1,6 +1,6 @@
 extends Node
 
-const FIRST_LEVEL = "res://Levels/Level001/Level 001.tscn"
+const FIRST_LEVEL = "res://game/MainScene.tscn"
 # const FIRST_LEVEL = "res://Levels/Level002/Level 002.tscn"
 # const FIRST_LEVEL = "res://Levels/Level003/Level 003.tscn"
 

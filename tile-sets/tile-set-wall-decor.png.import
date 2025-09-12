@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bptc8482oarvm"
-path="res://.godot/imported/spider.png-0211d4d0930b7ce169f2d950d06c9436.ctex"
+uid="uid://dtix0n20qo5s4"
+path="res://.godot/imported/tile-set-wall-decor.png-b6d44e26f9dd3918a57b1290078a0948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Level002/spider/spider.png"
-dest_files=["res://.godot/imported/spider.png-0211d4d0930b7ce169f2d950d06c9436.ctex"]
+source_file="res://tile-sets/tile-set-wall-decor.png"
+dest_files=["res://.godot/imported/tile-set-wall-decor.png-b6d44e26f9dd3918a57b1290078a0948.ctex"]
 
 [params]
 

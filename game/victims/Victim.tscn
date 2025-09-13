@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=3 uid="uid://co8a5vnbsd8qe"]
 
 [ext_resource type="Texture2D" uid="uid://dheqa1agg06yr" path="res://images/victims/twoup.png" id="1"]
 [ext_resource type="Script" uid="uid://ld6f8ycofrbg" path="res://game/victims/Victim.gd" id="2"]
@@ -8,126 +8,182 @@
 [ext_resource type="Script" uid="uid://b2kfk1wtdo4bx" path="res://game/victims/states/Rescued.gd" id="6"]
 [ext_resource type="Script" uid="uid://c7df7ugm8ujge" path="res://game/victims/states/Waiting.gd" id="7"]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id="1"]
 radius = 18.0
 height = 38.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "Cold"
 length = 0.4
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [5, 6, 7, 8]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.301, 0.35 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.301, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0 ), Vector2( 0, 0 ), Vector2( -0.5, 0 ), Vector2( 0, 0 ), Vector2( 0.5, 0 ), Vector2( 0, 0 ), Vector2( 0.294777, 0 ), Vector2( -0.5, 0 ) ]
+"values": [Vector2(0, 0), Vector2(0.5, 0), Vector2(0, 0), Vector2(-0.5, 0), Vector2(0, 0), Vector2(0.5, 0), Vector2(0, 0), Vector2(0.294777, 0), Vector2(-0.5, 0)]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 resource_name = "Farmer"
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.25, 0.5, 0.75 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [9, 10, 11, 12]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "Help"
-loop = true
+loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.25, 0.5, 0.75 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="Animation_3cu1l"]
+resource_name = "JumpingCat"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_xg1yv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="3"]
 resource_name = "Rescued"
 length = 0.5
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rrwpr"]
+resource_name = "UprightCat"
+loop_mode = 1
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 15, 1),
+"update": 1,
+"values": [13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrwpr"]
+_data = {
+&"Cold": SubResource("4"),
+&"Farmer": SubResource("5"),
+&"Help": SubResource("2"),
+&"JumpingCat": SubResource("Animation_3cu1l"),
+&"RESET": SubResource("Animation_xg1yv"),
+&"Rescued": SubResource("3"),
+&"UprightCat": SubResource("Animation_rrwpr")
 }
 
 [node name="Victim" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
-offset = Vector2( 0.0600326, 0 )
-hframes = 12
-frame = 10
+scale = Vector2(2, 2)
+texture = ExtResource("1")
+hframes = 21
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 2 )
-shape = SubResource( 1 )
+position = Vector2(0, 2)
+shape = SubResource("1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-autoplay = "Farmer"
-anims/Cold = SubResource( 4 )
-anims/Farmer = SubResource( 5 )
-anims/Help = SubResource( 2 )
-anims/Rescued = SubResource( 3 )
+libraries = {
+&"": SubResource("AnimationLibrary_rrwpr")
+}
+autoplay = "JumpingCat"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
-stream = ExtResource( 3 )
+stream = ExtResource("3")
 
-[node name="FsmState" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -46 )
+[node name="FsmState" parent="." instance=ExtResource("5")]
+position = Vector2(0, -46)
 
 [node name="States" type="Node" parent="."]
 
 [node name="Waiting" type="Node" parent="States"]
-script = ExtResource( 7 )
+script = ExtResource("7")
 
 [node name="Rescued" type="Node" parent="States"]
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

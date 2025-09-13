@@ -8,7 +8,8 @@ extends Node2D
 @export var flip_horizontal: bool: get = get_flip_h, set = set_flip_h
 	
 
-@onready var sprite = get_node_or_null("Area2D/Sprite2D")
+@onready var sprite: Sprite2D = $Area2D/Sprite2D
+
 
 var _flip_h = false
 
@@ -26,14 +27,14 @@ func set_sprite_tint(value):
 	if node:
 		node.modulate = value
 
-func get_animation_speed():
-	var node = get_node("Area2D/AnimationPlayer")
+func get_animation_speed(): float
+	var node: AnimationPlayer = get_node("Area2D/AnimationPlayer") as AnimationPlayer
 	if node:
 		return node.playback_speed
 	return 1
 	
-func set_animation_speed(value):
-	var node = get_node("Area2D/AnimationPlayer")
+func set_animation_speed(value: float):
+	var node: AnimationPlayer = get_node("Area2D/AnimationPlayer") as AnimationPlayer
 	if node:
 		node.playback_speed = value
 

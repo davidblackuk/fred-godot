@@ -13,7 +13,6 @@ func _ready():
 	add_to_group("Enemies")
 
 func _on_body_entered(body):
-	print ("A " + body.name + " entered an enemy")
 	if body.name == "Player" && !GameManager.game_state.god_mode:
 		print("emit signal fred is dead from EnemyArea2D")
 		emit_signal("fred_is_dead")

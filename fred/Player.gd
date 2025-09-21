@@ -31,7 +31,7 @@ var has_enemy_hit = false
 var active_ladders: Dictionary = {}
 
 # conveyers the player is currently over
-var active_conveyors = []
+var active_conveyors: Dictionary = {}
 var current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
 
 # follows the current jump height, negative on the way up, positive on falling after reaching 
@@ -73,29 +73,7 @@ func set_motion(x, y):
 func is_on_ladder():
 	return not active_ladders.is_empty()
 
-# collision with a ladder section detected
-func _ladder_status_changed(tileRid: RID, centerOfTile: Vector2, is_entry: bool):
-	print("ladder status changed is entry = " + str(is_entry))
-	if is_entry:
-		if !active_ladders.has(tileRid):
-			active_ladders[tileRid] = centerOfTile
-		print("Active ladders has " + str(active_ladders.size()) + " elements" )
-	else:
-		if active_ladders.has(tileRid):
-			active_ladders.erase(tileRid)
-		print("Active ladders has " + str(active_ladders.size()) + " elements" )
 
-func is_standing_on_conveyer():
-	return !active_conveyors.is_empty() && is_on_floor() && active_conveyors[0].global_position.y > global_position.y
-		
-func _conveyor_status_changed(conveyor_node, is_entry):
-	if is_entry:
-		active_conveyors.append(conveyor_node)	
-		current_conveyor_direction = conveyor_node.direction
-	else:
-		active_conveyors.erase(conveyor_node)
-		if (active_conveyors.is_empty()):
-			current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
 	
 		
 		
@@ -143,10 +121,23 @@ func _on_enemy_collision_body_entered(body: Node2D) -> void:
 	if (!GameManager.game_state.god_mode):
 		fred_is_dead_stream_player.play()
 		_fred_is_dead() 
-	print("hit")
+
+
+
+
+		
+
+# collision with a ladder section detected
+func _ladder_status_changed(tileRid: RID, centerOfTile: Vector2, is_entry: bool):
+	print("ladder status changed is entry = " + str(is_entry))
+	if is_entry:
+		if !active_ladders.has(tileRid):
+			active_ladders[tileRid] = centerOfTile
+	else:
+		if active_ladders.has(tileRid):
+			active_ladders.erase(tileRid)
 
 func _on_ladder_collisions_layer_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print("Ladder entry")
 	var centerOfTile: Vector2 = _get_tile_center_in_global_coords(body_rid, body, body_shape_index, local_shape_index)
 	
 	# passin the coords of the center this will allow us to slide fred until he 
@@ -154,8 +145,37 @@ func _on_ladder_collisions_layer_body_shape_entered(body_rid: RID, body: Node2D,
 	_ladder_status_changed(body_rid, centerOfTile,   true)
 
 func _on_ladder_collisions_layer_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print("Ladder exit")
 	_ladder_status_changed(body_rid, Vector2.ZERO,  false)
+
+
+func _conveyor_status_changed(tileRid: RID, centerOfTile: Vector2, is_entry):
+	if is_entry:
+		if !active_conveyors.has(tileRid):
+			active_conveyors[tileRid] = centerOfTile
+	else:
+		if active_conveyors.has(tileRid):
+			active_conveyors.erase(tileRid)
+		if (active_conveyors.is_empty()):
+			current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
+
+func is_standing_on_conveyer():
+	var res = !active_conveyors.is_empty() && is_on_floor() && active_conveyors[active_conveyors.keys()[0]].y > global_position.y
+	return res
+
+# -> add a custom collision layer to fren and extend the area down a little
+func _on_conveyer_collision_layer_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if !active_conveyors.has(body_rid):
+		var centerOfTile: Vector2 = _get_tile_center_in_global_coords(body_rid, body, body_shape_index, local_shape_index)
+		active_conveyors[body_rid] = centerOfTile
+		current_conveyor_direction = ConveyorBelt.DIRECTION_RIGHT
+
+
+func _on_conveyer_collision_layer_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if active_conveyors.has(body_rid):
+		active_conveyors.erase(body_rid)
+	if (active_conveyors.is_empty()):
+		current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
+
 
 #
 # From a collision with a tile map layer, map the collided cell into global coordinates

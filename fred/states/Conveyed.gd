@@ -33,4 +33,3 @@ func enter_state(_new_state, _old_state, player):
 
 func exit_state(_old_state, _new_state, _player):
 	pass
-

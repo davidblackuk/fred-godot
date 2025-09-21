@@ -27,7 +27,7 @@ func set_sprite_tint(value):
 	if node:
 		node.modulate = value
 
-func get_animation_speed(): float
+func get_animation_speed() -> float:
 	var node: AnimationPlayer = get_node("Area2D/AnimationPlayer") as AnimationPlayer
 	if node:
 		return node.playback_speed

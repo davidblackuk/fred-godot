@@ -1,51 +1,58 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://bbyjtv4gf70a2"]
 
-[ext_resource path="res://images/crumble/crumble-1.png" type="Texture2D" id=1]
-[ext_resource path="res://controls/crumbles/crumble.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://i1m2w2i4rx6f" path="res://images/crumble/crumble-1.png" id="1"]
+[ext_resource type="Script" uid="uid://cl80nmque3x7m" path="res://controls/crumbles/crumble.gd" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.5, 16.5 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(33, 33)
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "Crumbling"
 length = 0.4
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 2, 4, 6 ]
+"values": [0, 2, 4, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nlo3"]
+_data = {
+&"Crumbling": SubResource("3")
 }
 
 [node name="Crumble" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color( 0.447059, 0.447059, 0.0470588, 1 )
-texture = ExtResource( 1 )
+modulate = Color(0.447059, 0.447059, 0.0470588, 1)
+texture = ExtResource("1")
 hframes = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="StaticBodyCollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource("1")
 one_way_collision = true
 
 [node name="AnimationControlArea2D" type="Area2D" parent="StaticBody2D"]
 
 [node name="AnimationControlCollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/AnimationControlArea2D"]
-shape = SubResource( 2 )
+shape = SubResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Crumbling = SubResource( 3 )
+libraries = {
+&"": SubResource("AnimationLibrary_4nlo3")
+}
 
 [connection signal="body_entered" from="StaticBody2D/AnimationControlArea2D" to="." method="_on_animation_control_area_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/AnimationControlArea2D" to="." method="_on_animation_control_area_body_exited"]

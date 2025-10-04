@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://b54n7umjfyowv"]
+
+[ext_resource type="Texture2D" uid="uid://cnr6mb5mry3pt" path="res://game/spriteframes/fork-lift.png" id="1_nki5q"]
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_y0yc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0yc4"]
+size = Vector2(25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmoy3"]
+atlas = ExtResource("1_nki5q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rjr2"]
+atlas = ExtResource("1_nki5q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eyqr"]
+atlas = ExtResource("1_nki5q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exbme"]
+atlas = ExtResource("1_nki5q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_505ox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmoy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rjr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eyqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exbme")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ForkList" type="Area2D"]
+script = ExtResource("1_y0yc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_y0yc4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_505ox")
+autoplay = "default"
+frame_progress = 0.135891

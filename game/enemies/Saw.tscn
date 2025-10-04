@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://chli7hi4tq5sr"]
+
+[ext_resource type="Texture2D" uid="uid://gdgb7usseedg" path="res://game/spriteframes/saw-cog.png" id="1_sqgtr"]
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_vk2qk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk2qk"]
+radius = 15.0333
+
+[sub_resource type="Animation" id="Animation_vk2qk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saw1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saw2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sqgtr"]
+resource_name = "spin"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saw1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saw2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.785398, 7.06858]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5ocr"]
+_data = {
+&"RESET": SubResource("Animation_vk2qk"),
+&"spin": SubResource("Animation_sqgtr")
+}
+
+[node name="Saw" type="Area2D"]
+script = ExtResource("1_vk2qk")
+
+[node name="Saw1" type="Sprite2D" parent="."]
+texture = ExtResource("1_sqgtr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vk2qk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u5ocr")
+}
+autoplay = "spin"
+
+[node name="Saw2" type="Sprite2D" parent="."]
+texture = ExtResource("1_sqgtr")

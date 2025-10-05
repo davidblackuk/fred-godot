@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b08ihbvl4et33"]
 
-[ext_resource type="Script" uid="uid://c1b6ipf1n0si3" path="res://collectables/Collectable.gd" id="1"]
+[ext_resource type="Script" uid="uid://c1b6ipf1n0si3" path="res://game/collectables/Collectable.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://gb28jw0k4yks" path="res://images/collectables/coin.png" id="2"]
 [ext_resource type="AudioStream" uid="uid://bqm1hpfo3jmda" path="res://sfx/general/coin.wav" id="3"]
 

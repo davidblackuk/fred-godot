@@ -1,11 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfxrj04llvv2l"]
+[gd_scene load_steps=9 format=3 uid="uid://dfxrj04llvv2l"]
 
 [ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_4ok6a"]
-[ext_resource type="SpriteFrames" uid="uid://cqrpdrxxoj84s" path="res://game/spriteframes/bottle-sprite-frames.tres" id="2_6tq7f"]
+[ext_resource type="Texture2D" uid="uid://8piqe5amp6gj" path="res://game/spriteframes/bottle.png" id="2_vos1q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3adh"]
 radius = 23.0
 height = 62.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh3mr"]
+atlas = ExtResource("2_vos1q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_511o5"]
+atlas = ExtResource("2_vos1q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot3lg"]
+atlas = ExtResource("2_vos1q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv7xl"]
+atlas = ExtResource("2_vos1q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_411eb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh3mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_511o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot3lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv7xl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Bottle 1" type="Area2D"]
 collision_layer = 0
@@ -18,6 +54,5 @@ shape = SubResource("CapsuleShape2D_f3adh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -4)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("2_6tq7f")
+sprite_frames = SubResource("SpriteFrames_411eb")
 autoplay = "default"
-frame_progress = 0.362092

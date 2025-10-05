@@ -18,6 +18,5 @@ func _on_body_entered(body):
 		emit_signal("fred_is_dead")
 
 func flip_sprite_direction(dir: bool):
-	print("flip "+str(dir))
 	sprite.flip_h = dir
 	

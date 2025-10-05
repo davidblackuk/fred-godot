@@ -163,11 +163,17 @@ func is_standing_on_conveyer():
 	return res
 
 # -> add a custom collision layer to fren and extend the area down a little
-func _on_conveyer_collision_layer_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_conveyer_collision_layer_body_shape_entered(body_rid: RID, body: TileMapLayer, body_shape_index: int, local_shape_index: int) -> void:
 	if !active_conveyors.has(body_rid):
 		var centerOfTile: Vector2 = _get_tile_center_in_global_coords(body_rid, body, body_shape_index, local_shape_index)
 		active_conveyors[body_rid] = centerOfTile
-		current_conveyor_direction = ConveyorBelt.DIRECTION_RIGHT
+		var tileCoords = body.get_coords_for_body_rid(body_rid)
+		var tile_data = body.get_cell_tile_data(tileCoords)
+		var direction = tile_data.get_custom_data_by_layer_id(0)
+		if direction == "right" :
+			current_conveyor_direction = ConveyorBelt.DIRECTION_RIGHT
+		else :
+			current_conveyor_direction = ConveyorBelt.DIRECTION_LEFT
 
 
 func _on_conveyer_collision_layer_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

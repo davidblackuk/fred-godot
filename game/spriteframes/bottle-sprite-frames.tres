@@ -1,37 +1,37 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cqrpdrxxoj84s"]
 
-[ext_resource type="Texture2D" uid="uid://8piqe5amp6gj" path="res://game/spriteframes/bottle.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dhki0ikyv6wqn" path="res://game/spriteframes/snow-man.png" id="1_6hnjk"]
 
-[sub_resource type="AtlasTexture" id="1"]
-atlas = ExtResource("1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygina"]
+atlas = ExtResource("1_6hnjk")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="2"]
-atlas = ExtResource("1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_suimr"]
+atlas = ExtResource("1_6hnjk")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="3"]
-atlas = ExtResource("1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wqv1"]
+atlas = ExtResource("1_6hnjk")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="4"]
-atlas = ExtResource("1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iedyo"]
+atlas = ExtResource("1_6hnjk")
 region = Rect2(96, 0, 32, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("1")
+"texture": SubResource("AtlasTexture_ygina")
 }, {
 "duration": 1.0,
-"texture": SubResource("2")
+"texture": SubResource("AtlasTexture_suimr")
 }, {
 "duration": 1.0,
-"texture": SubResource("3")
+"texture": SubResource("AtlasTexture_0wqv1")
 }, {
 "duration": 1.0,
-"texture": SubResource("4")
+"texture": SubResource("AtlasTexture_iedyo")
 }],
 "loop": true,
 "name": &"default",

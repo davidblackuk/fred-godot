@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyh11imy5a3gm"]
+
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_tiafw"]
+[ext_resource type="Texture2D" uid="uid://dhki0ikyv6wqn" path="res://game/spriteframes/snow-man.png" id="2_tiafw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nlh6"]
+radius = 23.0
+height = 62.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygina"]
+atlas = ExtResource("2_tiafw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suimr"]
+atlas = ExtResource("2_tiafw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wqv1"]
+atlas = ExtResource("2_tiafw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iedyo"]
+atlas = ExtResource("2_tiafw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maj1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygina")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suimr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wqv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iedyo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bottle 1" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_tiafw")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(4, -1)
+shape = SubResource("CapsuleShape2D_8nlh6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -4)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_maj1p")
+autoplay = "default"

@@ -148,16 +148,6 @@ func _on_ladder_collisions_layer_body_shape_exited(body_rid: RID, body: Node2D, 
 	_ladder_status_changed(body_rid, Vector2.ZERO,  false)
 
 
-func _conveyor_status_changed(tileRid: RID, centerOfTile: Vector2, is_entry):
-	if is_entry:
-		if !active_conveyors.has(tileRid):
-			active_conveyors[tileRid] = centerOfTile
-	else:
-		if active_conveyors.has(tileRid):
-			active_conveyors.erase(tileRid)
-		if (active_conveyors.is_empty()):
-			current_conveyor_direction = ConveyorBelt.DIRECTION_NONE
-
 func is_standing_on_conveyer():
 	var res = !active_conveyors.is_empty() && is_on_floor() && active_conveyors[active_conveyors.keys()[0]].y > global_position.y
 	return res

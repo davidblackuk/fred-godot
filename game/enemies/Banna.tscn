@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvuu2y2uongf0"]
+
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_0moxc"]
+[ext_resource type="Texture2D" uid="uid://brbn7740jai1l" path="res://game/spriteframes/bannana.png" id="2_0moxc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3adh"]
+radius = 23.0
+height = 62.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0dxf"]
+atlas = ExtResource("2_0moxc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kb45"]
+atlas = ExtResource("2_0moxc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaaoh"]
+atlas = ExtResource("2_0moxc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5s4y"]
+atlas = ExtResource("2_0moxc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17xbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0dxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kb45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaaoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5s4y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Banna" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_0moxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -1)
+shape = SubResource("CapsuleShape2D_f3adh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -4)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_17xbu")
+autoplay = "default"

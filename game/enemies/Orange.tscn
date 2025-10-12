@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnscfpqhkfhlm"]
+
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_wt8p3"]
+[ext_resource type="Texture2D" uid="uid://bvoefi2theg46" path="res://game/spriteframes/orange.png" id="2_wt8p3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3adh"]
+radius = 27.0
+height = 56.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frdsd"]
+atlas = ExtResource("2_wt8p3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8ysu"]
+atlas = ExtResource("2_wt8p3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb8rf"]
+atlas = ExtResource("2_wt8p3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnvrt"]
+atlas = ExtResource("2_wt8p3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ax3ta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frdsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8ysu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb8rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnvrt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Orange" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_wt8p3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CapsuleShape2D_f3adh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -4)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ax3ta")
+autoplay = "default"

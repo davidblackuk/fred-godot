@@ -23,10 +23,7 @@ func _ready():
 	GameManager.game_state.current_level = get_tree().current_scene.scene_file_path
 	count_victims()
 	count_collectables()
-	connect_spikes_to_player()
-	connect_ladders_to_player()
 	connect_enemies_to_player()
-	connect_conveyors_to_player()
 	connect_coins_to_self()
 	connect_fader_to_self()
 	fader.fade_in()
@@ -64,25 +61,6 @@ func connect_enemies_to_player():
 	nodes.map(func(e): if e.has_signal("fred_is_dead"): e.connect("fred_is_dead", Callable(player, "_fred_is_dead")))
 	print("Connected " + str(nodes.size()) + " enemies to freds _fred_is_dead function")
 #
-# Get the members of the spikes group and attach the player_hit_spike() signal to
-# the players _fred_is_dead() function. Death on contact ensues
-#
-func connect_spikes_to_player():
-	get_tree().call_group("Spikes", "connect", "player_hit_spike", Callable(player, "_fred_is_dead"))
-
-#
-# Get the members of the ladders group and attach the ladder_status_changed() signal to
-# the players _ladder_status_changed() function. This enables climbing ladders
-#
-func connect_ladders_to_player():
-	get_tree().call_group("Ladders", "connect", "ladder_status_changed", Callable(player, "_ladder_status_changed"))
-
-#
-# Get the members of the conveyers group and attach the conveyer_status_changed() signal to
-# the players _conveyer_status_changed() function. This enables convyers
-#
-func connect_conveyors_to_player():
-	get_tree().call_group("Conveyors", "connect", "conveyor_status_changed", Callable(player, "_conveyor_status_changed"))
 
 func connect_fader_to_self():
 	fader.connect("fade_out_complete", Callable(self, "_on_fader_fade_out_complete"))

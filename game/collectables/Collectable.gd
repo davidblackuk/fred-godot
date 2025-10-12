@@ -3,10 +3,9 @@ extends Node2D
 signal item_collected(reward)
 
 enum RewardLevel {
-	LOW = 0,
-	MEDIUM = 1,
-	HIGH = 2,
-	OMG = 3
+	GOLD = 0,
+	SILVER = 1,
+	BRONZE = 2
 }
 
 const SCORE_MULTIPLIER = 22
@@ -14,38 +13,48 @@ const SCORE_MULTIPLIER = 22
 var collected = false
 
 #           0 (22)  1 (44)    2 (66) 3 (88)
-@export var reward_level: RewardLevel = RewardLevel.LOW
+@export var reward_level: RewardLevel = RewardLevel.BRONZE
 
 @export var speed_scale = 1.0
 
-@export var starting_frame = 0 # (int, 7)
 
-@onready var animated_sprite = get_node("Area2D/AnimatedSprite2D")
+@onready var animated_sprite: AnimatedSprite2D = get_node("Area2D/AnimatedSprite2D")
 
 
 func _ready():
-	color_according_to_reward()
+	_set_animation_from_reward_level()
 	animated_sprite.speed_scale = speed_scale
-	animated_sprite.frame = starting_frame
 	
 
-func color_according_to_reward():
-	match reward_level:
-		RewardLevel.LOW:
-			modulate =  Palette.white
-		RewardLevel.MEDIUM:
-			modulate =  Palette.bright_cyan
-		RewardLevel.HIGH:
-			modulate =  Palette.bright_green
-		RewardLevel.OMG:
-			modulate =  Palette.bright_yellow
+
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player" && !collected:
 		collected = true
-		emit_signal("item_collected", (reward_level+1) * SCORE_MULTIPLIER)
+		emit_signal("item_collected", _get_reward())
 		$AnimationPlayer.play("Collected")
 
 
 func _on_animation_finished(_anim_name):
-	queue_free() # Replace with function body.
+	if _anim_name == "Collected":
+		queue_free() 
+	
+func _set_animation_from_reward_level()  -> void :
+	match reward_level:
+		RewardLevel.GOLD:
+			$AnimationPlayer.play("gold")
+		RewardLevel.SILVER:
+			$AnimationPlayer.play("silver")
+		RewardLevel.BRONZE:
+			$AnimationPlayer.play("bronze")
+			
+func _get_reward():
+	match reward_level:
+		RewardLevel.GOLD:
+			return 30
+		RewardLevel.SILVER:
+			return 20
+		RewardLevel.GOLD:
+			return 10
+	return 0
+	

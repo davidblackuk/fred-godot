@@ -1,6 +1,6 @@
 [gd_scene load_steps=99 format=4 uid="uid://colwlq3bu5js4"]
 
-[ext_resource type="Script" uid="uid://ckjw3r2055g46" path="res://Levels/LevelBase.gd" id="1_f3adh"]
+[ext_resource type="Script" uid="uid://ckjw3r2055g46" path="res://game/scripts/LevelBase.gd" id="1_f3adh"]
 [ext_resource type="PackedScene" uid="uid://wh68tedjovbg" path="res://controls/score-hud/ScoreHud.tscn" id="2_72y0h"]
 [ext_resource type="Script" uid="uid://bw12erxccgy31" path="res://game/MainCamera.gd" id="3_m4nwd"]
 [ext_resource type="Texture2D" uid="uid://dv1fs87855y5s" path="res://tile-sets/tileset-sky-box.png" id="4_etpiy"]
@@ -1284,6 +1284,21 @@ _data = {
 &"RESET": SubResource("Animation_vt2oc")
 }
 
+[sub_resource type="Animation" id="Animation_2mjbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5995, 368)]
+}
+
 [sub_resource type="Animation" id="Animation_xd5ki"]
 resource_name = "move"
 length = 4.0
@@ -1299,21 +1314,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(5995, 368), Vector2(5811, 368)]
-}
-
-[sub_resource type="Animation" id="Animation_2mjbi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5995, 368)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_601g4"]
@@ -1364,177 +1364,9 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAiAAMAAAADAAAAAVAkAAMAAAADAAAAAVAmAAMAAAADAAAAAVAoAAMAAAADAAAAAVAqAAMAAAADAAAAAVAsAAMAAAADAAAAAVAuAAMAAAADAAAAAVAwAAMAAAADAAAAAVAyAAMAAAADAAAAAVA0AAMAAAADAAAAAVA2AAMAAAADAAAAAVA4AAMAAAADAAAAAVA6AAMAAAADAAAAAVA8AAMAAAADAAAAAVA+AAMAAAADAAAAAVA9AAUAAAADAAAAAFA/AAQAAAADAAAAATA/AAYAAAADAAAAATA/AAgAAAADAAAAATA/AA4AAAADAAAAATA/ABAAAAADAAAAATA/ABIAAAADAAAAATA/ABQAAAADAAAAATA/ABYAAAADAAAAATA+ABcAAAADAAAAAWA8ABcAAAADAAAAAWA6ABcAAAADAAAAAWA4ABcAAAADAAAAAWA2ABcAAAADAAAAAWA0ABcAAAADAAAAAWAyABcAAAADAAAAAWAwABcAAAADAAAAAWAuABcAAAADAAAAAWAsABcAAAADAAAAAWAqABcAAAADAAAAAWAoABcAAAADAAAAAWAmABcAAAADAAAAAWAkABcAAAADAAAAAWAiABcAAAADAAAAAWAgABcAAAADAAAAAWAgAAMAAAADAAAAAVAgAAUAAAADAAAAAQAgAAsAAAADAAAAAQAgAAcAAAADAAAAAQAgAAkAAAADAAAAAQAgAA0AAAADAAAAAQAgAA8AAAADAAAAAQAgABEAAAADAAAAAQAgABMAAAADAAAAAQA1ABcAAAACAAAAAAAzABcAAAACAAAAAAAxABcAAAACAAAAAAAvABcAAAACAAAAAAAtABcAAAACAAAAAAArABcAAAACAAAAAAApABcAAAACAAAAAAAnABcAAAACAAAAAAAlABcAAAACAAAAAAAjABcAAAACAAAAAAAhABcAAAACAAAAAAAgABIAAAACAAAAAAAgABAAAAACAAAAAAAgAA4AAAACAAAAAAAgAAwAAAACAAAAAAAgAAoAAAACAAAAAAAgAAgAAAACAAAAAAAgAAYAAAACAAAAAAAgAAQAAAACAAAAAAAhAAMAAAACAAAAAAAjAAMAAAACAAAAAAAlAAMAAAACAAAAAAAnAAMAAAACAAAAAAApAAMAAAACAAAAAAArAAMAAAACAAAAAAAtAAMAAAACAAAAAAAvAAMAAAACAAAAAAAxAAMAAAACAAAAAAAzAAMAAAACAAAAAAA1AAMAAAACAAAAAAA3AAMAAAACAAAAAAA5AAMAAAACAAAAAAA7AAMAAAACAAAAAAA9AAMAAAACAAAAAAA/AAMAAAACAAAAAAA/AAUAAAACAAAAAAA/AAcAAAACAAAAAAA/AA8AAAACAAAAAAA/ABEAAAACAAAAAAA/ABMAAAACAAAAAAA/ABUAAAACAAAAAAA/ABcAAAACAAAAAAA9ABcAAAACAAAAAAA7ABcAAAACAAAAAAA5ABcAAAACAAAAAAA3ABcAAAACAAAAAABDABcAAAAAAAAAAABNABcAAAAAAAAAABBWABcAAAAAAAAAAEBZABcAAAAAAAAAACBeABcAAAAAAAAAAHBAABYAAAAAAAAAAHBAABUAAAAAAAAAAGBAABMAAAAAAAAAADBAAA8AAAAAAAAAADBAAAgAAAAAAAAAAFBAAAUAAAAAAAAAADBBAAMAAAAAAAAAADBFAAMAAAAAAAAAAFBMAAMAAAAAAAAAAABSAAMAAAAAAAAAADBYAAMAAAAAAAAAAGBeAAMAAAAAAAAAADBfAAkAAAAAAAAAAFBfAAwAAAAAAAAAAGBfABAAAAAAAAAAAABfABIAAAAAAAAAAABDAAMAAAABAAAAAABIAAMAAAABAAAAAGBPAAMAAAABAAAAADBUAAMAAAABAAAAADBcAAMAAAABAAAAADBaAAMAAAABAAAAADBfAAsAAAABAAAAAGBfAA4AAAABAAAAADBdABcAAAABAAAAAFBcABcAAAABAAAAADBXABcAAAABAAAAAABTABcAAAABAAAAAGBQABcAAAABAAAAAFBLABcAAAABAAAAADBGABcAAAABAAAAADBAABcAAAABAAAAADCgAA8AAAAAAAEAAACiAAMAAAAAAAEAAACzABYAAAAAAAEAAAC0AAMAAAAAAAEAAAC/AAcAAAAAAAEAAAC/ABMAAAAAAAEAAAC4ABcAAAAAAAEAAAClABcAAAAAAAEAAACgAAsAAAABAAEAAACvAAMAAAABAAEAAAC7AAcAAAABAAEAAAC/AA0AAAABAAEAAAC9AAsAAAABAAEAAAC9ABcAAAABAAEAAACzABcAAAABAAEAAACgABcAAAABAAEAAAC/AAMAAAACAAEAAAC/AAoAAAACAAEAAAC/ABAAAAACAAEAAAC/ABYAAAACAAEAAAC3ABcAAAACAAEAAACsABcAAAACAAEAAACgAAgAAAACAAEAAACgAAUAAAACAAEAAACjABcAAAAAAAIAAACwABUAAAAAAAIAAACvABcAAAAAAAIAAACgAA0AAAAAAAIAAACoAAMAAAAAAAIAAACpAAMAAAAAAAIAAAC5AAMAAAAAAAIAAAC/ABUAAAAAAAIAAACgABAAAAABAAIAAACgAAcAAAABAAIAAACsAAMAAAABAAIAAAC3AAMAAAABAAIAAAC/AAkAAAABAAIAAAC/AA8AAAABAAIAAAC7ABcAAAABAAIAAACoABcAAAABAAIAAACgAAoAAAACAAIAAAClAAMAAAACAAIAAAC7AAMAAAACAAIAAAC8AAMAAAACAAIAAAC/ABIAAAACAAIAAACtABcAAAACAAIAAACgAAMAAAABAAMAAACgABIAAAABAAMAAAC9AAcAAAABAAMAAAC4AAcAAAABAAMAAACxABYAAAACAAEAAACyABYAAAACAAIAAACxAAsAAAACAAEAAACzAAsAAAACAAIAAACrAAgAAAACAAIAAACmAAgAAAABAAIAAACxAAgAAAAAAAIAAAClAA4AAAAAAAIAAAChABAAAAACAAIAAACiAAcAAAAAAAEAAACvABYAAAABAAEAAACwABYAAAAAAAEAAGCyABUAAAAAAAMAAACxABUAAAABAAEAAGC5ABIAAAACAAIAAAC9ABIAAAACAAEAAAC1ABIAAAACAAEAAACiABIAAAAAAAMAAAChAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_m4nwd")
 
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Room001" type="Node" parent="Enemies"]
-
-[node name="Bottle 1" parent="Enemies/Room001" instance=ExtResource("8_syuyr")]
-position = Vector2(894, 515)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Enemies/Room001/Bottle 1"]
-libraries = {
-&"": SubResource("AnimationLibrary_m4nwd")
-}
-autoplay = "move"
-
-[node name="Bottle 2" parent="Enemies/Room001" instance=ExtResource("8_syuyr")]
-position = Vector2(203, 506)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room001/Bottle 2"]
-libraries = {
-&"": SubResource("AnimationLibrary_etpiy")
-}
-autoplay = "move"
-
-[node name="Bottle 3" parent="Enemies/Room001" instance=ExtResource("8_syuyr")]
-position = Vector2(796, 179)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room001/Bottle 3"]
-libraries = {
-&"": SubResource("AnimationLibrary_uxyx1")
-}
-autoplay = "move"
-
-[node name="Bottle 4" parent="Enemies/Room001" instance=ExtResource("8_syuyr")]
-position = Vector2(61, 609)
-rotation = 3.14159
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room001/Bottle 4"]
-libraries = {
-&"": SubResource("AnimationLibrary_0ga8b")
-}
-autoplay = "move"
-
-[node name="Room002" type="Node" parent="Enemies"]
-
-[node name="Spider2" parent="Enemies/Room002" instance=ExtResource("10_72y0h")]
-position = Vector2(1329, 608)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room002/Spider2"]
-libraries = {
-&"": SubResource("AnimationLibrary_kvpdm")
-}
-autoplay = "move"
-
-[node name="Spider3" parent="Enemies/Room002" instance=ExtResource("10_72y0h")]
-position = Vector2(1972, 704)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room002/Spider3"]
-libraries = {
-&"": SubResource("AnimationLibrary_p4ydt")
-}
-autoplay = "move"
-
-[node name="Room003" type="Node" parent="Enemies"]
-
-[node name="CoalWagon" parent="Enemies/Room003" instance=ExtResource("11_etpiy")]
-position = Vector2(2977, 704)
-scale = Vector2(2, 2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room003/CoalWagon"]
-libraries = {
-&"": SubResource("AnimationLibrary_n6gnr")
-}
-autoplay = "move"
-
-[node name="Room004" type="Node" parent="Enemies"]
-
-[node name="SawLeft" parent="Enemies/Room004" instance=ExtResource("13_7ada1")]
-position = Vector2(3650, 546)
-scale = Vector2(2, 2)
-
-[node name="SawRight" parent="Enemies/Room004" instance=ExtResource("13_7ada1")]
-position = Vector2(3842, 545)
-scale = Vector2(2, 2)
-
-[node name="ForkListMid" parent="Enemies/Room004" instance=ExtResource("13_uxyx1")]
-position = Vector2(3394, 382)
-scale = Vector2(2, 2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room004/ForkListMid"]
-libraries = {
-&"": SubResource("AnimationLibrary_m14xj")
-}
-autoplay = "move"
-
-[node name="ForkListBottom" parent="Enemies/Room004" instance=ExtResource("13_uxyx1")]
-position = Vector2(4027, 704)
-scale = Vector2(2, 2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Room004/ForkListBottom"]
-libraries = {
-&"": SubResource("AnimationLibrary_x2bun")
-}
-autoplay = "move"
-
 [node name="Player" parent="." instance=ExtResource("10_emi08")]
 z_index = 6
 position = Vector2(5179, 698)
-
-[node name="Victims" type="Node2D" parent="."]
-
-[node name="Room001" type="Node2D" parent="Victims"]
-
-[node name="Victim" parent="Victims/Room001" instance=ExtResource("11_kvpdm")]
-position = Vector2(934, 219)
-
-[node name="Victim2" parent="Victims/Room001" instance=ExtResource("11_kvpdm")]
-position = Vector2(88, 219)
-
-[node name="Victim3" parent="Victims/Room001" instance=ExtResource("11_kvpdm")]
-position = Vector2(956, 505)
-
-[node name="Room002" type="Node" parent="Victims"]
-
-[node name="Victim" parent="Victims/Room002" instance=ExtResource("11_kvpdm")]
-position = Vector2(1085, 316)
-animation_name = "UprightCat"
-flip_horizontal = true
-
-[node name="Victim2" parent="Victims/Room002" instance=ExtResource("11_kvpdm")]
-position = Vector2(1440, 220)
-animation_name = "JumpingCat"
-
-[node name="Victim3" parent="Victims/Room002" instance=ExtResource("11_kvpdm")]
-position = Vector2(1978, 541)
-animation_name = "UprightCat"
-flip_horizontal = true
-
-[node name="Victim4" parent="Victims/Room002" instance=ExtResource("11_kvpdm")]
-position = Vector2(1983, 699)
-animation_name = "JumpingCat"
-
-[node name="Room003" type="Node" parent="Victims"]
-
-[node name="Victim3" parent="Victims/Room003" instance=ExtResource("11_kvpdm")]
-position = Vector2(2431, 222)
-animation_name = "miner"
-
-[node name="Victim" parent="Victims/Room003" instance=ExtResource("11_kvpdm")]
-position = Vector2(2145, 221)
-animation_name = "miner"
-
-[node name="Victim2" parent="Victims/Room003" instance=ExtResource("11_kvpdm")]
-position = Vector2(2334, 409)
-animation_name = "miner"
-
-[node name="Victim4" parent="Victims/Room003" instance=ExtResource("11_kvpdm")]
-position = Vector2(2786, 407)
-animation_name = "miner"
-
-[node name="Room004" type="Node" parent="Victims"]
-
-[node name="Victim" parent="Victims/Room004" instance=ExtResource("11_kvpdm")]
-position = Vector2(3746, 508)
-animation_name = "FactoryWorker"
-
-[node name="Victim2" parent="Victims/Room004" instance=ExtResource("11_kvpdm")]
-position = Vector2(4035, 700)
-animation_name = "FactoryWorker"
-
-[node name="Victim3" parent="Victims/Room004" instance=ExtResource("11_kvpdm")]
-position = Vector2(4042, 251)
-animation_name = "FactoryWorker"
 
 [node name="Palette" parent="." instance=ExtResource("12_bqxwp")]
 position = Vector2(4718, 894)
@@ -1542,84 +1374,6 @@ position = Vector2(4718, 894)
 [node name="Fader" parent="." instance=ExtResource("13_p4ydt")]
 visible = false
 z_index = 4096
-
-[node name="Crumbles" type="Node" parent="."]
-
-[node name="Room003" type="Node" parent="Crumbles"]
-
-[node name="Crumble" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2288, 462)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble2" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2321, 462)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble3" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2354, 462)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble4" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2387, 462)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble5" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2737, 461)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble6" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2770, 461)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble7" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2803, 461)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Crumble8" parent="Crumbles/Room003" instance=ExtResource("15_m4nwd")]
-position = Vector2(2836, 461)
-crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
-
-[node name="Room004" type="Node" parent="Crumbles"]
-
-[node name="Crumble8" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3504, 560)
-crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
-
-[node name="Crumble" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3217, 688)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble2" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3218, 560)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble3" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3121, 496)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble4" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3217, 432)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble5" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3121, 368)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble6" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3217, 304)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble7" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3121, 624)
-crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
-
-[node name="Crumble9" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3536, 560)
-crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
-
-[node name="Crumble10" parent="Crumbles/Room004" instance=ExtResource("15_m4nwd")]
-position = Vector2(3568, 560)
-crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
 
 [node name="Rooms" type="Node" parent="."]
 
@@ -1643,9 +1397,55 @@ crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
 
 [node name="Enemies" type="Node" parent="Rooms/Room001"]
 
+[node name="Bottle 1" parent="Rooms/Room001/Enemies" instance=ExtResource("8_syuyr")]
+position = Vector2(894, 515)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Rooms/Room001/Enemies/Bottle 1"]
+libraries = {
+&"": SubResource("AnimationLibrary_m4nwd")
+}
+autoplay = "move"
+
+[node name="Bottle 2" parent="Rooms/Room001/Enemies" instance=ExtResource("8_syuyr")]
+position = Vector2(203, 506)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room001/Enemies/Bottle 2"]
+libraries = {
+&"": SubResource("AnimationLibrary_etpiy")
+}
+autoplay = "move"
+
+[node name="Bottle 3" parent="Rooms/Room001/Enemies" instance=ExtResource("8_syuyr")]
+position = Vector2(796, 179)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room001/Enemies/Bottle 3"]
+libraries = {
+&"": SubResource("AnimationLibrary_uxyx1")
+}
+autoplay = "move"
+
+[node name="Bottle 4" parent="Rooms/Room001/Enemies" instance=ExtResource("8_syuyr")]
+position = Vector2(61, 609)
+rotation = 3.14159
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room001/Enemies/Bottle 4"]
+libraries = {
+&"": SubResource("AnimationLibrary_0ga8b")
+}
+autoplay = "move"
+
 [node name="Moving Platforms" type="Node" parent="Rooms/Room001"]
 
 [node name="Victims" type="Node" parent="Rooms/Room001"]
+
+[node name="Victim" parent="Rooms/Room001/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(934, 219)
+
+[node name="Victim2" parent="Rooms/Room001/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(88, 219)
+
+[node name="Victim3" parent="Rooms/Room001/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(956, 505)
 
 [node name="Room002" type="Node" parent="Rooms"]
 
@@ -1655,9 +1455,45 @@ crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
 
 [node name="Enemies" type="Node" parent="Rooms/Room002"]
 
+[node name="Spider2" parent="Rooms/Room002/Enemies" instance=ExtResource("10_72y0h")]
+position = Vector2(1329, 608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room002/Enemies/Spider2"]
+libraries = {
+&"": SubResource("AnimationLibrary_kvpdm")
+}
+autoplay = "move"
+
+[node name="Spider3" parent="Rooms/Room002/Enemies" instance=ExtResource("10_72y0h")]
+position = Vector2(1972, 704)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room002/Enemies/Spider3"]
+libraries = {
+&"": SubResource("AnimationLibrary_p4ydt")
+}
+autoplay = "move"
+
 [node name="Moving Platforms" type="Node" parent="Rooms/Room002"]
 
 [node name="Victims" type="Node" parent="Rooms/Room002"]
+
+[node name="Victim" parent="Rooms/Room002/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(1085, 316)
+animation_name = "UprightCat"
+flip_horizontal = true
+
+[node name="Victim2" parent="Rooms/Room002/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(1440, 220)
+animation_name = "JumpingCat"
+
+[node name="Victim3" parent="Rooms/Room002/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(1978, 541)
+animation_name = "UprightCat"
+flip_horizontal = true
+
+[node name="Victim4" parent="Rooms/Room002/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(1983, 699)
+animation_name = "JumpingCat"
 
 [node name="Room003" type="Node" parent="Rooms"]
 
@@ -1676,29 +1512,167 @@ position = Vector2(2710, 142)
 
 [node name="Crumbles" type="Node" parent="Rooms/Room003"]
 
+[node name="Crumble" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2288, 462)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble2" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2321, 462)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble3" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2354, 462)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble4" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2387, 462)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble5" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2737, 461)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble6" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2770, 461)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble7" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2803, 461)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
+[node name="Crumble8" parent="Rooms/Room003/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(2836, 461)
+crumble_tint = Color(0.290196, 0.329412, 0.384314, 1)
+
 [node name="Enemies" type="Node" parent="Rooms/Room003"]
+
+[node name="CoalWagon" parent="Rooms/Room003/Enemies" instance=ExtResource("11_etpiy")]
+position = Vector2(2977, 704)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room003/Enemies/CoalWagon"]
+libraries = {
+&"": SubResource("AnimationLibrary_n6gnr")
+}
+autoplay = "move"
 
 [node name="Moving Platforms" type="Node" parent="Rooms/Room003"]
 
 [node name="Victims" type="Node" parent="Rooms/Room003"]
 
+[node name="Victim3" parent="Rooms/Room003/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(2431, 222)
+animation_name = "miner"
+
+[node name="Victim" parent="Rooms/Room003/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(2145, 221)
+animation_name = "miner"
+
+[node name="Victim2" parent="Rooms/Room003/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(2334, 409)
+animation_name = "miner"
+
+[node name="Victim4" parent="Rooms/Room003/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(2786, 407)
+animation_name = "miner"
+
 [node name="Room004" type="Node" parent="Rooms"]
 
-[node name="Coins" type="Node2D" parent="Rooms/Room004"]
+[node name="Coins" type="Node" parent="Rooms/Room004"]
+
+[node name="Coin" parent="Rooms/Room004/Coins" instance=ExtResource("28_1gc1p")]
+position = Vector2(3635, 144)
+reward_level = 0
 
 [node name="Conveyers" type="Node" parent="Rooms/Room004"]
 
 [node name="Crumbles" type="Node" parent="Rooms/Room004"]
 
+[node name="Crumble8" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3504, 560)
+crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
+
+[node name="Crumble" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3217, 688)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble2" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3218, 560)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble3" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3121, 496)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble4" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3217, 432)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble5" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3121, 368)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble6" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3217, 304)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble7" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3121, 624)
+crumble_tint = Color(0.718381, 0.718381, 0.718381, 1)
+
+[node name="Crumble9" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3536, 560)
+crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
+
+[node name="Crumble10" parent="Rooms/Room004/Crumbles" instance=ExtResource("15_m4nwd")]
+position = Vector2(3568, 560)
+crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
+
 [node name="Enemies" type="Node" parent="Rooms/Room004"]
+
+[node name="SawLeft" parent="Rooms/Room004/Enemies" instance=ExtResource("13_7ada1")]
+position = Vector2(3650, 546)
+scale = Vector2(2, 2)
+
+[node name="SawRight" parent="Rooms/Room004/Enemies" instance=ExtResource("13_7ada1")]
+position = Vector2(3842, 545)
+scale = Vector2(2, 2)
+
+[node name="ForkListMid" parent="Rooms/Room004/Enemies" instance=ExtResource("13_uxyx1")]
+position = Vector2(3394, 382)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room004/Enemies/ForkListMid"]
+libraries = {
+&"": SubResource("AnimationLibrary_m14xj")
+}
+autoplay = "move"
+
+[node name="ForkListBottom" parent="Rooms/Room004/Enemies" instance=ExtResource("13_uxyx1")]
+position = Vector2(4027, 704)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room004/Enemies/ForkListBottom"]
+libraries = {
+&"": SubResource("AnimationLibrary_x2bun")
+}
+autoplay = "move"
 
 [node name="Moving Platforms" type="Node" parent="Rooms/Room004"]
 
 [node name="Victims" type="Node" parent="Rooms/Room004"]
 
-[node name="Coin" parent="Rooms/Room004" instance=ExtResource("28_1gc1p")]
-position = Vector2(3635, 144)
-reward_level = 0
+[node name="Victim" parent="Rooms/Room004/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(3746, 508)
+animation_name = "FactoryWorker"
+
+[node name="Victim2" parent="Rooms/Room004/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(4035, 700)
+animation_name = "FactoryWorker"
+
+[node name="Victim3" parent="Rooms/Room004/Victims" instance=ExtResource("11_kvpdm")]
+position = Vector2(4042, 251)
+animation_name = "FactoryWorker"
 
 [node name="Room005" type="Node" parent="Rooms"]
 
@@ -1874,6 +1848,6 @@ animation_name = "Farmer"
 position = Vector2(6082, 542)
 animation_name = "Farmer"
 
-[connection signal="victim_rescued" from="Victims/Room001/Victim" to="." method="_on_victim_rescued"]
-[connection signal="victim_rescued" from="Victims/Room001/Victim2" to="." method="_on_victim_rescued"]
-[connection signal="victim_rescued" from="Victims/Room001/Victim3" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Rooms/Room001/Victims/Victim" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Rooms/Room001/Victims/Victim2" to="." method="_on_victim_rescued"]
+[connection signal="victim_rescued" from="Rooms/Room001/Victims/Victim3" to="." method="_on_victim_rescued"]

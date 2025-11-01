@@ -20,7 +20,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameManager="*res://state/GameManager.gd"
+GameManager="*res://state-management/GameManager.gd"
 
 [display]
 

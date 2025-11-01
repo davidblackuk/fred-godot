@@ -170,11 +170,9 @@ ladder_type = 1
 
 [node name="Victim" parent="Victims" instance=ExtResource("8")]
 position = Vector2(968, 256)
-sprite_tint = Color(0, 1, 1, 1)
 
 [node name="Victim2" parent="Victims" instance=ExtResource("8")]
 position = Vector2(54.4789, 253.285)
-sprite_tint = Color(0, 1, 1, 1)
 
 [node name="Palette" parent="." instance=ExtResource("6")]
 position = Vector2(72.009, 811.995)
@@ -232,7 +230,9 @@ sprite_tint = Color(1, 1, 0, 1)
 position = Vector2(258.361, 621.847)
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform" index="0"]
-position = Vector2(-118.14, -201.972)
+position = Vector2(-0.659241, -201.633)
+rotation = -3.13871
+scale = Vector2(1, 1)
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform/Path2D" index="0"]
 rotation = -3.13871
@@ -241,7 +241,9 @@ rotation = -3.13871
 position = Vector2(416, 624)
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform2" index="0"]
-position = Vector2(-0.488831, -201.76)
+position = Vector2(-0.659241, -201.633)
+rotation = -3.13871
+scale = Vector2(1, 1)
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform2/Path2D" index="0"]
 rotation = -3.13871
@@ -250,7 +252,9 @@ rotation = -3.13871
 position = Vector2(576, 624)
 
 [node name="Platform" parent="MovingPlatforms/MovingPlatform3" index="0"]
-position = Vector2(-118.14, -201.972)
+position = Vector2(-0.659241, -201.633)
+rotation = -3.13871
+scale = Vector2(1, 1)
 
 [node name="PathFollow2D" parent="MovingPlatforms/MovingPlatform3/Path2D" index="0"]
 rotation = -3.13871

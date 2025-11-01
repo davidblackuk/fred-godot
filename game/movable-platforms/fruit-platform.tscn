@@ -1,15 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2hyy5wwmh640"]
+[gd_scene load_steps=3 format=3 uid="uid://cj04mb5qvakqi"]
 
-[ext_resource type="Texture2D" uid="uid://c5lmmspjpj4f6" path="res://game/movable-platforms/snow.png" id="1_xmspb"]
+[ext_resource type="Texture2D" uid="uid://b0myt4gp2uone" path="res://game/movable-platforms/fruit-platform.png" id="1_h4u2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tottq"]
 size = Vector2(96, 32)
 
 [node name="Snow-platform" type="AnimatableBody2D"]
-metadata/_edit_vertical_guides_ = [-190.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xmspb")
+texture = ExtResource("1_h4u2k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tottq")

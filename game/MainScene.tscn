@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=4 uid="uid://colwlq3bu5js4"]
+[gd_scene load_steps=99 format=4 uid="uid://colwlq3bu5js4"]
 
 [ext_resource type="Script" uid="uid://ckjw3r2055g46" path="res://Levels/LevelBase.gd" id="1_f3adh"]
 [ext_resource type="PackedScene" uid="uid://wh68tedjovbg" path="res://controls/score-hud/ScoreHud.tscn" id="2_72y0h"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://5i6nkqlqc082" path="res://game/enemies/Tomato.tscn" id="27_m14xj"]
 [ext_resource type="PackedScene" uid="uid://b08ihbvl4et33" path="res://game/collectables/Coin.tscn" id="28_1gc1p"]
 [ext_resource type="PackedScene" uid="uid://cvuu2y2uongf0" path="res://game/enemies/Banna.tscn" id="28_gaqf2"]
+[ext_resource type="PackedScene" uid="uid://cj04mb5qvakqi" path="res://game/movable-platforms/fruit-platform.tscn" id="29_m14xj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iuig0"]
 texture = ExtResource("4_etpiy")
@@ -1283,6 +1284,44 @@ _data = {
 &"RESET": SubResource("Animation_vt2oc")
 }
 
+[sub_resource type="Animation" id="Animation_xd5ki"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5995, 368), Vector2(5811, 368)]
+}
+
+[sub_resource type="Animation" id="Animation_2mjbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5995, 368)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_601g4"]
+_data = {
+&"RESET": SubResource("Animation_2mjbi"),
+&"move": SubResource("Animation_xd5ki")
+}
+
 [node name="MainScene" type="Node2D" groups=["Collectables"]]
 script = ExtResource("1_f3adh")
 next_scene = "uid://dd8kg2hq4qcx"
@@ -1430,7 +1469,7 @@ autoplay = "move"
 
 [node name="Player" parent="." instance=ExtResource("10_emi08")]
 z_index = 6
-position = Vector2(5141, 698)
+position = Vector2(5179, 698)
 
 [node name="Victims" type="Node2D" parent="."]
 
@@ -1622,6 +1661,17 @@ crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
 
 [node name="Room003" type="Node" parent="Rooms"]
 
+[node name="Coins" type="Node" parent="Rooms/Room003"]
+
+[node name="Coin" parent="Rooms/Room003/Coins" instance=ExtResource("28_1gc1p")]
+position = Vector2(2324, 146)
+
+[node name="Coin2" parent="Rooms/Room003/Coins" instance=ExtResource("28_1gc1p")]
+position = Vector2(2517, 145)
+
+[node name="Coin3" parent="Rooms/Room003/Coins" instance=ExtResource("28_1gc1p")]
+position = Vector2(2710, 142)
+
 [node name="Conveyers" type="Node" parent="Rooms/Room003"]
 
 [node name="Crumbles" type="Node" parent="Rooms/Room003"]
@@ -1634,6 +1684,8 @@ crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
 
 [node name="Room004" type="Node" parent="Rooms"]
 
+[node name="Coins" type="Node2D" parent="Rooms/Room004"]
+
 [node name="Conveyers" type="Node" parent="Rooms/Room004"]
 
 [node name="Crumbles" type="Node" parent="Rooms/Room004"]
@@ -1643,6 +1695,10 @@ crumble_tint = Color(0.717647, 0.717647, 0.717647, 1)
 [node name="Moving Platforms" type="Node" parent="Rooms/Room004"]
 
 [node name="Victims" type="Node" parent="Rooms/Room004"]
+
+[node name="Coin" parent="Rooms/Room004" instance=ExtResource("28_1gc1p")]
+position = Vector2(3635, 144)
+reward_level = 0
 
 [node name="Room005" type="Node" parent="Rooms"]
 
@@ -1794,6 +1850,15 @@ libraries = {
 autoplay = "BannaRight"
 
 [node name="Moving Platforms" type="Node" parent="Rooms/Room006"]
+
+[node name="fruit-platform" parent="Rooms/Room006/Moving Platforms" instance=ExtResource("29_m14xj")]
+position = Vector2(5995, 368)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room006/Moving Platforms/fruit-platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_601g4")
+}
+autoplay = "move"
 
 [node name="Victims" type="Node" parent="Rooms/Room006"]
 

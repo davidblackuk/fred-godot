@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="14"]
 [ext_resource type="Texture2D" uid="uid://4h012sb2ray1" path="res://Levels/Level006/bannana/bannana.png" id="15"]
 [ext_resource type="PackedScene" path="res://controls/doors/Entrance.tscn" id="16"]
-[ext_resource type="Texture2D" uid="uid://b0myt4gp2uone" path="res://Levels/Level006/platforms/platform.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://b0myt4gp2uone" path="res://game/movable-platforms/fruit-platform.png" id="17"]
 [ext_resource type="PackedScene" uid="uid://7ctw8anfhufr" path="res://controls/conveyers/conveyer-belt.tscn" id="18"]
 [ext_resource type="Script" path="res://Scripts/EnemyArea2D.gd" id="19"]
 [ext_resource type="PackedScene" uid="uid://bbyjtv4gf70a2" path="res://game/crumbles/crumble.tscn" id="20"]

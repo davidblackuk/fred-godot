@@ -26,6 +26,9 @@ func _ready():
 	connect_enemies_to_player()
 	connect_coins_to_self()
 	connect_fader_to_self()
+	print("total-victims: " + str(total_victims))
+	print("total-collectables: " + str(total_items))
+	
 	fader.fade_in()
 	# if fading in pause the game to allow high scores to be shown
 	get_tree().paused = true
@@ -52,7 +55,12 @@ func _on_victim_rescued():
 
 
 func connect_coins_to_self():
-	get_tree().get_nodes_in_group("Collectables").map(func(coin): if coin.has_signal("item_collected"): coin.connect("item_collected", Callable(self, "_on_item_collected")))
+#	get_tree().get_nodes_in_group("Collectables").map(func(coin): if coin.has_signal("item_collected"): coin.connect("item_collected", Callable(self, "_on_item_collected")))
+	print("Connect coins to player...")
+	var nodes :Array= get_tree().get_nodes_in_group("Collectables")
+	nodes.map(func(e): if e.has_signal("item_collected"): e.connect("item_collected", Callable(self, "_on_item_collected")))
+	print("Connected " + str(nodes.size()) + " enemies to freds _fred_is_dead function")
+
 
 
 func connect_enemies_to_player():

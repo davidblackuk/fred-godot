@@ -24,6 +24,7 @@ var collected = false
 func _ready():
 	_set_animation_from_reward_level()
 	animated_sprite.speed_scale = speed_scale
+	add_to_group("Collectables")
 	
 
 
@@ -51,10 +52,10 @@ func _set_animation_from_reward_level()  -> void :
 func _get_reward():
 	match reward_level:
 		RewardLevel.GOLD:
-			return 30
+			return 100
 		RewardLevel.SILVER:
-			return 20
-		RewardLevel.GOLD:
-			return 10
+			return 50
+		RewardLevel.BRONZE:
+			return 15
 	return 0
 	

@@ -1582,7 +1582,7 @@ animation_name = "miner"
 
 [node name="Coin" parent="Rooms/Room004/Coins" instance=ExtResource("28_1gc1p")]
 position = Vector2(3635, 144)
-reward_level = 0
+reward_level = 1
 
 [node name="Conveyers" type="Node" parent="Rooms/Room004"]
 
@@ -1758,16 +1758,11 @@ animation_name = "Cold"
 [node name="Coins" type="Node" parent="Rooms/Room006"]
 
 [node name="Bronze" parent="Rooms/Room006/Coins" instance=ExtResource("28_1gc1p")]
-position = Vector2(5246, 677)
+position = Vector2(5346, 144)
 speed_scale = 2.0
 
-[node name="Silver" parent="Rooms/Room006/Coins" instance=ExtResource("28_1gc1p")]
-position = Vector2(5325, 677)
-reward_level = 1
-
-[node name="Gold" parent="Rooms/Room006/Coins" instance=ExtResource("28_1gc1p")]
-position = Vector2(5396, 676)
-reward_level = 0
+[node name="Bronze2" parent="Rooms/Room006/Coins" instance=ExtResource("28_1gc1p")]
+position = Vector2(5501, 144)
 
 [node name="Crumbles" type="Node" parent="Rooms/Room006"]
 

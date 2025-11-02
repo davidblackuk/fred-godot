@@ -42,4 +42,3 @@ func _on_animation_finished(anim_name):
 	else:
 		hide()
 		emit_signal("fade_in_complete")
-

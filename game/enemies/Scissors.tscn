@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://qembhfhk5hq7"]
+
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_3bfpq"]
+[ext_resource type="Texture2D" uid="uid://bk2aehx26u2bt" path="res://game/spriteframes/scisors.png" id="2_3bfpq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3adh"]
+radius = 27.0
+height = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcu1i"]
+atlas = ExtResource("2_3bfpq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v01x0"]
+atlas = ExtResource("2_3bfpq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pxmx"]
+atlas = ExtResource("2_3bfpq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s283s"]
+atlas = ExtResource("2_3bfpq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7tdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcu1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v01x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pxmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s283s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SCisors" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_3bfpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_f3adh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g7tdl")
+autoplay = "default"

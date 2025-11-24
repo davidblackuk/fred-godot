@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://clheq1mk4iiq8"]
+
+[ext_resource type="Script" uid="uid://dx86i5y7p5t1h" path="res://game/scripts/EnemyArea2D.gd" id="1_yibfn"]
+[ext_resource type="Texture2D" uid="uid://br25faq58ar5h" path="res://game/spriteframes/cake.png" id="2_yibfn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3adh"]
+radius = 27.0
+height = 54.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apcvi"]
+atlas = ExtResource("2_yibfn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk164"]
+atlas = ExtResource("2_yibfn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o15ka"]
+atlas = ExtResource("2_yibfn")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xacsk"]
+atlas = ExtResource("2_yibfn")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mycj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apcvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk164")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o15ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xacsk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Scissors" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_yibfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_f3adh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mycj4")
+autoplay = "default"

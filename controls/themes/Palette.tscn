@@ -1,175 +1,124 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cwp21k1xdk0q2"]
 
-[ext_resource path="res://controls/themes/Palette.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://ckashmymkopx8" path="res://controls/themes/Palette.gd" id="1"]
 
 [node name="Palette" type="Node2D"]
-position = Vector2( 64, 8 )
-script = ExtResource( 1 )
+position = Vector2(64, 8)
+script = ExtResource("1")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_left = -64.0
 offset_top = -8.0
 offset_right = 384.0
 offset_bottom = 96.0
-color = Color( 0.0745098, 0.0313726, 0.0784314, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0745098, 0.0313726, 0.0784314, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = 48.0
 offset_right = 88.0
 offset_bottom = 40.0
-color = Color( 0.0470588, 0.0470588, 0.447059, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0470588, 0.0470588, 0.447059, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 offset_left = 96.0
 offset_right = 136.0
 offset_bottom = 40.0
-color = Color( 0.447059, 0.0470588, 0.0470588, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.447059, 0.0470588, 0.0470588, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 offset_left = 144.0
 offset_right = 184.0
 offset_bottom = 40.0
-color = Color( 0.447059, 0.0470588, 0.447059, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.447059, 0.0470588, 0.447059, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="."]
 offset_left = 192.0
 offset_right = 232.0
 offset_bottom = 40.0
-color = Color( 0.0470588, 0.447059, 0.0470588, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0470588, 0.447059, 0.0470588, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="."]
 offset_left = 240.0
 offset_right = 280.0
 offset_bottom = 40.0
-pivot_offset = Vector2( 20, 24 )
-color = Color( 0.0470588, 0.498039, 0.498039, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+pivot_offset = Vector2(20, 24)
+color = Color(0.0470588, 0.498039, 0.498039, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="."]
 offset_left = 288.0
 offset_right = 328.0
 offset_bottom = 40.0
-pivot_offset = Vector2( 20, 24 )
-color = Color( 0.447059, 0.447059, 0.0470588, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+pivot_offset = Vector2(20, 24)
+color = Color(0.447059, 0.447059, 0.0470588, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="."]
 offset_left = 336.0
 offset_right = 376.0
 offset_bottom = 40.0
-pivot_offset = Vector2( 20, 24 )
-color = Color( 0.447059, 0.447059, 0.447059, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+pivot_offset = Vector2(20, 24)
+color = Color(0.447059, 0.447059, 0.447059, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="."]
 offset_top = 48.0
 offset_right = 40.0
 offset_bottom = 88.0
-color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="."]
 offset_left = 48.0
 offset_top = 48.0
 offset_right = 88.0
 offset_bottom = 88.0
-color = Color( 0, 0, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0, 0, 1, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="."]
 offset_left = 96.0
 offset_top = 48.0
 offset_right = 136.0
 offset_bottom = 88.0
-color = Color( 1, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(1, 0, 0, 1)
 
 [node name="ColorRect12" type="ColorRect" parent="."]
 offset_left = 144.0
 offset_top = 48.0
 offset_right = 184.0
 offset_bottom = 88.0
-color = Color( 1, 0, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(1, 0, 1, 1)
 
 [node name="ColorRect13" type="ColorRect" parent="."]
 offset_left = 192.0
 offset_top = 48.0
 offset_right = 232.0
 offset_bottom = 88.0
-color = Color( 0, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0, 1, 0, 1)
 
 [node name="ColorRect14" type="ColorRect" parent="."]
 offset_left = 240.0
 offset_top = 48.0
 offset_right = 280.0
 offset_bottom = 88.0
-pivot_offset = Vector2( 20, 24 )
-color = Color( 0, 1, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+pivot_offset = Vector2(20, 24)
+color = Color(0, 1, 1, 1)
 
 [node name="ColorRect15" type="ColorRect" parent="."]
 offset_left = 288.0
 offset_top = 48.0
 offset_right = 328.0
 offset_bottom = 88.0
-pivot_offset = Vector2( 20, 24 )
-color = Color( 1, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+pivot_offset = Vector2(20, 24)
+color = Color(1, 1, 0, 1)
 
 [node name="ColorRect16" type="ColorRect" parent="."]
 offset_left = 336.0
 offset_top = 48.0
 offset_right = 376.0
 offset_bottom = 88.0
-pivot_offset = Vector2( 20, 24 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+pivot_offset = Vector2(20, 24)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -56.0
@@ -177,18 +126,10 @@ offset_top = 8.0
 offset_right = -8.0
 offset_bottom = 32.0
 text = "Dark"
-fit_content_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 offset_left = -56.0
 offset_top = 56.0
-offset_right = -8.0
-offset_bottom = 72.0
+offset_right = -7.0
+offset_bottom = 86.0
 text = "Light3D"
-fit_content_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}

@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://co8a5vnbsd8qe"]
+[gd_scene load_steps=20 format=3 uid="uid://co8a5vnbsd8qe"]
 
-[ext_resource type="Texture2D" uid="uid://dheqa1agg06yr" path="res://images/victims/twoup.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dheqa1agg06yr" path="res://game/spriteframes/twoup.png" id="1"]
 [ext_resource type="Script" uid="uid://ld6f8ycofrbg" path="res://game/victims/Victim.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://datj0lxjbox5n" path="res://sfx/victims/victim_rescue_1.wav" id="3"]
 [ext_resource type="Script" uid="uid://bai4sqsgyhc1j" path="res://game/victims/VictimStateMachine.gd" id="4"]
@@ -11,6 +11,22 @@
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 18.0
 height = 38.0
+
+[sub_resource type="Animation" id="Animation_c6313"]
+resource_name = "Chef"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [33, 34, 35, 36]
+}
 
 [sub_resource type="Animation" id="4"]
 resource_name = "Cold"
@@ -171,6 +187,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rrwpr"]
 _data = {
+&"Chef": SubResource("Animation_c6313"),
 &"Cold": SubResource("4"),
 &"FactoryWorker": SubResource("Animation_08ikl"),
 &"Farmer": SubResource("5"),
@@ -193,7 +210,7 @@ script = ExtResource("4")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 scale = Vector2(2, 2)
 texture = ExtResource("1")
-hframes = 33
+hframes = 37
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -204,7 +221,7 @@ shape = SubResource("1")
 libraries = {
 &"": SubResource("AnimationLibrary_rrwpr")
 }
-autoplay = "miner"
+autoplay = "Chef"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
 stream = ExtResource("3")

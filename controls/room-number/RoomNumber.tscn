@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmrsftnuh7ivs"]
+
+[ext_resource type="Script" uid="uid://vjhffi3uxkij" path="res://controls/room-number/room_number.gd" id="1_ohgkh"]
+[ext_resource type="FontFile" path="res://fonts/pres-start-12.tres" id="2_dvg50"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ms8fg"]
+font = ExtResource("2_dvg50")
+
+[node name="RoomNumber" type="Node2D"]
+z_index = 2
+script = ExtResource("1_ohgkh")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Room:"
+label_settings = SubResource("LabelSettings_ms8fg")
+
+[node name="Value" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 1.0
+offset_right = 159.0
+offset_bottom = 24.0
+label_settings = SubResource("LabelSettings_ms8fg")

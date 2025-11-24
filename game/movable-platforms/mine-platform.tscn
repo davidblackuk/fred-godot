@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://vuyqadp6fywl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_70evf"]
+load_path = "res://.godot/imported/mine-platform.png-a3da0555549eabf0037b26490ddcff7b.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj6h0"]
+size = Vector2(128, 35)
+
+[node name="mine-platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_70evf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_wj6h0")
+one_way_collision = true

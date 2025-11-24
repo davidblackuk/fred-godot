@@ -23,6 +23,8 @@ func _ready():
 		sprite.flip_h = _flip_h
 	if animation_player:
 		animation_player.play(animation_name)
+		# this forces frame one
+		animation_player.seek(0.0)
 
 		
 

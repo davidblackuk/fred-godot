@@ -1,133 +1,106 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://daeaidlo6w04k"]
 
-[ext_resource path="res://fonts/press-start-64.tres" type="FontFile" id=1]
-[ext_resource path="res://menus/main-button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://controls/sky-box/SkyBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://controls/themes/Palette.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menus/options-menu.gd" type="Script" id=5]
-[ext_resource path="res://controls/fades/fader.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/splash-400.png" type="Texture2D" id=7]
-[ext_resource path="res://fonts/pres-start-32.tres" type="FontFile" id=8]
+[ext_resource type="FontFile" path="res://fonts/press-start-64.tres" id="1"]
+[ext_resource type="PackedScene" uid="uid://b2dhlr687huv0" path="res://menus/main-button.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cwp21k1xdk0q2" path="res://controls/themes/Palette.tscn" id="4"]
+[ext_resource type="Script" uid="uid://1fu4r051a0ov" path="res://menus/options-menu.gd" id="5"]
+[ext_resource type="PackedScene" path="res://controls/fades/fader.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://dv3q8se7vccj6" path="res://images/splash-400.png" id="7"]
+[ext_resource type="FontFile" uid="uid://bixnvmkb8l0jl" path="res://fonts/pres-start-32.tres" id="8"]
 
 [node name="OptionsMenu" type="Control"]
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SkyBox" parent="." instance=ExtResource( 3 )]
-color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5")
 
 [node name="VBoxOuter" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 776.0
 theme_override_constants/separation = 96
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter"]
-offset_right = 1024.0
-offset_bottom = 160.0
+layout_mode = 2
 theme_override_constants/margin_top = 96
 
 [node name="Title" type="Label" parent="VBoxOuter/MarginContainer"]
-offset_top = 96.0
-offset_right = 1024.0
-offset_bottom = 160.0
-theme_override_colors/font_color = Color( 1, 1, 0, 1 )
-theme_override_colors/font_shadow_color = Color( 0.172549, 0.184314, 0.4, 1 )
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.172549, 0.184314, 0.4, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Options"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="ContentArea" type="HBoxContainer" parent="VBoxOuter"]
-offset_top = 256.0
-offset_right = 1024.0
-offset_bottom = 656.0
+layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
 [node name="ButtonContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
-offset_right = 687.0
-offset_bottom = 400.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_top = 16
 theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxOuter/ContentArea/ButtonContainer"]
-offset_left = 64.0
-offset_top = 16.0
-offset_right = 623.0
-offset_bottom = 384.0
+layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
 [node name="ShowDebug" type="CheckBox" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer"]
-offset_top = 40.0
-offset_right = 559.0
-offset_bottom = 80.0
+layout_mode = 2
 focus_neighbor_top = NodePath("../Back")
 focus_neighbor_bottom = NodePath("../GodMode")
-theme_override_colors/font_hover_pressed_color = Color( 0, 1, 1, 1 )
-theme_override_colors/font_color = Color( 0, 1, 1, 1 )
-theme_override_colors/font_hover_color = Color( 0, 1, 1, 1 )
-theme_override_colors/font_pressed_color = Color( 0, 1, 1, 1 )
-theme_override_fonts/font = ExtResource( 8 )
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8")
 text = " Show debug info"
 
 [node name="GodMode" type="CheckBox" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer"]
-offset_top = 144.0
-offset_right = 559.0
-offset_bottom = 184.0
+layout_mode = 2
 focus_neighbor_top = NodePath("../ShowDebug")
 focus_neighbor_bottom = NodePath("../Back")
-theme_override_colors/font_hover_pressed_color = Color( 0, 1, 1, 1 )
-theme_override_colors/font_color = Color( 0, 1, 1, 1 )
-theme_override_colors/font_hover_color = Color( 0, 1, 1, 1 )
-theme_override_colors/font_pressed_color = Color( 0, 1, 1, 1 )
-theme_override_fonts/font = ExtResource( 8 )
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8")
 text = " God mode"
 
-[node name="Back" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource( 2 )]
-offset_left = 0.0
-offset_top = 248.0
-offset_right = 559.0
-offset_bottom = 328.0
+[node name="Back" parent="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
 focus_neighbor_top = NodePath("../GodMode")
 focus_neighbor_bottom = NodePath("../ShowDebug")
-theme_override_colors/font_color = Color( 1, 1, 0, 1 )
-theme_override_colors/font_hover_color = Color( 1, 1, 0.0705882, 1 )
+theme_override_colors/font_hover_color = Color(1, 1, 0.0705882, 1)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 text = "<< BACK"
-align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxOuter/ContentArea"]
-offset_left = 687.0
-offset_right = 1024.0
-offset_bottom = 400.0
+layout_mode = 2
 theme_override_constants/margin_right = 64
 
 [node name="Cover" type="TextureRect" parent="VBoxOuter/ContentArea/MarginContainer"]
-offset_right = 273.0
-offset_bottom = 400.0
-texture = ExtResource( 7 )
+layout_mode = 2
+texture = ExtResource("7")
 
-[node name="Palette" parent="." instance=ExtResource( 4 )]
-position = Vector2( 80, 920 )
+[node name="Palette" parent="." instance=ExtResource("4")]
+position = Vector2(80, 920)
 
-[node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
+[node name="FadeToBlack" parent="." instance=ExtResource("6")]
 visible = false
 
-[node name="Palette2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 64, 792 )
+[node name="Palette2" parent="." instance=ExtResource("4")]
+position = Vector2(64, 792)
 
 [connection signal="toggled" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/ShowDebug" to="." method="_on_ShowDebug_toggled"]
 [connection signal="toggled" from="VBoxOuter/ContentArea/ButtonContainer/VBoxContainer/GodMode" to="." method="_on_GodMode_toggled"]

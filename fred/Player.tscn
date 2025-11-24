@@ -68,7 +68,7 @@ tracks/1/keys = {
 tracks/1/use_blend = true
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -186,6 +186,7 @@ position = Vector2(0.0610943, 0.197758)
 scale = Vector2(2, 2)
 texture = ExtResource("1")
 hframes = 17
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://dqsiebvjk44im"]
+
+[ext_resource type="Texture2D" uid="uid://bovqmbnxj3mo2" path="res://controls/save-point/save-point.png" id="1_dr0qf"]
+[ext_resource type="Script" uid="uid://dn87uwqnnl8ym" path="res://controls/save-point/save_point.gd" id="1_hmgp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmgp1"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wndt1"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa0i4"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8mhj"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx0hm"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egbuh"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgq33"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w62b7"]
+atlas = ExtResource("1_dr0qf")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58dk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmgp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wndt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa0i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8mhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx0hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egbuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgq33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w62b7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85pqe"]
+size = Vector2(24, 29)
+
+[sub_resource type="Curve" id="Curve_hmgp1"]
+_data = [Vector2(0.0124481, 1), 0.0, 0.0, 0, 0, Vector2(0.991701, 0.165273), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="SavePoint" type="Area2D"]
+script = ExtResource("1_hmgp1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.85098)
+sprite_frames = SubResource("SpriteFrames_58dk3")
+autoplay = "default"
+frame_progress = 0.643374
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_85pqe")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 24
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.0
+scale_amount_max = 14.0
+scale_amount_curve = SubResource("Curve_hmgp1")
+color = Color(0.105882, 0.454902, 0.698039, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

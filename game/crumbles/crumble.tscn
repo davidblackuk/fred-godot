@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbyjtv4gf70a2"]
 
-[ext_resource type="Texture2D" uid="uid://i1m2w2i4rx6f" path="res://images/crumble/crumble-1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://i1m2w2i4rx6f" path="res://game/spriteframes/crumble-1.png" id="1"]
 [ext_resource type="Script" uid="uid://cl80nmque3x7m" path="res://game/crumbles/crumble.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]

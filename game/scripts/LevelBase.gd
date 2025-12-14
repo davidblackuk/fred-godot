@@ -21,6 +21,13 @@ var exit_is_to_menu = false
 func _ready():
 	GameManager.level_timer.pause()
 	GameManager.game_state.current_level = get_tree().current_scene.scene_file_path
+
+	if GameManager.game_state.spawn_position == Vector2.ZERO:
+		GameManager.game_state.spawn_position = player.position
+	else:
+		player.position = GameManager.game_state.spawn_position
+		# remove victims aleared collected + coins collected
+		
 	count_victims()
 	count_collectables()
 	connect_enemies_to_player()
@@ -78,6 +85,8 @@ func connect_fader_to_self():
 func _on_item_collected(reward):
 	GameManager.add_score(reward)
 	collected_items += 1
+
+
 
 #
 # the player has entered the door and is going to proceed to 

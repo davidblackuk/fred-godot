@@ -1,8 +1,6 @@
 extends Node
 
 const FIRST_LEVEL = "res://game/MainScene.tscn"
-# const FIRST_LEVEL = "res://Levels/Level002/Level 002.tscn"
-# const FIRST_LEVEL = "res://Levels/Level003/Level 003.tscn"
 
 var game_timer: StopWatch = StopWatch.new()
 var level_timer: StopWatch = StopWatch.new()
@@ -68,3 +66,4 @@ func save():
 
 func load():
 	game_state.load()
+	

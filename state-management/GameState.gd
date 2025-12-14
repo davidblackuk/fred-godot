@@ -7,6 +7,7 @@ const DEATHS_KEY = "deaths"
 const CURRENT_LEVEL_KEY = "current_level"
 const DEBUG_MODE_KEY = "debug_mode"
 const GOD_MODE_KEY = "god_mode"
+const FRED_SPAWN_POSITION = "fred_spawn_position"
 
 var _game_state = { }
 
@@ -16,6 +17,9 @@ var deaths : get = get_deaths, set = set_deaths
 var current_level : get = get_current_level, set = set_current_level
 var debug_mode = false: get = get_debug_mode, set = set_debug_mode
 var god_mode = false: get = get_god_mode, set = set_god_mode
+var spawn_position = Vector2.ZERO : get = get_spawn_position, set = set_spawn_position
+
+
 
 func _init(first_level):
 	reset(first_level)
@@ -27,8 +31,15 @@ func reset(first_level):
 		CURRENT_LEVEL_KEY: first_level, 
 		DEBUG_MODE_KEY: true, 
 		GOD_MODE_KEY: false, 
+		FRED_SPAWN_POSITION: Vector2.ZERO
 	}	
 	
+
+func get_spawn_position (): 
+	return Vector2(_game_state[FRED_SPAWN_POSITION].x, _game_state[FRED_SPAWN_POSITION].y)
+
+func set_spawn_position (value: Vector2):
+	_game_state[FRED_SPAWN_POSITION] = Vector2(value.x, value.y)
 
 
 func get_score():

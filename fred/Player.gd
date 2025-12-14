@@ -117,7 +117,7 @@ func fall():
 		motion.x = 0
 
 
-func _on_enemy_collision_body_entered(body: Node2D) -> void:
+func _on_enemy_collision_body_entered(_body: Node2D) -> void:
 	if (!GameManager.game_state.god_mode):
 		fred_is_dead_stream_player.play()
 		_fred_is_dead() 

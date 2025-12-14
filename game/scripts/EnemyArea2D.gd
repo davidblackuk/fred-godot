@@ -20,3 +20,4 @@ func _on_body_entered(body):
 func flip_sprite_direction(dir: bool):
 	sprite.flip_h = dir
 	
+	

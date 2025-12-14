@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqsiebvjk44im"]
+[gd_scene load_steps=17 format=3 uid="uid://dqsiebvjk44im"]
 
 [ext_resource type="Texture2D" uid="uid://bovqmbnxj3mo2" path="res://controls/save-point/save-point.png" id="1_dr0qf"]
 [ext_resource type="Script" uid="uid://dn87uwqnnl8ym" path="res://controls/save-point/save_point.gd" id="1_hmgp1"]
@@ -74,6 +74,43 @@ size = Vector2(24, 29)
 _data = [Vector2(0.0124481, 1), 0.0, 0.0, 0, 0, Vector2(0.991701, 0.165273), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Animation" id="Animation_hmgp1"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wndt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pa0i4"]
+_data = {
+&"RESET": SubResource("Animation_wndt1"),
+&"fade_out": SubResource("Animation_hmgp1")
+}
+
 [node name="SavePoint" type="Area2D"]
 script = ExtResource("1_hmgp1")
 
@@ -101,4 +138,10 @@ scale_amount_max = 14.0
 scale_amount_curve = SubResource("Curve_hmgp1")
 color = Color(0.105882, 0.454902, 0.698039, 1)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pa0i4")
+}
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

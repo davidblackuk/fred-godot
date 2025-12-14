@@ -378,10 +378,10 @@ texture_region_size = Vector2i(32, 32)
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:4/next_alternative_id = 3
 4:4/0 = 0
-4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.4272, -12.2673, 13.2311, -11.5663, 13.9321, 16, -11.1282, 16)
 4:4/1 = 1
 4:4/1/modulate = Color(1, 1, 0, 1)
-4:4/1/physics_layer_0/polygon_0/points = PackedVector2Array(-12.0044, -16, 16, -16, 16, 16, -12.0044, 16)
+4:4/1/physics_layer_0/polygon_0/points = PackedVector2Array(-10.4272, -12.2673, 13.2311, -11.5663, 13.9321, 16, -11.1282, 16)
 5:4/0 = 0
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:4/next_alternative_id = 2
@@ -1460,7 +1460,7 @@ tile_set = SubResource("TileSet_m4nwd")
 
 [node name="Player" parent="." instance=ExtResource("10_emi08")]
 z_index = 6
-position = Vector2(1457, 604)
+position = Vector2(2236, -525)
 fred_style = "CPC"
 
 [node name="Palette" parent="." instance=ExtResource("12_bqxwp")]
@@ -1561,7 +1561,7 @@ position = Vector2(1329, 608)
 libraries = {
 &"": SubResource("AnimationLibrary_kvpdm")
 }
-autoplay = "RESET"
+autoplay = "move"
 
 [node name="Spider3" parent="Rooms/Room002/Enemies" instance=ExtResource("10_72y0h")]
 position = Vector2(1972, 704)
@@ -1597,6 +1597,10 @@ animation_name = "JumpingCat"
 [node name="RoomNumber002" parent="Rooms/Room002" instance=ExtResource("33_cjiwu")]
 position = Vector2(1882, 136)
 level_number = "002"
+
+[node name="SavePoint" parent="Rooms/Room002" instance=ExtResource("35_lax4m")]
+position = Vector2(1272, 580)
+scale = Vector2(2, 2)
 
 [node name="Room003" type="Node" parent="Rooms"]
 
@@ -1682,6 +1686,10 @@ animation_name = "miner"
 [node name="RoomNumber003" parent="Rooms/Room003" instance=ExtResource("33_cjiwu")]
 position = Vector2(2911, 137)
 level_number = "003"
+
+[node name="SavePoint lower" parent="Rooms/Room003" instance=ExtResource("35_lax4m")]
+position = Vector2(2630, 541)
+scale = Vector2(2, 2)
 
 [node name="Room004" type="Node" parent="Rooms"]
 
@@ -1785,6 +1793,10 @@ animation_name = "FactoryWorker"
 position = Vector2(3926, 132)
 level_number = "004"
 
+[node name="SavePoint" parent="Rooms/Room004" instance=ExtResource("35_lax4m")]
+position = Vector2(3260, 224)
+scale = Vector2(2, 2)
+
 [node name="Room005" type="Node" parent="Rooms"]
 
 [node name="Enemies" type="Node" parent="Rooms/Room005"]
@@ -1867,6 +1879,10 @@ animation_name = "Cold"
 [node name="RoomNumber005" parent="Rooms/Room005" instance=ExtResource("33_cjiwu")]
 position = Vector2(4962, 132)
 level_number = "005"
+
+[node name="SavePoint" parent="Rooms/Room005" instance=ExtResource("35_lax4m")]
+position = Vector2(4845, 236)
+scale = Vector2(2, 2)
 
 [node name="Room006" type="Node" parent="Rooms"]
 
@@ -1962,6 +1978,10 @@ animation_name = "Farmer"
 position = Vector2(6008, 132)
 level_number = "006"
 
+[node name="SavePoint" parent="Rooms/Room006" instance=ExtResource("35_lax4m")]
+position = Vector2(5821, 521)
+scale = Vector2(2, 2)
+
 [node name="Room007" type="Node" parent="Rooms"]
 
 [node name="Coins" type="Node" parent="Rooms/Room007"]
@@ -2012,6 +2032,10 @@ position = Vector2(3010, -196)
 position = Vector2(2910, -636)
 level_number = "007"
 
+[node name="SavePoint" parent="Rooms/Room007" instance=ExtResource("35_lax4m")]
+position = Vector2(2237, -412)
+scale = Vector2(2, 2)
+
 [node name="Room008" type="Node" parent="Rooms"]
 
 [node name="Coins" type="Node" parent="Rooms/Room008"]
@@ -2049,10 +2073,6 @@ animation_name = "Chef"
 [node name="RoomNumber008" parent="Rooms/Room008" instance=ExtResource("33_cjiwu")]
 position = Vector2(6994, 138)
 level_number = "008"
-
-[node name="SavePoint" parent="." instance=ExtResource("35_lax4m")]
-position = Vector2(1535, 454)
-scale = Vector2(2, 2)
 
 [connection signal="victim_rescued" from="Rooms/Room001/Victims/Victim" to="." method="_on_victim_rescued"]
 [connection signal="victim_rescued" from="Rooms/Room001/Victims/Victim2" to="." method="_on_victim_rescued"]
